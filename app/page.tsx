@@ -129,8 +129,8 @@ export default function Home() {
               </div>
               <div>
                 <BeforeAfterSlider
-                  beforeImage="/images/aviation-before.png"
-                  afterImage="/images/aviation-after.png"
+                  beforeImage="/images/aviation-before.jpg"
+                  afterImage="/images/aviation-after.jpg"
                 />
               </div>
             </div>
@@ -181,8 +181,8 @@ export default function Home() {
               </div>
               <div className="md:order-1">
                 <BeforeAfterSlider
-                  beforeImage="/images/svens-before.png"
-                  afterImage="/images/svens-after.png"
+                  beforeImage="/images/svens-before.jpg"
+                  afterImage="/images/svens-after.jpg"
                 />
               </div>
             </div>

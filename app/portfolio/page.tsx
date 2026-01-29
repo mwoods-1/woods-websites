@@ -115,8 +115,8 @@ export default function Portfolio() {
 
             <div>
               <BeforeAfterSlider
-                beforeImage="/images/aviation-before.png"
-                afterImage="/images/aviation-after.png"
+                beforeImage="/images/aviation-before.jpg"
+                afterImage="/images/aviation-after.jpg"
               />
             </div>
           </div>
@@ -207,8 +207,8 @@ export default function Portfolio() {
 
             <div className="md:order-1">
               <BeforeAfterSlider
-                beforeImage="/images/svens-before.png"
-                afterImage="/images/svens-after.png"
+                beforeImage="/images/svens-before.jpg"
+                afterImage="/images/svens-after.jpg"
               />
             </div>
           </div>
@@ -272,7 +272,7 @@ export default function Portfolio() {
 
             <div className="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
               <Image
-                src="/images/ovens-new.png"
+                src="/images/ovens-new.jpg"
                 alt="Ovens Soccer Website"
                 fill
                 className="object-cover"
