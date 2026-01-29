@@ -76,7 +76,7 @@ woods-websites/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/your-username/woods-websites.git
+git clone https://github.com/mwoods-1/woods-websites.git
 cd woods-websites
 ```
 
