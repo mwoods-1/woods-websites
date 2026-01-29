@@ -4,31 +4,34 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-navy-900 text-white">
-      <div className="max-w-7xl mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
-          <div className="col-span-1 md:col-span-2">
+    <footer className="bg-zinc-950 text-white border-t border-zinc-800">
+      <div className="max-w-[1800px] mx-auto px-8 lg:px-16 py-20">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-16">
+          {/* Brand - Large Statement */}
+          <div className="lg:col-span-6">
             <h3
-              className="text-2xl font-bold mb-3"
-              style={{ fontFamily: "var(--font-fraunces)" }}
+              className="text-5xl md:text-6xl font-black mb-6 leading-tight uppercase"
+              style={{ fontFamily: "var(--font-unbounded)" }}
             >
-              Woods Websites
+              Woods<br/>
+              <span className="text-amber-500">Websites</span>
             </h3>
-            <p className="text-slate-300 mb-4 max-w-md">
+            <div className="w-24 h-px bg-amber-500 mb-6" />
+            <p className="text-zinc-400 text-lg max-w-lg italic leading-relaxed">
               Creating beautiful, high-performance websites that help your business grow.
               From custom designs to platform integrations, we've got you covered.
             </p>
           </div>
 
           {/* Quick Links */}
-          <div>
-            <h4 className="font-semibold mb-3 text-orange-400">Quick Links</h4>
-            <ul className="space-y-2">
+          <div className="lg:col-span-3">
+            <h4 className="font-bold mb-6 text-amber-500 uppercase tracking-widest text-xs" style={{ fontFamily: "var(--font-unbounded)" }}>Navigate</h4>
+            <ul className="space-y-3">
               <li>
                 <Link
                   href="/portfolio"
-                  className="text-slate-300 hover:text-orange-400 transition-colors"
+                  className="text-zinc-400 hover:text-white transition-colors uppercase text-sm tracking-wider"
+                  style={{ fontFamily: "var(--font-unbounded)" }}
                 >
                   Portfolio
                 </Link>
@@ -36,7 +39,8 @@ export default function Footer() {
               <li>
                 <Link
                   href="/services"
-                  className="text-slate-300 hover:text-orange-400 transition-colors"
+                  className="text-zinc-400 hover:text-white transition-colors uppercase text-sm tracking-wider"
+                  style={{ fontFamily: "var(--font-unbounded)" }}
                 >
                   Services
                 </Link>
@@ -44,15 +48,17 @@ export default function Footer() {
               <li>
                 <Link
                   href="/about"
-                  className="text-slate-300 hover:text-orange-400 transition-colors"
+                  className="text-zinc-400 hover:text-white transition-colors uppercase text-sm tracking-wider"
+                  style={{ fontFamily: "var(--font-unbounded)" }}
                 >
-                  About Us
+                  About
                 </Link>
               </li>
               <li>
                 <Link
                   href="/contact"
-                  className="text-slate-300 hover:text-orange-400 transition-colors"
+                  className="text-zinc-400 hover:text-white transition-colors uppercase text-sm tracking-wider"
+                  style={{ fontFamily: "var(--font-unbounded)" }}
                 >
                   Contact
                 </Link>
@@ -61,9 +67,9 @@ export default function Footer() {
           </div>
 
           {/* Services */}
-          <div>
-            <h4 className="font-semibold mb-3 text-orange-400">Services</h4>
-            <ul className="space-y-2 text-slate-300">
+          <div className="lg:col-span-3">
+            <h4 className="font-bold mb-6 text-amber-500 uppercase tracking-widest text-xs" style={{ fontFamily: "var(--font-unbounded)" }}>Services</h4>
+            <ul className="space-y-3 text-zinc-400 text-sm">
               <li>Custom Web Design</li>
               <li>Website Redesigns</li>
               <li>Platform Integrations</li>
@@ -73,16 +79,16 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-navy-700 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-slate-400 text-sm">
-            © {currentYear} Woods Websites. All rights reserved.
+        <div className="border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-zinc-500 text-xs uppercase tracking-widest" style={{ fontFamily: "var(--font-unbounded)" }}>
+            © {currentYear} Woods Websites
           </p>
-          <div className="flex gap-6 text-sm text-slate-400">
-            <Link href="/privacy" className="hover:text-orange-400 transition-colors">
-              Privacy Policy
+          <div className="flex gap-8 text-xs text-zinc-500 uppercase tracking-widest" style={{ fontFamily: "var(--font-unbounded)" }}>
+            <Link href="/privacy" className="hover:text-amber-500 transition-colors">
+              Privacy
             </Link>
-            <Link href="/terms" className="hover:text-orange-400 transition-colors">
-              Terms of Service
+            <Link href="/terms" className="hover:text-amber-500 transition-colors">
+              Terms
             </Link>
           </div>
         </div>

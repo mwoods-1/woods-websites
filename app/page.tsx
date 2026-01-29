@@ -3,131 +3,170 @@ import BeforeAfterSlider from "./components/BeforeAfterSlider";
 
 export default function Home() {
   return (
-    <div>
-      {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-navy-50 via-white to-orange-50 pt-24">
-        {/* Animated Background Elements */}
-        <div className="absolute inset-0 overflow-hidden opacity-30">
-          <div className="absolute top-1/4 -left-20 w-96 h-96 bg-orange-400 rounded-full blur-3xl animate-pulse" />
-          <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-navy-400 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
-        </div>
+    <div className="bg-zinc-950">
+      {/* Hero Section - Editorial Brutalist */}
+      <section className="relative min-h-screen flex items-end overflow-hidden bg-zinc-950 pt-24 pb-20">
+        {/* Grain texture overlay */}
+        <div className="absolute inset-0 opacity-[0.015]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+        }} />
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center">
-          <div className="animate-fadeInUp">
-            <h1
-              className="text-5xl md:text-7xl font-bold text-navy-900 mb-8 leading-tight"
-              style={{ fontFamily: "var(--font-fraunces)" }}
-            >
-              Web Design That
-              <br />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-600 to-orange-400">
-                Actually Works
-              </span>
-            </h1>
-            <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-              We create stunning, high-performance websites that help your business grow.
-              From custom designs to complex integrations, we bring your vision to life.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                href="/portfolio"
-                className="px-8 py-4 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all hover:shadow-xl font-semibold text-lg"
-              >
-                View Our Work
-              </Link>
-              <Link
-                href="/contact"
-                className="px-8 py-4 bg-white text-navy-800 border-2 border-navy-800 rounded-lg hover:bg-navy-800 hover:text-white transition-all font-semibold text-lg"
-              >
-                Get Started
-              </Link>
+        {/* Geometric accent elements */}
+        <div className="absolute top-32 right-0 w-[600px] h-[600px] border border-amber-500/10 rotate-45 translate-x-1/2 -translate-y-1/4" />
+        <div className="absolute bottom-0 left-0 w-96 h-2 bg-gradient-to-r from-amber-500 to-transparent opacity-80 animate-pulse-subtle" />
+
+        <div className="relative z-10 max-w-[1800px] mx-auto px-8 lg:px-16 w-full">
+          <div className="grid lg:grid-cols-12 gap-12 items-end">
+            {/* Left column - Main headline */}
+            <div className="lg:col-span-7 space-y-8 slide-up">
+              <div className="space-y-4">
+                <p className="text-amber-500 uppercase tracking-[0.3em] text-xs font-light" style={{ fontFamily: "var(--font-unbounded)" }}>
+                  Portfolio 2026
+                </p>
+                <h1
+                  className="text-6xl md:text-8xl lg:text-[9rem] font-black text-white leading-[0.85] tracking-tight"
+                  style={{ fontFamily: "var(--font-unbounded)" }}
+                >
+                  WEB<br/>
+                  DESIGN<br/>
+                  THAT<br/>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-500 via-amber-300 to-amber-500 animate-shimmer">
+                    WORKS
+                  </span>
+                </h1>
+              </div>
+
+              <div className="flex items-start gap-8 pt-8">
+                <div className="w-px h-24 bg-gradient-to-b from-amber-500 to-transparent" />
+                <p className="text-zinc-400 text-lg md:text-xl max-w-md leading-relaxed italic">
+                  Transforming digital presence through bold design and precision engineering
+                </p>
+              </div>
+            </div>
+
+            {/* Right column - Stats and CTA */}
+            <div className="lg:col-span-5 space-y-12 slide-up" style={{ animationDelay: '0.2s' }}>
+              <div className="grid grid-cols-2 gap-6">
+                {[
+                  { number: "50+", label: "Projects" },
+                  { number: "100%", label: "Satisfaction" },
+                  { number: "<2s", label: "Load Time" },
+                  { number: "24/7", label: "Support" },
+                ].map((stat, index) => (
+                  <div key={index} className="border border-zinc-800 p-6 hover:border-amber-500/30 transition-colors group">
+                    <div
+                      className="text-4xl font-black text-white mb-2 group-hover:text-amber-500 transition-colors"
+                      style={{ fontFamily: "var(--font-unbounded)" }}
+                    >
+                      {stat.number}
+                    </div>
+                    <div className="text-zinc-500 text-xs uppercase tracking-wider">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+
+              <div className="flex flex-col gap-4">
+                <Link
+                  href="/portfolio"
+                  className="group relative px-8 py-5 bg-amber-500 text-zinc-950 overflow-hidden font-bold text-sm uppercase tracking-wider hover:bg-amber-400 transition-all"
+                  style={{ fontFamily: "var(--font-unbounded)" }}
+                >
+                  <span className="relative z-10">View Work</span>
+                  <div className="absolute inset-0 bg-white transform translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+                </Link>
+                <Link
+                  href="/contact"
+                  className="px-8 py-5 border-2 border-white text-white hover:bg-white hover:text-zinc-950 transition-all font-bold text-sm uppercase tracking-wider"
+                  style={{ fontFamily: "var(--font-unbounded)" }}
+                >
+                  Start Project
+                </Link>
+              </div>
             </div>
           </div>
 
-          {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 max-w-4xl mx-auto">
-            {[
-              { number: "50+", label: "Projects Delivered" },
-              { number: "100%", label: "Client Satisfaction" },
-              { number: "Fast", label: "Turnaround Time" },
-              { number: "24/7", label: "Support Available" },
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div
-                  className="text-3xl md:text-4xl font-bold text-orange-600 mb-2"
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                >
-                  {stat.number}
-                </div>
-                <div className="text-sm text-slate-600">{stat.label}</div>
-              </div>
-            ))}
+          {/* Scroll indicator */}
+          <div className="absolute bottom-8 left-8 flex items-center gap-4 opacity-50 hover:opacity-100 transition-opacity">
+            <div className="w-px h-16 bg-gradient-to-b from-transparent via-amber-500 to-transparent animate-scroll" />
+            <span className="text-white text-xs uppercase tracking-widest rotate-90 origin-left" style={{ fontFamily: "var(--font-unbounded)" }}>
+              Scroll
+            </span>
           </div>
         </div>
       </section>
 
-      {/* Featured Portfolio */}
-      <section className="py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
-            <h2
-              className="text-4xl md:text-5xl font-bold text-navy-900 mb-4"
-              style={{ fontFamily: "var(--font-fraunces)" }}
-            >
-              Transformations We're Proud Of
-            </h2>
-            <p className="text-xl text-slate-600 max-w-2xl mx-auto">
-              See how we've helped businesses elevate their online presence with modern,
-              high-performing websites.
-            </p>
+      {/* Featured Portfolio - Asymmetric Grid */}
+      <section className="py-32 bg-zinc-950 relative overflow-hidden">
+        {/* Background accent */}
+        <div className="absolute top-0 right-0 w-1/2 h-px bg-gradient-to-r from-transparent to-amber-500/30" />
+
+        <div className="max-w-[1800px] mx-auto px-8 lg:px-16">
+          {/* Section header */}
+          <div className="mb-24 max-w-4xl">
+            <div className="flex items-start gap-8 mb-8">
+              <div className="w-2 h-2 bg-amber-500 mt-4 animate-pulse" />
+              <div>
+                <p className="text-amber-500 uppercase tracking-[0.3em] text-xs mb-6" style={{ fontFamily: "var(--font-unbounded)" }}>
+                  Selected Work
+                </p>
+                <h2
+                  className="text-5xl md:text-7xl font-black text-white leading-[0.9] mb-6"
+                  style={{ fontFamily: "var(--font-unbounded)" }}
+                >
+                  TRANS-<br/>FORMATIONS
+                </h2>
+                <p className="text-zinc-400 text-xl max-w-2xl italic leading-relaxed border-l-2 border-amber-500/30 pl-6">
+                  Elevating digital experiences through strategic design and technical excellence
+                </p>
+              </div>
+            </div>
           </div>
 
-          <div className="space-y-32">
-            {/* Portfolio Item: Aviation Expeditions */}
-<div className="grid md:grid-cols-2 gap-16 items-center">
-              <div>
-                <h3
-                  className="text-3xl font-bold text-navy-900 mb-4"
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                >
-                  Aviation Expeditions
-                </h3>
-                <p className="text-lg text-slate-600 mb-6">
-                  Complete website redesign for an Alaskan flightseeing tour company.
-                  Modernized the brand, improved user experience, and optimized for conversions.
-                </p>
-                <div className="flex flex-wrap gap-3 mb-6">
-                  <span className="px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
-                    Redesign
+          <div className="space-y-48">
+            {/* Portfolio Item 1: Aviation Expeditions - Large format */}
+            <div className="grid lg:grid-cols-12 gap-12 items-start">
+              <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-32">
+                <div className="space-y-6">
+                  <span className="inline-block px-4 py-2 border border-amber-500/30 text-amber-500 text-xs uppercase tracking-widest" style={{ fontFamily: "var(--font-unbounded)" }}>
+                    Case Study 01
                   </span>
-                  <span className="px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
-                    Performance Optimization
-                  </span>
-                  <span className="px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
-                    SEO
-                  </span>
+                  <h3
+                    className="text-4xl md:text-6xl font-black text-white leading-tight"
+                    style={{ fontFamily: "var(--font-unbounded)" }}
+                  >
+                    Aviation<br/>Expeditions
+                  </h3>
+                  <div className="w-24 h-px bg-amber-500" />
+                  <p className="text-zinc-400 text-lg leading-relaxed">
+                    Complete website redesign for an Alaskan flightseeing tour company.
+                    Modernized the brand, improved user experience, and optimized for conversions.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {["Redesign", "Performance", "SEO"].map((tag, i) => (
+                    <span key={i} className="px-4 py-2 bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs uppercase tracking-wider hover:border-amber-500/30 hover:text-amber-500 transition-colors">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
                 <Link
                   href="/portfolio"
-                  className="inline-flex items-center text-orange-600 hover:text-orange-700 font-semibold"
+                  className="group inline-flex items-center text-amber-500 hover:text-amber-400 font-bold text-sm uppercase tracking-wider transition-colors"
+                  style={{ fontFamily: "var(--font-unbounded)" }}
                 >
-                  View Case Study
+                  View Case
                   <svg
-                    className="w-5 h-5 ml-2"
+                    className="w-5 h-5 ml-3 transform group-hover:translate-x-2 transition-transform"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
               </div>
-              <div>
+              <div className="lg:col-span-7 relative">
+                <div className="absolute -top-8 -right-8 w-32 h-32 border border-amber-500/10" />
                 <BeforeAfterSlider
                   beforeImage="/images/aviation-before.jpg"
                   afterImage="/images/aviation-after.jpg"
@@ -135,211 +174,259 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Portfolio Item: Svens Hostel */}
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <div className="md:order-2">
-                <h3
-                  className="text-3xl font-bold text-navy-900 mb-4"
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                >
-                  Sven's Basecamp Hostel
-                </h3>
-                <p className="text-lg text-slate-600 mb-6">
-                  Modern redesign with custom Cloudbeds integration for seamless bookings.
-                  Enhanced mobile experience and streamlined the customer journey.
-                </p>
-                <div className="flex flex-wrap gap-3 mb-6">
-                  <span className="px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
-                    Redesign
-                  </span>
-                  <span className="px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
-                    Custom Integration
-                  </span>
-                  <span className="px-4 py-2 bg-orange-100 text-orange-800 rounded-full text-sm font-medium">
-                    Booking System
-                  </span>
-                </div>
-                <Link
-                  href="/portfolio"
-                  className="inline-flex items-center text-orange-600 hover:text-orange-700 font-semibold"
-                >
-                  View Case Study
-                  <svg
-                    className="w-5 h-5 ml-2"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
-                  </svg>
-                </Link>
-              </div>
-              <div className="md:order-1">
+            {/* Portfolio Item 2: Svens Hostel - Reversed layout */}
+            <div className="grid lg:grid-cols-12 gap-12 items-start">
+              <div className="lg:col-span-7 lg:order-1 relative">
+                <div className="absolute -bottom-8 -left-8 w-48 h-48 border border-amber-500/10" />
                 <BeforeAfterSlider
                   beforeImage="/images/svens-before.jpg"
                   afterImage="/images/svens-after.jpg"
                 />
               </div>
-            </div>
-
-            {/* Portfolio Item: Ovens Soccer */}
-            <div className="grid md:grid-cols-2 gap-16 items-center">
-              <div>
-                <h3
-                  className="text-3xl font-bold text-navy-900 mb-4"
-                  style={{ fontFamily: "var(--font-fraunces)" }}
-                >
-                  Ovens Soccer
-                </h3>
-                <p className="text-lg text-slate-600 mb-6">
-                  Brand new website built from scratch for a sports organization.
-                  Clean, modern design with easy content management and mobile-first approach.
-                </p>
-                <div className="flex flex-wrap gap-3 mb-6">
-                  <span className="px-4 py-2 bg-navy-100 text-navy-800 rounded-full text-sm font-medium">
-                    New Build
+              <div className="lg:col-span-5 lg:order-2 space-y-8 lg:sticky lg:top-32">
+                <div className="space-y-6">
+                  <span className="inline-block px-4 py-2 border border-amber-500/30 text-amber-500 text-xs uppercase tracking-widest" style={{ fontFamily: "var(--font-unbounded)" }}>
+                    Case Study 02
                   </span>
-                  <span className="px-4 py-2 bg-navy-100 text-navy-800 rounded-full text-sm font-medium">
-                    Custom Design
-                  </span>
-                  <span className="px-4 py-2 bg-navy-100 text-navy-800 rounded-full text-sm font-medium">
-                    Mobile-First
-                  </span>
+                  <h3
+                    className="text-4xl md:text-6xl font-black text-white leading-tight"
+                    style={{ fontFamily: "var(--font-unbounded)" }}
+                  >
+                    Sven's<br/>Basecamp
+                  </h3>
+                  <div className="w-24 h-px bg-amber-500" />
+                  <p className="text-zinc-400 text-lg leading-relaxed">
+                    Modern redesign with custom Cloudbeds integration for seamless bookings.
+                    Enhanced mobile experience and streamlined the customer journey.
+                  </p>
+                </div>
+                <div className="flex flex-wrap gap-3">
+                  {["Redesign", "Integration", "Booking"].map((tag, i) => (
+                    <span key={i} className="px-4 py-2 bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs uppercase tracking-wider hover:border-amber-500/30 hover:text-amber-500 transition-colors">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
                 <Link
                   href="/portfolio"
-                  className="inline-flex items-center text-orange-600 hover:text-orange-700 font-semibold"
+                  className="group inline-flex items-center text-amber-500 hover:text-amber-400 font-bold text-sm uppercase tracking-wider transition-colors"
+                  style={{ fontFamily: "var(--font-unbounded)" }}
                 >
-                  View Case Study
+                  View Case
                   <svg
-                    className="w-5 h-5 ml-2"
+                    className="w-5 h-5 ml-3 transform group-hover:translate-x-2 transition-transform"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                   >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M9 5l7 7-7 7"
-                    />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
               </div>
-              <div className="relative aspect-video rounded-xl overflow-hidden shadow-xl">
-                <div className="absolute inset-0 bg-gradient-to-br from-navy-200 to-slate-300 flex items-center justify-center">
-                  <p className="text-navy-600 font-medium">Screenshot Coming Soon</p>
+            </div>
+
+            {/* Portfolio Item 3: Ovens Soccer */}
+            <div className="grid lg:grid-cols-12 gap-12 items-start">
+              <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-32">
+                <div className="space-y-6">
+                  <span className="inline-block px-4 py-2 border border-amber-500/30 text-amber-500 text-xs uppercase tracking-widest" style={{ fontFamily: "var(--font-unbounded)" }}>
+                    Case Study 03
+                  </span>
+                  <h3
+                    className="text-4xl md:text-6xl font-black text-white leading-tight"
+                    style={{ fontFamily: "var(--font-unbounded)" }}
+                  >
+                    Ovens<br/>Soccer
+                  </h3>
+                  <div className="w-24 h-px bg-amber-500" />
+                  <p className="text-zinc-400 text-lg leading-relaxed">
+                    Brand new website built from scratch for a sports organization.
+                    Clean, modern design with easy content management and mobile-first approach.
+                  </p>
                 </div>
+                <div className="flex flex-wrap gap-3">
+                  {["New Build", "Custom", "Mobile-First"].map((tag, i) => (
+                    <span key={i} className="px-4 py-2 bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs uppercase tracking-wider hover:border-amber-500/30 hover:text-amber-500 transition-colors">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+                <Link
+                  href="/portfolio"
+                  className="group inline-flex items-center text-amber-500 hover:text-amber-400 font-bold text-sm uppercase tracking-wider transition-colors"
+                  style={{ fontFamily: "var(--font-unbounded)" }}
+                >
+                  View Case
+                  <svg
+                    className="w-5 h-5 ml-3 transform group-hover:translate-x-2 transition-transform"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
+              </div>
+              <div className="lg:col-span-7 relative aspect-video bg-zinc-900 border border-zinc-800 flex items-center justify-center overflow-hidden group">
+                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
+                <p className="text-zinc-600 font-bold text-sm uppercase tracking-widest" style={{ fontFamily: "var(--font-unbounded)" }}>Coming Soon</p>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Services Overview */}
-      <section className="py-32 bg-navy-900 text-white">
-        <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-20">
-            <h2
-              className="text-4xl md:text-5xl font-bold mb-4"
-              style={{ fontFamily: "var(--font-fraunces)" }}
-            >
-              What We Do Best
-            </h2>
-            <p className="text-xl text-slate-300 max-w-2xl mx-auto">
-              Full-service web design and development tailored to your needs
-            </p>
+      {/* Services - Brutalist Grid */}
+      <section className="py-32 bg-zinc-900 text-white relative">
+        {/* Diagonal line accent */}
+        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-amber-500/20 via-transparent to-amber-500/20" />
+
+        <div className="max-w-[1800px] mx-auto px-8 lg:px-16">
+          <div className="mb-24 grid lg:grid-cols-2 gap-16 items-end">
+            <div>
+              <p className="text-amber-500 uppercase tracking-[0.3em] text-xs mb-6" style={{ fontFamily: "var(--font-unbounded)" }}>
+                Capabilities
+              </p>
+              <h2
+                className="text-5xl md:text-7xl font-black text-white leading-[0.9]"
+                style={{ fontFamily: "var(--font-unbounded)" }}
+              >
+                WHAT<br/>WE DO
+              </h2>
+            </div>
+            <div className="flex items-end">
+              <p className="text-zinc-400 text-lg italic max-w-lg">
+                Full-service web design and development tailored to your needs
+              </p>
+            </div>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-px bg-amber-500/10">
             {[
               {
+                number: "01",
                 title: "Custom Website Design",
                 description:
                   "Beautiful, modern websites crafted specifically for your brand and audience.",
-                icon: "🎨",
               },
               {
+                number: "02",
                 title: "Website Redesigns",
                 description:
                   "Transform your outdated site into a modern, high-performing digital experience.",
-                icon: "✨",
               },
               {
+                number: "03",
                 title: "Platform Integrations",
                 description:
                   "Connect your website with Cloudflare, booking systems, payment processors, and more.",
-                icon: "🔗",
               },
               {
+                number: "04",
                 title: "Performance Optimization",
                 description:
                   "Speed up your site for better user experience and search rankings.",
-                icon: "⚡",
               },
               {
+                number: "05",
                 title: "SEO & Analytics",
                 description:
                   "Get found online and understand your visitors with proper SEO and tracking.",
-                icon: "📈",
               },
               {
+                number: "06",
                 title: "Ongoing Support",
                 description:
                   "We're here to help maintain and grow your site long after launch.",
-                icon: "🛟",
               },
             ].map((service, index) => (
               <div
                 key={index}
-                className="p-10 bg-navy-800 rounded-xl hover:bg-navy-700 transition-colors"
+                className="p-10 bg-zinc-900 hover:bg-zinc-950 transition-colors group border border-zinc-800 hover:border-amber-500/30"
               >
-                <div className="text-5xl mb-6">{service.icon}</div>
+                <div className="text-6xl font-black text-amber-500/20 mb-6 group-hover:text-amber-500/40 transition-colors" style={{ fontFamily: "var(--font-unbounded)" }}>
+                  {service.number}
+                </div>
                 <h3
-                  className="text-xl font-bold mb-4"
-                  style={{ fontFamily: "var(--font-fraunces)" }}
+                  className="text-xl font-bold mb-4 text-white uppercase tracking-wider"
+                  style={{ fontFamily: "var(--font-unbounded)" }}
                 >
                   {service.title}
                 </h3>
-                <p className="text-slate-300 leading-relaxed">{service.description}</p>
+                <p className="text-zinc-400 leading-relaxed">{service.description}</p>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-16">
+          <div className="mt-20 flex justify-center">
             <Link
               href="/services"
-              className="inline-block px-8 py-4 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all hover:shadow-xl font-semibold text-lg"
+              className="group relative px-12 py-6 bg-transparent border-2 border-amber-500 text-amber-500 overflow-hidden font-bold text-sm uppercase tracking-wider hover:text-zinc-950 transition-colors"
+              style={{ fontFamily: "var(--font-unbounded)" }}
             >
-              View All Services
+              <span className="relative z-10">All Services</span>
+              <div className="absolute inset-0 bg-amber-500 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-32 bg-gradient-to-br from-orange-50 to-navy-50">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <h2
-            className="text-4xl md:text-5xl font-bold text-navy-900 mb-6"
-            style={{ fontFamily: "var(--font-fraunces)" }}
-          >
-            Ready to Transform Your Website?
-          </h2>
-          <p className="text-xl text-slate-600 mb-8">
-            Let's talk about your project and how we can help you achieve your goals.
-          </p>
-          <Link
-            href="/contact"
-            className="inline-block px-10 py-4 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all hover:shadow-xl font-semibold text-lg"
-          >
-            Get Your Free Consultation
-          </Link>
+      {/* CTA Section - Bold Editorial */}
+      <section className="relative py-48 bg-amber-500 overflow-hidden">
+        {/* Texture overlay */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
+        }} />
+
+        {/* Geometric accent */}
+        <div className="absolute bottom-0 right-0 w-[600px] h-[600px] border-4 border-zinc-950/10 rotate-12 translate-x-1/3 translate-y-1/3" />
+
+        <div className="relative z-10 max-w-[1800px] mx-auto px-8 lg:px-16">
+          <div className="max-w-5xl">
+            <div className="space-y-12">
+              <div className="flex items-start gap-8">
+                <div className="w-2 h-2 bg-zinc-950 mt-6 animate-pulse" />
+                <div>
+                  <p className="text-zinc-950/60 uppercase tracking-[0.3em] text-xs mb-8" style={{ fontFamily: "var(--font-unbounded)" }}>
+                    Start Your Project
+                  </p>
+                  <h2
+                    className="text-6xl md:text-8xl lg:text-9xl font-black text-zinc-950 leading-[0.85] mb-12"
+                    style={{ fontFamily: "var(--font-unbounded)" }}
+                  >
+                    READY TO<br/>
+                    TRANSFORM<br/>
+                    YOUR SITE?
+                  </h2>
+                  <p className="text-zinc-950/80 text-2xl max-w-2xl italic leading-relaxed mb-12 border-l-4 border-zinc-950/30 pl-8">
+                    Let's talk about your project and how we can help you achieve your goals.
+                  </p>
+
+                  <div className="flex flex-col sm:flex-row gap-6">
+                    <Link
+                      href="/contact"
+                      className="group relative px-12 py-6 bg-zinc-950 text-amber-500 overflow-hidden font-black text-sm uppercase tracking-wider hover:bg-zinc-900 transition-all"
+                      style={{ fontFamily: "var(--font-unbounded)" }}
+                    >
+                      <span className="relative z-10 flex items-center gap-3">
+                        Get Started
+                        <svg className="w-5 h-5 transform group-hover:translate-x-2 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                      </span>
+                    </Link>
+                    <Link
+                      href="/portfolio"
+                      className="px-12 py-6 border-4 border-zinc-950 text-zinc-950 hover:bg-zinc-950 hover:text-amber-500 transition-all font-black text-sm uppercase tracking-wider"
+                      style={{ fontFamily: "var(--font-unbounded)" }}
+                    >
+                      View Portfolio
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </div>

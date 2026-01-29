@@ -19,16 +19,16 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         isScrolled
-          ? "bg-white/95 backdrop-blur-sm shadow-md py-4"
+          ? "bg-zinc-950/95 backdrop-blur-md border-b border-zinc-800 py-4"
           : "bg-transparent py-6"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-12 h-12 rounded-full overflow-hidden">
+      <div className="max-w-[1800px] mx-auto px-8 lg:px-16 flex items-center justify-between">
+        {/* Logo - Editorial Brutalist */}
+        <Link href="/" className="flex items-center gap-4 group">
+          <div className="relative w-10 h-10 overflow-hidden border border-amber-500/30 group-hover:border-amber-500 transition-colors">
             <Image
               src="/images/woods-websites-logo.jpg"
               alt="Woods Websites Logo"
@@ -38,46 +38,51 @@ export default function Navigation() {
           </div>
           <div>
             <div
-              className="text-xl font-bold text-navy-900 group-hover:text-orange-600 transition-colors"
-              style={{ fontFamily: 'var(--font-fraunces)' }}
+              className="text-lg font-black text-white group-hover:text-amber-500 transition-colors uppercase tracking-tight"
+              style={{ fontFamily: 'var(--font-unbounded)' }}
             >
-              Woods Websites
+              Woods
             </div>
-            <div className="text-xs text-slate-600">Web Design & Development</div>
+            <div className="text-[10px] text-zinc-500 uppercase tracking-widest" style={{ fontFamily: 'var(--font-unbounded)' }}>Web Design</div>
           </div>
         </Link>
 
-        {/* Desktop Navigation */}
-        <div className="hidden md:flex items-center gap-8">
+        {/* Desktop Navigation - Minimal */}
+        <div className="hidden md:flex items-center gap-1">
           <Link
             href="/"
-            className="text-navy-700 hover:text-orange-600 transition-colors font-medium"
+            className="px-5 py-2 text-zinc-400 hover:text-white transition-colors text-sm uppercase tracking-wider font-medium"
+            style={{ fontFamily: 'var(--font-unbounded)' }}
           >
             Home
           </Link>
           <Link
             href="/portfolio"
-            className="text-navy-700 hover:text-orange-600 transition-colors font-medium"
+            className="px-5 py-2 text-zinc-400 hover:text-white transition-colors text-sm uppercase tracking-wider font-medium"
+            style={{ fontFamily: 'var(--font-unbounded)' }}
           >
-            Portfolio
+            Work
           </Link>
           <Link
             href="/services"
-            className="text-navy-700 hover:text-orange-600 transition-colors font-medium"
+            className="px-5 py-2 text-zinc-400 hover:text-white transition-colors text-sm uppercase tracking-wider font-medium"
+            style={{ fontFamily: 'var(--font-unbounded)' }}
           >
             Services
           </Link>
           <Link
             href="/about"
-            className="text-navy-700 hover:text-orange-600 transition-colors font-medium"
+            className="px-5 py-2 text-zinc-400 hover:text-white transition-colors text-sm uppercase tracking-wider font-medium"
+            style={{ fontFamily: 'var(--font-unbounded)' }}
           >
             About
           </Link>
           <Link
             href="/contact"
-            className="px-6 py-2.5 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all hover:shadow-lg font-semibold"
+            className="ml-4 px-6 py-2.5 bg-amber-500 text-zinc-950 hover:bg-amber-400 transition-all font-bold text-xs uppercase tracking-widest"
+            style={{ fontFamily: 'var(--font-unbounded)' }}
           >
-            Get Started
+            Contact
           </Link>
         </div>
 
@@ -88,17 +93,17 @@ export default function Navigation() {
           aria-label="Toggle menu"
         >
           <span
-            className={`w-6 h-0.5 bg-navy-900 transition-all ${
+            className={`w-6 h-0.5 bg-amber-500 transition-all ${
               isMobileMenuOpen ? "rotate-45 translate-y-2" : ""
             }`}
           />
           <span
-            className={`w-6 h-0.5 bg-navy-900 transition-all ${
+            className={`w-6 h-0.5 bg-amber-500 transition-all ${
               isMobileMenuOpen ? "opacity-0" : ""
             }`}
           />
           <span
-            className={`w-6 h-0.5 bg-navy-900 transition-all ${
+            className={`w-6 h-0.5 bg-amber-500 transition-all ${
               isMobileMenuOpen ? "-rotate-45 -translate-y-2" : ""
             }`}
           />
@@ -107,42 +112,47 @@ export default function Navigation() {
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 right-0 bg-white border-t border-slate-200 shadow-lg">
-          <div className="px-6 py-4 flex flex-col gap-4">
+        <div className="md:hidden absolute top-full left-0 right-0 bg-zinc-950 border-b border-zinc-800">
+          <div className="px-8 py-6 flex flex-col gap-1">
             <Link
               href="/"
-              className="text-navy-700 hover:text-orange-600 transition-colors font-medium py-2"
+              className="text-zinc-400 hover:text-white transition-colors py-3 text-sm uppercase tracking-widest font-medium border-b border-zinc-900"
+              style={{ fontFamily: 'var(--font-unbounded)' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               href="/portfolio"
-              className="text-navy-700 hover:text-orange-600 transition-colors font-medium py-2"
+              className="text-zinc-400 hover:text-white transition-colors py-3 text-sm uppercase tracking-widest font-medium border-b border-zinc-900"
+              style={{ fontFamily: 'var(--font-unbounded)' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Portfolio
+              Work
             </Link>
             <Link
               href="/services"
-              className="text-navy-700 hover:text-orange-600 transition-colors font-medium py-2"
+              className="text-zinc-400 hover:text-white transition-colors py-3 text-sm uppercase tracking-widest font-medium border-b border-zinc-900"
+              style={{ fontFamily: 'var(--font-unbounded)' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               Services
             </Link>
             <Link
               href="/about"
-              className="text-navy-700 hover:text-orange-600 transition-colors font-medium py-2"
+              className="text-zinc-400 hover:text-white transition-colors py-3 text-sm uppercase tracking-widest font-medium border-b border-zinc-900"
+              style={{ fontFamily: 'var(--font-unbounded)' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
               About
             </Link>
             <Link
               href="/contact"
-              className="px-6 py-3 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all text-center font-semibold"
+              className="mt-4 px-6 py-4 bg-amber-500 text-zinc-950 hover:bg-amber-400 transition-all text-center font-bold text-xs uppercase tracking-widest"
+              style={{ fontFamily: 'var(--font-unbounded)' }}
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Get Started
+              Contact
             </Link>
           </div>
         </div>

@@ -1,21 +1,22 @@
 import type { Metadata } from "next";
-import { DM_Sans, Fraunces } from "next/font/google";
+import { Unbounded, Libre_Baskerville } from "next/font/google";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const unbounded = Unbounded({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "600", "700", "900"],
   display: "swap",
-  variable: "--font-dm-sans",
+  variable: "--font-unbounded",
 });
 
-const fraunces = Fraunces({
+const libreBaskerville = Libre_Baskerville({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
   display: "swap",
-  variable: "--font-fraunces",
+  variable: "--font-libre-baskerville",
 });
 
 export const metadata: Metadata = {
@@ -38,8 +39,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${dmSans.variable} ${fraunces.variable}`}>
-      <body className="antialiased" style={{ fontFamily: 'var(--font-dm-sans)' }}>
+    <html lang="en" className={`${unbounded.variable} ${libreBaskerville.variable}`}>
+      <body className="antialiased" style={{ fontFamily: 'var(--font-libre-baskerville)' }}>
         <Navigation />
         <main className="min-h-screen">
           {children}

@@ -1,7 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  /* Brand Colors */
+  /* Editorial Brutalist Color Palette */
+  --amber-50: #fffbeb;
+  --amber-100: #fef3c7;
+  --amber-200: #fde68a;
+  --amber-300: #fcd34d;
+  --amber-400: #fbbf24;
+  --amber-500: #f59e0b;
+  --amber-600: #d97706;
+  --amber-700: #b45309;
+  --amber-800: #92400e;
+  --amber-900: #78350f;
+
+  /* Keep navy for potential use */
   --navy-50: #f0f4f8;
   --navy-100: #d9e2ec;
   --navy-200: #bcccdc;
@@ -12,32 +24,23 @@
   --navy-700: #334e68;
   --navy-800: #243b53;
   --navy-900: #102a43;
-
-  --orange-50: #fff7ed;
-  --orange-100: #ffedd5;
-  --orange-200: #fed7aa;
-  --orange-300: #fdba74;
-  --orange-400: #fb923c;
-  --orange-500: #f97316;
-  --orange-600: #ea580c;
-  --orange-700: #c2410c;
-  --orange-800: #9a3412;
-  --orange-900: #7c2d12;
-
-  --slate-50: #f8fafc;
-  --slate-100: #f1f5f9;
-  --slate-200: #e2e8f0;
-  --slate-300: #cbd5e1;
-  --slate-400: #94a3b8;
-  --slate-500: #64748b;
-  --slate-600: #475569;
-  --slate-700: #334155;
-  --slate-800: #1e293b;
-  --slate-900: #0f172a;
 }
 
 @theme inline {
-  /* Colors */
+  /* Amber accent colors */
+  --color-amber-*: initial;
+  --color-amber-50: var(--amber-50);
+  --color-amber-100: var(--amber-100);
+  --color-amber-200: var(--amber-200);
+  --color-amber-300: var(--amber-300);
+  --color-amber-400: var(--amber-400);
+  --color-amber-500: var(--amber-500);
+  --color-amber-600: var(--amber-600);
+  --color-amber-700: var(--amber-700);
+  --color-amber-800: var(--amber-800);
+  --color-amber-900: var(--amber-900);
+
+  /* Keep navy */
   --color-navy-*: initial;
   --color-navy-50: var(--navy-50);
   --color-navy-100: var(--navy-100);
@@ -49,30 +52,6 @@
   --color-navy-700: var(--navy-700);
   --color-navy-800: var(--navy-800);
   --color-navy-900: var(--navy-900);
-
-  --color-orange-*: initial;
-  --color-orange-50: var(--orange-50);
-  --color-orange-100: var(--orange-100);
-  --color-orange-200: var(--orange-200);
-  --color-orange-300: var(--orange-300);
-  --color-orange-400: var(--orange-400);
-  --color-orange-500: var(--orange-500);
-  --color-orange-600: var(--orange-600);
-  --color-orange-700: var(--orange-700);
-  --color-orange-800: var(--orange-800);
-  --color-orange-900: var(--orange-900);
-
-  --color-slate-*: initial;
-  --color-slate-50: var(--slate-50);
-  --color-slate-100: var(--slate-100);
-  --color-slate-200: var(--slate-200);
-  --color-slate-300: var(--slate-300);
-  --color-slate-400: var(--slate-400);
-  --color-slate-500: var(--slate-500);
-  --color-slate-600: var(--slate-600);
-  --color-slate-700: var(--slate-700);
-  --color-slate-800: var(--slate-800);
-  --color-slate-900: var(--slate-900);
 }
 
 * {
@@ -82,9 +61,8 @@
 }
 
 body {
-  background: var(--slate-50);
-  color: var(--navy-900);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: #09090b;
+  color: #fafafa;
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -96,29 +74,91 @@ html {
 
 /* Selection color */
 ::selection {
-  background: var(--orange-500);
-  color: white;
+  background: var(--amber-500);
+  color: #18181b;
 }
 
-/* Custom scrollbar */
+/* Custom scrollbar - Editorial style */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--slate-100);
+  background: #18181b;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--navy-400);
-  border-radius: 5px;
+  background: var(--amber-500);
+  border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--navy-600);
+  background: var(--amber-400);
 }
 
-/* Fade in up animation */
+/* Editorial Brutalist Animations */
+@keyframes slide-up {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-up {
+  animation: slide-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  opacity: 0;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 8s linear infinite;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateY(-50%);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(50%);
+    opacity: 0;
+  }
+}
+
+.animate-scroll {
+  animation: scroll 2s ease-in-out infinite;
+}
+
+/* Fade in up animation - legacy support */
 @keyframes fadeInUp {
   from {
     opacity: 0;
