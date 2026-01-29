@@ -1,36 +1,170 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Woods Websites
 
-## Getting Started
+Professional web design and development portfolio site built with Next.js 15 and Tailwind CSS v4.
 
-First, run the development server:
+![Woods Websites](public/images/woods-websites-logo.jpg)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Live Site
+
+Coming soon: [woodswebsites.com](https://woodswebsites.com)
+
+## 📋 Project Overview
+
+Woods Websites is a portfolio and business site showcasing web design and development services. The site features:
+
+- Interactive before/after portfolio sliders
+- Comprehensive service offerings
+- Client testimonials and case studies
+- Contact form for lead generation
+- Fully responsive design
+- Optimized for performance and SEO
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 (App Router)
+- **Styling**: Tailwind CSS v4
+- **Language**: TypeScript
+- **Fonts**: DM Sans (body), Fraunces (headlines)
+- **Deployment**: Cloudflare Pages (planned)
+
+## 📁 Project Structure
+
+```
+woods-websites/
+├── app/
+│   ├── components/
+│   │   ├── Navigation.tsx           # Header with mobile menu
+│   │   ├── Footer.tsx               # Site footer
+│   │   └── BeforeAfterSlider.tsx    # Interactive image slider
+│   ├── portfolio/
+│   │   └── page.tsx                 # Portfolio showcase page
+│   ├── services/
+│   │   └── page.tsx                 # Services page
+│   ├── about/
+│   │   └── page.tsx                 # About us page
+│   ├── contact/
+│   │   └── page.tsx                 # Contact form
+│   ├── layout.tsx                   # Root layout
+│   ├── page.tsx                     # Homepage
+│   └── globals.css                  # Global styles
+├── public/
+│   └── images/                      # Portfolio images
+└── SETUP-INSTRUCTIONS.md            # Setup guide
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🎨 Design System
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Colors
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Navy** (#102a43 - #f0f4f8): Primary brand color for text and sections
+- **Orange** (#7c2d12 - #fff7ed): Accent color for CTAs and highlights
+- **Slate** (#0f172a - #f8fafc): Neutral grays for body text
 
-## Learn More
+### Typography
 
-To learn more about Next.js, take a look at the following resources:
+- **Fraunces**: Display serif font for headlines (distinctive, editorial feel)
+- **DM Sans**: Clean sans-serif for body text (readable, friendly)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🏃 Getting Started
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Prerequisites
 
-## Deploy on Vercel
+- Node.js 20+ installed
+- npm or yarn package manager
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Installation
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. Clone the repository:
+```bash
+git clone https://github.com/your-username/woods-websites.git
+cd woods-websites
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Add portfolio images to `/public/images/`:
+   - aviation-before.png
+   - aviation-after.png
+   - svens-before.png
+   - svens-after.png
+   - ovens-new.png
+   - woods-websites-logo.jpg
+
+4. Run the development server:
+```bash
+npm run dev
+```
+
+5. Open [http://localhost:3000](http://localhost:3000) in your browser
+
+## 📦 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm start` - Start production server
+- `npm run lint` - Run ESLint
+
+## 🚢 Deployment
+
+### Cloudflare Pages
+
+1. Push your code to GitHub
+2. Connect your repo to Cloudflare Pages
+3. Build settings:
+   - **Build command**: `npm run build`
+   - **Build output directory**: `.next`
+   - **Framework preset**: Next.js
+
+Cloudflare will automatically deploy on every push to main!
+
+### Alternative: Vercel
+
+1. Push to GitHub
+2. Import project in Vercel
+3. Deploy automatically
+
+## 📝 Portfolio Projects Featured
+
+1. **Aviation Expeditions** - Complete redesign of Alaskan flightseeing tour website
+2. **Sven's Basecamp Hostel** - Modern redesign with Cloudbeds integration
+3. **Ovens Soccer** - Brand new sports organization website
+
+## 🎯 Key Features
+
+- **Before/After Sliders**: Interactive portfolio presentation
+- **Responsive Design**: Mobile-first approach
+- **Performance Optimized**: Fast load times and smooth animations
+- **SEO Friendly**: Proper meta tags and semantic HTML
+- **Contact Form**: Lead generation with validation
+- **Modern Stack**: Next.js 15 with latest features
+
+## 🤝 Contributing
+
+This is a private project for Woods Websites. For collaboration:
+
+1. Create a branch for your feature
+2. Make your changes
+3. Test thoroughly
+4. Submit a pull request
+
+## 📄 License
+
+© 2026 Woods Websites. All rights reserved.
+
+## 🔗 Links
+
+- Portfolio: [/portfolio](http://localhost:3000/portfolio)
+- Services: [/services](http://localhost:3000/services)
+- About: [/about](http://localhost:3000/about)
+- Contact: [/contact](http://localhost:3000/contact)
+
+## 📧 Contact
+
+For inquiries: hello@woodswebsites.com
+
+---
+
+Built with ❤️ by Woods Websites
