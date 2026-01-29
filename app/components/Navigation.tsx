@@ -28,10 +28,13 @@ export default function Navigation() {
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative w-12 h-12 rounded-full overflow-hidden bg-navy-800 flex items-center justify-center">
-            <span className="text-xl font-bold text-white" style={{ fontFamily: 'var(--font-fraunces)' }}>
-              W
-            </span>
+          <div className="relative w-12 h-12 rounded-full overflow-hidden">
+            <Image
+              src="/images/woods-websites-logo.jpg"
+              alt="Woods Websites Logo"
+              fill
+              className="object-cover"
+            />
           </div>
           <div>
             <div

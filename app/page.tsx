@@ -12,10 +12,10 @@ export default function Home() {
           <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-navy-400 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
         </div>
 
-        <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 text-center">
           <div className="animate-fadeInUp">
             <h1
-              className="text-5xl md:text-7xl font-bold text-navy-900 mb-6 leading-tight"
+              className="text-5xl md:text-7xl font-bold text-navy-900 mb-8 leading-tight"
               style={{ fontFamily: "var(--font-fraunces)" }}
             >
               Web Design That
@@ -24,7 +24,7 @@ export default function Home() {
                 Actually Works
               </span>
             </h1>
-            <p className="text-xl md:text-2xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl md:text-2xl text-slate-600 mb-12 max-w-3xl mx-auto leading-relaxed">
               We create stunning, high-performance websites that help your business grow.
               From custom designs to complex integrations, we bring your vision to life.
             </p>
@@ -45,7 +45,7 @@ export default function Home() {
           </div>
 
           {/* Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-4xl mx-auto">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-24 max-w-4xl mx-auto">
             {[
               { number: "50+", label: "Projects Delivered" },
               { number: "100%", label: "Client Satisfaction" },
@@ -256,7 +256,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-3 gap-10">
             {[
               {
                 title: "Custom Website Design",
@@ -297,21 +297,21 @@ export default function Home() {
             ].map((service, index) => (
               <div
                 key={index}
-                className="p-8 bg-navy-800 rounded-xl hover:bg-navy-700 transition-colors"
+                className="p-10 bg-navy-800 rounded-xl hover:bg-navy-700 transition-colors"
               >
-                <div className="text-5xl mb-4">{service.icon}</div>
+                <div className="text-5xl mb-6">{service.icon}</div>
                 <h3
-                  className="text-xl font-bold mb-3"
+                  className="text-xl font-bold mb-4"
                   style={{ fontFamily: "var(--font-fraunces)" }}
                 >
                   {service.title}
                 </h3>
-                <p className="text-slate-300">{service.description}</p>
+                <p className="text-slate-300 leading-relaxed">{service.description}</p>
               </div>
             ))}
           </div>
 
-          <div className="text-center mt-12">
+          <div className="text-center mt-16">
             <Link
               href="/services"
               className="inline-block px-8 py-4 bg-orange-600 text-white rounded-lg hover:bg-orange-700 transition-all hover:shadow-xl font-semibold text-lg"

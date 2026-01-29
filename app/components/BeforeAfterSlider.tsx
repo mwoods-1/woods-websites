@@ -50,7 +50,8 @@ export default function BeforeAfterSlider({
   return (
     <div
       ref={containerRef}
-      className="relative w-full aspect-video bg-slate-200 rounded-xl overflow-hidden shadow-xl cursor-ew-resize select-none group"
+      className="relative w-full bg-slate-200 rounded-xl overflow-hidden shadow-xl cursor-ew-resize select-none group"
+      style={{ paddingBottom: '56.25%' }}
       onMouseMove={handleMouseMove}
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
@@ -66,7 +67,7 @@ export default function BeforeAfterSlider({
           src={afterImage}
           alt={afterLabel}
           fill
-          className="object-cover"
+          className="object-contain"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
         />
         <div className="absolute top-4 right-4 bg-orange-600 text-white px-3 py-1.5 rounded-full text-sm font-semibold shadow-lg">
@@ -83,7 +84,7 @@ export default function BeforeAfterSlider({
           src={beforeImage}
           alt={beforeLabel}
           fill
-          className="object-cover"
+          className="object-contain"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 1200px"
         />
         <div className="absolute top-4 left-4 bg-navy-800 text-white px-3 py-1.5 rounded-full text-sm font-semibold shadow-lg">
