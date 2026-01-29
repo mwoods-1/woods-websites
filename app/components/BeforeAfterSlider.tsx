@@ -33,11 +33,18 @@ export default function BeforeAfterSlider({
   const handleMouseUp = () => setIsDragging(false);
 
   const handleMouseMove = (e: React.MouseEvent) => {
-    if (isDragging) handleMove(e.clientX);
+    if (!isDragging) return;
+    e.preventDefault();
+    handleMove(e.clientX);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
+    e.preventDefault();
     if (e.touches.length > 0) handleMove(e.touches[0].clientX);
+  };
+
+  const handleClick = (e: React.MouseEvent) => {
+    handleMove(e.clientX);
   };
 
   return (
@@ -48,8 +55,10 @@ export default function BeforeAfterSlider({
       onMouseDown={handleMouseDown}
       onMouseUp={handleMouseUp}
       onMouseLeave={handleMouseUp}
+      onClick={handleClick}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleMouseUp}
+      onTouchStart={(e) => handleMove(e.touches[0].clientX)}
     >
       {/* After Image (Full) */}
       <div className="absolute inset-0">

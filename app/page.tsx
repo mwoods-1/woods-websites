@@ -3,9 +3,9 @@ import BeforeAfterSlider from "./components/BeforeAfterSlider";
 
 export default function Home() {
   return (
-    <div className="pt-24">
+    <div>
       {/* Hero Section */}
-      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-navy-50 via-white to-orange-50">
+      <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-navy-50 via-white to-orange-50 pt-24">
         {/* Animated Background Elements */}
         <div className="absolute inset-0 overflow-hidden opacity-30">
           <div className="absolute top-1/4 -left-20 w-96 h-96 bg-orange-400 rounded-full blur-3xl animate-pulse" />
@@ -67,9 +67,9 @@ export default function Home() {
       </section>
 
       {/* Featured Portfolio */}
-      <section className="py-20 bg-white">
+      <section className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <h2
               className="text-4xl md:text-5xl font-bold text-navy-900 mb-4"
               style={{ fontFamily: "var(--font-fraunces)" }}
@@ -82,9 +82,9 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="space-y-20">
+          <div className="space-y-32">
             {/* Portfolio Item: Aviation Expeditions */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+<div className="grid md:grid-cols-2 gap-16 items-center">
               <div>
                 <h3
                   className="text-3xl font-bold text-navy-900 mb-4"
@@ -136,7 +136,7 @@ export default function Home() {
             </div>
 
             {/* Portfolio Item: Svens Hostel */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
               <div className="md:order-2">
                 <h3
                   className="text-3xl font-bold text-navy-900 mb-4"
@@ -188,7 +188,7 @@ export default function Home() {
             </div>
 
             {/* Portfolio Item: Ovens Soccer */}
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+            <div className="grid md:grid-cols-2 gap-16 items-center">
               <div>
                 <h3
                   className="text-3xl font-bold text-navy-900 mb-4"
@@ -242,9 +242,9 @@ export default function Home() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-20 bg-navy-900 text-white">
+      <section className="py-32 bg-navy-900 text-white">
         <div className="max-w-7xl mx-auto px-6">
-          <div className="text-center mb-16">
+          <div className="text-center mb-20">
             <h2
               className="text-4xl md:text-5xl font-bold mb-4"
               style={{ fontFamily: "var(--font-fraunces)" }}
@@ -323,7 +323,7 @@ export default function Home() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-br from-orange-50 to-navy-50">
+      <section className="py-32 bg-gradient-to-br from-orange-50 to-navy-50">
         <div className="max-w-4xl mx-auto px-6 text-center">
           <h2
             className="text-4xl md:text-5xl font-bold text-navy-900 mb-6"
