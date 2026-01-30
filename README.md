@@ -62,8 +62,8 @@ woods-websites/
 
 ### Typography
 
-- **Fraunces**: Display serif font for headlines (distinctive, editorial feel)
-- **DM Sans**: Clean sans-serif for body text (readable, friendly)
+- **Unbounded**: Bold geometric sans-serif for headlines and UI elements (distinctive, modern)
+- **Libre Baskerville**: Elegant serif for body text (readable, classic)
 
 ## 🏃 Getting Started
 
