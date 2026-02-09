@@ -36,7 +36,7 @@
       "phase": 1,
       "title": "Prepare portfolio screenshots",
       "description": "Capture or prepare hero screenshots for all 4 portfolio projects. Aviation Expeditions and Sven's Hostel have existing images that may need reformatting. Ovens Soccer has ovens-new.jpg that needs verification. Kingdom Property Care needs a fresh screenshot. All images should be ~1200x800px landscape JPG/WebP.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": [],
       "files": [
         "public/images/aviation-card.jpg",
@@ -51,7 +51,7 @@
         "Each image clearly shows the client site's homepage",
         "Images look sharp and professional at card display size"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "All 4 card images created at 1200x800px JPG. Aviation Expeditions (126KB) and Kingdom Property Care (461KB) captured via browser screenshots from live sites. Sven's Basecamp (240KB) derived from existing svens-after.jpg (live site unreachable). Ovens Soccer (139KB) derived from existing ovens-new.jpg. All under 500KB, landscape, clearly showing each client's homepage hero."
     },
     {
       "id": "1.3",
