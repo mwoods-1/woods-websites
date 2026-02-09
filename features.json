@@ -1,0 +1,440 @@
+{
+  "project": "Woods Websites",
+  "goal": "Launch-ready polish and deployment",
+  "lastUpdated": "2026-02-09",
+  "statusKey": {
+    "pending": "Not started",
+    "in-progress": "Currently being developed",
+    "blocked": "Waiting on a prerequisite or external dependency",
+    "complete": "Finished and validated",
+    "skipped": "Intentionally deferred or removed from scope"
+  },
+  "features": [
+    {
+      "id": "1.1",
+      "phase": 1,
+      "title": "Create portfolio case study card component",
+      "description": "Build a reusable CaseStudyCard component that displays a hero screenshot, project name, brief description, technology/scope tags, and a link to the live site. Must follow the Editorial Brutalist design system (amber/zinc palette, Unbounded headings, hover effects).",
+      "status": "complete",
+      "prerequisites": [],
+      "files": [
+        "app/components/CaseStudyCard.tsx"
+      ],
+      "validationCriteria": [
+        "Component renders with all props: image, title, description, tags array, liveUrl",
+        "Responsive: full-width on mobile, works in 2-column grid on desktop",
+        "Hover effect present (subtle scale, border glow, or similar)",
+        "Typography uses Unbounded for title, Libre Baskerville for description",
+        "Tags styled as existing pill/tag pattern from design system",
+        "Live site link opens in new tab",
+        "Image uses Next.js Image component with proper sizing"
+      ],
+      "postImplementationNotes": "Component already implemented with all required props (image, title, description, tags, liveUrl). Uses group hover for coordinated effects (image scale, title color, border glow). Server component — no client JS. Tags use existing pill pattern. Build passes."
+    },
+    {
+      "id": "1.2",
+      "phase": 1,
+      "title": "Prepare portfolio screenshots",
+      "description": "Capture or prepare hero screenshots for all 4 portfolio projects. Aviation Expeditions and Sven's Hostel have existing images that may need reformatting. Ovens Soccer has ovens-new.jpg that needs verification. Kingdom Property Care needs a fresh screenshot. All images should be ~1200x800px landscape JPG/WebP.",
+      "status": "pending",
+      "prerequisites": [],
+      "files": [
+        "public/images/aviation-card.jpg",
+        "public/images/svens-card.jpg",
+        "public/images/ovens-card.jpg",
+        "public/images/kingdom-card.jpg"
+      ],
+      "validationCriteria": [
+        "All 4 screenshot images exist in public/images/",
+        "Images are landscape ratio (~1200x800px or similar)",
+        "Images are optimized (under 500KB each)",
+        "Each image clearly shows the client site's homepage",
+        "Images look sharp and professional at card display size"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "1.3",
+      "phase": 1,
+      "title": "Rewrite portfolio page with case study card grid",
+      "description": "Replace the current portfolio page layout (before/after sliders with long descriptions) with a clean grid of CaseStudyCard components. Display all 4 projects: Aviation Expeditions, Sven's Basecamp Hostel, Ovens Soccer, Kingdom Property Care. Grid should be 1 column on mobile, 2 columns on desktop. Keep the hero section and CTA section.",
+      "status": "pending",
+      "prerequisites": ["1.1", "1.2"],
+      "files": [
+        "app/portfolio/page.tsx"
+      ],
+      "validationCriteria": [
+        "All 4 projects displayed as case study cards",
+        "Grid layout: 1 column mobile, 2 columns desktop (md: breakpoint)",
+        "Each card shows: screenshot, name, description, tags, live link",
+        "Hero section retained with 'PORTFOLIO' headline",
+        "CTA section retained at bottom",
+        "Page passes visual review on mobile and desktop",
+        "No broken images or links",
+        "npm run build succeeds without errors"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "1.4",
+      "phase": 1,
+      "title": "Update homepage featured portfolio section",
+      "description": "Replace the current homepage portfolio section (which uses BeforeAfterSlider components) with 2-3 featured case study cards matching the new portfolio page design. Should entice visitors to click through to the full portfolio page.",
+      "status": "pending",
+      "prerequisites": ["1.1", "1.2"],
+      "files": [
+        "app/page.tsx"
+      ],
+      "validationCriteria": [
+        "Homepage shows 2-3 featured project cards (not before/after sliders)",
+        "Cards link to portfolio page or to live client sites",
+        "'View All Projects' or similar CTA links to /portfolio",
+        "Section heading and label follow existing design patterns",
+        "Layout is responsive and consistent with portfolio page grid",
+        "npm run build succeeds without errors"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "1.5",
+      "phase": 1,
+      "title": "Clean up BeforeAfterSlider usage",
+      "description": "After portfolio and homepage are updated, evaluate BeforeAfterSlider component. If no longer used anywhere, either remove it or keep it for potential future use. Remove any unused before/after image imports.",
+      "status": "pending",
+      "prerequisites": ["1.3", "1.4"],
+      "files": [
+        "app/components/BeforeAfterSlider.tsx",
+        "app/page.tsx",
+        "app/portfolio/page.tsx"
+      ],
+      "validationCriteria": [
+        "No page imports BeforeAfterSlider unless intentionally kept",
+        "No unused image imports remain in page files",
+        "If component is removed, no references to it exist anywhere",
+        "If component is kept, it's clearly documented as available for future use",
+        "npm run build succeeds without errors or warnings about unused imports"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "2.1",
+      "phase": 2,
+      "title": "Integrate FormSubmit.co with contact form",
+      "description": "Replace the current console.log form submission in the contact page with FormSubmit.co integration. The form should POST to https://formsubmit.co/hello@woodswebsites.com. Configure hidden fields for: _subject (email subject template), _captcha (disable or use honeypot), _next (redirect URL after submission). Maintain the existing form UI, validation, and loading states.",
+      "status": "pending",
+      "prerequisites": [],
+      "files": [
+        "app/contact/page.tsx"
+      ],
+      "validationCriteria": [
+        "Form submits to FormSubmit.co endpoint",
+        "Honeypot spam field is included (hidden from users)",
+        "Custom subject line configured (e.g., 'New inquiry from Woods Websites')",
+        "After submission, user sees success feedback (redirect or in-page message)",
+        "Form validation still works (required fields, email format)",
+        "Loading state still displays during submission",
+        "Error handling for failed submissions",
+        "Test submission received at hello@woodswebsites.com"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "3.1",
+      "phase": 3,
+      "title": "Add global metadata defaults in root layout",
+      "description": "Add a base metadata export to app/layout.tsx with site-wide defaults: site name, default title template, default description, default Open Graph config, Twitter card config, and base URL. Individual pages will override these with page-specific metadata.",
+      "status": "pending",
+      "prerequisites": [],
+      "files": [
+        "app/layout.tsx"
+      ],
+      "validationCriteria": [
+        "layout.tsx exports a metadata object with: title template, description, openGraph defaults, twitter defaults",
+        "Title template follows pattern: '%s | Woods Websites'",
+        "Default description is compelling and includes key terms",
+        "openGraph includes: siteName, locale, type",
+        "twitter card type set to 'summary_large_image'",
+        "metadataBase is set to the production URL",
+        "npm run build succeeds"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "3.2",
+      "phase": 3,
+      "title": "Add per-page metadata for all pages",
+      "description": "Add unique metadata exports to each page: Homepage, Portfolio, Services, About, Contact. Each page gets a unique title, description, and Open Graph properties. Descriptions should be keyword-relevant and compelling for search results.",
+      "status": "pending",
+      "prerequisites": ["3.1"],
+      "files": [
+        "app/page.tsx",
+        "app/portfolio/page.tsx",
+        "app/services/page.tsx",
+        "app/about/page.tsx",
+        "app/contact/page.tsx"
+      ],
+      "validationCriteria": [
+        "Each page exports a metadata object with unique title and description",
+        "Titles are concise (under 60 characters)",
+        "Descriptions are compelling and under 160 characters",
+        "Open Graph title and description set per page",
+        "No duplicate descriptions across pages",
+        "HTML <title> renders correctly on each page",
+        "npm run build succeeds"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "3.3",
+      "phase": 3,
+      "title": "Create robots.txt",
+      "description": "Add a robots.txt file that allows all crawlers and points to the sitemap. Keep it simple — no pages need to be blocked.",
+      "status": "pending",
+      "prerequisites": [],
+      "files": [
+        "public/robots.txt"
+      ],
+      "validationCriteria": [
+        "robots.txt exists at public/robots.txt",
+        "Allows all user agents",
+        "Points to sitemap URL (https://woodswebsites.com/sitemap.xml)",
+        "Accessible at /robots.txt in dev server"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "3.4",
+      "phase": 3,
+      "title": "Create dynamic sitemap",
+      "description": "Create an app/sitemap.ts file using the Next.js sitemap generation API. Should list all public pages: /, /portfolio, /services, /about, /contact, /privacy, /terms. Include lastModified dates and change frequency hints.",
+      "status": "pending",
+      "prerequisites": ["5.1", "5.2"],
+      "files": [
+        "app/sitemap.ts"
+      ],
+      "validationCriteria": [
+        "sitemap.ts exports a default function returning MetadataRoute.Sitemap",
+        "All public pages are listed with full URLs",
+        "Each entry has lastModified date",
+        "Sitemap is accessible at /sitemap.xml in dev server",
+        "Valid XML structure"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "3.5",
+      "phase": 3,
+      "title": "Add structured data (JSON-LD)",
+      "description": "Add JSON-LD structured data to the homepage for SEO. Include Organization schema (business name, URL, logo, contact info) and WebSite schema. Embed as a <script type='application/ld+json'> tag.",
+      "status": "pending",
+      "prerequisites": ["3.1"],
+      "files": [
+        "app/page.tsx"
+      ],
+      "validationCriteria": [
+        "Homepage contains a <script type='application/ld+json'> tag",
+        "Organization schema includes: name, url, logo, email, description",
+        "WebSite schema includes: name, url",
+        "JSON-LD is valid (test with Google Rich Results Test or Schema.org validator)",
+        "No console errors from the script tag"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "3.6",
+      "phase": 3,
+      "title": "Create default Open Graph image",
+      "description": "Create a default OG image (1200x630px) for social media sharing. Should feature the Woods Websites brand name, tagline, and amber/zinc color scheme. Used when pages are shared on social media without a page-specific image.",
+      "status": "pending",
+      "prerequisites": [],
+      "files": [
+        "public/images/og-default.jpg"
+      ],
+      "validationCriteria": [
+        "Image exists at public/images/og-default.jpg",
+        "Dimensions are 1200x630px",
+        "Includes Woods Websites brand name",
+        "Uses the amber/zinc design palette",
+        "Text is legible at small preview sizes",
+        "File size is optimized (under 200KB)"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "3.7",
+      "phase": 3,
+      "title": "Audit and fix image alt text",
+      "description": "Review all images across the site and ensure every <Image> and <img> tag has a descriptive, meaningful alt attribute. Replace any generic alt text (e.g., 'image', 'screenshot') with specific descriptions.",
+      "status": "pending",
+      "prerequisites": ["1.3", "1.4"],
+      "files": [
+        "app/page.tsx",
+        "app/portfolio/page.tsx",
+        "app/about/page.tsx",
+        "app/components/Navigation.tsx"
+      ],
+      "validationCriteria": [
+        "Every Image component has a descriptive alt attribute",
+        "No alt text is empty string, 'image', or 'screenshot'",
+        "Alt text describes the content (e.g., 'Aviation Expeditions website homepage showing mountain landscape hero')",
+        "Decorative images use alt='' intentionally",
+        "No ESLint warnings about missing alt text"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "4.1",
+      "phase": 4,
+      "title": "Add Cloudflare Web Analytics",
+      "description": "Add the Cloudflare Web Analytics beacon script to the site. This can be done via a <script> tag in the root layout, or configured to auto-inject via Cloudflare Pages dashboard after deployment. If adding the script manually, use Next.js Script component with strategy='afterInteractive'.",
+      "status": "pending",
+      "prerequisites": [],
+      "files": [
+        "app/layout.tsx"
+      ],
+      "validationCriteria": [
+        "Analytics script is present in the HTML output (or documented as auto-inject via Cloudflare dashboard)",
+        "Script uses Next.js <Script> component if added manually",
+        "Script strategy is 'afterInteractive' to avoid blocking page load",
+        "No console errors from the analytics script",
+        "Analytics beacon token placeholder or actual token is configured"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "5.1",
+      "phase": 5,
+      "title": "Create Privacy Policy page",
+      "description": "Create a /privacy page with a standard privacy policy. Cover: what data is collected (contact form submissions only — name, email, phone, company, project details), how it's used (to respond to inquiries), third-party services (FormSubmit.co for form delivery, Cloudflare for hosting and analytics), data retention, user rights, and contact information. No cookies are used. Design as a clean, readable text page matching the site's typography system.",
+      "status": "pending",
+      "prerequisites": ["2.1"],
+      "files": [
+        "app/privacy/page.tsx"
+      ],
+      "validationCriteria": [
+        "Page exists at /privacy route",
+        "Covers all required sections: data collection, usage, third parties, retention, rights, contact",
+        "Mentions FormSubmit.co and Cloudflare by name",
+        "States no cookies are used",
+        "Page includes metadata export (title, description)",
+        "Typography consistent with rest of site",
+        "Footer privacy link works correctly",
+        "Page is readable and well-structured"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "5.2",
+      "phase": 5,
+      "title": "Create Terms of Service page",
+      "description": "Create a /terms page with standard terms of service. Cover: service description (web design and development), intellectual property, limitation of liability, disclaimers, governing law, and contact information. Keep it appropriate for a small web design business. Design as a clean, readable text page matching the site's typography system.",
+      "status": "pending",
+      "prerequisites": [],
+      "files": [
+        "app/terms/page.tsx"
+      ],
+      "validationCriteria": [
+        "Page exists at /terms route",
+        "Covers all required sections: services, IP, liability, disclaimers, governing law, contact",
+        "Page includes metadata export (title, description)",
+        "Typography consistent with rest of site",
+        "Footer terms link works correctly",
+        "Page is readable and well-structured"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "6.1",
+      "phase": 6,
+      "title": "Install and configure Cloudflare Pages adapter",
+      "description": "Install @cloudflare/next-on-pages package and configure the project for Cloudflare Pages deployment. Update next.config.ts if needed for compatibility. Add a build script or update the existing one for the Cloudflare build command.",
+      "status": "pending",
+      "prerequisites": ["1.3", "1.4", "2.1", "3.2", "3.3", "3.4", "5.1", "5.2"],
+      "files": [
+        "package.json",
+        "next.config.ts"
+      ],
+      "validationCriteria": [
+        "@cloudflare/next-on-pages is in devDependencies",
+        "Build command succeeds: npx @cloudflare/next-on-pages",
+        "next.config.ts has any required Cloudflare-specific settings",
+        "No build errors or warnings",
+        "Output directory .vercel/output/static is generated"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "6.2",
+      "phase": 6,
+      "title": "Deploy to Cloudflare Pages",
+      "description": "Connect the GitHub repository to Cloudflare Pages. Configure build settings (build command, output directory). Trigger the first deployment and verify it succeeds.",
+      "status": "pending",
+      "prerequisites": ["6.1"],
+      "files": [],
+      "validationCriteria": [
+        "GitHub repo is connected to Cloudflare Pages",
+        "Build settings configured correctly",
+        "Deployment succeeds without errors",
+        "Site is accessible at the Cloudflare Pages URL (*.pages.dev)",
+        "All pages render correctly on the deployed site",
+        "Contact form submits successfully on the deployed site"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "6.3",
+      "phase": 6,
+      "title": "Configure custom domain and DNS",
+      "description": "Set up woodswebsites.com as the custom domain in Cloudflare Pages. Configure DNS records (CNAME or A record). Verify HTTPS is working with Cloudflare's SSL. Set up www redirect if desired.",
+      "status": "pending",
+      "prerequisites": ["6.2"],
+      "files": [],
+      "validationCriteria": [
+        "woodswebsites.com resolves to the Cloudflare Pages deployment",
+        "HTTPS is working (no mixed content warnings)",
+        "www.woodswebsites.com redirects to woodswebsites.com (or vice versa)",
+        "SSL certificate is valid",
+        "All pages and assets load correctly on the custom domain"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "6.4",
+      "phase": 6,
+      "title": "Enable Cloudflare Web Analytics and verify",
+      "description": "Enable Cloudflare Web Analytics from the Cloudflare dashboard for the woodswebsites.com domain. If using auto-inject, verify it's working. If using manual script, ensure the correct beacon token is set. Verify analytics data is being collected.",
+      "status": "pending",
+      "prerequisites": ["4.1", "6.3"],
+      "files": [],
+      "validationCriteria": [
+        "Cloudflare Web Analytics is enabled in the dashboard",
+        "Analytics beacon is present in the page HTML",
+        "After visiting the site, data appears in the Cloudflare analytics dashboard",
+        "No console errors related to analytics"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "6.5",
+      "phase": 6,
+      "title": "Final live site verification",
+      "description": "Complete end-to-end testing of the live site. Check all pages, links, images, the contact form, mobile responsiveness, and page load performance. Verify SEO metadata renders correctly using browser dev tools and social media preview tools.",
+      "status": "pending",
+      "prerequisites": ["6.2", "6.3", "6.4"],
+      "files": [],
+      "validationCriteria": [
+        "All 7 pages load without errors: /, /portfolio, /services, /about, /contact, /privacy, /terms",
+        "All navigation links work correctly",
+        "All images load and display properly",
+        "Contact form submits and email is received",
+        "Mobile menu works on phone-sized viewport",
+        "Page titles and descriptions appear in browser tab and view-source",
+        "OG tags render correctly (test with social media debug tools)",
+        "robots.txt and sitemap.xml are accessible",
+        "No console errors on any page",
+        "Page load time under 3 seconds on 3G connection"
+      ],
+      "postImplementationNotes": null
+    }
+  ]
+}
