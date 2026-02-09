@@ -1,6 +1,40 @@
 import Link from "next/link";
-import BeforeAfterSlider from "../components/BeforeAfterSlider";
-import Image from "next/image";
+import CaseStudyCard from "../components/CaseStudyCard";
+
+const projects = [
+  {
+    image: "/images/aviation-card.jpg",
+    title: "Aviation Expeditions",
+    description:
+      "Complete website transformation for an Alaskan flightseeing tour company. Modernized the brand, improved user experience, and optimized for conversions.",
+    tags: ["Redesign", "Performance", "SEO", "Next.js"],
+    liveUrl: "https://aviation-expeditions.com",
+  },
+  {
+    image: "/images/svens-card.jpg",
+    title: "Sven's Basecamp Hostel",
+    description:
+      "Modern redesign with seamless Cloudbeds booking integration. Transformed an outdated site into a vibrant, mobile-friendly experience.",
+    tags: ["Redesign", "Integration", "Cloudbeds", "Responsive"],
+    liveUrl: "https://svensbasecamphostel.com",
+  },
+  {
+    image: "/images/ovens-card.jpg",
+    title: "Ovens Soccer",
+    description:
+      "Brand new website built from scratch for a sports organization. Clean, modern design with easy content management and mobile-first approach.",
+    tags: ["New Build", "Custom", "Mobile-First"],
+    liveUrl: "https://ovenssoccer.com",
+  },
+  {
+    image: "/images/kingdom-card.jpg",
+    title: "Kingdom Property Care",
+    description:
+      "Professional website for a property maintenance company. Clean design showcasing services, service areas, and easy contact options.",
+    tags: ["New Build", "Business", "Responsive"],
+    liveUrl: "https://kingdompropertycare.com",
+  },
+];
 
 export const metadata = {
   title: "Portfolio - Woods Websites",
@@ -41,274 +75,13 @@ export default function Portfolio() {
         </div>
       </section>
 
-      {/* Portfolio Items */}
+      {/* Portfolio Grid */}
       <section className="py-24">
         <div className="max-w-[1800px] mx-auto px-12 lg:px-24">
-          <div className="space-y-48">
-            {/* Aviation Expeditions */}
-            <div className="grid lg:grid-cols-12 gap-12 items-start">
-              <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-32">
-                <div className="space-y-6">
-                  <span
-                    className="inline-block px-4 py-2 border border-amber-500/30 text-amber-500 text-xs uppercase tracking-widest"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
-                  >
-                    Case Study 01
-                  </span>
-                  <h2
-                    className="text-4xl md:text-5xl font-black text-white leading-tight"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
-                  >
-                    Aviation
-                    <br />
-                    Expeditions
-                  </h2>
-                  <div className="w-24 h-px bg-amber-500" />
-                  <p className="text-zinc-400 text-lg leading-relaxed">
-                    Complete website transformation for an Alaskan flightseeing
-                    tour company. Modernized the brand, improved user
-                    experience, and optimized for conversions.
-                  </p>
-                </div>
-
-                <div className="space-y-4">
-                  <h3
-                    className="text-sm uppercase tracking-wider text-zinc-500"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
-                  >
-                    What We Did
-                  </h3>
-                  <ul className="space-y-3 text-zinc-400">
-                    {[
-                      "Complete visual redesign with custom photography",
-                      "Improved navigation and user flow",
-                      "Performance optimization (50% faster)",
-                      "SEO improvements with descriptive content",
-                      "Mobile-responsive design",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="text-amber-500 mt-1">+</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="flex flex-wrap gap-3">
-                  {["Redesign", "Performance", "SEO", "Next.js"].map(
-                    (tag, i) => (
-                      <span
-                        key={i}
-                        className="px-4 py-2 bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs uppercase tracking-wider hover:border-amber-500/30 hover:text-amber-500 transition-colors"
-                      >
-                        {tag}
-                      </span>
-                    )
-                  )}
-                </div>
-
-                <a
-                  href="https://aviation-expeditions.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center text-amber-500 hover:text-amber-400 font-bold text-sm uppercase tracking-wider transition-colors"
-                  style={{ fontFamily: "var(--font-unbounded)" }}
-                >
-                  Visit Live Site
-                  <svg
-                    className="w-5 h-5 ml-3 transform group-hover:translate-x-2 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </a>
-              </div>
-
-              <div className="lg:col-span-7 relative">
-                <div className="absolute -top-8 -right-8 w-32 h-32 border border-amber-500/10" />
-                <BeforeAfterSlider
-                  beforeImage="/images/aviation-before.jpg"
-                  afterImage="/images/aviation-after.jpg"
-                />
-              </div>
-            </div>
-
-            {/* Svens Hostel - Reversed */}
-            <div className="grid lg:grid-cols-12 gap-12 items-start">
-              <div className="lg:col-span-7 lg:order-1 relative">
-                <div className="absolute -bottom-8 -left-8 w-48 h-48 border border-amber-500/10" />
-                <BeforeAfterSlider
-                  beforeImage="/images/svens-before.jpg"
-                  afterImage="/images/svens-after.jpg"
-                />
-              </div>
-
-              <div className="lg:col-span-5 lg:order-2 space-y-8 lg:sticky lg:top-32">
-                <div className="space-y-6">
-                  <span
-                    className="inline-block px-4 py-2 border border-amber-500/30 text-amber-500 text-xs uppercase tracking-widest"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
-                  >
-                    Case Study 02
-                  </span>
-                  <h2
-                    className="text-4xl md:text-5xl font-black text-white leading-tight"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
-                  >
-                    Sven's
-                    <br />
-                    Basecamp
-                  </h2>
-                  <div className="w-24 h-px bg-amber-500" />
-                  <p className="text-zinc-400 text-lg leading-relaxed">
-                    Modern redesign with seamless Cloudbeds booking integration.
-                    Transformed an outdated site into a vibrant, mobile-friendly
-                    experience.
-                  </p>
-                </div>
-
-                <div className="space-y-4">
-                  <h3
-                    className="text-sm uppercase tracking-wider text-zinc-500"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
-                  >
-                    What We Did
-                  </h3>
-                  <ul className="space-y-3 text-zinc-400">
-                    {[
-                      "Full website redesign with fresh branding",
-                      "Custom Cloudbeds integration for bookings",
-                      "Enhanced mobile experience (70% of traffic)",
-                      "Streamlined customer journey",
-                      "Improved accessibility and performance",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="text-amber-500 mt-1">+</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="flex flex-wrap gap-3">
-                  {["Redesign", "Integration", "Cloudbeds", "Responsive"].map(
-                    (tag, i) => (
-                      <span
-                        key={i}
-                        className="px-4 py-2 bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs uppercase tracking-wider hover:border-amber-500/30 hover:text-amber-500 transition-colors"
-                      >
-                        {tag}
-                      </span>
-                    )
-                  )}
-                </div>
-
-                <a
-                  href="https://svensbasecamphostel.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group inline-flex items-center text-amber-500 hover:text-amber-400 font-bold text-sm uppercase tracking-wider transition-colors"
-                  style={{ fontFamily: "var(--font-unbounded)" }}
-                >
-                  Visit Live Site
-                  <svg
-                    className="w-5 h-5 ml-3 transform group-hover:translate-x-2 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-
-            {/* Ovens Soccer */}
-            <div className="grid lg:grid-cols-12 gap-12 items-start">
-              <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-32">
-                <div className="space-y-6">
-                  <span
-                    className="inline-block px-4 py-2 border border-amber-500/30 text-amber-500 text-xs uppercase tracking-widest"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
-                  >
-                    Case Study 03
-                  </span>
-                  <h2
-                    className="text-4xl md:text-5xl font-black text-white leading-tight"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
-                  >
-                    Ovens
-                    <br />
-                    Soccer
-                  </h2>
-                  <div className="w-24 h-px bg-amber-500" />
-                  <p className="text-zinc-400 text-lg leading-relaxed">
-                    Brand new website built from scratch for a sports
-                    organization. Clean, modern design with easy content
-                    management and mobile-first approach.
-                  </p>
-                </div>
-
-                <div className="space-y-4">
-                  <h3
-                    className="text-sm uppercase tracking-wider text-zinc-500"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
-                  >
-                    What We Did
-                  </h3>
-                  <ul className="space-y-3 text-zinc-400">
-                    {[
-                      "Custom website design from scratch",
-                      "Mobile-first responsive layout",
-                      "Easy content management system",
-                      "Fast load times on all devices",
-                      "SEO-friendly structure",
-                    ].map((item, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <span className="text-amber-500 mt-1">+</span>
-                        <span>{item}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="flex flex-wrap gap-3">
-                  {["New Build", "Custom", "Mobile-First"].map((tag, i) => (
-                    <span
-                      key={i}
-                      className="px-4 py-2 bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs uppercase tracking-wider hover:border-amber-500/30 hover:text-amber-500 transition-colors"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              <div className="lg:col-span-7 relative">
-                <div className="absolute -top-8 -right-8 w-32 h-32 border border-amber-500/10" />
-                <div className="relative aspect-video bg-zinc-900 border border-zinc-800 flex items-center justify-center overflow-hidden group">
-                  <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  <p
-                    className="text-zinc-600 font-bold text-sm uppercase tracking-widest"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
-                  >
-                    Coming Soon
-                  </p>
-                </div>
-              </div>
-            </div>
+          <div className="grid md:grid-cols-2 gap-8">
+            {projects.map((project) => (
+              <CaseStudyCard key={project.title} {...project} />
+            ))}
           </div>
         </div>
       </section>

@@ -58,7 +58,7 @@
       "phase": 1,
       "title": "Rewrite portfolio page with case study card grid",
       "description": "Replace the current portfolio page layout (before/after sliders with long descriptions) with a clean grid of CaseStudyCard components. Display all 4 projects: Aviation Expeditions, Sven's Basecamp Hostel, Ovens Soccer, Kingdom Property Care. Grid should be 1 column on mobile, 2 columns on desktop. Keep the hero section and CTA section.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": ["1.1", "1.2"],
       "files": [
         "app/portfolio/page.tsx"
@@ -73,7 +73,7 @@
         "No broken images or links",
         "npm run build succeeds without errors"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "Replaced ~260 lines of per-project markup (BeforeAfterSlider, sticky sidebars, bullet lists) with a data-driven grid of CaseStudyCard components. Projects array at top of file holds all 4 projects. Grid uses md:grid-cols-2 for responsive 1→2 column layout. Hero and CTA sections preserved unchanged. BeforeAfterSlider import removed. Build passes cleanly. Visual verification confirmed on both desktop (1280px) and mobile (375px) viewports."
     },
     {
       "id": "1.4",
