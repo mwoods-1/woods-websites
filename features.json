@@ -80,7 +80,7 @@
       "phase": 1,
       "title": "Update homepage featured portfolio section",
       "description": "Replace the current homepage portfolio section (which uses BeforeAfterSlider components) with 2-3 featured case study cards matching the new portfolio page design. Should entice visitors to click through to the full portfolio page.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": ["1.1", "1.2"],
       "files": [
         "app/page.tsx"
@@ -93,7 +93,7 @@
         "Layout is responsive and consistent with portfolio page grid",
         "npm run build succeeds without errors"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "Replaced ~180 lines of BeforeAfterSlider markup with a data-driven grid of 3 CaseStudyCard components (Aviation Expeditions, Sven's Basecamp, Ovens Soccer). Uses md:grid-cols-2 responsive grid matching portfolio page. Added 'View All Projects' CTA linking to /portfolio. Headline updated from 'TRANS-FORMATIONS' to 'FEATURED PROJECTS'. Build passes cleanly."
     },
     {
       "id": "1.5",

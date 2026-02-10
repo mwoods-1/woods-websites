@@ -1,5 +1,32 @@
 import Link from "next/link";
-import BeforeAfterSlider from "./components/BeforeAfterSlider";
+import CaseStudyCard from "./components/CaseStudyCard";
+
+const featuredProjects = [
+  {
+    image: "/images/aviation-card.jpg",
+    title: "Aviation Expeditions",
+    description:
+      "Complete website transformation for an Alaskan flightseeing tour company. Modernized the brand, improved user experience, and optimized for conversions.",
+    tags: ["Redesign", "Performance", "SEO", "Next.js"],
+    liveUrl: "https://aviation-expeditions.com",
+  },
+  {
+    image: "/images/svens-card.jpg",
+    title: "Sven's Basecamp Hostel",
+    description:
+      "Modern redesign with seamless Cloudbeds booking integration. Transformed an outdated site into a vibrant, mobile-friendly experience.",
+    tags: ["Redesign", "Integration", "Cloudbeds"],
+    liveUrl: "https://svensbasecamphostel.com",
+  },
+  {
+    image: "/images/ovens-card.jpg",
+    title: "Ovens Soccer",
+    description:
+      "Brand new website built from scratch for a sports organization. Clean, modern design with easy content management and mobile-first approach.",
+    tags: ["New Build", "Custom", "Mobile-First"],
+    liveUrl: "https://ovenssoccer.com",
+  },
+];
 
 export default function Home() {
   return (
@@ -95,7 +122,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Portfolio - Asymmetric Grid */}
+      {/* Featured Portfolio - Card Grid */}
       <section className="py-32 bg-zinc-950 relative overflow-hidden">
         {/* Background accent */}
         <div className="absolute top-0 right-0 w-1/2 h-px bg-gradient-to-r from-transparent to-amber-500/30" />
@@ -113,7 +140,7 @@ export default function Home() {
                   className="text-5xl md:text-7xl font-black text-white leading-[0.9] mb-6"
                   style={{ fontFamily: "var(--font-unbounded)" }}
                 >
-                  TRANS-<br/>FORMATIONS
+                  FEATURED<br/>PROJECTS
                 </h2>
                 <p className="text-zinc-400 text-xl max-w-2xl italic leading-relaxed border-l-2 border-amber-500/30 pl-6">
                   Elevating digital experiences through strategic design and technical excellence
@@ -122,156 +149,23 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="space-y-48">
-            {/* Portfolio Item 1: Aviation Expeditions - Large format */}
-            <div className="grid lg:grid-cols-12 gap-12 items-start">
-              <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-32">
-                <div className="space-y-6">
-                  <span className="inline-block px-4 py-2 border border-amber-500/30 text-amber-500 text-xs uppercase tracking-widest" style={{ fontFamily: "var(--font-unbounded)" }}>
-                    Case Study 01
-                  </span>
-                  <h3
-                    className="text-4xl md:text-6xl font-black text-white leading-tight"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
-                  >
-                    Aviation<br/>Expeditions
-                  </h3>
-                  <div className="w-24 h-px bg-amber-500" />
-                  <p className="text-zinc-400 text-lg leading-relaxed">
-                    Complete website redesign for an Alaskan flightseeing tour company.
-                    Modernized the brand, improved user experience, and optimized for conversions.
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {["Redesign", "Performance", "SEO"].map((tag, i) => (
-                    <span key={i} className="px-4 py-2 bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs uppercase tracking-wider hover:border-amber-500/30 hover:text-amber-500 transition-colors">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <Link
-                  href="/portfolio"
-                  className="group inline-flex items-center text-amber-500 hover:text-amber-400 font-bold text-sm uppercase tracking-wider transition-colors"
-                  style={{ fontFamily: "var(--font-unbounded)" }}
-                >
-                  View Case
-                  <svg
-                    className="w-5 h-5 ml-3 transform group-hover:translate-x-2 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-              <div className="lg:col-span-7 relative">
-                <div className="absolute -top-8 -right-8 w-32 h-32 border border-amber-500/10" />
-                <BeforeAfterSlider
-                  beforeImage="/images/aviation-before.jpg"
-                  afterImage="/images/aviation-after.jpg"
-                />
-              </div>
-            </div>
+          {/* Project cards grid */}
+          <div className="grid md:grid-cols-2 gap-8">
+            {featuredProjects.map((project) => (
+              <CaseStudyCard key={project.title} {...project} />
+            ))}
+          </div>
 
-            {/* Portfolio Item 2: Svens Hostel - Reversed layout */}
-            <div className="grid lg:grid-cols-12 gap-12 items-start">
-              <div className="lg:col-span-7 lg:order-1 relative">
-                <div className="absolute -bottom-8 -left-8 w-48 h-48 border border-amber-500/10" />
-                <BeforeAfterSlider
-                  beforeImage="/images/svens-before.jpg"
-                  afterImage="/images/svens-after.jpg"
-                />
-              </div>
-              <div className="lg:col-span-5 lg:order-2 space-y-8 lg:sticky lg:top-32">
-                <div className="space-y-6">
-                  <span className="inline-block px-4 py-2 border border-amber-500/30 text-amber-500 text-xs uppercase tracking-widest" style={{ fontFamily: "var(--font-unbounded)" }}>
-                    Case Study 02
-                  </span>
-                  <h3
-                    className="text-4xl md:text-6xl font-black text-white leading-tight"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
-                  >
-                    Sven's<br/>Basecamp
-                  </h3>
-                  <div className="w-24 h-px bg-amber-500" />
-                  <p className="text-zinc-400 text-lg leading-relaxed">
-                    Modern redesign with custom Cloudbeds integration for seamless bookings.
-                    Enhanced mobile experience and streamlined the customer journey.
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {["Redesign", "Integration", "Booking"].map((tag, i) => (
-                    <span key={i} className="px-4 py-2 bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs uppercase tracking-wider hover:border-amber-500/30 hover:text-amber-500 transition-colors">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <Link
-                  href="/portfolio"
-                  className="group inline-flex items-center text-amber-500 hover:text-amber-400 font-bold text-sm uppercase tracking-wider transition-colors"
-                  style={{ fontFamily: "var(--font-unbounded)" }}
-                >
-                  View Case
-                  <svg
-                    className="w-5 h-5 ml-3 transform group-hover:translate-x-2 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-            </div>
-
-            {/* Portfolio Item 3: Ovens Soccer */}
-            <div className="grid lg:grid-cols-12 gap-12 items-start">
-              <div className="lg:col-span-5 space-y-8 lg:sticky lg:top-32">
-                <div className="space-y-6">
-                  <span className="inline-block px-4 py-2 border border-amber-500/30 text-amber-500 text-xs uppercase tracking-widest" style={{ fontFamily: "var(--font-unbounded)" }}>
-                    Case Study 03
-                  </span>
-                  <h3
-                    className="text-4xl md:text-6xl font-black text-white leading-tight"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
-                  >
-                    Ovens<br/>Soccer
-                  </h3>
-                  <div className="w-24 h-px bg-amber-500" />
-                  <p className="text-zinc-400 text-lg leading-relaxed">
-                    Brand new website built from scratch for a sports organization.
-                    Clean, modern design with easy content management and mobile-first approach.
-                  </p>
-                </div>
-                <div className="flex flex-wrap gap-3">
-                  {["New Build", "Custom", "Mobile-First"].map((tag, i) => (
-                    <span key={i} className="px-4 py-2 bg-zinc-900 border border-zinc-800 text-zinc-400 text-xs uppercase tracking-wider hover:border-amber-500/30 hover:text-amber-500 transition-colors">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-                <Link
-                  href="/portfolio"
-                  className="group inline-flex items-center text-amber-500 hover:text-amber-400 font-bold text-sm uppercase tracking-wider transition-colors"
-                  style={{ fontFamily: "var(--font-unbounded)" }}
-                >
-                  View Case
-                  <svg
-                    className="w-5 h-5 ml-3 transform group-hover:translate-x-2 transition-transform"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-              <div className="lg:col-span-7 relative aspect-video bg-zinc-900 border border-zinc-800 flex items-center justify-center overflow-hidden group">
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                <p className="text-zinc-600 font-bold text-sm uppercase tracking-widest" style={{ fontFamily: "var(--font-unbounded)" }}>Coming Soon</p>
-              </div>
-            </div>
+          {/* View All CTA */}
+          <div className="mt-20 flex justify-center">
+            <Link
+              href="/portfolio"
+              className="group relative px-12 py-6 bg-transparent border-2 border-amber-500 text-amber-500 overflow-hidden font-bold text-sm uppercase tracking-wider hover:text-zinc-950 transition-colors"
+              style={{ fontFamily: "var(--font-unbounded)" }}
+            >
+              <span className="relative z-10">View All Projects</span>
+              <div className="absolute inset-0 bg-amber-500 transform -translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
+            </Link>
           </div>
         </div>
       </section>
