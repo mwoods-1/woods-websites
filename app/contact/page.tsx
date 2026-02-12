@@ -35,21 +35,51 @@ export default function Contact() {
     setSubmitStatus(null);
 
     try {
-      // Here you would integrate with your email service or form handling backend
-      await new Promise((resolve) => setTimeout(resolve, 1500));
+      const response = await fetch(
+        "https://formsubmit.co/ajax/woodswebsites.com@gmail.com",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            phone: formData.phone || "Not provided",
+            company: formData.company || "Not provided",
+            "Project Type": formData.projectType,
+            "Estimated Budget": formData.budget || "Not specified",
+            "Preferred Timeline": formData.timeline || "Not specified",
+            message: formData.message,
+            _subject: "New inquiry from Woods Websites",
+            _honey: "",
+            _captcha: "false",
+            _template: "table",
+          }),
+        }
+      );
 
-      console.log("Form submitted:", formData);
-      setSubmitStatus("success");
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        company: "",
-        projectType: "",
-        budget: "",
-        timeline: "",
-        message: "",
-      });
+      if (!response.ok) {
+        throw new Error("Form submission failed");
+      }
+
+      const data = await response.json();
+      if (data.success) {
+        setSubmitStatus("success");
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          company: "",
+          projectType: "",
+          budget: "",
+          timeline: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Form submission unsuccessful");
+      }
     } catch (error) {
       console.error("Form submission error:", error);
       setSubmitStatus("error");
@@ -61,7 +91,7 @@ export default function Contact() {
   const contactInfo = [
     {
       label: "Email Us",
-      value: "hello@woodswebsites.com",
+      value: "woodswebsites.com@gmail.com",
     },
     {
       label: "Response Time",
