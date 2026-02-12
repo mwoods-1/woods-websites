@@ -100,7 +100,7 @@
       "phase": 1,
       "title": "Clean up BeforeAfterSlider usage",
       "description": "After portfolio and homepage are updated, evaluate BeforeAfterSlider component. If no longer used anywhere, either remove it or keep it for potential future use. Remove any unused before/after image imports.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": ["1.3", "1.4"],
       "files": [
         "app/components/BeforeAfterSlider.tsx",
@@ -114,7 +114,7 @@
         "If component is kept, it's clearly documented as available for future use",
         "npm run build succeeds without errors or warnings about unused imports"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "BeforeAfterSlider component removed — no imports exist anywhere in the codebase. Component file (BeforeAfterSlider.tsx) and all before/after images (aviation-before.jpg, aviation-after.jpg, svens-before.jpg, svens-after.jpg) deleted. Build passes cleanly with no errors or unused import warnings."
     },
     {
       "id": "2.1",
@@ -349,7 +349,7 @@
       "title": "Install and configure Cloudflare Pages adapter",
       "description": "Install @cloudflare/next-on-pages package and configure the project for Cloudflare Pages deployment. Update next.config.ts if needed for compatibility. Add a build script or update the existing one for the Cloudflare build command.",
       "status": "pending",
-      "prerequisites": ["1.3", "1.4", "2.1", "3.2", "3.3", "3.4", "5.1", "5.2"],
+      "prerequisites": ["1.3", "1.4", "2.1", "3.2", "3.3", "3.4", "5.1", "5.2", "7.8"],
       "files": [
         "package.json",
         "next.config.ts"
@@ -433,6 +433,179 @@
         "robots.txt and sitemap.xml are accessible",
         "No console errors on any page",
         "Page load time under 3 seconds on 3G connection"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "7.1",
+      "phase": 7,
+      "title": "Global spacing and breathing room",
+      "description": "Increase vertical padding between all major sections across every page. Fix horizontal padding for mobile (px-12 is too tight on 375px — change to px-6 md:px-12 lg:px-24 site-wide). Increase margins between section label/heading/subtitle sequences. Add subtle gradient-line dividers between major content blocks where sections feel like they run together.",
+      "status": "pending",
+      "prerequisites": ["1.5"],
+      "files": [
+        "app/page.tsx",
+        "app/portfolio/page.tsx",
+        "app/services/page.tsx",
+        "app/about/page.tsx",
+        "app/contact/page.tsx"
+      ],
+      "validationCriteria": [
+        "All pages use px-6 md:px-12 lg:px-24 for horizontal padding",
+        "Section padding increased: inner sections use py-32, major breaks use py-40",
+        "No content feels cramped or compressed on any viewport",
+        "Mobile (375px) has comfortable horizontal margins with no text touching edges",
+        "Desktop (1280px) has generous whitespace between sections",
+        "npm run build succeeds"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "7.2",
+      "phase": 7,
+      "title": "Homepage hero refinement",
+      "description": "Rebalance the hero layout: center content vertically instead of bottom-aligning (items-end). Give the stats block more visual separation from the headline. Make CTA buttons more prominent. Scale headline down more aggressively on mobile (text-5xl instead of text-6xl). Improve the scroll indicator visibility.",
+      "status": "pending",
+      "prerequisites": ["7.1"],
+      "files": [
+        "app/page.tsx"
+      ],
+      "validationCriteria": [
+        "Hero content is vertically centered, not pushed to bottom",
+        "Stats block has clear visual separation from headline (gap or divider)",
+        "CTA buttons are prominent and easy to find",
+        "Mobile hero headline is comfortably sized (no overflow or extreme cramping)",
+        "Scroll indicator is visible without being distracting",
+        "Overall hero section feels balanced and premium",
+        "npm run build succeeds"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "7.3",
+      "phase": 7,
+      "title": "Portfolio card polish",
+      "description": "Improve CaseStudyCard spacing and visual refinement. Increase content padding (p-8 to p-8 md:p-10). Increase space-y from 5 to 6. Add hover color shift to tags. Increase grid gap. Add subtle amber top-border accent on card hover. Increase card grid gaps on both homepage and portfolio page.",
+      "status": "pending",
+      "prerequisites": ["7.1"],
+      "files": [
+        "app/components/CaseStudyCard.tsx",
+        "app/page.tsx",
+        "app/portfolio/page.tsx"
+      ],
+      "validationCriteria": [
+        "Card content has more breathing room (increased padding and spacing)",
+        "Tags respond to card hover (color shift or border change)",
+        "Cards have a subtle amber top-border accent on hover",
+        "Grid gaps are larger (gap-8 md:gap-10 or similar)",
+        "Cards look polished and premium on both mobile and desktop",
+        "npm run build succeeds"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "7.4",
+      "phase": 7,
+      "title": "Services page density fix",
+      "description": "Reduce visual density on the services page. Increase service card padding. Add more space between description and feature bullet lists. Style feature list items with more breathing room. Add visual separation between Services, Process, and Tech sections. Improve the process step layout spacing.",
+      "status": "pending",
+      "prerequisites": ["7.1"],
+      "files": [
+        "app/services/page.tsx"
+      ],
+      "validationCriteria": [
+        "Service cards have increased internal padding",
+        "Feature lists don't feel like walls of text",
+        "Clear visual breaks between Services, Process, and Tech sections",
+        "Process steps have adequate spacing between number, title, and description",
+        "Page feels open and scannable rather than dense",
+        "npm run build succeeds"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "7.5",
+      "phase": 7,
+      "title": "About page layout improvements",
+      "description": "Improve the About page layout. Break up dense story text with visual accents. Add hover border effects to values cards (like services cards). Give skills/capabilities section more visual weight. Polish the stats section with amber accents or background treatment. Increase spacing between all sections.",
+      "status": "pending",
+      "prerequisites": ["7.1"],
+      "files": [
+        "app/about/page.tsx"
+      ],
+      "validationCriteria": [
+        "Story section text doesn't feel like a wall of text",
+        "Values cards have hover effects (border glow or amber accent)",
+        "Skills section feels intentional and visually interesting",
+        "Stats section has visual polish (accent lines, background, or similar)",
+        "Overall page feels well-paced with clear section hierarchy",
+        "npm run build succeeds"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "7.6",
+      "phase": 7,
+      "title": "Navigation active state and mobile menu animation",
+      "description": "Add active link styling to the navigation for the current page (amber underline or amber text color). Add slide-down animation for mobile menu open/close instead of instant appear/disappear. Close mobile menu when clicking outside. Consider full-screen overlay for mobile menu.",
+      "status": "pending",
+      "prerequisites": [],
+      "files": [
+        "app/components/Navigation.tsx"
+      ],
+      "validationCriteria": [
+        "Current page link is visually highlighted in nav (amber color or underline)",
+        "Mobile menu animates open and closed (not instant)",
+        "Mobile menu closes when tapping outside the menu area",
+        "Active state works correctly on all pages",
+        "Navigation remains functional and accessible",
+        "npm run build succeeds"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "7.7",
+      "phase": 7,
+      "title": "Contact page visual enhancement",
+      "description": "Add visual polish to the contact page form. Add amber focus states on form inputs (border-amber-500 on focus). Add subtle background treatment to distinguish form area from info sidebar. Improve visual hierarchy of the left-side info blocks. Add hover/active animations on submit button. Add geometric accents consistent with brutalist style.",
+      "status": "pending",
+      "prerequisites": ["7.1"],
+      "files": [
+        "app/contact/page.tsx"
+      ],
+      "validationCriteria": [
+        "Form inputs have visible amber focus states",
+        "Form area is visually distinguished from the info sidebar",
+        "Left-side info blocks have clear visual hierarchy",
+        "Submit button has hover/active state animation",
+        "Page feels cohesive with the rest of the site's brutalist design",
+        "npm run build succeeds"
+      ],
+      "postImplementationNotes": null
+    },
+    {
+      "id": "7.8",
+      "phase": 7,
+      "title": "Mobile-specific refinements",
+      "description": "Comprehensive mobile polish pass. Scale down hero headlines more aggressively on mobile. Ensure all grid layouts collapse gracefully (process: 4-col to 2-col to 1-col, tech: 4-col to 2-col). Add more vertical margin between stacked mobile sections. Reduce CTA headline sizes on mobile. Fix any horizontal overflow issues. Test at 375px and 428px widths.",
+      "status": "pending",
+      "prerequisites": ["7.1", "7.2", "7.3", "7.4", "7.5", "7.7"],
+      "files": [
+        "app/page.tsx",
+        "app/portfolio/page.tsx",
+        "app/services/page.tsx",
+        "app/about/page.tsx",
+        "app/contact/page.tsx",
+        "app/components/CaseStudyCard.tsx"
+      ],
+      "validationCriteria": [
+        "No horizontal overflow on any page at 375px width",
+        "All grid layouts collapse gracefully on mobile",
+        "Headlines are appropriately sized on mobile (no overflow or extreme cramping)",
+        "CTA sections don't have text wrapping issues on mobile",
+        "Comfortable spacing between stacked sections on mobile",
+        "All pages look polished at both 375px and 428px widths",
+        "npm run build succeeds"
       ],
       "postImplementationNotes": null
     }
