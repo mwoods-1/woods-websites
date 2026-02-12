@@ -20,16 +20,26 @@ const libreBaskerville = Libre_Baskerville({
 });
 
 export const metadata: Metadata = {
-  title: "Woods Websites - Custom Web Design & Development",
-  description: "Professional web design and development services. We create stunning, high-performance websites tailored to your business needs.",
-  keywords: "web design, web development, custom websites, platform integrations, website optimization, Cloudflare",
+  metadataBase: new URL("https://woodswebsites.com"),
+  title: {
+    default: "Woods Websites - Custom Web Design & Development",
+    template: "%s | Woods Websites",
+  },
+  description:
+    "Professional web design and development by two brothers who build fast, stunning websites tailored to your business.",
+  keywords:
+    "web design, web development, custom websites, platform integrations, website optimization, Cloudflare",
   openGraph: {
     title: "Woods Websites - Custom Web Design & Development",
-    description: "Professional web design services that transform your online presence",
+    description:
+      "Professional web design services that transform your online presence",
     url: "https://woodswebsites.com",
     siteName: "Woods Websites",
     locale: "en_US",
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 

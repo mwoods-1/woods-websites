@@ -143,7 +143,7 @@
       "phase": 3,
       "title": "Add global metadata defaults in root layout",
       "description": "Add a base metadata export to app/layout.tsx with site-wide defaults: site name, default title template, default description, default Open Graph config, Twitter card config, and base URL. Individual pages will override these with page-specific metadata.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": [],
       "files": [
         "app/layout.tsx"
@@ -157,7 +157,7 @@
         "metadataBase is set to the production URL",
         "npm run build succeeds"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "Upgraded existing metadata export in layout.tsx. Added metadataBase (https://woodswebsites.com) for relative URL resolution. Converted title to template pattern ('%s | Woods Websites') with default fallback. Added twitter card config (summary_large_image). Refreshed default description to be more specific and compelling. Preserved existing OpenGraph config (siteName, locale, type). Fully backward-compatible — existing page title overrides still work. Build passes cleanly."
     },
     {
       "id": "3.2",
