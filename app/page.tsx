@@ -1,5 +1,17 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import CaseStudyCard from "./components/CaseStudyCard";
+
+export const metadata: Metadata = {
+  title: "Custom Web Design & Development | Woods Websites",
+  description:
+    "Bold web design and development by Woods Websites. We build fast, stunning, custom websites that transform your business's online presence.",
+  openGraph: {
+    title: "Custom Web Design & Development | Woods Websites",
+    description:
+      "Bold web design and development by Woods Websites. We build fast, stunning, custom websites that transform your business's online presence.",
+  },
+};
 
 const featuredProjects = [
   {

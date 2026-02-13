@@ -1,9 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 
-export const metadata = {
-  title: "Services - Woods Websites",
+export const metadata: Metadata = {
+  title: "Services",
   description:
-    "Professional web design, development, and optimization services. From custom builds to platform integrations.",
+    "Web design, development, and optimization services. Custom builds, redesigns, platform integrations, and ongoing support.",
+  openGraph: {
+    title: "Services",
+    description:
+      "Web design, development, and optimization services. Custom builds, redesigns, platform integrations, and ongoing support.",
+  },
 };
 
 export default function Services() {

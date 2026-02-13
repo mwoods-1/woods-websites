@@ -164,7 +164,7 @@
       "phase": 3,
       "title": "Add per-page metadata for all pages",
       "description": "Add unique metadata exports to each page: Homepage, Portfolio, Services, About, Contact. Each page gets a unique title, description, and Open Graph properties. Descriptions should be keyword-relevant and compelling for search results.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": ["3.1"],
       "files": [
         "app/page.tsx",
@@ -182,7 +182,7 @@
         "HTML <title> renders correctly on each page",
         "npm run build succeeds"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "Added typed Metadata exports to all 5 pages. Homepage uses full branded title ('Custom Web Design & Development | Woods Websites') since root-level pages don't receive the layout template. Portfolio, Services, and About titles fixed from hardcoded 'Page - Woods Websites' to just 'Page' (letting the template append ' | Woods Websites'). Contact page metadata added via new app/contact/layout.tsx passthrough layout since page.tsx is a client component. All pages have unique OG title and description. All titles under 60 chars, descriptions under 160 chars. Build passes cleanly."
     },
     {
       "id": "3.3",

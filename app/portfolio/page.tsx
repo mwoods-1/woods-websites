@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import CaseStudyCard from "../components/CaseStudyCard";
 
@@ -36,10 +37,15 @@ const projects = [
   },
 ];
 
-export const metadata = {
-  title: "Portfolio - Woods Websites",
+export const metadata: Metadata = {
+  title: "Portfolio",
   description:
-    "Explore our web design and development portfolio showcasing redesigns and new builds for businesses.",
+    "Browse our web design portfolio featuring redesigns and custom builds for businesses across tourism, hospitality, and sports.",
+  openGraph: {
+    title: "Portfolio",
+    description:
+      "Browse our web design portfolio featuring redesigns and custom builds for businesses across tourism, hospitality, and sports.",
+  },
 };
 
 export default function Portfolio() {
