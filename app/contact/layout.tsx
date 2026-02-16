@@ -4,11 +4,6 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Start your web project today. Get a free consultation from Woods Websites — we respond within 24 hours.",
-  openGraph: {
-    title: "Contact Us",
-    description:
-      "Start your web project today. Get a free consultation from Woods Websites — we respond within 24 hours.",
-  },
 };
 
 export default function ContactLayout({

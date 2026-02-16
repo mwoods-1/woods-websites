@@ -4,12 +4,11 @@
 
 Copy your portfolio images into `/public/images/` with these exact filenames:
 
-1. **aviation-before.png** - Screenshot of Aviation Expeditions old site
-2. **aviation-after.png** - Screenshot of Aviation Expeditions new site
-3. **svens-before.png** - Screenshot of Sven's Hostel old site
-4. **svens-after.png** - Screenshot of Sven's Hostel new site
-5. **ovens-new.png** - Screenshot of Ovens Soccer site
-6. **woods-websites-logo.jpg** - Your company logo (optional, currently using "W" initial)
+1. **aviation-card.jpg** - Screenshot of Aviation Expeditions site
+2. **svens-card.jpg** - Screenshot of Sven's Basecamp Hostel site
+3. **ovens-card.jpg** - Screenshot of Ovens Soccer site
+4. **kingdom-card.jpg** - Screenshot of Kingdom Property Care site
+5. **woods-websites-logo.jpg** - Your company logo (optional, currently using "W" initial)
 
 ## Original Photos Location
 
@@ -34,7 +33,7 @@ woods-websites/
 │   ├── components/
 │   │   ├── Navigation.tsx       # Header with menu
 │   │   ├── Footer.tsx           # Footer component
-│   │   └── BeforeAfterSlider.tsx # Interactive slider for portfolio
+│   │   └── CaseStudyCard.tsx     # Portfolio project card
 │   ├── layout.tsx               # Root layout with fonts
 │   ├── page.tsx                 # Homepage
 │   └── globals.css              # Global styles & color system
@@ -58,8 +57,7 @@ woods-websites/
 
 ✅ Homepage with:
 - Hero section with gradient background
-- Before/After sliders for Aviation Expeditions & Svens Hostel
-- Placeholder for Ovens Soccer (will show image when you add it)
+- Featured project case study cards
 - Services overview
 - Call-to-action sections
 

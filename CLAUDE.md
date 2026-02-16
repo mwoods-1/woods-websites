@@ -18,7 +18,7 @@ app/
 ├── components/          # Reusable components
 │   ├── Navigation.tsx   # Header with mobile menu
 │   ├── Footer.tsx       # Site footer
-│   └── BeforeAfterSlider.tsx  # Interactive image comparison
+│   └── CaseStudyCard.tsx  # Portfolio project card
 ├── portfolio/page.tsx   # Portfolio showcase
 ├── services/page.tsx    # Services offered
 ├── about/page.tsx       # About the team
@@ -153,8 +153,7 @@ npm run lint     # Run ESLint
 ## Image Requirements
 
 Portfolio images should be placed in `/public/images/`:
-- `aviation-before.jpg`, `aviation-after.jpg`
-- `svens-before.jpg`, `svens-after.jpg`
+- `aviation-card.jpg`, `svens-card.jpg`, `ovens-card.jpg`, `kingdom-card.jpg` (case study cards)
 - Project screenshots as needed
 
 ## Git Workflow

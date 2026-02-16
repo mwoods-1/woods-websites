@@ -5,11 +5,6 @@ export const metadata: Metadata = {
   title: "About Us",
   description:
     "Two brothers building exceptional websites. Learn about our approach to web design, our values, and why businesses trust Woods Websites.",
-  openGraph: {
-    title: "About Us",
-    description:
-      "Two brothers building exceptional websites. Learn about our approach to web design, our values, and why businesses trust Woods Websites.",
-  },
 };
 
 export default function About() {

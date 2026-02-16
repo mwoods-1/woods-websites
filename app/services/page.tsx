@@ -5,11 +5,6 @@ export const metadata: Metadata = {
   title: "Services",
   description:
     "Web design, development, and optimization services. Custom builds, redesigns, platform integrations, and ongoing support.",
-  openGraph: {
-    title: "Services",
-    description:
-      "Web design, development, and optimization services. Custom builds, redesigns, platform integrations, and ongoing support.",
-  },
 };
 
 export default function Services() {

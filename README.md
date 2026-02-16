@@ -12,7 +12,7 @@ Coming soon: [woodswebsites.com](https://woodswebsites.com)
 
 Woods Websites is a portfolio and business site showcasing web design and development services. The site features:
 
-- Interactive before/after portfolio sliders
+- Portfolio case study cards with project showcases
 - Comprehensive service offerings
 - Client testimonials and case studies
 - Contact form for lead generation
@@ -35,7 +35,7 @@ woods-websites/
 │   ├── components/
 │   │   ├── Navigation.tsx           # Header with mobile menu
 │   │   ├── Footer.tsx               # Site footer
-│   │   └── BeforeAfterSlider.tsx    # Interactive image slider
+│   │   └── CaseStudyCard.tsx        # Portfolio project card
 │   ├── portfolio/
 │   │   └── page.tsx                 # Portfolio showcase page
 │   ├── services/
@@ -86,11 +86,10 @@ npm install
 ```
 
 3. Add portfolio images to `/public/images/`:
-   - aviation-before.png
-   - aviation-after.png
-   - svens-before.png
-   - svens-after.png
-   - ovens-new.png
+   - aviation-card.jpg
+   - svens-card.jpg
+   - ovens-card.jpg
+   - kingdom-card.jpg
    - woods-websites-logo.jpg
 
 4. Run the development server:
@@ -134,7 +133,7 @@ Cloudflare will automatically deploy on every push to main!
 
 ## 🎯 Key Features
 
-- **Before/After Sliders**: Interactive portfolio presentation
+- **Case Study Cards**: Visual portfolio project showcases
 - **Responsive Design**: Mobile-first approach
 - **Performance Optimized**: Fast load times and smooth animations
 - **SEO Friendly**: Proper meta tags and semantic HTML

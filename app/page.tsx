@@ -6,11 +6,6 @@ export const metadata: Metadata = {
   title: "Custom Web Design & Development | Woods Websites",
   description:
     "Bold web design and development by Woods Websites. We build fast, stunning, custom websites that transform your business's online presence.",
-  openGraph: {
-    title: "Custom Web Design & Development | Woods Websites",
-    description:
-      "Bold web design and development by Woods Websites. We build fast, stunning, custom websites that transform your business's online presence.",
-  },
 };
 
 const featuredProjects = [
@@ -40,9 +35,44 @@ const featuredProjects = [
   },
 ];
 
+const jsonLd = [
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: "Woods Websites",
+    url: "https://woodswebsites.com",
+    logo: "https://woodswebsites.com/images/og-default.jpg",
+    email: "woodswebsites.com@gmail.com",
+    description:
+      "Professional web design and development by two brothers who build fast, stunning websites tailored to your business.",
+    foundingDate: "2024",
+    numberOfEmployees: {
+      "@type": "QuantitativeValue",
+      value: 2,
+    },
+    knowsAbout: [
+      "Web Design",
+      "Web Development",
+      "Next.js",
+      "SEO",
+      "Performance Optimization",
+    ],
+  },
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: "Woods Websites",
+    url: "https://woodswebsites.com",
+  },
+];
+
 export default function Home() {
   return (
     <div className="bg-zinc-950">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       {/* Hero Section - Editorial Brutalist */}
       <section className="relative min-h-screen flex items-end overflow-hidden bg-zinc-950 pt-24 pb-20">
         {/* Grain texture overlay */}

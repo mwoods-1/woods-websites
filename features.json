@@ -226,7 +226,7 @@
       "phase": 3,
       "title": "Add structured data (JSON-LD)",
       "description": "Add JSON-LD structured data to the homepage for SEO. Include Organization schema (business name, URL, logo, contact info) and WebSite schema. Embed as a <script type='application/ld+json'> tag.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": ["3.1"],
       "files": [
         "app/page.tsx"
@@ -238,14 +238,14 @@
         "JSON-LD is valid (test with Google Rich Results Test or Schema.org validator)",
         "No console errors from the script tag"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "JSON-LD structured data added to app/page.tsx as a top-level const array containing two schema objects. Organization schema includes name, url, logo, email, description, foundingDate, numberOfEmployees (QuantitativeValue), and knowsAbout array. WebSite schema includes name and url. Embedded via <script type='application/ld+json'> with dangerouslySetInnerHTML. JSON validates correctly. Build passes cleanly."
     },
     {
       "id": "3.6",
       "phase": 3,
       "title": "Create default Open Graph image",
       "description": "Create a default OG image (1200x630px) for social media sharing. Should feature the Woods Websites brand name, tagline, and amber/zinc color scheme. Used when pages are shared on social media without a page-specific image.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": [],
       "files": [
         "public/images/og-default.jpg"
@@ -258,7 +258,7 @@
         "Text is legible at small preview sizes",
         "File size is optimized (under 200KB)"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "Created 1200x630px JPEG OG image (80KB) using HTML Canvas rendered in Chrome. Design features 'WOODS WEBSITES' headline in white Unbounded font, 'Web Design That Works' tagline in amber gradient, stats boxes (50+ Projects, 100% Satisfaction), and geometric accent elements matching the Editorial Brutalist design system. Added openGraph.images and twitter.images to root layout metadata. Removed per-page openGraph overrides that were causing Next.js shallow-merge to drop the layout's images — pages now inherit the full layout openGraph (images, siteName, locale, type) while Next.js auto-generates og:title and og:description from each page's top-level title and description. All pages verified to render og:image, og:image:width, og:image:height, og:image:alt, and twitter:image correctly. Build passes cleanly."
     },
     {
       "id": "3.7",

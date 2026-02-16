@@ -41,11 +41,6 @@ export const metadata: Metadata = {
   title: "Portfolio",
   description:
     "Browse our web design portfolio featuring redesigns and custom builds for businesses across tourism, hospitality, and sports.",
-  openGraph: {
-    title: "Portfolio",
-    description:
-      "Browse our web design portfolio featuring redesigns and custom builds for businesses across tourism, hospitality, and sports.",
-  },
 };
 
 export default function Portfolio() {
