@@ -328,7 +328,7 @@
       "phase": 5,
       "title": "Create Terms of Service page",
       "description": "Create a /terms page with standard terms of service. Cover: service description (web design and development), intellectual property, limitation of liability, disclaimers, governing law, and contact information. Keep it appropriate for a small web design business. Design as a clean, readable text page matching the site's typography system.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": [],
       "files": [
         "app/terms/page.tsx"
@@ -341,7 +341,7 @@
         "Footer terms link works correctly",
         "Page is readable and well-structured"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "Created app/terms/page.tsx with 8 sections: Overview, Our Services (5 service types listed), Intellectual Property (ownership transfer on payment, portfolio rights, third-party license note), Limitation of Liability (as-is basis, no guaranteed outcomes, liability cap), Disclaimers (informational purposes, third-party links), Governing Law (US law, good-faith negotiation), Changes to These Terms, and Contact Us. Matches privacy page design pattern: Editorial Brutalist hero section, Unbounded headings, amber-accented list bullets and border callouts, zinc body text. Metadata exported with title and description. Footer /terms link already existed. Build passes cleanly with /terms route listed."
     },
     {
       "id": "6.1",
