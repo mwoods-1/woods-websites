@@ -30,7 +30,7 @@ export default function Navigation() {
         <Link href="/" className="relative h-8 w-40 hover:opacity-80 transition-opacity">
           <Image
             src="/assets/logos/logo-horizontal-transparent.png"
-            alt="Woods Websites"
+            alt="Woods Websites logo"
             fill
             className="object-contain object-left"
           />

@@ -5,6 +5,7 @@ import CaseStudyCard from "../components/CaseStudyCard";
 const projects = [
   {
     image: "/images/aviation-card.jpg",
+    alt: "Aviation Expeditions homepage featuring a mountain landscape hero and flightseeing tour booking options",
     title: "Aviation Expeditions",
     description:
       "Complete website transformation for an Alaskan flightseeing tour company. Modernized the brand, improved user experience, and optimized for conversions.",
@@ -13,6 +14,7 @@ const projects = [
   },
   {
     image: "/images/svens-card.jpg",
+    alt: "Sven's Basecamp Hostel homepage with vibrant hostel photography and Cloudbeds booking integration",
     title: "Sven's Basecamp Hostel",
     description:
       "Modern redesign with seamless Cloudbeds booking integration. Transformed an outdated site into a vibrant, mobile-friendly experience.",
@@ -21,6 +23,7 @@ const projects = [
   },
   {
     image: "/images/ovens-card.jpg",
+    alt: "Ovens Soccer homepage with bold sports branding and team information layout",
     title: "Ovens Soccer",
     description:
       "Brand new website built from scratch for a sports organization. Clean, modern design with easy content management and mobile-first approach.",
@@ -29,6 +32,7 @@ const projects = [
   },
   {
     image: "/images/kingdom-card.jpg",
+    alt: "Kingdom Property Care homepage showcasing property maintenance services with a clean professional layout",
     title: "Kingdom Property Care",
     description:
       "Professional website for a property maintenance company. Clean design showcasing services, service areas, and easy contact options.",

@@ -2,6 +2,7 @@ import Image from "next/image";
 
 interface CaseStudyCardProps {
   image: string;
+  alt: string;
   title: string;
   description: string;
   tags: string[];
@@ -10,6 +11,7 @@ interface CaseStudyCardProps {
 
 export default function CaseStudyCard({
   image,
+  alt,
   title,
   description,
   tags,
@@ -21,7 +23,7 @@ export default function CaseStudyCard({
       <div className="relative aspect-video overflow-hidden">
         <Image
           src={image}
-          alt={`${title} website screenshot`}
+          alt={alt}
           fill
           className="object-cover transition-transform duration-500 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, 50vw"

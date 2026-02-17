@@ -265,7 +265,7 @@
       "phase": 3,
       "title": "Audit and fix image alt text",
       "description": "Review all images across the site and ensure every <Image> and <img> tag has a descriptive, meaningful alt attribute. Replace any generic alt text (e.g., 'image', 'screenshot') with specific descriptions.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": ["1.3", "1.4"],
       "files": [
         "app/page.tsx",
@@ -280,7 +280,7 @@
         "Decorative images use alt='' intentionally",
         "No ESLint warnings about missing alt text"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "Audited all Image components across the site. Only 2 components use <Image>: CaseStudyCard.tsx and Navigation.tsx. Added required `alt` prop to CaseStudyCard interface (replacing generic `${title} website screenshot` template). All 7 project entries across page.tsx and portfolio/page.tsx now have specific descriptive alt text (e.g., 'Aviation Expeditions homepage featuring a mountain landscape hero and flightseeing tour booking options'). Navigation logo updated from 'Woods Websites' to 'Woods Websites logo'. About page has no images — only CSS decorative elements. No ESLint alt text warnings. Build passes cleanly."
     },
     {
       "id": "4.1",

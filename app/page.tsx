@@ -11,6 +11,7 @@ export const metadata: Metadata = {
 const featuredProjects = [
   {
     image: "/images/aviation-card.jpg",
+    alt: "Aviation Expeditions homepage featuring a mountain landscape hero and flightseeing tour booking options",
     title: "Aviation Expeditions",
     description:
       "Complete website transformation for an Alaskan flightseeing tour company. Modernized the brand, improved user experience, and optimized for conversions.",
@@ -19,6 +20,7 @@ const featuredProjects = [
   },
   {
     image: "/images/svens-card.jpg",
+    alt: "Sven's Basecamp Hostel homepage with vibrant hostel photography and Cloudbeds booking integration",
     title: "Sven's Basecamp Hostel",
     description:
       "Modern redesign with seamless Cloudbeds booking integration. Transformed an outdated site into a vibrant, mobile-friendly experience.",
@@ -27,6 +29,7 @@ const featuredProjects = [
   },
   {
     image: "/images/ovens-card.jpg",
+    alt: "Ovens Soccer homepage with bold sports branding and team information layout",
     title: "Ovens Soccer",
     description:
       "Brand new website built from scratch for a sports organization. Clean, modern design with easy content management and mobile-first approach.",
