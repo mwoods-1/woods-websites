@@ -306,7 +306,7 @@
       "phase": 5,
       "title": "Create Privacy Policy page",
       "description": "Create a /privacy page with a standard privacy policy. Cover: what data is collected (contact form submissions only — name, email, phone, company, project details), how it's used (to respond to inquiries), third-party services (FormSubmit.co for form delivery, Cloudflare for hosting and analytics), data retention, user rights, and contact information. No cookies are used. Design as a clean, readable text page matching the site's typography system.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": ["2.1"],
       "files": [
         "app/privacy/page.tsx"
@@ -321,7 +321,7 @@
         "Footer privacy link works correctly",
         "Page is readable and well-structured"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "Created app/privacy/page.tsx with all required sections: Information We Collect (lists all 5 contact form fields), How We Use Your Information, Third-Party Services (FormSubmit.co and Cloudflare named with descriptions), Data Retention, Your Rights (access, correction, deletion, withdrawal), Contact Us (email and /contact link), and Changes to This Policy. Explicitly states no cookies are used. Page follows Editorial Brutalist design system with hero section (gradient accents, Unbounded h1, italic subtitle), section headings in Unbounded, body text in Libre Baskerville, amber-accented list bullets and left-border callouts. Metadata exported with title and description. Footer /privacy link already existed. Build passes cleanly with /privacy route listed."
     },
     {
       "id": "5.2",
