@@ -145,7 +145,7 @@ export default function Contact() {
       <section className="py-32 relative">
         <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="grid lg:grid-cols-12 gap-16">
+          <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
             {/* Left Column - Info */}
             <div className="lg:col-span-5 space-y-12">
               <div>

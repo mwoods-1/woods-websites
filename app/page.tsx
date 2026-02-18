@@ -332,14 +332,14 @@ export default function Home() {
                     Start Your Project
                   </p>
                   <h2
-                    className="text-6xl md:text-8xl lg:text-9xl font-black text-zinc-950 leading-[0.85] mb-12"
+                    className="text-4xl md:text-8xl lg:text-9xl font-black text-zinc-950 leading-[0.85] mb-12"
                     style={{ fontFamily: "var(--font-unbounded)" }}
                   >
                     READY TO<br/>
                     TRANSFORM<br/>
                     YOUR SITE?
                   </h2>
-                  <p className="text-zinc-950/80 text-2xl max-w-2xl italic leading-relaxed mb-12 border-l-4 border-zinc-950/30 pl-8">
+                  <p className="text-zinc-950/80 text-xl md:text-2xl max-w-2xl italic leading-relaxed mb-12 border-l-4 border-zinc-950/30 pl-4 md:pl-8">
                     Let's talk about your project and how we can help you achieve your goals.
                   </p>
 

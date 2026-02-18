@@ -249,11 +249,11 @@ export default function About() {
             {stats.map((stat, index) => (
               <div
                 key={index}
-                className="p-8 lg:p-12 text-center group hover:bg-zinc-800/40 transition-colors"
+                className="p-6 md:p-8 lg:p-12 text-center group hover:bg-zinc-800/40 transition-colors"
               >
                 <div className="w-8 h-px bg-amber-500/40 mx-auto mb-6 group-hover:bg-amber-500/80 transition-colors" />
                 <div
-                  className="text-5xl md:text-6xl font-black text-amber-500 mb-3"
+                  className="text-4xl md:text-6xl font-black text-amber-500 mb-3"
                   style={{ fontFamily: "var(--font-unbounded)" }}
                 >
                   {stat.number}
@@ -289,7 +289,7 @@ export default function About() {
               Work With Us
             </p>
             <h2
-              className="text-5xl md:text-7xl font-black text-zinc-950 leading-[0.9] mb-8"
+              className="text-4xl md:text-7xl font-black text-zinc-950 leading-[0.9] mb-8"
               style={{ fontFamily: "var(--font-unbounded)" }}
             >
               LET'S WORK

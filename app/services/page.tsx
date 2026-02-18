@@ -165,7 +165,7 @@ export default function Services() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="p-10 lg:p-12 bg-zinc-950 hover:bg-zinc-900 transition-colors group"
+                className="p-8 md:p-10 lg:p-12 bg-zinc-950 hover:bg-zinc-900 transition-colors group"
               >
                 <div
                   className="text-7xl font-black text-amber-500/20 mb-6 group-hover:text-amber-500/40 transition-colors"
@@ -309,7 +309,7 @@ export default function Services() {
               Get Started
             </p>
             <h2
-              className="text-5xl md:text-7xl font-black text-zinc-950 leading-[0.9] mb-8"
+              className="text-4xl md:text-7xl font-black text-zinc-950 leading-[0.9] mb-8"
               style={{ fontFamily: "var(--font-unbounded)" }}
             >
               LET'S BUILD

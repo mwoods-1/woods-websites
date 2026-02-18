@@ -110,7 +110,7 @@ export default function Portfolio() {
               Start Your Project
             </p>
             <h2
-              className="text-5xl md:text-7xl font-black text-zinc-950 leading-[0.9] mb-8"
+              className="text-4xl md:text-7xl font-black text-zinc-950 leading-[0.9] mb-8"
               style={{ fontFamily: "var(--font-unbounded)" }}
             >
               READY TO
