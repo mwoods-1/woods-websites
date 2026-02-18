@@ -179,11 +179,11 @@ export default function Services() {
                 >
                   {service.title}
                 </h2>
-                <p className="text-zinc-400 leading-relaxed mb-8">
+                <p className="text-zinc-400 leading-relaxed mb-6">
                   {service.description}
                 </p>
 
-                <div className="space-y-3">
+                <div className="space-y-4 pt-6 border-t border-zinc-800/60">
                   {service.features.map((feature, fIndex) => (
                     <div
                       key={fIndex}
@@ -202,6 +202,7 @@ export default function Services() {
 
       {/* Process Section */}
       <section className="py-32 bg-zinc-900 relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
         <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-amber-500/20 via-transparent to-amber-500/20" />
 
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
@@ -222,11 +223,11 @@ export default function Services() {
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16">
             {process.map((item, index) => (
               <div key={index} className="relative">
                 <div
-                  className="text-8xl font-black text-amber-500/10 mb-4"
+                  className="text-8xl font-black text-amber-500/10 mb-6"
                   style={{ fontFamily: "var(--font-unbounded)" }}
                 >
                   {item.step}
@@ -247,7 +248,8 @@ export default function Services() {
       </section>
 
       {/* Technologies */}
-      <section className="py-32">
+      <section className="py-32 relative">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
           <div className="mb-20 max-w-2xl">
             <p
@@ -269,7 +271,7 @@ export default function Services() {
             </p>
           </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {technologies.map((tech, index) => (
               <div
                 key={index}
