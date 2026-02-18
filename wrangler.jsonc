@@ -1,8 +1,22 @@
 {
+  "$schema": "node_modules/wrangler/config-schema.json",
   "name": "woods-websites",
-  // Use a recent compatibility date so Node.js compat APIs are available
-  "compatibility_date": "2025-01-01",
-  "compatibility_flags": ["nodejs_compat"],
-  // Output directory produced by `opennextjs-cloudflare build`
-  "pages_build_output_dir": ".open-next"
+  // Personal Cloudflare account (woods04sean@gmail.com) — woodswebsites.com domain is here
+  "account_id": "5d903511ec412735b20423c7157ab2ae",
+  // Entry point: the Worker bundle produced by `opennextjs-cloudflare build`
+  "main": ".open-next/worker.js",
+  "compatibility_date": "2025-12-01",
+  "compatibility_flags": ["nodejs_compat", "global_fetch_strictly_public"],
+  // Static assets served directly by the CDN; Worker handles dynamic routes
+  "assets": {
+    "directory": ".open-next/assets",
+    "binding": "ASSETS"
+  },
+  // Self-reference service binding required for on-demand revalidation
+  "services": [
+    {
+      "binding": "WORKER_SELF_REFERENCE",
+      "service": "woods-websites"
+    }
+  ]
 }

@@ -370,9 +370,9 @@
       "phase": 6,
       "title": "Deploy to Cloudflare Pages",
       "description": "Connect the GitHub repository to Cloudflare Pages. Configure build settings (build command, output directory). Trigger the first deployment and verify it succeeds.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": ["6.1"],
-      "files": [],
+      "files": ["wrangler.jsonc"],
       "validationCriteria": [
         "GitHub repo is connected to Cloudflare Pages",
         "Build settings configured correctly",
@@ -381,7 +381,7 @@
         "All pages render correctly on the deployed site",
         "Contact form submits successfully on the deployed site"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "Deployed as a Cloudflare Worker (not Pages) — @opennextjs/cloudflare generates a Worker bundle, not a static Pages site. GitHub push to origin/main completed (24 commits). Authenticated wrangler via OAuth (wrangler login). Rewrote wrangler.jsonc with correct Workers config: main=.open-next/worker.js, assets.directory=.open-next/assets with ASSETS binding, WORKER_SELF_REFERENCE service binding for revalidation, nodejs_compat + global_fetch_strictly_public compatibility flags, account_id set to personal Cloudflare account (woodswebsites.com domain lives here). Deployed via `wrangler deploy` to https://woods-websites.woods04sean.workers.dev — all 7 routes return HTTP 200 and the homepage title renders correctly. Note: GitHub auto-deploy integration not configured — deploys are manual via `npm run pages:build && npm run pages:deploy`. GitHub integration can be added from the Cloudflare dashboard if needed."
     },
     {
       "id": "6.3",
