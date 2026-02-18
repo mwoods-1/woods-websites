@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Required for Cloudflare Pages: no Node.js image optimization runtime at edge
+  output: "export",
   images: {
     unoptimized: true,
   },

@@ -363,16 +363,16 @@
         "No build errors or warnings",
         "Output directory .vercel/output/static is generated"
       ],
-      "postImplementationNotes": "Used @opennextjs/cloudflare@1.16.5 instead of @cloudflare/next-on-pages — the legacy package's peer dep caps at Next.js 15.5.2 but the project uses Next.js 16.1.6, which @opennextjs/cloudflare explicitly supports (^16.1.5). Also installed wrangler@4.66.0 (required peer dep). Created open-next.config.ts with full Cloudflare override config (cloudflare-node wrapper, edge converter, fetch proxy, dummy caches, node:crypto edge external). Created wrangler.jsonc pointing pages_build_output_dir to .open-next with nodejs_compat flag. Updated next.config.ts with images: { unoptimized: true } — required because Cloudflare Pages has no Node.js image optimization runtime. Added three npm scripts: pages:build (opennextjs-cloudflare build), pages:dev, pages:deploy. Both npm run build and npm run pages:build succeed cleanly. Output directory is .open-next/ (not .vercel/output/static — that was the legacy tool's format) containing worker.js, assets, cache, cloudflare, middleware, and server-functions directories. All 9 routes are prerendered as static content."
+      "postImplementationNotes": "Since every page on the site is fully static (○ prerendered), no adapter is needed at all. Added output: 'export' to next.config.ts — Next.js writes plain HTML/CSS/JS to out/. Also set images: { unoptimized: true } which is required for static export (no image optimization server at runtime). Added export const dynamic = 'force-static' to app/sitemap.ts so it generates correctly under static export. Build produces out/ directory with index.html, about.html, portfolio.html, services.html, contact.html, privacy.html, terms.html, sitemap.xml, robots.txt, and all assets. Cloudflare Pages build settings: build command = npm run build, output directory = out. No wrangler, no adapter packages needed."
     },
     {
       "id": "6.2",
       "phase": 6,
       "title": "Deploy to Cloudflare Pages",
       "description": "Connect the GitHub repository to Cloudflare Pages. Configure build settings (build command, output directory). Trigger the first deployment and verify it succeeds.",
-      "status": "complete",
+      "status": "pending",
       "prerequisites": ["6.1"],
-      "files": ["wrangler.jsonc"],
+      "files": [],
       "validationCriteria": [
         "GitHub repo is connected to Cloudflare Pages",
         "Build settings configured correctly",
@@ -381,7 +381,7 @@
         "All pages render correctly on the deployed site",
         "Contact form submits successfully on the deployed site"
       ],
-      "postImplementationNotes": "Deployed as a Cloudflare Worker (not Pages) — @opennextjs/cloudflare generates a Worker bundle, not a static Pages site. GitHub push to origin/main completed (24 commits). Authenticated wrangler via OAuth (wrangler login). Rewrote wrangler.jsonc with correct Workers config: main=.open-next/worker.js, assets.directory=.open-next/assets with ASSETS binding, WORKER_SELF_REFERENCE service binding for revalidation, nodejs_compat + global_fetch_strictly_public compatibility flags, account_id set to personal Cloudflare account (woodswebsites.com domain lives here). Deployed via `wrangler deploy` to https://woods-websites.woods04sean.workers.dev — all 7 routes return HTTP 200 and the homepage title renders correctly. Note: GitHub auto-deploy integration not configured — deploys are manual via `npm run pages:build && npm run pages:deploy`. GitHub integration can be added from the Cloudflare dashboard if needed."
+      "postImplementationNotes": null
     },
     {
       "id": "6.3",
