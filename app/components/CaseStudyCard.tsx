@@ -19,6 +19,9 @@ export default function CaseStudyCard({
 }: CaseStudyCardProps) {
   return (
     <div className="group relative bg-zinc-900 border border-zinc-800 hover:border-amber-500/30 transition-all duration-300 overflow-hidden">
+      {/* Amber top-border accent on hover */}
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-amber-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 z-10" />
+
       {/* Image */}
       <div className="relative aspect-video overflow-hidden">
         <Image
@@ -32,7 +35,7 @@ export default function CaseStudyCard({
       </div>
 
       {/* Content */}
-      <div className="p-8 space-y-5">
+      <div className="p-8 md:p-10 space-y-6">
         <h3
           className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight leading-tight group-hover:text-amber-500 transition-colors"
           style={{ fontFamily: "var(--font-unbounded)" }}
@@ -47,7 +50,7 @@ export default function CaseStudyCard({
           {tags.map((tag, i) => (
             <span
               key={i}
-              className="px-4 py-2 bg-zinc-950 border border-zinc-800 text-zinc-400 text-xs uppercase tracking-wider"
+              className="px-4 py-2 bg-zinc-950 border border-zinc-800 text-zinc-400 text-xs uppercase tracking-wider group-hover:border-amber-500/30 group-hover:text-amber-500/70 transition-colors duration-300"
             >
               {tag}
             </span>

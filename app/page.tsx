@@ -197,7 +197,7 @@ export default function Home() {
           </div>
 
           {/* Project cards grid */}
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-10">
             {featuredProjects.map((project) => (
               <CaseStudyCard key={project.title} {...project} />
             ))}

@@ -83,7 +83,7 @@ export default function Portfolio() {
       {/* Portfolio Grid */}
       <section className="py-32">
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="grid md:grid-cols-2 gap-8">
+          <div className="grid md:grid-cols-2 gap-8 md:gap-10">
             {projects.map((project) => (
               <CaseStudyCard key={project.title} {...project} />
             ))}

@@ -486,7 +486,7 @@
       "phase": 7,
       "title": "Portfolio card polish",
       "description": "Improve CaseStudyCard spacing and visual refinement. Increase content padding (p-8 to p-8 md:p-10). Increase space-y from 5 to 6. Add hover color shift to tags. Increase grid gap. Add subtle amber top-border accent on card hover. Increase card grid gaps on both homepage and portfolio page.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": ["7.1"],
       "files": [
         "app/components/CaseStudyCard.tsx",
@@ -501,7 +501,7 @@
         "Cards look polished and premium on both mobile and desktop",
         "npm run build succeeds"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "Four changes across three files. CaseStudyCard.tsx: (1) Added amber top-border reveal accent — absolute positioned h-0.5 div with scale-x-0 to group-hover:scale-x-100 transform using origin-left for a left-to-right sweep animation. (2) Content area padding increased from p-8 to p-8 md:p-10 and space-y increased from 5 to 6 for more breathing room. (3) Tags upgraded with group-hover:border-amber-500/30 and group-hover:text-amber-500/70 so all tags shift to amber on card hover. app/portfolio/page.tsx and app/page.tsx: (4) Card grid gaps increased from gap-8 to gap-8 md:gap-10 on both pages. Build passes cleanly."
     },
     {
       "id": "7.4",
