@@ -465,7 +465,7 @@
       "phase": 7,
       "title": "Homepage hero refinement",
       "description": "Rebalance the hero layout: center content vertically instead of bottom-aligning (items-end). Give the stats block more visual separation from the headline. Make CTA buttons more prominent. Scale headline down more aggressively on mobile (text-5xl instead of text-6xl). Improve the scroll indicator visibility.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": ["7.1"],
       "files": [
         "app/page.tsx"
@@ -479,7 +479,7 @@
         "Overall hero section feels balanced and premium",
         "npm run build succeeds"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "Six targeted changes to app/page.tsx: (1) Section changed from flex items-end to items-center — hero content now vertically centered in the full-viewport-height section rather than pushed to the bottom. (2) Inner lg:grid-cols-12 grid changed from items-end to items-start — both the headline column and stats/CTA column now align at their tops. (3) Mobile h1 scaled from text-6xl (60px) to text-5xl (48px) for more comfortable display at 375px. (4) Stats grid container given pt-6 border-t border-amber-500/20 — subtle amber top-border creates a visual section header for the stats block. (5) Both CTA buttons upgraded: py-5 → py-6 for taller presence; added flex items-center justify-between layout; primary 'View Work' button gets a → arrow with group-hover:translate-x-1 micro-animation; secondary 'Start Project' also gets →. (6) Scroll indicator opacity raised from 50 to 70 for improved visibility. Build passes cleanly."
     },
     {
       "id": "7.3",

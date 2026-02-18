@@ -77,7 +77,7 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
       {/* Hero Section - Editorial Brutalist */}
-      <section className="relative min-h-screen flex items-end overflow-hidden bg-zinc-950 pt-24 pb-20">
+      <section className="relative min-h-screen flex items-center overflow-hidden bg-zinc-950 pt-24 pb-20">
         {/* Grain texture overlay */}
         <div className="absolute inset-0 opacity-[0.015]" style={{
           backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
@@ -88,7 +88,7 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-96 h-2 bg-gradient-to-r from-amber-500 to-transparent opacity-80 animate-pulse-subtle" />
 
         <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24 w-full">
-          <div className="grid lg:grid-cols-12 gap-12 items-end">
+          <div className="grid lg:grid-cols-12 gap-12 items-start">
             {/* Left column - Main headline */}
             <div className="lg:col-span-7 space-y-8 slide-up">
               <div className="space-y-4">
@@ -96,7 +96,7 @@ export default function Home() {
                   Portfolio 2026
                 </p>
                 <h1
-                  className="text-6xl md:text-8xl lg:text-[9rem] font-black text-white leading-[0.85] tracking-tight"
+                  className="text-5xl md:text-8xl lg:text-[9rem] font-black text-white leading-[0.85] tracking-tight"
                   style={{ fontFamily: "var(--font-unbounded)" }}
                 >
                   WEB<br/>
@@ -118,7 +118,7 @@ export default function Home() {
 
             {/* Right column - Stats and CTA */}
             <div className="lg:col-span-5 space-y-12 slide-up" style={{ animationDelay: '0.2s' }}>
-              <div className="grid grid-cols-2 gap-6">
+              <div className="grid grid-cols-2 gap-6 pt-6 border-t border-amber-500/20">
                 {[
                   { number: "50+", label: "Projects" },
                   { number: "100%", label: "Satisfaction" },
@@ -140,25 +140,27 @@ export default function Home() {
               <div className="flex flex-col gap-4">
                 <Link
                   href="/portfolio"
-                  className="group relative px-8 py-5 bg-amber-500 text-zinc-950 overflow-hidden font-bold text-sm uppercase tracking-wider hover:bg-amber-400 transition-all"
+                  className="group relative px-8 py-6 bg-amber-500 text-zinc-950 overflow-hidden font-bold text-sm uppercase tracking-wider hover:bg-amber-400 transition-all flex items-center justify-between"
                   style={{ fontFamily: "var(--font-unbounded)" }}
                 >
                   <span className="relative z-10">View Work</span>
+                  <span className="relative z-10 text-lg leading-none group-hover:translate-x-1 transition-transform duration-200">→</span>
                   <div className="absolute inset-0 bg-white transform translate-x-full group-hover:translate-x-0 transition-transform duration-300" />
                 </Link>
                 <Link
                   href="/contact"
-                  className="px-8 py-5 border-2 border-white text-white hover:bg-white hover:text-zinc-950 transition-all font-bold text-sm uppercase tracking-wider"
+                  className="px-8 py-6 border-2 border-white text-white hover:bg-white hover:text-zinc-950 transition-all font-bold text-sm uppercase tracking-wider flex items-center justify-between"
                   style={{ fontFamily: "var(--font-unbounded)" }}
                 >
-                  Start Project
+                  <span>Start Project</span>
+                  <span className="text-lg leading-none">→</span>
                 </Link>
               </div>
             </div>
           </div>
 
           {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-8 flex items-center gap-4 opacity-50 hover:opacity-100 transition-opacity">
+          <div className="absolute bottom-8 left-8 flex items-center gap-4 opacity-70 hover:opacity-100 transition-opacity">
             <div className="w-px h-16 bg-gradient-to-b from-transparent via-amber-500 to-transparent animate-scroll" />
             <span className="text-white text-xs uppercase tracking-widest rotate-90 origin-left" style={{ fontFamily: "var(--font-unbounded)" }}>
               Scroll
