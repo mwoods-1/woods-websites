@@ -134,7 +134,7 @@ export default function Services() {
         <div className="absolute top-0 right-0 w-1/3 h-px bg-gradient-to-l from-amber-500/50 to-transparent" />
         <div className="absolute bottom-0 left-0 w-96 h-px bg-gradient-to-r from-amber-500/30 to-transparent" />
 
-        <div className="max-w-[1800px] mx-auto px-12 lg:px-24">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
           <div className="max-w-4xl">
             <p
               className="text-amber-500 uppercase tracking-[0.3em] text-xs mb-6"
@@ -159,8 +159,8 @@ export default function Services() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-24">
-        <div className="max-w-[1800px] mx-auto px-12 lg:px-24">
+      <section className="py-32">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
           <div className="grid md:grid-cols-2 gap-px bg-zinc-800">
             {services.map((service, index) => (
               <div
@@ -201,10 +201,10 @@ export default function Services() {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 bg-zinc-900 relative overflow-hidden">
+      <section className="py-32 bg-zinc-900 relative overflow-hidden">
         <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-amber-500/20 via-transparent to-amber-500/20" />
 
-        <div className="max-w-[1800px] mx-auto px-12 lg:px-24">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
           <div className="mb-20">
             <p
               className="text-amber-500 uppercase tracking-[0.3em] text-xs mb-6"
@@ -247,8 +247,8 @@ export default function Services() {
       </section>
 
       {/* Technologies */}
-      <section className="py-24">
-        <div className="max-w-[1800px] mx-auto px-12 lg:px-24">
+      <section className="py-32">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
           <div className="mb-20 max-w-2xl">
             <p
               className="text-amber-500 uppercase tracking-[0.3em] text-xs mb-6"
@@ -298,7 +298,7 @@ export default function Services() {
         />
         <div className="absolute bottom-0 right-0 w-[400px] h-[400px] border-4 border-zinc-950/10 rotate-12 translate-x-1/3 translate-y-1/3" />
 
-        <div className="relative z-10 max-w-[1800px] mx-auto px-12 lg:px-24">
+        <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
           <div className="max-w-3xl">
             <p
               className="text-zinc-950/60 uppercase tracking-[0.3em] text-xs mb-6"

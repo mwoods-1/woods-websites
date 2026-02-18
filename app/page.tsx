@@ -87,7 +87,7 @@ export default function Home() {
         <div className="absolute top-32 right-0 w-[600px] h-[600px] border border-amber-500/10 rotate-45 translate-x-1/2 -translate-y-1/4" />
         <div className="absolute bottom-0 left-0 w-96 h-2 bg-gradient-to-r from-amber-500 to-transparent opacity-80 animate-pulse-subtle" />
 
-        <div className="relative z-10 max-w-[1800px] mx-auto px-12 lg:px-24 w-full">
+        <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24 w-full">
           <div className="grid lg:grid-cols-12 gap-12 items-end">
             {/* Left column - Main headline */}
             <div className="lg:col-span-7 space-y-8 slide-up">
@@ -172,7 +172,7 @@ export default function Home() {
         {/* Background accent */}
         <div className="absolute top-0 right-0 w-1/2 h-px bg-gradient-to-r from-transparent to-amber-500/30" />
 
-        <div className="max-w-[1800px] mx-auto px-12 lg:px-24">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
           {/* Section header */}
           <div className="mb-24 max-w-4xl">
             <div className="flex items-start gap-8 mb-8">
@@ -220,7 +220,7 @@ export default function Home() {
         {/* Diagonal line accent */}
         <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-amber-500/20 via-transparent to-amber-500/20" />
 
-        <div className="max-w-[1800px] mx-auto px-12 lg:px-24">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
           <div className="mb-24 grid lg:grid-cols-2 gap-16 items-end">
             <div>
               <p className="text-amber-500 uppercase tracking-[0.3em] text-xs mb-6" style={{ fontFamily: "var(--font-unbounded)" }}>
@@ -320,7 +320,7 @@ export default function Home() {
         {/* Geometric accent */}
         <div className="absolute bottom-0 right-0 w-[600px] h-[600px] border-4 border-zinc-950/10 rotate-12 translate-x-1/3 translate-y-1/3" />
 
-        <div className="relative z-10 max-w-[1800px] mx-auto px-12 lg:px-24">
+        <div className="relative z-10 max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
           <div className="max-w-5xl">
             <div className="space-y-12">
               <div className="flex items-start gap-8">

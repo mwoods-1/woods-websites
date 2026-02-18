@@ -117,7 +117,7 @@ export default function Contact() {
         <div className="absolute top-0 right-0 w-1/3 h-px bg-gradient-to-l from-amber-500/50 to-transparent" />
         <div className="absolute bottom-0 left-0 w-96 h-px bg-gradient-to-r from-amber-500/30 to-transparent" />
 
-        <div className="max-w-[1800px] mx-auto px-12 lg:px-24">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
           <div className="max-w-4xl">
             <p
               className="text-amber-500 uppercase tracking-[0.3em] text-xs mb-6"
@@ -142,8 +142,8 @@ export default function Contact() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-24">
-        <div className="max-w-[1800px] mx-auto px-12 lg:px-24">
+      <section className="py-32">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
           <div className="grid lg:grid-cols-12 gap-16">
             {/* Left Column - Info */}
             <div className="lg:col-span-5 space-y-12">
