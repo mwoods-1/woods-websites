@@ -548,7 +548,7 @@
       "phase": 7,
       "title": "Navigation active state and mobile menu animation",
       "description": "Add active link styling to the navigation for the current page (amber underline or amber text color). Add slide-down animation for mobile menu open/close instead of instant appear/disappear. Close mobile menu when clicking outside. Consider full-screen overlay for mobile menu.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": [],
       "files": [
         "app/components/Navigation.tsx"
@@ -561,7 +561,7 @@
         "Navigation remains functional and accessible",
         "npm run build succeeds"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "Three changes to Navigation.tsx. (1) Active link state: imported usePathname() from next/navigation and added desktopLinkClass(href) and mobileLinkClass(href) helper functions that return text-amber-500 when pathname === href, otherwise text-zinc-400 hover:text-white. Contact CTA button retains its amber bg style regardless of active state. (2) Mobile menu slide-down animation: replaced conditional rendering ({isMobileMenuOpen && <div>}) with always-mounted div that transitions max-height (max-h-0 → max-h-96) and opacity (0 → 100) with duration-300 ease-in-out. Added pointer-events-none when closed to prevent interaction with the invisible menu. (3) Close on outside click: added useRef<HTMLElement> on the nav element and a useEffect that attaches a mousedown listener to document only while the menu is open, closing the menu if the click target is outside the nav element. Also added a useEffect([pathname]) that closes the menu on route change as a safety net. Added aria-expanded to the hamburger button for accessibility. Build passes cleanly."
     },
     {
       "id": "7.7",
