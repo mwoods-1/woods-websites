@@ -142,7 +142,8 @@ export default function Contact() {
       </section>
 
       {/* Contact Form Section */}
-      <section className="py-32">
+      <section className="py-32 relative">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
           <div className="grid lg:grid-cols-12 gap-16">
             {/* Left Column - Info */}
@@ -163,43 +164,43 @@ export default function Contact() {
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {contactInfo.map((item, index) => (
                   <div
                     key={index}
-                    className="flex items-start gap-4 p-4 bg-zinc-900 border border-zinc-800"
+                    className="border-l-2 border-amber-500/30 pl-6 hover:border-amber-500/60 transition-colors group"
                   >
-                    <div className="w-2 h-2 bg-amber-500 mt-2 flex-shrink-0" />
-                    <div>
-                      <h3
-                        className="font-bold text-white mb-1 text-sm uppercase tracking-wider"
-                        style={{ fontFamily: "var(--font-unbounded)" }}
-                      >
-                        {item.label}
-                      </h3>
-                      <p className="text-zinc-400">{item.value}</p>
-                    </div>
+                    <p
+                      className="text-zinc-500 text-xs uppercase tracking-[0.2em] mb-1"
+                      style={{ fontFamily: "var(--font-unbounded)" }}
+                    >
+                      {item.label}
+                    </p>
+                    <p className="text-white text-lg font-medium group-hover:text-amber-500/90 transition-colors">
+                      {item.value}
+                    </p>
                   </div>
                 ))}
               </div>
 
-              <div className="p-6 bg-zinc-900 border border-zinc-800">
+              <div className="relative p-6 bg-zinc-900 border border-zinc-800 overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-500/80 to-amber-500/10" />
                 <h3
-                  className="font-bold text-white mb-4 text-sm uppercase tracking-wider"
+                  className="font-bold text-white mb-6 text-sm uppercase tracking-wider"
                   style={{ fontFamily: "var(--font-unbounded)" }}
                 >
                   What Happens Next?
                 </h3>
-                <ol className="space-y-4">
+                <ol className="space-y-5">
                   {process.map((step, index) => (
                     <li key={index} className="flex gap-4 text-zinc-400">
                       <span
-                        className="text-amber-500 font-bold"
+                        className="text-amber-500 font-bold flex-shrink-0"
                         style={{ fontFamily: "var(--font-unbounded)" }}
                       >
                         {String(index + 1).padStart(2, "0")}
                       </span>
-                      <span>{step}</span>
+                      <span className="leading-relaxed">{step}</span>
                     </li>
                   ))}
                 </ol>
@@ -212,6 +213,22 @@ export default function Contact() {
                 onSubmit={handleSubmit}
                 className="p-8 lg:p-10 bg-zinc-900 border border-zinc-800"
               >
+                <div className="mb-8 pb-6 border-b border-zinc-800">
+                  <p
+                    className="text-amber-500 uppercase tracking-[0.3em] text-xs mb-3"
+                    style={{ fontFamily: "var(--font-unbounded)" }}
+                  >
+                    Project Enquiry
+                  </p>
+                  <h3
+                    className="text-2xl font-black text-white uppercase leading-tight"
+                    style={{ fontFamily: "var(--font-unbounded)" }}
+                  >
+                    Tell Us What
+                    <br />
+                    You Need
+                  </h3>
+                </div>
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label
@@ -408,10 +425,25 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full px-8 py-5 bg-amber-500 text-zinc-950 font-black text-sm uppercase tracking-wider hover:bg-amber-400 transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="group w-full px-8 py-5 bg-amber-500 text-zinc-950 font-black text-sm uppercase tracking-wider hover:bg-amber-400 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-between"
                   style={{ fontFamily: "var(--font-unbounded)" }}
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"}
+                  <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
+                  {!isSubmitting && (
+                    <svg
+                      className="w-5 h-5 group-hover:translate-x-1 transition-transform"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={3}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
+                    </svg>
+                  )}
                 </button>
               </form>
             </div>

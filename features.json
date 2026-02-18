@@ -568,7 +568,7 @@
       "phase": 7,
       "title": "Contact page visual enhancement",
       "description": "Add visual polish to the contact page form. Add amber focus states on form inputs (border-amber-500 on focus). Add subtle background treatment to distinguish form area from info sidebar. Improve visual hierarchy of the left-side info blocks. Add hover/active animations on submit button. Add geometric accents consistent with brutalist style.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": ["7.1"],
       "files": [
         "app/contact/page.tsx"
@@ -581,7 +581,7 @@
         "Page feels cohesive with the rest of the site's brutalist design",
         "npm run build succeeds"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "Four targeted changes to app/contact/page.tsx. (1) Form inputs: focus:border-amber-500 was already present on all inputs — criterion confirmed met. (2) Sidebar info items: replaced identical-looking bg-zinc-900 border boxes with an editorial border-l-2 border-amber-500/30 pl-6 style — label in xs zinc-500 Unbounded, value in lg white with group-hover:text-amber-500/90. This creates clear hierarchy (label → value) and makes the sidebar feel lightweight vs the heavier form card. (3) 'What Happens Next' block: added relative overflow-hidden wrapper with absolute h-0.5 amber left-to-right gradient bar at top, and increased process step spacing from space-y-4 to space-y-5 with leading-relaxed on step text. (4) Added a form header section inside the form card (amber section label 'Project Enquiry' + bold h3 'Tell Us What You Need', separated by border-b border-zinc-800) to distinguish the form visually from the sidebar. (5) Submit button upgraded: added group class, flex items-center justify-between, active:scale-[0.98] press effect, and a right-arrow SVG icon with group-hover:translate-x-1 micro-animation (arrow hidden during submitting state). (6) Added gradient separator line at top of the Contact Form section. Build passes cleanly."
     },
     {
       "id": "7.8",
