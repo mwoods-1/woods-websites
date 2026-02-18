@@ -95,7 +95,8 @@ export default function About() {
       </section>
 
       {/* Our Story */}
-      <section className="py-32">
+      <section className="py-32 relative">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
           <div className="grid lg:grid-cols-12 gap-16 items-start">
             <div className="lg:col-span-4">
@@ -115,7 +116,7 @@ export default function About() {
               </h2>
             </div>
 
-            <div className="lg:col-span-8 space-y-6 text-zinc-400 text-lg leading-relaxed">
+            <div className="lg:col-span-8 space-y-8 text-zinc-400 text-lg leading-relaxed">
               <p>
                 Woods Websites was born from a simple idea: businesses deserve
                 websites that actually work for them—not just generic templates
@@ -130,6 +131,7 @@ export default function About() {
                 building beautiful new sites from scratch with clean,
                 maintainable code.
               </p>
+              <div className="w-12 h-px bg-amber-500/40" />
               <p>
                 Together, we handle everything from initial design to complex
                 platform integrations, deployment, and ongoing support. We've
@@ -137,7 +139,7 @@ export default function About() {
                 tourism to sports organizations—and we love the challenge of
                 solving unique problems for each client.
               </p>
-              <p className="border-l-2 border-amber-500/30 pl-6 italic">
+              <p className="border-l-4 border-amber-500/50 pl-6 italic text-zinc-300">
                 What sets us apart? We genuinely care about your success. Your
                 website isn't just a project to us—it's a partnership.
               </p>
@@ -172,8 +174,9 @@ export default function About() {
             {values.map((value, index) => (
               <div
                 key={index}
-                className="p-8 lg:p-10 bg-zinc-900 hover:bg-zinc-950 transition-colors group"
+                className="relative overflow-hidden p-8 lg:p-10 bg-zinc-900 hover:bg-zinc-950 transition-colors group"
               >
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-amber-500 scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left" />
                 <div
                   className="text-5xl font-black text-amber-500/20 mb-4 group-hover:text-amber-500/40 transition-colors"
                   style={{ fontFamily: "var(--font-unbounded)" }}
@@ -196,30 +199,39 @@ export default function About() {
       </section>
 
       {/* Skills */}
-      <section className="py-32">
+      <section className="py-32 relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="mb-16 max-w-2xl">
-            <p
-              className="text-amber-500 uppercase tracking-[0.3em] text-xs mb-6"
-              style={{ fontFamily: "var(--font-unbounded)" }}
-            >
-              Capabilities
-            </p>
-            <h2
-              className="text-5xl md:text-6xl font-black text-white leading-[0.9]"
-              style={{ fontFamily: "var(--font-unbounded)" }}
-            >
-              WHAT WE'RE
-              <br />
-              GOOD AT
-            </h2>
+          <div className="grid lg:grid-cols-12 gap-16 items-start mb-12">
+            <div className="lg:col-span-4">
+              <p
+                className="text-amber-500 uppercase tracking-[0.3em] text-xs mb-6"
+                style={{ fontFamily: "var(--font-unbounded)" }}
+              >
+                Capabilities
+              </p>
+              <h2
+                className="text-5xl md:text-6xl font-black text-white leading-[0.9]"
+                style={{ fontFamily: "var(--font-unbounded)" }}
+              >
+                WHAT WE'RE
+                <br />
+                GOOD AT
+              </h2>
+            </div>
+            <div className="lg:col-span-8 flex flex-col justify-end">
+              <p className="text-zinc-500 italic text-lg leading-relaxed">
+                From design to deployment — {skills.length} capabilities that
+                cover every stage of your project.
+              </p>
+            </div>
           </div>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3">
             {skills.map((skill, index) => (
               <span
                 key={index}
-                className="px-6 py-3 bg-zinc-900 border border-zinc-800 text-zinc-400 text-sm uppercase tracking-wider hover:border-amber-500/30 hover:text-amber-500 transition-colors cursor-default"
+                className="px-6 py-4 bg-zinc-900 border border-zinc-800 text-zinc-400 text-sm uppercase tracking-wider hover:border-amber-500/30 hover:text-amber-500 transition-colors cursor-default"
                 style={{ fontFamily: "var(--font-unbounded)" }}
               >
                 {skill}
@@ -230,18 +242,26 @@ export default function About() {
       </section>
 
       {/* Stats */}
-      <section className="py-32 bg-zinc-900">
+      <section className="py-32 bg-zinc-900 relative">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 border border-zinc-800 divide-y divide-x divide-zinc-800 md:divide-y-0">
             {stats.map((stat, index) => (
-              <div key={index} className="text-center">
+              <div
+                key={index}
+                className="p-8 lg:p-12 text-center group hover:bg-zinc-800/40 transition-colors"
+              >
+                <div className="w-8 h-px bg-amber-500/40 mx-auto mb-6 group-hover:bg-amber-500/80 transition-colors" />
                 <div
-                  className="text-5xl md:text-6xl font-black text-amber-500 mb-2"
+                  className="text-5xl md:text-6xl font-black text-amber-500 mb-3"
                   style={{ fontFamily: "var(--font-unbounded)" }}
                 >
                   {stat.number}
                 </div>
-                <div className="text-zinc-400 uppercase tracking-wider text-sm">
+                <div
+                  className="text-zinc-400 uppercase tracking-wider text-xs"
+                  style={{ fontFamily: "var(--font-unbounded)" }}
+                >
                   {stat.label}
                 </div>
               </div>
