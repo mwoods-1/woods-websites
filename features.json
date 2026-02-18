@@ -287,7 +287,7 @@
       "phase": 4,
       "title": "Add Cloudflare Web Analytics",
       "description": "Add the Cloudflare Web Analytics beacon script to the site. This can be done via a <script> tag in the root layout, or configured to auto-inject via Cloudflare Pages dashboard after deployment. If adding the script manually, use Next.js Script component with strategy='afterInteractive'.",
-      "status": "pending",
+      "status": "complete",
       "prerequisites": [],
       "files": [
         "app/layout.tsx"
@@ -299,7 +299,7 @@
         "No console errors from the analytics script",
         "Analytics beacon token placeholder or actual token is configured"
       ],
-      "postImplementationNotes": null
+      "postImplementationNotes": "Added Cloudflare Web Analytics beacon via Next.js Script component with strategy='afterInteractive' in app/layout.tsx. Script is conditionally rendered only when NEXT_PUBLIC_CF_ANALYTICS_TOKEN env var is set, so dev/preview builds without a token produce no console errors. Created .env.local with commented instructions on where to get the token (Cloudflare Dashboard > Analytics > Web Analytics). In production, set NEXT_PUBLIC_CF_ANALYTICS_TOKEN in Cloudflare Pages environment variables. Build passes cleanly."
     },
     {
       "id": "5.1",
