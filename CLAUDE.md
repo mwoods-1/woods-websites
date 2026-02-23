@@ -57,6 +57,55 @@ Background: **Zinc** (dark grays)
 
 Navy colors are defined but sparingly used.
 
+### Color System Architecture (Two-Layer)
+
+The color system uses a two-layer CSS custom property architecture in `globals.css`:
+
+**Layer 1 — Primitive palette** (`:root` amber/navy scale):
+```css
+--amber-500: #f59e0b;
+```
+→ Feeds `@theme inline` → powers `bg-amber-500`, `text-amber-500`, etc.
+
+**Layer 2 — Semantic tokens** (`:root` intent-based aliases):
+```css
+--accent:         var(--amber-500);  /* Primary brand accent */
+--accent-hover:   var(--amber-400);  /* Hover state */
+--accent-fg:      #18181b;           /* Text ON accent backgrounds */
+--surface:        #09090b;           /* Primary page background */
+--surface-alt:    #18181b;           /* Cards, elevated surfaces */
+--surface-border: #27272a;           /* Borders and dividers */
+--foreground:     #fafafa;           /* Primary text */
+--foreground-muted: #a1a1aa;         /* Body text */
+--foreground-faint: #71717a;         /* Secondary/meta text */
+```
+→ Also fed into `@theme inline` → powers `bg-accent`, `bg-surface`, `text-accent-fg`, etc.
+
+**For new code**, prefer semantic tokens (`bg-accent`, `bg-surface`) over specific palette classes (`bg-amber-500`, `bg-zinc-950`).
+
+**Existing code** (`bg-amber-500`, `text-zinc-400`, etc.) keeps working unchanged.
+
+### How to Rebrand (Full Color Swap)
+
+To change the brand accent from amber to another color (e.g., blue):
+
+1. Open `app/globals.css`
+2. Update **Layer 1 primitives** — add/replace the color scale:
+   ```css
+   --blue-400: #60a5fa;
+   --blue-500: #3b82f6;
+   ```
+3. Update the `@theme inline` bridge for the new scale
+4. Update **Layer 2 semantic tokens** to point at the new values:
+   ```css
+   --accent:       var(--blue-500);
+   --accent-hover: var(--blue-400);
+   --accent-fg:    #ffffff;  /* adjust if needed for contrast */
+   ```
+5. Update `--surface`, `--surface-alt`, `--surface-border` if changing the dark background palette
+
+**That's it.** All Tailwind utilities, globals.css internals (body bg, scrollbar, focus ring, selection), and any new semantic-token-based code update automatically.
+
 ### Design Style
 
 "Editorial Brutalist" - characterized by:

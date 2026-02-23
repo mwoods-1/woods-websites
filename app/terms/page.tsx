@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageHero from "../components/PageHero";
 
 export const metadata: Metadata = {
   title: "Terms of Service",
@@ -10,39 +11,16 @@ export const metadata: Metadata = {
 export default function Terms() {
   return (
     <div className="bg-zinc-950">
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-px bg-gradient-to-l from-amber-500/50 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-96 h-px bg-gradient-to-r from-amber-500/30 to-transparent" />
-
-        <div className="max-w-[1800px] mx-auto px-12 lg:px-24">
-          <div className="max-w-4xl">
-            <p
-              className="text-amber-500 uppercase tracking-[0.3em] text-xs mb-6"
-              style={{ fontFamily: "var(--font-unbounded)" }}
-            >
-              Legal
-            </p>
-            <h1
-              className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.9] mb-8"
-              style={{ fontFamily: "var(--font-unbounded)" }}
-            >
-              TERMS OF
-              <br />
-              SERVICE
-            </h1>
-            <p className="text-zinc-400 text-xl max-w-2xl leading-relaxed italic border-l-2 border-amber-500/30 pl-6">
-              The terms and conditions that govern your use of this website and
-              our services.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        label="Legal"
+        headline={<>TERMS OF<br />SERVICE</>}
+        description="The terms and conditions that govern your use of this website and our services."
+      />
 
       {/* Terms Content */}
-      <section className="py-24">
-        <div className="max-w-[1800px] mx-auto px-12 lg:px-24">
-          <div className="max-w-3xl space-y-16">
+      <section className="py-32">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
+          <div className="prose-width space-y-16">
             <p className="text-zinc-500 text-sm uppercase tracking-wider">
               Last updated: February 2026
             </p>
@@ -50,8 +28,7 @@ export default function Terms() {
             {/* Overview */}
             <div className="space-y-6">
               <h2
-                className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
-                style={{ fontFamily: "var(--font-unbounded)" }}
+                className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
               >
                 Overview
               </h2>
@@ -66,8 +43,7 @@ export default function Terms() {
             {/* Services */}
             <div className="space-y-6">
               <h2
-                className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
-                style={{ fontFamily: "var(--font-unbounded)" }}
+                className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
               >
                 Our Services
               </h2>
@@ -101,8 +77,7 @@ export default function Terms() {
             {/* Intellectual Property */}
             <div className="space-y-6">
               <h2
-                className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
-                style={{ fontFamily: "var(--font-unbounded)" }}
+                className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
               >
                 Intellectual Property
               </h2>
@@ -127,8 +102,7 @@ export default function Terms() {
             {/* Limitation of Liability */}
             <div className="space-y-6">
               <h2
-                className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
-                style={{ fontFamily: "var(--font-unbounded)" }}
+                className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
               >
                 Limitation of Liability
               </h2>
@@ -150,8 +124,7 @@ export default function Terms() {
             {/* Disclaimers */}
             <div className="space-y-6">
               <h2
-                className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
-                style={{ fontFamily: "var(--font-unbounded)" }}
+                className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
               >
                 Disclaimers
               </h2>
@@ -171,8 +144,7 @@ export default function Terms() {
             {/* Governing Law */}
             <div className="space-y-6">
               <h2
-                className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
-                style={{ fontFamily: "var(--font-unbounded)" }}
+                className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
               >
                 Governing Law
               </h2>
@@ -187,8 +159,7 @@ export default function Terms() {
             {/* Changes */}
             <div className="space-y-6">
               <h2
-                className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
-                style={{ fontFamily: "var(--font-unbounded)" }}
+                className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
               >
                 Changes to These Terms
               </h2>
@@ -203,8 +174,7 @@ export default function Terms() {
             {/* Contact */}
             <div className="space-y-6">
               <h2
-                className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
-                style={{ fontFamily: "var(--font-unbounded)" }}
+                className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
               >
                 Contact Us
               </h2>

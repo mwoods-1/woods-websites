@@ -1,7 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  /* Editorial Brutalist Color Palette */
+  /* =============================================
+   * PRIMITIVE PALETTE — raw color values
+   * Change these to update Tailwind amber-* utilities
+   * ============================================= */
+
+  /* Amber scale */
   --amber-50: #fffbeb;
   --amber-100: #fef3c7;
   --amber-200: #fde68a;
@@ -13,7 +18,7 @@
   --amber-800: #92400e;
   --amber-900: #78350f;
 
-  /* Keep navy for potential use */
+  /* Navy scale — reserved for future use */
   --navy-50: #f0f4f8;
   --navy-100: #d9e2ec;
   --navy-200: #bcccdc;
@@ -24,10 +29,36 @@
   --navy-700: #334e68;
   --navy-800: #243b53;
   --navy-900: #102a43;
+
+  /* =============================================
+   * SEMANTIC COLOR TOKENS — intent-based aliases
+   *
+   * TO REBRAND: change only the values below.
+   * Existing bg-amber-500 classes keep working;
+   * new code should use bg-accent, bg-surface, etc.
+   *
+   * Full rebrand checklist — see CLAUDE.md
+   * ============================================= */
+
+  /* Brand accent — currently amber */
+  --accent:         var(--amber-500);  /* Primary accent: buttons, labels, highlights */
+  --accent-hover:   var(--amber-400);  /* Hover state on accent elements */
+  --accent-muted:   var(--amber-500);  /* Used at lower opacity via Tailwind modifiers */
+  --accent-fg:      #18181b;           /* Text/icon color ON accent backgrounds (zinc-900) */
+
+  /* Surfaces — currently zinc dark */
+  --surface:        #09090b;           /* Primary page background (zinc-950) */
+  --surface-alt:    #18181b;           /* Cards, elevated surfaces (zinc-900) */
+  --surface-border: #27272a;           /* Borders and dividers (zinc-800) */
+
+  /* Foreground */
+  --foreground:       #fafafa;         /* Primary text */
+  --foreground-muted: #a1a1aa;         /* Body text on dark bg (zinc-400) */
+  --foreground-faint: #71717a;         /* Secondary/meta text (zinc-500) */
 }
 
 @theme inline {
-  /* Amber accent colors */
+  /* Amber accent colors — powers bg-amber-*, text-amber-*, etc. */
   --color-amber-*: initial;
   --color-amber-50: var(--amber-50);
   --color-amber-100: var(--amber-100);
@@ -40,7 +71,7 @@
   --color-amber-800: var(--amber-800);
   --color-amber-900: var(--amber-900);
 
-  /* Keep navy */
+  /* Navy — reserved */
   --color-navy-*: initial;
   --color-navy-50: var(--navy-50);
   --color-navy-100: var(--navy-100);
@@ -52,6 +83,14 @@
   --color-navy-700: var(--navy-700);
   --color-navy-800: var(--navy-800);
   --color-navy-900: var(--navy-900);
+
+  /* Semantic tokens — powers bg-accent, text-accent, bg-surface, etc. */
+  --color-accent:         var(--accent);
+  --color-accent-hover:   var(--accent-hover);
+  --color-accent-fg:      var(--accent-fg);
+  --color-surface:        var(--surface);
+  --color-surface-alt:    var(--surface-alt);
+  --color-surface-border: var(--surface-border);
 }
 
 * {
@@ -61,8 +100,10 @@
 }
 
 body {
-  background: #09090b;
-  color: #fafafa;
+  background: var(--surface);
+  color: var(--foreground);
+  font-family: var(--font-libre-baskerville);
+  font-size: clamp(1rem, 0.5vw + 0.875rem, 1.125rem);
   line-height: 1.6;
   overflow-x: hidden;
 }
@@ -74,8 +115,8 @@ html {
 
 /* Selection color */
 ::selection {
-  background: var(--amber-500);
-  color: #18181b;
+  background: var(--accent);
+  color: var(--accent-fg);
 }
 
 /* Custom scrollbar - Editorial style */
@@ -84,16 +125,26 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: #18181b;
+  background: var(--surface-alt);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--amber-500);
+  background: var(--accent);
   border-radius: 0;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--amber-400);
+  background: var(--accent-hover);
+}
+
+/* Font utilities */
+@utility font-display {
+  font-family: var(--font-unbounded);
+}
+
+/* Prose width — constrains text blocks to a comfortable ~65-character line length */
+@utility prose-width {
+  max-width: 65ch;
 }
 
 /* Editorial Brutalist Animations */
@@ -158,6 +209,22 @@ html {
   animation: scroll 2s ease-in-out infinite;
 }
 
+/* Page enter — fires on every route change via template.tsx */
+@keyframes page-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.page-enter {
+  animation: page-enter 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
 /* Fade in up animation - legacy support */
 @keyframes fadeInUp {
   from {
@@ -172,4 +239,45 @@ html {
 
 .animate-fadeInUp {
   animation: fadeInUp 0.8s ease-out;
+}
+
+/* Scroll-triggered reveal animation */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal--visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Global focus indicator — accent ring for keyboard users, never for mouse */
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+}
+
+/* Respect prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  /* Kill all animations and transitions site-wide */
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+
+  /* Disable smooth scrolling */
+  html {
+    scroll-behavior: auto;
+  }
+
+  /* Ensure scroll-reveal elements are visible without animation */
+  .scroll-reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
 }

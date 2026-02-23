@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import PageHero from "../components/PageHero";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
@@ -10,38 +11,16 @@ export const metadata: Metadata = {
 export default function Privacy() {
   return (
     <div className="bg-zinc-950">
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-px bg-gradient-to-l from-amber-500/50 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-96 h-px bg-gradient-to-r from-amber-500/30 to-transparent" />
-
-        <div className="max-w-[1800px] mx-auto px-12 lg:px-24">
-          <div className="max-w-4xl">
-            <p
-              className="text-amber-500 uppercase tracking-[0.3em] text-xs mb-6"
-              style={{ fontFamily: "var(--font-unbounded)" }}
-            >
-              Legal
-            </p>
-            <h1
-              className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.9] mb-8"
-              style={{ fontFamily: "var(--font-unbounded)" }}
-            >
-              PRIVACY
-              <br />
-              POLICY
-            </h1>
-            <p className="text-zinc-400 text-xl max-w-2xl leading-relaxed italic border-l-2 border-amber-500/30 pl-6">
-              Your privacy matters. Here&apos;s how we handle your information.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        label="Legal"
+        headline={<>PRIVACY<br />POLICY</>}
+        description="Your privacy matters. Here's how we handle your information."
+      />
 
       {/* Policy Content */}
-      <section className="py-24">
-        <div className="max-w-[1800px] mx-auto px-12 lg:px-24">
-          <div className="max-w-3xl space-y-16">
+      <section className="py-32">
+        <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
+          <div className="prose-width space-y-16">
             <p className="text-zinc-500 text-sm uppercase tracking-wider">
               Last updated: February 2026
             </p>
@@ -49,8 +28,7 @@ export default function Privacy() {
             {/* Information We Collect */}
             <div className="space-y-6">
               <h2
-                className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
-                style={{ fontFamily: "var(--font-unbounded)" }}
+                className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
               >
                 Information We Collect
               </h2>
@@ -84,8 +62,7 @@ export default function Privacy() {
             {/* How We Use Your Information */}
             <div className="space-y-6">
               <h2
-                className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
-                style={{ fontFamily: "var(--font-unbounded)" }}
+                className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
               >
                 How We Use Your Information
               </h2>
@@ -104,8 +81,7 @@ export default function Privacy() {
             {/* Third-Party Services */}
             <div className="space-y-6">
               <h2
-                className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
-                style={{ fontFamily: "var(--font-unbounded)" }}
+                className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
               >
                 Third-Party Services
               </h2>
@@ -116,8 +92,7 @@ export default function Privacy() {
               <div className="space-y-6">
                 <div className="border-l-2 border-amber-500/30 pl-6">
                   <h3
-                    className="text-lg font-bold text-white mb-2"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
+                    className="font-display text-lg font-bold text-white mb-2"
                   >
                     FormSubmit.co
                   </h3>
@@ -130,8 +105,7 @@ export default function Privacy() {
                 </div>
                 <div className="border-l-2 border-amber-500/30 pl-6">
                   <h3
-                    className="text-lg font-bold text-white mb-2"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
+                    className="font-display text-lg font-bold text-white mb-2"
                   >
                     Cloudflare
                   </h3>
@@ -150,8 +124,7 @@ export default function Privacy() {
             {/* Data Retention */}
             <div className="space-y-6">
               <h2
-                className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
-                style={{ fontFamily: "var(--font-unbounded)" }}
+                className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
               >
                 Data Retention
               </h2>
@@ -166,8 +139,7 @@ export default function Privacy() {
             {/* Your Rights */}
             <div className="space-y-6">
               <h2
-                className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
-                style={{ fontFamily: "var(--font-unbounded)" }}
+                className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
               >
                 Your Rights
               </h2>
@@ -197,8 +169,7 @@ export default function Privacy() {
             {/* Contact */}
             <div className="space-y-6">
               <h2
-                className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
-                style={{ fontFamily: "var(--font-unbounded)" }}
+                className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
               >
                 Contact Us
               </h2>
@@ -231,8 +202,7 @@ export default function Privacy() {
             {/* Changes */}
             <div className="space-y-6">
               <h2
-                className="text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
-                style={{ fontFamily: "var(--font-unbounded)" }}
+                className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight"
               >
                 Changes to This Policy
               </h2>

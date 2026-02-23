@@ -1,0 +1,323 @@
+{
+  "project": "Woods Websites — UI Enhancement Plan",
+  "style_direction": "Studio/Agency Portfolio — bold typography, editorial layouts, refined spacing, strong visual hierarchy",
+  "goal": "Simple, clean, exceptional UI. Refine the existing editorial brutalist direction rather than rebuild.",
+  "notes": [
+    "Colors are not finalized — keep the CSS custom property system so colors can be swapped easily",
+    "Logo is optional for now — use text-based branding in the nav",
+    "Each feature is independent and can be worked on in any session"
+  ],
+  "features": [
+    {
+      "id": "UI-001",
+      "title": "Fix Navigation — Padding, Alignment, and Mobile Polish",
+      "status": "completed",
+      "priority": "critical",
+      "description": "The navigation has inconsistent padding (px-12 vs px-6 on page content), causing misalignment between the nav and page sections. The logo area is cramped, the hamburger X-morph animation math is off (translate-y-2 doesn't match gap-1.5), and mobile padding is too generous for small screens.",
+      "scope": [
+        "app/components/Navigation.tsx"
+      ],
+      "acceptance_criteria": [
+        "Nav padding matches page content padding at all breakpoints (px-6 md:px-12 lg:px-24)",
+        "Replace image logo with a clean text wordmark using Unbounded font (easy to swap later)",
+        "Hamburger icon lines cross correctly when toggled to X state",
+        "Mobile menu has comfortable but not excessive padding",
+        "Nav doesn't overlap or obscure page content below it",
+        "Smooth scroll-triggered background transition feels natural"
+      ]
+    },
+    {
+      "id": "UI-002",
+      "title": "Refine Homepage Hero — Sizing, Hierarchy, and Breathing Room",
+      "status": "completed",
+      "priority": "high",
+      "description": "The hero headline at text-[9rem] is overwhelming on large screens with 4 stacked lines. The stats grid competes for attention. The 'Portfolio 2026' label feels arbitrary. The italic subtitle clashes with the geometric headline font. The scroll indicator position can collide with content.",
+      "scope": [
+        "app/page.tsx"
+      ],
+      "acceptance_criteria": [
+        "Headline size is impactful but not overwhelming — scales gracefully across breakpoints",
+        "Clear visual hierarchy: headline > subtitle > CTA > supporting stats",
+        "Stats section feels secondary, not competing with the main message",
+        "Section label is purposeful or removed",
+        "Scroll indicator doesn't overlap content on any screen size",
+        "Body text (Libre Baskerville) pairs well with headline (Unbounded) at correct sizing",
+        "Sufficient whitespace/negative space around all elements"
+      ]
+    },
+    {
+      "id": "UI-003",
+      "title": "Normalize Global Spacing and Container System",
+      "status": "completed",
+      "priority": "high",
+      "description": "Inconsistent padding across pages: some use px-6 md:px-12 lg:px-24, others px-8 lg:px-16, and the nav uses px-12 lg:px-24. The max-w-[1800px] container is extremely wide — text lines become uncomfortably long on large monitors. Need a consistent spacing system.",
+      "scope": [
+        "app/page.tsx",
+        "app/portfolio/page.tsx",
+        "app/services/page.tsx",
+        "app/about/page.tsx",
+        "app/contact/page.tsx",
+        "app/privacy/page.tsx",
+        "app/terms/page.tsx",
+        "app/components/Navigation.tsx",
+        "app/components/Footer.tsx",
+        "app/globals.css"
+      ],
+      "acceptance_criteria": [
+        "All pages use the same horizontal padding system (e.g., px-6 md:px-12 lg:px-24)",
+        "Max content width is reduced or text blocks have inner max-width constraints to prevent overly long lines",
+        "Vertical section spacing (py-32 etc.) is reviewed and consistent across pages",
+        "Footer padding matches the page content system",
+        "Nav, content, and footer all align horizontally"
+      ]
+    },
+    {
+      "id": "UI-004",
+      "title": "Create Reusable Font Utility — Eliminate Inline Style Repetition",
+      "status": "completed",
+      "priority": "high",
+      "description": "The pattern style={{ fontFamily: 'var(--font-unbounded)' }} is repeated on nearly every heading, label, button, and tag across every file. This should be a CSS utility class applied via className instead, reducing code clutter and making future font changes trivial.",
+      "scope": [
+        "app/globals.css",
+        "app/page.tsx",
+        "app/portfolio/page.tsx",
+        "app/services/page.tsx",
+        "app/about/page.tsx",
+        "app/contact/page.tsx",
+        "app/privacy/page.tsx",
+        "app/terms/page.tsx",
+        "app/components/Navigation.tsx",
+        "app/components/Footer.tsx",
+        "app/components/CaseStudyCard.tsx"
+      ],
+      "acceptance_criteria": [
+        "A .font-display (or similar) utility class is defined in globals.css that applies the Unbounded font",
+        "All inline style={{ fontFamily: 'var(--font-unbounded)' }} instances are replaced with the utility class",
+        "No visual regressions — everything still uses the correct fonts",
+        "Bonus: Consider also making body font a utility class for consistency"
+      ]
+    },
+    {
+      "id": "UI-005",
+      "title": "Improve Portfolio Card Design and Grid Layout",
+      "status": "completed",
+      "priority": "high",
+      "description": "Portfolio cards use aspect-video which can feel squat. 3 cards in a 2-column grid creates an orphan. Tags are dense and busy. The cards need more visual interest and better handling of odd numbers.",
+      "scope": [
+        "app/components/CaseStudyCard.tsx",
+        "app/page.tsx",
+        "app/portfolio/page.tsx"
+      ],
+      "acceptance_criteria": [
+        "Cards have appropriate image aspect ratio that works across screen sizes",
+        "Odd-number-of-cards scenarios are handled gracefully (last card spans full width, different layout, etc.)",
+        "Tags have better spacing and readability",
+        "Cards have enough visual interest and whitespace — not just rectangles stacked",
+        "Hover interactions are smooth and intentional",
+        "Image loading uses blur placeholders or skeleton states"
+      ]
+    },
+    {
+      "id": "UI-006",
+      "title": "Refine Services Section — Visual Hierarchy and Grid Dividers",
+      "status": "completed",
+      "priority": "medium",
+      "description": "The services grid uses gap-px bg-amber-500/10 for dividers which is barely visible and inconsistent with border styling elsewhere. Service numbers at text-6xl are oversized for decorative elements. All 6 services have equal visual weight with no hierarchy.",
+      "scope": [
+        "app/page.tsx",
+        "app/services/page.tsx"
+      ],
+      "acceptance_criteria": [
+        "Grid dividers use a consistent approach (borders, not gap-px hack)",
+        "Decorative numbers are appropriately sized — present but not dominating",
+        "Consider making 1-2 key services more visually prominent",
+        "Hover states are subtle and purposeful",
+        "Services page grid and homepage services section are visually consistent"
+      ]
+    },
+    {
+      "id": "UI-007",
+      "title": "Create Shared CTA Section Component",
+      "status": "completed",
+      "priority": "medium",
+      "description": "The amber CTA section is copy-pasted nearly identically across all pages (homepage, portfolio, services, about) with the same geometric accent, grain overlay, and layout structure. This should be a reusable component with per-page messaging.",
+      "scope": [
+        "app/components/CTASection.tsx (new)",
+        "app/page.tsx",
+        "app/portfolio/page.tsx",
+        "app/services/page.tsx",
+        "app/about/page.tsx"
+      ],
+      "acceptance_criteria": [
+        "A shared CTASection component is created with props for headline, subtitle, button text, and button href",
+        "All pages use the shared component instead of duplicated markup",
+        "Each page has unique, purposeful messaging",
+        "Button styling (border widths, sizes) is consistent across all instances",
+        "No visual regressions"
+      ]
+    },
+    {
+      "id": "UI-008",
+      "title": "Polish Footer — Scale, Links, and Consistency",
+      "status": "completed",
+      "priority": "medium",
+      "description": "Footer branding text at text-5xl/6xl is massive and competes with page content. Services list is plain text (not links). Footer uses px-8 lg:px-16 while pages use different padding.",
+      "scope": [
+        "app/components/Footer.tsx"
+      ],
+      "acceptance_criteria": [
+        "Footer branding is appropriately sized — present but not overwhelming",
+        "Services items link to the services page or individual service sections",
+        "Footer padding matches the global spacing system",
+        "Privacy and Terms links work (pages exist)",
+        "Overall footer feels balanced and well-spaced"
+      ]
+    },
+    {
+      "id": "UI-009",
+      "title": "Enhance Contact Form — Focus States, Select Styling, Spacing",
+      "status": "completed",
+      "priority": "medium",
+      "description": "Form inputs only change border color on focus — no focus ring or label animation. Select dropdowns show OS-native styling that clashes with the dark theme. The two-column layout (info + form) feels tight on mobile.",
+      "scope": [
+        "app/contact/page.tsx"
+      ],
+      "acceptance_criteria": [
+        "Input focus states include a subtle glow or ring effect, not just border color",
+        "Select elements are custom-styled or use a consistent dark-theme approach",
+        "Mobile layout gives proper breathing room between info column and form",
+        "Form submission states (loading, success, error) are visually polished",
+        "Labels and inputs have clear visual connection"
+      ]
+    },
+    {
+      "id": "UI-010",
+      "title": "Add Scroll-Triggered Animations with IntersectionObserver",
+      "status": "completed",
+      "priority": "medium",
+      "description": "Current animations (slide-up, fadeInUp) are CSS-only and fire on page load regardless of scroll position. Elements below the fold animate before they're visible. Need scroll-triggered entrance animations.",
+      "scope": [
+        "app/globals.css",
+        "app/page.tsx",
+        "app/components/CaseStudyCard.tsx"
+      ],
+      "acceptance_criteria": [
+        "A reusable scroll-animation hook or component using IntersectionObserver",
+        "Elements animate in when they enter the viewport, not on page load",
+        "Animations are smooth and not jarring (ease-out curves, moderate duration)",
+        "prefers-reduced-motion is respected — no animations for users who prefer reduced motion",
+        "Performance is good — no layout thrashing or excessive observers"
+      ]
+    },
+    {
+      "id": "UI-011",
+      "title": "Improve Page Hero Sections — Consistent but Unique Per Page",
+      "status": "completed",
+      "priority": "medium",
+      "description": "Every subpage (portfolio, services, about, contact, privacy, terms) has an identical hero structure with minor text differences. They all use the same pt-32 pb-20 layout. Consider creating a shared PageHero component but allowing each page to feel distinct.",
+      "scope": [
+        "app/components/PageHero.tsx (new)",
+        "app/portfolio/page.tsx",
+        "app/services/page.tsx",
+        "app/about/page.tsx",
+        "app/contact/page.tsx",
+        "app/privacy/page.tsx",
+        "app/terms/page.tsx"
+      ],
+      "acceptance_criteria": [
+        "A shared PageHero component with props for label, headline, and description",
+        "Consistent structure and spacing across all subpage heroes",
+        "Enough pt-top to clear the fixed navigation without feeling excessive",
+        "Each page still feels distinct through its messaging",
+        "Hyphenated title treatment (PORT-FOLIO) is reconsidered — does it aid or hinder readability?"
+      ]
+    },
+    {
+      "id": "UI-012",
+      "title": "Responsive Body Typography and Line Length",
+      "status": "completed",
+      "priority": "medium",
+      "description": "Body text (Libre Baskerville) at default size can feel small on large screens. No responsive font sizing system exists. Text blocks inside max-w-[1800px] containers have overly long line lengths on wide monitors, harming readability.",
+      "scope": [
+        "app/globals.css",
+        "app/layout.tsx"
+      ],
+      "acceptance_criteria": [
+        "Body text scales slightly with viewport width (clamp-based fluid typography or stepped breakpoints)",
+        "Paragraph text blocks have max-width constraints for comfortable line length (45-75 characters)",
+        "Heading sizes scale gracefully without the extreme jump from md to lg breakpoints",
+        "Text is comfortable to read on phones, tablets, and large monitors"
+      ]
+    },
+    {
+      "id": "UI-013",
+      "title": "Add Accessibility Essentials — Reduced Motion, Focus Visible, Skip Nav",
+      "status": "completed",
+      "priority": "medium",
+      "description": "No prefers-reduced-motion support. No skip-to-content link. Focus states rely on outline-none (removing the default focus indicator) without always providing a replacement. These are low-effort, high-impact accessibility improvements.",
+      "scope": [
+        "app/globals.css",
+        "app/layout.tsx",
+        "app/contact/page.tsx"
+      ],
+      "acceptance_criteria": [
+        "prefers-reduced-motion media query disables all CSS animations and transitions",
+        "A visually-hidden skip-to-content link appears on Tab for keyboard users",
+        "All interactive elements (links, buttons, inputs) have visible focus indicators",
+        "Form inputs don't use outline-none without providing an equivalent focus style",
+        "Color contrast ratios meet WCAG AA for all text"
+      ]
+    },
+    {
+      "id": "UI-014",
+      "title": "About Page — Tighten Story Section and Values Grid",
+      "status": "completed",
+      "priority": "low",
+      "description": "The 'Our Story' section has a 4/8 grid split that leaves the left column heading isolated. The values grid uses the same gap-px divider approach as services. Stats section mirrors the homepage stats — feels redundant for returning visitors.",
+      "scope": [
+        "app/about/page.tsx"
+      ],
+      "acceptance_criteria": [
+        "Story section layout gives the heading and body text better visual connection",
+        "Values grid has clean, consistent dividers",
+        "Stats section either differentiates from homepage stats or is removed",
+        "Skills tag grid has comfortable spacing and doesn't feel like a wall of rectangles",
+        "Overall page feels like a cohesive narrative, not disconnected sections"
+      ]
+    },
+    {
+      "id": "UI-015",
+      "title": "Color System Flexibility — Prepare for Easy Rebranding",
+      "status": "completed",
+      "priority": "low",
+      "description": "Colors are not finalized. While CSS custom properties are already in use, the system should be tightened so a full rebrand requires changing values in only one place. Some amber references are hardcoded in Tailwind classes (bg-amber-500) rather than using semantic tokens.",
+      "scope": [
+        "app/globals.css"
+      ],
+      "acceptance_criteria": [
+        "Define semantic color tokens (--color-accent, --color-accent-hover, --color-accent-muted, --color-surface, --color-surface-alt, etc.)",
+        "Document the color swap process in CLAUDE.md so future sessions know how to rebrand",
+        "Amber Tailwind classes still work but semantic tokens are available for new code",
+        "A future color change only requires editing CSS variable values in globals.css"
+      ]
+    },
+    {
+      "id": "UI-016",
+      "title": "Add Subtle Page Transitions or Loading States",
+      "status": "completed",
+      "priority": "low",
+      "description": "Navigating between pages has no transition — content just pops in. A subtle fade or slide transition between routes would make the site feel more polished and app-like.",
+      "scope": [
+        "app/layout.tsx",
+        "app/globals.css"
+      ],
+      "acceptance_criteria": [
+        "Page transitions feel smooth but fast (200-300ms)",
+        "No layout shift during transitions",
+        "Works with Next.js App Router's built-in patterns",
+        "Respects prefers-reduced-motion",
+        "No flash of unstyled content (FOUC)"
+      ]
+    }
+  ]
+}

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import PageHero from "../components/PageHero";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -112,34 +113,11 @@ export default function Contact() {
 
   return (
     <div className="bg-zinc-950">
-      {/* Hero Section */}
-      <section className="relative pt-32 pb-20 overflow-hidden">
-        <div className="absolute top-0 right-0 w-1/3 h-px bg-gradient-to-l from-amber-500/50 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-96 h-px bg-gradient-to-r from-amber-500/30 to-transparent" />
-
-        <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="max-w-4xl">
-            <p
-              className="text-amber-500 uppercase tracking-[0.3em] text-xs mb-6"
-              style={{ fontFamily: "var(--font-unbounded)" }}
-            >
-              Get In Touch
-            </p>
-            <h1
-              className="text-5xl md:text-7xl lg:text-8xl font-black text-white leading-[0.9] mb-8"
-              style={{ fontFamily: "var(--font-unbounded)" }}
-            >
-              LET'S
-              <br />
-              TALK
-            </h1>
-            <p className="text-zinc-400 text-xl max-w-2xl leading-relaxed italic border-l-2 border-amber-500/30 pl-6">
-              Ready to start your project? Fill out the form and we'll get back
-              to you within 24 hours.
-            </p>
-          </div>
-        </div>
-      </section>
+      <PageHero
+        label="Get In Touch"
+        headline={<>LET'S<br />TALK</>}
+        description="Ready to start your project? Fill out the form and we'll get back to you within 24 hours."
+      />
 
       {/* Contact Form Section */}
       <section className="py-32 relative">
@@ -150,8 +128,7 @@ export default function Contact() {
             <div className="lg:col-span-5 space-y-12">
               <div>
                 <h2
-                  className="text-3xl font-black text-white mb-6 uppercase tracking-tight"
-                  style={{ fontFamily: "var(--font-unbounded)" }}
+                  className="font-display text-3xl font-black text-white mb-6 uppercase tracking-tight"
                 >
                   Get Started
                   <br />
@@ -171,8 +148,7 @@ export default function Contact() {
                     className="border-l-2 border-amber-500/30 pl-6 hover:border-amber-500/60 transition-colors group"
                   >
                     <p
-                      className="text-zinc-500 text-xs uppercase tracking-[0.2em] mb-1"
-                      style={{ fontFamily: "var(--font-unbounded)" }}
+                      className="font-display text-zinc-500 text-xs uppercase tracking-[0.2em] mb-1"
                     >
                       {item.label}
                     </p>
@@ -186,8 +162,7 @@ export default function Contact() {
               <div className="relative p-6 bg-zinc-900 border border-zinc-800 overflow-hidden">
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-500/80 to-amber-500/10" />
                 <h3
-                  className="font-bold text-white mb-6 text-sm uppercase tracking-wider"
-                  style={{ fontFamily: "var(--font-unbounded)" }}
+                  className="font-display font-bold text-white mb-6 text-sm uppercase tracking-wider"
                 >
                   What Happens Next?
                 </h3>
@@ -195,8 +170,7 @@ export default function Contact() {
                   {process.map((step, index) => (
                     <li key={index} className="flex gap-4 text-zinc-400">
                       <span
-                        className="text-amber-500 font-bold flex-shrink-0"
-                        style={{ fontFamily: "var(--font-unbounded)" }}
+                        className="font-display text-amber-500 font-bold flex-shrink-0"
                       >
                         {String(index + 1).padStart(2, "0")}
                       </span>
@@ -215,14 +189,12 @@ export default function Contact() {
               >
                 <div className="mb-8 pb-6 border-b border-zinc-800">
                   <p
-                    className="text-amber-500 uppercase tracking-[0.3em] text-xs mb-3"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
+                    className="font-display text-amber-500 uppercase tracking-[0.3em] text-xs mb-3"
                   >
                     Project Enquiry
                   </p>
                   <h3
-                    className="text-2xl font-black text-white uppercase leading-tight"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
+                    className="font-display text-2xl font-black text-white uppercase leading-tight"
                   >
                     Tell Us What
                     <br />
@@ -233,8 +205,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
-                      style={{ fontFamily: "var(--font-unbounded)" }}
+                      className="font-display block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
                     >
                       Your Name *
                     </label>
@@ -245,7 +216,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 transition-colors"
+                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors"
                       placeholder="John Smith"
                     />
                   </div>
@@ -253,8 +224,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
-                      style={{ fontFamily: "var(--font-unbounded)" }}
+                      className="font-display block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
                     >
                       Email Address *
                     </label>
@@ -265,7 +235,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 transition-colors"
+                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -275,8 +245,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="phone"
-                      className="block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
-                      style={{ fontFamily: "var(--font-unbounded)" }}
+                      className="font-display block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
                     >
                       Phone Number
                     </label>
@@ -286,7 +255,7 @@ export default function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 transition-colors"
+                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -294,8 +263,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="company"
-                      className="block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
-                      style={{ fontFamily: "var(--font-unbounded)" }}
+                      className="font-display block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
                     >
                       Company Name
                     </label>
@@ -305,7 +273,7 @@ export default function Contact() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 transition-colors"
+                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors"
                       placeholder="Your Company"
                     />
                   </div>
@@ -314,85 +282,100 @@ export default function Contact() {
                 <div className="mb-6">
                   <label
                     htmlFor="projectType"
-                    className="block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
+                    className="font-display block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
                   >
                     Project Type *
                   </label>
-                  <select
-                    id="projectType"
-                    name="projectType"
-                    value={formData.projectType}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:border-amber-500 transition-colors"
-                  >
-                    <option value="">Select a project type</option>
-                    <option value="new-website">New Website</option>
-                    <option value="redesign">Website Redesign</option>
-                    <option value="integration">Platform Integration</option>
-                    <option value="optimization">
-                      Performance Optimization
-                    </option>
-                    <option value="support">Ongoing Support</option>
-                    <option value="other">Other</option>
-                  </select>
+                  <div className="relative">
+                    <select
+                      id="projectType"
+                      name="projectType"
+                      value={formData.projectType}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white appearance-none pr-10 cursor-pointer focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors"
+                    >
+                      <option value="">Select a project type</option>
+                      <option value="new-website">New Website</option>
+                      <option value="redesign">Website Redesign</option>
+                      <option value="integration">Platform Integration</option>
+                      <option value="optimization">Performance Optimization</option>
+                      <option value="support">Ongoing Support</option>
+                      <option value="other">Other</option>
+                    </select>
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-amber-500">
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </div>
+                  </div>
                 </div>
 
                 <div className="grid md:grid-cols-2 gap-6 mb-6">
                   <div>
                     <label
                       htmlFor="budget"
-                      className="block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
-                      style={{ fontFamily: "var(--font-unbounded)" }}
+                      className="font-display block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
                     >
                       Estimated Budget
                     </label>
-                    <select
-                      id="budget"
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:border-amber-500 transition-colors"
-                    >
-                      <option value="">Select a budget range</option>
-                      <option value="under-5k">Under $5,000</option>
-                      <option value="5k-10k">$5,000 - $10,000</option>
-                      <option value="10k-20k">$10,000 - $20,000</option>
-                      <option value="20k-plus">$20,000+</option>
-                      <option value="not-sure">Not sure yet</option>
-                    </select>
+                    <div className="relative">
+                      <select
+                        id="budget"
+                        name="budget"
+                        value={formData.budget}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white appearance-none pr-10 cursor-pointer focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors"
+                      >
+                        <option value="">Select a budget range</option>
+                        <option value="under-5k">Under $5,000</option>
+                        <option value="5k-10k">$5,000 - $10,000</option>
+                        <option value="10k-20k">$10,000 - $20,000</option>
+                        <option value="20k-plus">$20,000+</option>
+                        <option value="not-sure">Not sure yet</option>
+                      </select>
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-amber-500">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
 
                   <div>
                     <label
                       htmlFor="timeline"
-                      className="block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
-                      style={{ fontFamily: "var(--font-unbounded)" }}
+                      className="font-display block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
                     >
                       Preferred Timeline
                     </label>
-                    <select
-                      id="timeline"
-                      name="timeline"
-                      value={formData.timeline}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white focus:outline-none focus:border-amber-500 transition-colors"
-                    >
-                      <option value="">Select a timeline</option>
-                      <option value="asap">As soon as possible</option>
-                      <option value="1-2-months">1-2 months</option>
-                      <option value="3-6-months">3-6 months</option>
-                      <option value="flexible">Flexible</option>
-                    </select>
+                    <div className="relative">
+                      <select
+                        id="timeline"
+                        name="timeline"
+                        value={formData.timeline}
+                        onChange={handleChange}
+                        className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white appearance-none pr-10 cursor-pointer focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors"
+                      >
+                        <option value="">Select a timeline</option>
+                        <option value="asap">As soon as possible</option>
+                        <option value="1-2-months">1-2 months</option>
+                        <option value="3-6-months">3-6 months</option>
+                        <option value="flexible">Flexible</option>
+                      </select>
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-amber-500">
+                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
+                        </svg>
+                      </div>
+                    </div>
                   </div>
                 </div>
 
                 <div className="mb-8">
                   <label
                     htmlFor="message"
-                    className="block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
-                    style={{ fontFamily: "var(--font-unbounded)" }}
+                    className="font-display block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
                   >
                     Tell Us About Your Project *
                   </label>
@@ -403,7 +386,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors resize-none"
                     placeholder="Tell us about your goals, challenges, and what you're looking for..."
                   />
                 </div>
@@ -425,8 +408,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="group w-full px-8 py-5 bg-amber-500 text-zinc-950 font-black text-sm uppercase tracking-wider hover:bg-amber-400 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-between"
-                  style={{ fontFamily: "var(--font-unbounded)" }}
+                  className="font-display group w-full px-8 py-5 bg-amber-500 text-zinc-950 font-black text-sm uppercase tracking-wider hover:bg-amber-400 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-between"
                 >
                   <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
                   {!isSubmitting && (
