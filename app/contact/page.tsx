@@ -112,29 +112,29 @@ export default function Contact() {
   ];
 
   return (
-    <div className="bg-zinc-950">
+    <div className="bg-[var(--bg)]">
       <PageHero
-        label="Get In Touch"
+        label="CONTACT"
         headline={<>LET'S<br />TALK</>}
         description="Ready to start your project? Fill out the form and we'll get back to you within 24 hours."
       />
 
       {/* Contact Form Section */}
       <section className="py-32 relative">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/30 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
           <div className="grid lg:grid-cols-12 gap-8 lg:gap-16">
             {/* Left Column - Info */}
             <div className="lg:col-span-5 space-y-12">
               <div>
                 <h2
-                  className="font-display text-3xl font-black text-white mb-6 uppercase tracking-tight"
+                  className="font-display text-3xl font-black text-[var(--text)] mb-6 uppercase tracking-tight"
                 >
                   Get Started
                   <br />
                   Today
                 </h2>
-                <p className="text-zinc-400 text-lg leading-relaxed">
+                <p className="text-[var(--text-muted)] text-lg leading-relaxed">
                   Whether you need a complete redesign, a brand new website, or
                   custom integrations, we're here to help. Let's discuss your
                   project and explore how we can bring your vision to life.
@@ -145,32 +145,32 @@ export default function Contact() {
                 {contactInfo.map((item, index) => (
                   <div
                     key={index}
-                    className="border-l-2 border-amber-500/30 pl-6 hover:border-amber-500/60 transition-colors group"
+                    className="border-l-2 border-accent/30 pl-6 hover:border-accent/60 transition-colors group"
                   >
                     <p
-                      className="font-display text-zinc-500 text-xs uppercase tracking-[0.2em] mb-1"
+                      className="font-display text-[var(--text-faint)] text-xs uppercase tracking-[0.2em] mb-1"
                     >
                       {item.label}
                     </p>
-                    <p className="text-white text-lg font-medium group-hover:text-amber-500/90 transition-colors">
+                    <p className="text-[var(--text)] text-lg font-medium group-hover:text-accent transition-colors">
                       {item.value}
                     </p>
                   </div>
                 ))}
               </div>
 
-              <div className="relative p-6 bg-zinc-900 border border-zinc-800 overflow-hidden">
-                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-amber-500/80 to-amber-500/10" />
+              <div className="relative p-6 bg-[var(--bg-alt)] border border-[var(--border)] overflow-hidden">
+                <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent/80 to-accent/10" />
                 <h3
-                  className="font-display font-bold text-white mb-6 text-sm uppercase tracking-wider"
+                  className="font-display font-bold text-[var(--text)] mb-6 text-sm uppercase tracking-wider"
                 >
                   What Happens Next?
                 </h3>
                 <ol className="space-y-5">
                   {process.map((step, index) => (
-                    <li key={index} className="flex gap-4 text-zinc-400">
+                    <li key={index} className="flex gap-4 text-[var(--text-muted)]">
                       <span
-                        className="font-display text-amber-500 font-bold flex-shrink-0"
+                        className="font-display text-accent font-bold flex-shrink-0"
                       >
                         {String(index + 1).padStart(2, "0")}
                       </span>
@@ -185,16 +185,16 @@ export default function Contact() {
             <div className="lg:col-span-7">
               <form
                 onSubmit={handleSubmit}
-                className="p-8 lg:p-10 bg-zinc-900 border border-zinc-800"
+                className="p-8 lg:p-10 bg-[var(--bg-alt)] border border-[var(--border)]"
               >
-                <div className="mb-8 pb-6 border-b border-zinc-800">
+                <div className="mb-8 pb-6 border-b border-[var(--border)]">
                   <p
-                    className="font-display text-amber-500 uppercase tracking-[0.3em] text-xs mb-3"
+                    className="font-display text-accent uppercase tracking-[0.3em] text-xs mb-3"
                   >
                     Project Enquiry
                   </p>
                   <h3
-                    className="font-display text-2xl font-black text-white uppercase leading-tight"
+                    className="font-display text-2xl font-black text-[var(--text)] uppercase leading-tight"
                   >
                     Tell Us What
                     <br />
@@ -205,7 +205,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="name"
-                      className="font-display block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
+                      className="font-display block text-sm font-bold text-[var(--text-muted)] mb-2 uppercase tracking-wider"
                     >
                       Your Name *
                     </label>
@@ -216,7 +216,7 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors"
+                      className="w-full px-4 py-3 bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] placeholder-[var(--text-faint)] focus:outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-glow)] transition-colors"
                       placeholder="John Smith"
                     />
                   </div>
@@ -224,7 +224,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="font-display block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
+                      className="font-display block text-sm font-bold text-[var(--text-muted)] mb-2 uppercase tracking-wider"
                     >
                       Email Address *
                     </label>
@@ -235,7 +235,7 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors"
+                      className="w-full px-4 py-3 bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] placeholder-[var(--text-faint)] focus:outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-glow)] transition-colors"
                       placeholder="john@example.com"
                     />
                   </div>
@@ -245,7 +245,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="phone"
-                      className="font-display block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
+                      className="font-display block text-sm font-bold text-[var(--text-muted)] mb-2 uppercase tracking-wider"
                     >
                       Phone Number
                     </label>
@@ -255,7 +255,7 @@ export default function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors"
+                      className="w-full px-4 py-3 bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] placeholder-[var(--text-faint)] focus:outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-glow)] transition-colors"
                       placeholder="(555) 123-4567"
                     />
                   </div>
@@ -263,7 +263,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="company"
-                      className="font-display block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
+                      className="font-display block text-sm font-bold text-[var(--text-muted)] mb-2 uppercase tracking-wider"
                     >
                       Company Name
                     </label>
@@ -273,7 +273,7 @@ export default function Contact() {
                       name="company"
                       value={formData.company}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors"
+                      className="w-full px-4 py-3 bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] placeholder-[var(--text-faint)] focus:outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-glow)] transition-colors"
                       placeholder="Your Company"
                     />
                   </div>
@@ -282,7 +282,7 @@ export default function Contact() {
                 <div className="mb-6">
                   <label
                     htmlFor="projectType"
-                    className="font-display block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
+                    className="font-display block text-sm font-bold text-[var(--text-muted)] mb-2 uppercase tracking-wider"
                   >
                     Project Type *
                   </label>
@@ -293,7 +293,7 @@ export default function Contact() {
                       value={formData.projectType}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white appearance-none pr-10 cursor-pointer focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors"
+                      className="w-full px-4 py-3 bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] appearance-none pr-10 cursor-pointer focus:outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-glow)] transition-colors"
                     >
                       <option value="">Select a project type</option>
                       <option value="new-website">New Website</option>
@@ -303,7 +303,7 @@ export default function Contact() {
                       <option value="support">Ongoing Support</option>
                       <option value="other">Other</option>
                     </select>
-                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-amber-500">
+                    <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-accent">
                       <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                       </svg>
@@ -315,7 +315,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="budget"
-                      className="font-display block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
+                      className="font-display block text-sm font-bold text-[var(--text-muted)] mb-2 uppercase tracking-wider"
                     >
                       Estimated Budget
                     </label>
@@ -325,7 +325,7 @@ export default function Contact() {
                         name="budget"
                         value={formData.budget}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white appearance-none pr-10 cursor-pointer focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors"
+                        className="w-full px-4 py-3 bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] appearance-none pr-10 cursor-pointer focus:outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-glow)] transition-colors"
                       >
                         <option value="">Select a budget range</option>
                         <option value="under-5k">Under $5,000</option>
@@ -334,7 +334,7 @@ export default function Contact() {
                         <option value="20k-plus">$20,000+</option>
                         <option value="not-sure">Not sure yet</option>
                       </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-amber-500">
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-accent">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                         </svg>
@@ -345,7 +345,7 @@ export default function Contact() {
                   <div>
                     <label
                       htmlFor="timeline"
-                      className="font-display block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
+                      className="font-display block text-sm font-bold text-[var(--text-muted)] mb-2 uppercase tracking-wider"
                     >
                       Preferred Timeline
                     </label>
@@ -355,7 +355,7 @@ export default function Contact() {
                         name="timeline"
                         value={formData.timeline}
                         onChange={handleChange}
-                        className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white appearance-none pr-10 cursor-pointer focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors"
+                        className="w-full px-4 py-3 bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] appearance-none pr-10 cursor-pointer focus:outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-glow)] transition-colors"
                       >
                         <option value="">Select a timeline</option>
                         <option value="asap">As soon as possible</option>
@@ -363,7 +363,7 @@ export default function Contact() {
                         <option value="3-6-months">3-6 months</option>
                         <option value="flexible">Flexible</option>
                       </select>
-                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-amber-500">
+                      <div className="pointer-events-none absolute inset-y-0 right-0 flex items-center px-3 text-accent">
                         <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
                         </svg>
@@ -375,7 +375,7 @@ export default function Contact() {
                 <div className="mb-8">
                   <label
                     htmlFor="message"
-                    className="font-display block text-sm font-bold text-zinc-400 mb-2 uppercase tracking-wider"
+                    className="font-display block text-sm font-bold text-[var(--text-muted)] mb-2 uppercase tracking-wider"
                   >
                     Tell Us About Your Project *
                   </label>
@@ -386,7 +386,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 bg-zinc-950 border border-zinc-800 text-white placeholder-zinc-600 focus:outline-none focus:border-amber-500 focus:ring-2 focus:ring-amber-500/20 transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-[var(--bg)] border border-[var(--border)] text-[var(--text)] placeholder-[var(--text-faint)] focus:outline-none focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent-glow)] transition-colors resize-none"
                     placeholder="Tell us about your goals, challenges, and what you're looking for..."
                   />
                 </div>
@@ -408,7 +408,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="font-display group w-full px-8 py-5 bg-amber-500 text-zinc-950 font-black text-sm uppercase tracking-wider hover:bg-amber-400 active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-between"
+                  className="font-display group w-full px-8 py-5 bg-accent text-accent-fg font-black text-sm uppercase tracking-wider hover:bg-accent-hover active:scale-[0.98] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-between"
                 >
                   <span>{isSubmitting ? "Sending..." : "Send Message"}</span>
                   {!isSubmitting && (
