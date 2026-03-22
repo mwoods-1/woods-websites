@@ -4,101 +4,78 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-zinc-950 text-white border-t border-zinc-800">
+    <footer className="bg-[var(--bg)] border-t border-border">
+      {/* Teal gradient accent line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+
       <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24 py-20">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 mb-16">
-          {/* Brand - Large Statement */}
-          <div className="lg:col-span-6">
-            <h3
-              className="font-display text-3xl md:text-4xl font-black mb-6 leading-tight uppercase"
+        {/* Main 3-column grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16 mb-16">
+
+          {/* Left: Logo mark + description */}
+          <div className="flex flex-col gap-6">
+            <span
+              className="font-display text-7xl font-black text-accent leading-none"
+              aria-label="Woods Websites"
             >
-              Woods<br/>
-              <span className="text-amber-500">Websites</span>
-            </h3>
-            <div className="w-24 h-px bg-amber-500 mb-6" />
-            <p className="text-zinc-400 text-lg max-w-lg italic leading-relaxed">
+              W
+            </span>
+            <p className="text-[var(--text-muted)] text-sm leading-relaxed max-w-xs">
               Creating beautiful, high-performance websites that help your business grow.
-              From custom designs to platform integrations, we've got you covered.
             </p>
           </div>
 
-          {/* Quick Links */}
-          <div className="lg:col-span-3">
-            <h4 className="font-display font-bold mb-6 text-amber-500 uppercase tracking-widest text-xs">Navigate</h4>
+          {/* Center: Quick nav links */}
+          <div className="flex flex-col gap-6">
+            <h4 className="font-display text-xs font-bold uppercase tracking-[0.3em] text-accent">
+              Navigate
+            </h4>
             <ul className="space-y-3">
-              <li>
-                <Link
-                  href="/portfolio"
-                  className="font-display text-zinc-400 hover:text-white transition-colors uppercase text-sm tracking-wider"
-                >
-                  Portfolio
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/services"
-                  className="font-display text-zinc-400 hover:text-white transition-colors uppercase text-sm tracking-wider"
-                >
-                  Services
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/about"
-                  className="font-display text-zinc-400 hover:text-white transition-colors uppercase text-sm tracking-wider"
-                >
-                  About
-                </Link>
-              </li>
-              <li>
-                <Link
-                  href="/contact"
-                  className="font-display text-zinc-400 hover:text-white transition-colors uppercase text-sm tracking-wider"
-                >
-                  Contact
-                </Link>
-              </li>
+              {[
+                { label: "Work", href: "/portfolio" },
+                { label: "Services", href: "/services" },
+                { label: "About", href: "/about" },
+                { label: "Contact", href: "/contact" },
+              ].map(({ label, href }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    className="text-[var(--text-muted)] hover:text-accent transition-colors text-sm uppercase tracking-wider"
+                  >
+                    {label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Services */}
-          <div className="lg:col-span-3">
-            <h4 className="font-display font-bold mb-6 text-amber-500 uppercase tracking-widest text-xs">Services</h4>
-            <ul className="space-y-3">
-              <li>
-                <Link href="/services" className="font-display text-zinc-400 hover:text-white transition-colors uppercase text-sm tracking-wider">
-                  Custom Web Design
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="font-display text-zinc-400 hover:text-white transition-colors uppercase text-sm tracking-wider">
-                  Website Redesigns
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="font-display text-zinc-400 hover:text-white transition-colors uppercase text-sm tracking-wider">
-                  Platform Integrations
-                </Link>
-              </li>
-              <li>
-                <Link href="/services" className="font-display text-zinc-400 hover:text-white transition-colors uppercase text-sm tracking-wider">
-                  Performance Optimization
-                </Link>
-              </li>
-            </ul>
+          {/* Right: CTA + email */}
+          <div className="flex flex-col gap-6">
+            <h4 className="font-display text-xs font-bold uppercase tracking-[0.3em] text-accent">
+              Get in touch
+            </h4>
+            <p className="text-[var(--text-muted)] text-sm leading-relaxed">
+              Let&apos;s build something great together.
+            </p>
+            <a
+              href="mailto:woodswebsites.com@gmail.com"
+              className="text-accent hover:text-accent/70 transition-colors text-sm break-all"
+            >
+              woodswebsites.com@gmail.com
+            </a>
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-zinc-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="font-display text-zinc-500 text-xs uppercase tracking-widest">
+        {/* Bottom bar */}
+        <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-[var(--text-faint)] text-xs uppercase tracking-widest">
             © {currentYear} Woods Websites
           </p>
-          <div className="font-display flex gap-8 text-xs text-zinc-500 uppercase tracking-widest">
-            <Link href="/privacy" className="hover:text-amber-500 transition-colors">
+          <div className="flex gap-8 text-xs text-[var(--text-faint)] uppercase tracking-widest">
+            <Link href="/privacy" className="hover:text-accent transition-colors">
               Privacy
             </Link>
-            <Link href="/terms" className="hover:text-amber-500 transition-colors">
+            <Link href="/terms" className="hover:text-accent transition-colors">
               Terms
             </Link>
           </div>
