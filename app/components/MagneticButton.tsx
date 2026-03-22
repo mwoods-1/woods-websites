@@ -21,7 +21,7 @@ export default function MagneticButton({
   as: Tag = "button",
   ...props
 }: MagneticButtonProps) {
-  const ref = useRef<HTMLElement>(null);
+  const ref = useRef<HTMLDivElement>(null);
   const [position, setPosition] = useState({ x: 0, y: 0 });
 
   const handleMouseMove = (e: React.MouseEvent) => {
@@ -38,19 +38,18 @@ export default function MagneticButton({
 
   const handleMouseLeave = () => setPosition({ x: 0, y: 0 });
 
-  const MotionTag = motion.create(Tag);
-
   return (
-    <MotionTag
-      ref={ref as React.Ref<HTMLElement>}
+    <motion.div
+      ref={ref}
       animate={{ x: position.x, y: position.y }}
       transition={{ type: "spring", stiffness: 300, damping: 20 }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      className={className}
-      {...props}
+      className="inline-block"
     >
-      {children}
-    </MotionTag>
+      <Tag className={className} {...props}>
+        {children}
+      </Tag>
+    </motion.div>
   );
 }

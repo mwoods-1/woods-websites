@@ -90,7 +90,7 @@ export default function Privacy() {
                 website:
               </p>
               <div className="space-y-6">
-                <div className="border-l-2 border-[var(--accent)]/30 pl-6">
+                <div className="border-l-2 border-[var(--border)] pl-6">
                   <h3
                     className="font-display text-lg font-bold text-[var(--text)] mb-2"
                   >
@@ -103,7 +103,7 @@ export default function Privacy() {
                     privacy practices at formsubmit.co.
                   </p>
                 </div>
-                <div className="border-l-2 border-[var(--accent)]/30 pl-6">
+                <div className="border-l-2 border-[var(--border)] pl-6">
                   <h3
                     className="font-display text-lg font-bold text-[var(--text)] mb-2"
                   >
@@ -177,7 +177,7 @@ export default function Privacy() {
                 If you have any questions about this privacy policy or how we
                 handle your data, you can reach us at:
               </p>
-              <div className="border-l-2 border-[var(--accent)]/30 pl-6 space-y-2">
+              <div className="border-l-2 border-[var(--border)] pl-6 space-y-2">
                 <p className="text-[var(--text)] text-lg">
                   <strong>Email:</strong>{" "}
                   <a

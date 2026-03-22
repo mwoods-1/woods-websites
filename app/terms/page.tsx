@@ -181,7 +181,7 @@ export default function Terms() {
               <p className="text-[var(--text-muted)] text-lg leading-relaxed">
                 If you have any questions about these terms, please contact us:
               </p>
-              <div className="border-l-2 border-[var(--accent)]/30 pl-6 space-y-2">
+              <div className="border-l-2 border-[var(--border)] pl-6 space-y-2">
                 <p className="text-[var(--text)] text-lg">
                   <strong>Email:</strong>{" "}
                   <a
