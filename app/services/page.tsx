@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import CTASection from "../components/CTASection";
 import PageHero from "../components/PageHero";
+import ScrollReveal from "../components/ScrollReveal";
 
 export const metadata: Metadata = {
   title: "Services",
@@ -130,96 +130,101 @@ export default function Services() {
   ];
 
   return (
-    <div className="bg-zinc-950">
+    <div className="bg-[var(--bg)]">
       <PageHero
-        label="What We Offer"
-        headline={<>OUR<br />SERVICES</>}
+        label="SERVICES"
+        headline={<>WHAT WE<br />OFFER</>}
         description="Comprehensive web design and development services tailored to your needs. From initial concept to ongoing support."
       />
 
       {/* Services Grid */}
       <section className="py-32">
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="grid md:grid-cols-2 border-l border-t border-zinc-800">
+          <div className="grid md:grid-cols-2 border-l border-t border-[var(--border)]">
             {services.map((service, index) => (
-              <div
-                key={index}
-                className="p-8 md:p-10 lg:p-12 bg-zinc-950 hover:bg-zinc-900 transition-colors group border-r border-b border-zinc-800"
-              >
-                {index === 0 && (
-                  <p className="font-display text-[9px] text-amber-500/70 tracking-[0.4em] uppercase mb-4">
-                    Core Service
-                  </p>
-                )}
+              <ScrollReveal key={index} delay={index * 80}>
                 <div
-                  className="font-display text-xs text-amber-500/50 tracking-[0.3em] mb-5 group-hover:text-amber-500/80 transition-colors"
+                  className="p-8 md:p-10 lg:p-12 bg-[var(--bg)] hover:bg-[var(--bg-alt)] transition-colors group border-r border-b border-[var(--border)] h-full"
                 >
-                  {service.number}
-                </div>
-                <h2
-                  className={`font-display ${index === 0 ? 'text-3xl lg:text-4xl' : 'text-2xl lg:text-3xl'} font-black text-white mb-4 uppercase tracking-tight`}
-                >
-                  {service.title}
-                </h2>
-                <p className="text-zinc-400 leading-relaxed mb-6">
-                  {service.description}
-                </p>
+                  {index === 0 && (
+                    <p className="font-display text-[9px] text-accent/70 tracking-[0.4em] uppercase mb-4">
+                      Core Service
+                    </p>
+                  )}
+                  <div
+                    className="font-display text-xs text-accent/50 tracking-[0.3em] mb-5 group-hover:text-accent/80 transition-colors"
+                  >
+                    {service.number}
+                  </div>
+                  <h2
+                    className={`font-display ${index === 0 ? 'text-3xl lg:text-4xl' : 'text-2xl lg:text-3xl'} font-black text-[var(--text)] mb-4 uppercase tracking-tight`}
+                  >
+                    {service.title}
+                  </h2>
+                  <p className="text-[var(--text-muted)] leading-relaxed mb-6">
+                    {service.description}
+                  </p>
 
-                <div className="space-y-4 pt-6 border-t border-zinc-800/60">
-                  {service.features.map((feature, fIndex) => (
-                    <div
-                      key={fIndex}
-                      className="flex items-start gap-3 text-zinc-500 group-hover:text-zinc-400 transition-colors"
-                    >
-                      <span className="text-amber-500 mt-0.5">+</span>
-                      <span>{feature}</span>
-                    </div>
-                  ))}
+                  <div className="space-y-4 pt-6 border-t border-[var(--border)]">
+                    {service.features.map((feature, fIndex) => (
+                      <div
+                        key={fIndex}
+                        className="flex items-start gap-3 text-[var(--text-faint)] group-hover:text-[var(--text-muted)] transition-colors"
+                      >
+                        <span className="text-accent mt-0.5">+</span>
+                        <span>{feature}</span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section className="py-32 bg-zinc-900 relative overflow-hidden">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
-        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-amber-500/20 via-transparent to-amber-500/20" />
+      <section className="py-32 bg-[var(--bg-alt)] relative overflow-hidden">
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
+        <div className="absolute top-0 left-1/4 w-px h-full bg-gradient-to-b from-accent/20 via-transparent to-accent/20" />
 
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="mb-20">
-            <p
-              className="font-display text-amber-500 uppercase tracking-[0.3em] text-xs mb-6"
-            >
-              Our Process
-            </p>
-            <h2
-              className="font-display text-5xl md:text-6xl font-black text-white leading-[0.9]"
-            >
-              HOW WE
-              <br />
-              WORK
-            </h2>
-          </div>
+          <ScrollReveal>
+            <div className="mb-20">
+              <p
+                className="font-display text-accent uppercase tracking-[0.3em] text-xs mb-6"
+              >
+                Our Process
+              </p>
+              <h2
+                className="font-display text-5xl md:text-6xl font-black text-[var(--text)] leading-[0.9]"
+              >
+                HOW WE
+                <br />
+                WORK
+              </h2>
+            </div>
+          </ScrollReveal>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-16">
             {process.map((item, index) => (
-              <div key={index} className="relative">
-                <div
-                  className="font-display text-8xl font-black text-amber-500/10 mb-6"
-                >
-                  {item.step}
+              <ScrollReveal key={index} delay={index * 100}>
+                <div className="relative">
+                  <div
+                    className="font-display text-8xl font-black text-accent/10 mb-6"
+                  >
+                    {item.step}
+                  </div>
+                  <h3
+                    className="font-display text-xl font-black text-[var(--text)] mb-4 uppercase tracking-tight"
+                  >
+                    {item.title}
+                  </h3>
+                  <p className="text-[var(--text-muted)] leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-                <h3
-                  className="font-display text-xl font-black text-white mb-4 uppercase tracking-tight"
-                >
-                  {item.title}
-                </h3>
-                <p className="text-zinc-400 leading-relaxed">
-                  {item.description}
-                </p>
-              </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
@@ -227,46 +232,49 @@ export default function Services() {
 
       {/* Technologies */}
       <section className="py-32 relative">
-        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-amber-500/40 to-transparent" />
+        <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-accent/40 to-transparent" />
         <div className="max-w-[1800px] mx-auto px-6 md:px-12 lg:px-24">
-          <div className="mb-20 max-w-2xl">
-            <p
-              className="font-display text-amber-500 uppercase tracking-[0.3em] text-xs mb-6"
-            >
-              Our Stack
-            </p>
-            <h2
-              className="font-display text-5xl md:text-6xl font-black text-white leading-[0.9] mb-6"
-            >
-              TECH WE
-              <br />
-              USE
-            </h2>
-            <p className="text-zinc-400 text-lg italic">
-              Modern, reliable tools for fast, scalable websites
-            </p>
-          </div>
+          <ScrollReveal>
+            <div className="mb-20 max-w-2xl">
+              <p
+                className="font-display text-accent uppercase tracking-[0.3em] text-xs mb-6"
+              >
+                Our Stack
+              </p>
+              <h2
+                className="font-display text-5xl md:text-6xl font-black text-[var(--text)] leading-[0.9] mb-6"
+              >
+                TECH WE
+                <br />
+                USE
+              </h2>
+              <p className="text-[var(--text-muted)] text-lg italic">
+                Modern, reliable tools for fast, scalable websites
+              </p>
+            </div>
+          </ScrollReveal>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
             {technologies.map((tech, index) => (
-              <div
-                key={index}
-                className="p-6 bg-zinc-900 border border-zinc-800 hover:border-amber-500/30 transition-colors group"
-              >
-                <h3
-                  className="font-display font-bold text-white mb-1 group-hover:text-amber-500 transition-colors"
+              <ScrollReveal key={index} delay={index * 60}>
+                <div
+                  className="p-6 bg-[var(--bg-alt)] border border-[var(--border)] hover:border-[var(--border-hover)] transition-colors group"
                 >
-                  {tech.name}
-                </h3>
-                <p className="text-sm text-zinc-500">{tech.description}</p>
-              </div>
+                  <h3
+                    className="font-display font-bold text-[var(--text)] mb-1 group-hover:text-accent transition-colors"
+                  >
+                    {tech.name}
+                  </h3>
+                  <p className="text-sm text-[var(--text-faint)]">{tech.description}</p>
+                </div>
+              </ScrollReveal>
             ))}
           </div>
         </div>
       </section>
 
       <CTASection
-        headline={<>LET'S BUILD<br />SOMETHING<br />GREAT</>}
+        headline={<>LET&apos;S BUILD<br />SOMETHING<br />GREAT</>}
         subtitle="Ready to get started? Schedule a free consultation to discuss your project."
         buttonText="Get Your Free Consultation"
       />
