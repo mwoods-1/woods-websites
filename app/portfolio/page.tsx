@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import CaseStudyCard from "../components/CaseStudyCard";
 import CTASection from "../components/CTASection";
 import ScrollReveal from "../components/ScrollReveal";
@@ -52,10 +51,10 @@ export const metadata: Metadata = {
 
 export default function Portfolio() {
   return (
-    <div className="bg-zinc-950">
+    <div className="bg-[var(--bg)]">
       <PageHero
-        label="Our Work"
-        headline={<>PORTFOLIO</>}
+        label="PORTFOLIO"
+        headline={<>OUR WORK</>}
         description="Real results for real businesses. From complete redesigns to brand new builds, every project is a partnership."
       />
 
