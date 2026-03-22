@@ -1,283 +1,97 @@
 @import "tailwindcss";
 
 :root {
-  /* =============================================
-   * PRIMITIVE PALETTE — raw color values
-   * Change these to update Tailwind amber-* utilities
-   * ============================================= */
+  /* Teal palette */
+  --teal-400: #3dd5c7;
+  --teal-500: #2ec4b6;
+  --teal-600: #1a9e92;
 
-  /* Amber scale */
-  --amber-50: #fffbeb;
-  --amber-100: #fef3c7;
-  --amber-200: #fde68a;
-  --amber-300: #fcd34d;
-  --amber-400: #fbbf24;
-  --amber-500: #f59e0b;
-  --amber-600: #d97706;
-  --amber-700: #b45309;
-  --amber-800: #92400e;
-  --amber-900: #78350f;
+  /* Semantic tokens */
+  --bg:           #050505;
+  --bg-alt:       #0d0d0d;
+  --bg-elevated:  #111111;
+  --accent:       var(--teal-500);
+  --accent-hover: var(--teal-400);
+  --accent-dark:  var(--teal-600);
+  --accent-glow:  rgba(46, 196, 182, 0.3);
+  --accent-fg:    #050505;
+  --border:       rgba(46, 196, 182, 0.15);
+  --border-hover: rgba(46, 196, 182, 0.4);
+  --text:         #f0f0f0;
+  --text-muted:   #888888;
+  --text-faint:   #555555;
 
-  /* Navy scale — reserved for future use */
-  --navy-50: #f0f4f8;
-  --navy-100: #d9e2ec;
-  --navy-200: #bcccdc;
-  --navy-300: #9fb3c8;
-  --navy-400: #829ab1;
-  --navy-500: #627d98;
-  --navy-600: #486581;
-  --navy-700: #334e68;
-  --navy-800: #243b53;
-  --navy-900: #102a43;
-
-  /* =============================================
-   * SEMANTIC COLOR TOKENS — intent-based aliases
-   *
-   * TO REBRAND: change only the values below.
-   * Existing bg-amber-500 classes keep working;
-   * new code should use bg-accent, bg-surface, etc.
-   *
-   * Full rebrand checklist — see CLAUDE.md
-   * ============================================= */
-
-  /* Brand accent — currently amber */
-  --accent:         var(--amber-500);  /* Primary accent: buttons, labels, highlights */
-  --accent-hover:   var(--amber-400);  /* Hover state on accent elements */
-  --accent-muted:   var(--amber-500);  /* Used at lower opacity via Tailwind modifiers */
-  --accent-fg:      #18181b;           /* Text/icon color ON accent backgrounds (zinc-900) */
-
-  /* Surfaces — currently zinc dark */
-  --surface:        #09090b;           /* Primary page background (zinc-950) */
-  --surface-alt:    #18181b;           /* Cards, elevated surfaces (zinc-900) */
-  --surface-border: #27272a;           /* Borders and dividers (zinc-800) */
-
-  /* Foreground */
-  --foreground:       #fafafa;         /* Primary text */
-  --foreground-muted: #a1a1aa;         /* Body text on dark bg (zinc-400) */
-  --foreground-faint: #71717a;         /* Secondary/meta text (zinc-500) */
+  /* Grain texture data URI */
+  --grain: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 @theme inline {
-  /* Amber accent colors — powers bg-amber-*, text-amber-*, etc. */
-  --color-amber-*: initial;
-  --color-amber-50: var(--amber-50);
-  --color-amber-100: var(--amber-100);
-  --color-amber-200: var(--amber-200);
-  --color-amber-300: var(--amber-300);
-  --color-amber-400: var(--amber-400);
-  --color-amber-500: var(--amber-500);
-  --color-amber-600: var(--amber-600);
-  --color-amber-700: var(--amber-700);
-  --color-amber-800: var(--amber-800);
-  --color-amber-900: var(--amber-900);
+  /* Teal semantic tokens */
+  --color-accent:       var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-dark:  var(--accent-dark);
+  --color-accent-fg:    var(--accent-fg);
+  --color-bg:           var(--bg);
+  --color-bg-alt:       var(--bg-alt);
+  --color-bg-elevated:  var(--bg-elevated);
+  --color-border:       var(--border);
+  --color-border-hover: var(--border-hover);
+  --color-text:         var(--text);
+  --color-text-muted:   var(--text-muted);
+  --color-text-faint:   var(--text-faint);
 
-  /* Navy — reserved */
-  --color-navy-*: initial;
-  --color-navy-50: var(--navy-50);
-  --color-navy-100: var(--navy-100);
-  --color-navy-200: var(--navy-200);
-  --color-navy-300: var(--navy-300);
-  --color-navy-400: var(--navy-400);
-  --color-navy-500: var(--navy-500);
-  --color-navy-600: var(--navy-600);
-  --color-navy-700: var(--navy-700);
-  --color-navy-800: var(--navy-800);
-  --color-navy-900: var(--navy-900);
-
-  /* Semantic tokens — powers bg-accent, text-accent, bg-surface, etc. */
-  --color-accent:         var(--accent);
-  --color-accent-hover:   var(--accent-hover);
-  --color-accent-fg:      var(--accent-fg);
-  --color-surface:        var(--surface);
-  --color-surface-alt:    var(--surface-alt);
-  --color-surface-border: var(--surface-border);
+  /* Keep amber bridge for backward compat during transition (removed in Task 20) */
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+  --color-amber-700: #b45309;
+  --color-amber-800: #92400e;
+  --color-amber-900: #78350f;
+  --color-zinc-*: initial; /* Keep zinc utilities working */
 }
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  background: var(--surface);
-  color: var(--foreground);
-  font-family: var(--font-libre-baskerville);
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-libre-baskerville); /* Updated to var(--font-inter) in Task 2 */
   font-size: clamp(1rem, 0.5vw + 0.875rem, 1.125rem);
   line-height: 1.6;
   overflow-x: hidden;
 }
 
-/* Smooth scroll behavior */
-html {
-  scroll-behavior: smooth;
-}
+/* Lenis smooth scroll */
+html.lenis { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 
-/* Selection color */
-::selection {
-  background: var(--accent);
-  color: var(--accent-fg);
-}
+::selection { background: var(--accent); color: var(--accent-fg); }
 
-/* Custom scrollbar - Editorial style */
-::-webkit-scrollbar {
-  width: 8px;
-}
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--bg-alt); }
+::-webkit-scrollbar-thumb { background: var(--accent); border-radius: 0; }
+::-webkit-scrollbar-thumb:hover { background: var(--accent-hover); }
 
-::-webkit-scrollbar-track {
-  background: var(--surface-alt);
-}
+@utility font-display { font-family: var(--font-unbounded); }
+@utility prose-width { max-width: 65ch; }
 
-::-webkit-scrollbar-thumb {
-  background: var(--accent);
-  border-radius: 0;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-hover);
-}
-
-/* Font utilities */
-@utility font-display {
-  font-family: var(--font-unbounded);
-}
-
-/* Prose width — constrains text blocks to a comfortable ~65-character line length */
-@utility prose-width {
-  max-width: 65ch;
-}
-
-/* Editorial Brutalist Animations */
-@keyframes slide-up {
-  from {
-    opacity: 0;
-    transform: translateY(60px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.slide-up {
-  animation: slide-up 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  opacity: 0;
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -1000px 0;
-  }
-  100% {
-    background-position: 1000px 0;
-  }
-}
-
-.animate-shimmer {
-  background-size: 200% auto;
-  animation: shimmer 8s linear infinite;
-}
-
-@keyframes pulse-subtle {
-  0%, 100% {
-    opacity: 0.6;
-  }
-  50% {
-    opacity: 1;
-  }
-}
-
-.animate-pulse-subtle {
-  animation: pulse-subtle 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateY(-50%);
-    opacity: 0;
-  }
-  50% {
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(50%);
-    opacity: 0;
-  }
-}
-
-.animate-scroll {
-  animation: scroll 2s ease-in-out infinite;
-}
-
-/* Page enter — fires on every route change via template.tsx */
-@keyframes page-enter {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.page-enter {
-  animation: page-enter 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* Fade in up animation - legacy support */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fadeInUp {
-  animation: fadeInUp 0.8s ease-out;
-}
-
-/* Scroll-triggered reveal animation */
-.scroll-reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
-}
-
-.scroll-reveal--visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Global focus indicator — accent ring for keyboard users, never for mouse */
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;
 }
 
-/* Respect prefers-reduced-motion */
 @media (prefers-reduced-motion: reduce) {
-  /* Kill all animations and transitions site-wide */
   *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     transition-delay: 0ms !important;
   }
-
-  /* Disable smooth scrolling */
-  html {
-    scroll-behavior: auto;
-  }
-
-  /* Ensure scroll-reveal elements are visible without animation */
-  .scroll-reveal {
-    opacity: 1;
-    transform: none;
-    transition: none;
-  }
+  html { scroll-behavior: auto; }
+  .lenis { scroll-behavior: auto !important; }
 }
