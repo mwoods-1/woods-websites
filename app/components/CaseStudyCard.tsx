@@ -25,15 +25,15 @@ export default function CaseStudyCard({
 }: CaseStudyCardProps) {
   return (
     <div
-      className={`group relative bg-zinc-900 border border-zinc-800 hover:border-amber-500/30 transition-all duration-300 overflow-hidden ${className}`}
+      className={`group relative bg-[var(--bg-alt)] border border-[var(--border)] hover:border-[var(--border-hover)] hover:shadow-[0_0_30px_rgba(46,196,182,0.1)] transition-all duration-300 overflow-hidden ${className}`}
     >
-      {/* Amber top-border accent on hover */}
-      <div className="absolute top-0 left-0 right-0 h-0.5 bg-amber-500 transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 z-10" />
+      {/* Teal top-border accent on hover */}
+      <div className="absolute top-0 left-0 right-0 h-0.5 bg-accent transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-300 z-10" />
 
       <div className={horizontal ? "md:grid md:grid-cols-2 md:items-stretch" : ""}>
         {/* Image */}
         <div
-          className={`relative overflow-hidden bg-zinc-800 ${
+          className={`relative overflow-hidden bg-[var(--bg-elevated)] ${
             horizontal ? "aspect-[4/3] md:aspect-auto md:min-h-[420px]" : "aspect-[4/3]"
           }`}
         >
@@ -45,25 +45,25 @@ export default function CaseStudyCard({
             className="object-cover transition-transform duration-500 group-hover:scale-105"
             sizes="(max-width: 768px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-900 via-transparent to-transparent opacity-60" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[var(--bg-alt)] via-transparent to-transparent opacity-60" />
         </div>
 
         {/* Content */}
         <div className="p-8 md:p-10 space-y-5">
           <h3
-            className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight leading-tight group-hover:text-amber-500 transition-colors"
+            className="font-display text-2xl md:text-3xl font-black text-white uppercase tracking-tight leading-tight group-hover:text-accent transition-colors"
           >
             {title}
           </h3>
 
-          <p className="text-zinc-400 leading-relaxed">{description}</p>
+          <p className="text-[var(--text-muted)] leading-relaxed">{description}</p>
 
           {/* Tags */}
           <div className="flex flex-wrap gap-1.5">
             {tags.map((tag, i) => (
               <span
                 key={i}
-                className="px-3 py-1.5 bg-zinc-950 border border-zinc-800 text-zinc-400 text-xs uppercase tracking-wider group-hover:border-amber-500/30 group-hover:text-amber-500/70 transition-colors duration-300"
+                className="px-3 py-1.5 bg-[var(--bg)] border border-[var(--border)] text-[var(--text-muted)] text-xs uppercase tracking-wider group-hover:border-[var(--border-hover)] group-hover:text-accent/70 transition-colors duration-300"
               >
                 {tag}
               </span>
@@ -75,7 +75,7 @@ export default function CaseStudyCard({
             href={liveUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="font-display group/link inline-flex items-center text-amber-500 hover:text-amber-400 font-bold text-sm uppercase tracking-wider transition-colors pt-2"
+            className="font-display group/link inline-flex items-center text-accent hover:text-accent-hover font-bold text-sm uppercase tracking-wider transition-colors pt-2"
           >
             Visit Live Site
             <svg
