@@ -266,7 +266,6 @@ export default function Services() {
       </section>
 
       <CTASection
-        label="Get Started"
         headline={<>LET'S BUILD<br />SOMETHING<br />GREAT</>}
         subtitle="Ready to get started? Schedule a free consultation to discuss your project."
         buttonText="Get Your Free Consultation"

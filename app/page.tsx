@@ -335,12 +335,9 @@ export default function Home() {
       </section>
 
       <CTASection
-        label="Start Your Project"
         headline={<>READY TO<br/>TRANSFORM<br/>YOUR SITE?</>}
         subtitle="Let's talk about your project and how we can help you achieve your goals."
         buttonText="Get Started"
-        secondaryButton={{ text: "View Portfolio", href: "/portfolio" }}
-        size="large"
       />
     </div>
   );

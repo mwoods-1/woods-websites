@@ -84,7 +84,6 @@ export default function Portfolio() {
       </section>
 
       <CTASection
-        label="Start Your Project"
         headline={<>READY TO<br />JOIN THEM?</>}
         subtitle="Let's discuss how we can transform your online presence."
         buttonText="Get Your Free Consultation"

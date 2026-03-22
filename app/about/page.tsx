@@ -206,7 +206,6 @@ export default function About() {
       </section>
 
       <CTASection
-        label="Work With Us"
         headline={<>LET'S WORK<br />TOGETHER</>}
         subtitle="Ready to start your project? We'd love to hear from you."
         buttonText="Get In Touch"
