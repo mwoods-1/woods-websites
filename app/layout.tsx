@@ -3,6 +3,7 @@ import { Unbounded, Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
+import SmoothScroll from "./components/SmoothScroll";
 import "./globals.css";
 
 const unbounded = Unbounded({
@@ -67,17 +68,19 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${unbounded.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="antialiased">
-        <a
-          href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-accent-fg focus:font-bold focus:text-sm focus:uppercase focus:tracking-wider"
-        >
-          Skip to content
-        </a>
-        <Navigation />
-        <main id="main-content" className="min-h-screen">
-          {children}
-        </main>
-        <Footer />
+        <SmoothScroll>
+          <a
+            href="#main-content"
+            className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-accent-fg focus:font-bold focus:text-sm focus:uppercase focus:tracking-wider"
+          >
+            Skip to content
+          </a>
+          <Navigation />
+          <main id="main-content" className="min-h-screen">
+            {children}
+          </main>
+          <Footer />
+        </SmoothScroll>
         {process.env.NEXT_PUBLIC_CF_ANALYTICS_TOKEN && (
           <Script
             defer

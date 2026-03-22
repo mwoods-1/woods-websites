@@ -1,0 +1,22 @@
+"use client";
+
+import { useEffect } from "react";
+import Lenis from "lenis";
+
+export default function SmoothScroll({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (prefersReduced) return;
+
+    const lenis = new Lenis({
+      autoRaf: true,
+      syncTouch: false,
+    });
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
+  return <>{children}</>;
+}
