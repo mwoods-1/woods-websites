@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Unbounded, Libre_Baskerville } from "next/font/google";
+import { Unbounded, Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import Navigation from "./components/Navigation";
 import Footer from "./components/Footer";
@@ -7,17 +7,23 @@ import "./globals.css";
 
 const unbounded = Unbounded({
   subsets: ["latin"],
-  weight: ["300", "400", "600", "700", "900"],
+  weight: ["400", "600", "700", "900"],
   display: "swap",
   variable: "--font-unbounded",
 });
 
-const libreBaskerville = Libre_Baskerville({
+const inter = Inter({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  display: "swap",
+  variable: "--font-inter",
+});
+
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
   weight: ["400", "700"],
-  style: ["normal", "italic"],
   display: "swap",
-  variable: "--font-libre-baskerville",
+  variable: "--font-mono",
 });
 
 export const metadata: Metadata = {
@@ -59,11 +65,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${unbounded.variable} ${libreBaskerville.variable}`}>
+    <html lang="en" className={`${unbounded.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
       <body className="antialiased">
         <a
           href="#main-content"
-          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-amber-500 focus:text-zinc-950 focus:font-bold focus:text-sm focus:uppercase focus:tracking-wider"
+          className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:px-4 focus:py-2 focus:bg-accent focus:text-accent-fg focus:font-bold focus:text-sm focus:uppercase focus:tracking-wider"
         >
           Skip to content
         </a>
