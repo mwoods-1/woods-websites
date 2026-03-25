@@ -1,3 +1,29 @@
+/**
+ * WorkshopSection — Scroll-Stop Animation
+ * =========================================
+ * A scroll-driven animation where a monitor with floating tech cards
+ * emerges as the user scrolls through a 500vh sticky container.
+ *
+ * Dependencies:
+ *   npm install motion
+ *
+ * CSS variables expected (set these in your globals.css or parent):
+ *   --bg:          #050505    (background)
+ *   --bg-alt:      #0d0d0d   (card background)
+ *   --bg-elevated: #111111   (monitor screen)
+ *   --accent:      #2ec4b6   (teal accent)
+ *   --text:        #f0f0f0   (primary text)
+ *
+ * Font classes expected (via Tailwind or custom CSS):
+ *   .font-display  — bold display font (e.g., Unbounded)
+ *   .font-mono     — monospace font (e.g., JetBrains Mono)
+ *
+ * Usage:
+ *   import WorkshopSection from './WorkshopSection';
+ *   // Place in your page — it creates its own 500vh scroll container
+ *   <WorkshopSection />
+ */
+
 "use client";
 
 import { useRef } from "react";
