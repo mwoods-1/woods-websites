@@ -1,5 +1,8 @@
 import type { Metadata } from "next";
 import { spaceGrotesk, inter, jetbrainsMono } from "@/lib/fonts";
+import SmoothScroll from "@/components/SmoothScroll";
+import Nav from "@/components/Nav";
+import Footer from "@/components/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -22,7 +25,13 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
-      <body className="antialiased">{children}</body>
+      <body className="antialiased">
+        <SmoothScroll>
+          <Nav />
+          {children}
+          <Footer />
+        </SmoothScroll>
+      </body>
     </html>
   );
 }
