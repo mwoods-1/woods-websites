@@ -88,34 +88,35 @@ export default function ProjectsSection() {
           >
             <Link href={project.href} className="group block">
               <div
-                className="relative mx-4 overflow-hidden md:mx-8"
+                className="relative mx-6 flex flex-col overflow-hidden md:mx-16 lg:mx-24"
                 style={{
-                  height: "85vh",
+                  height: "80vh",
                   borderRadius: "24px",
                   background: "#0a0a0a",
                 }}
               >
-                {/* Full-bleed background image */}
-                <Image
-                  src={project.image}
-                  alt={project.name}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
-                  sizes="100vw"
-                  priority={i === 0}
-                />
+                {/* Website screenshot — top portion */}
+                <div className="relative flex-1 min-h-0 overflow-hidden">
+                  <Image
+                    src={project.image}
+                    alt={project.name}
+                    fill
+                    className="object-cover object-top"
+                    sizes="(max-width: 768px) 100vw, 85vw"
+                    priority={i === 0}
+                  />
+                  {/* Subtle fade to bottom */}
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background:
+                        "linear-gradient(to top, #0a0a0a 0%, rgba(10,10,10,0.6) 20%, transparent 50%)",
+                    }}
+                  />
+                </div>
 
-                {/* Dark overlay so text is readable */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background:
-                      "linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%)",
-                  }}
-                />
-
-                {/* Content — bottom left */}
-                <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
+                {/* Content — solid dark area at bottom */}
+                <div className="relative z-10 shrink-0 px-8 pb-8 pt-2 md:px-12 md:pb-10">
                   <div className="flex items-end justify-between gap-6">
                     <div className="max-w-lg">
                       {/* Index + industry */}
@@ -170,7 +171,7 @@ export default function ProjectsSection() {
 
                     {/* View project arrow */}
                     <div
-                      className="hidden shrink-0 h-12 w-12 items-center justify-center rounded-full border transition-all duration-500 group-hover:scale-110 md:flex"
+                      className="hidden shrink-0 h-12 w-12 items-center justify-center rounded-full border transition-colors duration-500 md:flex"
                       style={{ borderColor: "rgba(255,255,255,0.3)", color: "#fff" }}
                     >
                       <svg
