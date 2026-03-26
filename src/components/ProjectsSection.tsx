@@ -4,53 +4,19 @@ import { useRef } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 import Link from "next/link";
 import Image from "next/image";
+import { projects as allProjects } from "@/data/projects";
 
-const projects = [
-  {
-    index: "01",
-    name: "Aviation Expeditions",
-    type: "Redesign",
-    industry: "Tourism · Alaska",
-    description: "Complete website transformation for an Alaskan flightseeing tour company. Modernised the brand and optimised for conversions.",
-    href: "/portfolio/aviation-expeditions",
-    image: "/images/aviation-after.jpg",
-    tags: ["Redesign", "Performance", "SEO"],
-    accent: "#2ec4b6",
-  },
-  {
-    index: "02",
-    name: "Sven's Basecamp Hostel",
-    type: "Redesign + Integration",
-    industry: "Hospitality · Alaska",
-    description: "Modern redesign with seamless Cloudbeds booking integration. Transformed an outdated site into a vibrant, mobile-friendly experience.",
-    href: "/portfolio/svens-basecamp",
-    image: "/images/svens-after.jpg",
-    tags: ["Redesign", "Cloudbeds", "Integration"],
-    accent: "#a78bfa",
-  },
-  {
-    index: "03",
-    name: "Ovens Soccer",
-    type: "New Build",
-    industry: "Sports Organisation",
-    description: "Brand new website built from scratch for a sports organisation. Clean, modern design with a mobile-first approach.",
-    href: "/portfolio/ovens-soccer",
-    image: "/images/ovens-new.jpg",
-    tags: ["New Build", "Mobile-First"],
-    accent: "#fbbf24",
-  },
-  {
-    index: "04",
-    name: "Kingdom Property Care",
-    type: "New Build",
-    industry: "Property Services",
-    description: "Professional website for a property maintenance company. Clean design showcasing services, service areas, and easy contact options.",
-    href: "/portfolio/kingdom-property-care",
-    image: "/images/kingdom-before.png",
-    tags: ["New Build", "Business", "Responsive"],
-    accent: "#34d399",
-  },
-];
+const projects = allProjects.map((p, i) => ({
+  index: String(i + 1).padStart(2, "0"),
+  name: p.name,
+  type: p.type,
+  industry: p.industry,
+  description: p.description,
+  href: `/portfolio/${p.slug}`,
+  image: p.cardImage,
+  tags: p.tags,
+  accent: p.accent,
+}));
 
 export default function ProjectsSection() {
   const headerRef = useRef<HTMLDivElement>(null);

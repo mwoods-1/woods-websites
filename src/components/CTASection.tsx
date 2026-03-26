@@ -73,11 +73,11 @@ export default function CTASection() {
           </Link>
 
           <a
-            href="mailto:hello@woodswebsites.com"
+            href="mailto:woodswebsites@gmail.com"
             className="font-sans text-sm tracking-wide transition-colors duration-300 hover:text-white"
             style={{ color: "rgba(255,255,255,0.4)" }}
           >
-            hello@woodswebsites.com
+            woodswebsites@gmail.com
           </a>
         </div>
       </motion.div>

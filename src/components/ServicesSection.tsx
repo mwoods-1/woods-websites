@@ -1,43 +1,70 @@
 "use client";
 
 import { useRef } from "react";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, useInView } from "motion/react";
 import Link from "next/link";
+
+const processSteps = [
+  "Discovery",
+  "Design",
+  "Build",
+  "Launch",
+  "Support",
+];
 
 const services = [
   {
-    number: "01",
-    title: "Custom Website Design",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <rect x="3" y="3" width="18" height="18" rx="2" />
+        <path d="M3 9h18" />
+        <path d="M9 21V9" />
+      </svg>
+    ),
+    title: "Design & Dev",
     description:
-      "Beautiful, unique websites tailored to your brand. No templates, no shortcuts — just thoughtful design that reflects who you are.",
+      "Custom websites from the ground up — designed around your brand and built to convert.",
   },
   {
-    number: "02",
-    title: "Website Redesigns",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M12 3v18" />
+        <path d="M8 7l4-4 4 4" />
+        <rect x="4" y="14" width="16" height="7" rx="1" />
+      </svg>
+    ),
+    title: "Redesigns",
     description:
-      "Breathe new life into your outdated website. We modernise your design, improve performance, and enhance user experience.",
+      "Modernise your outdated site with a fresh look, better UX, and improved performance.",
   },
   {
-    number: "03",
-    title: "Platform Integrations",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+      </svg>
+    ),
+    title: "Performance",
     description:
-      "Connect your website with booking systems, payment processors, and the tools you rely on — built to work flawlessly.",
+      "Blazing-fast load times, Core Web Vitals optimised, and SEO that actually ranks.",
   },
   {
-    number: "04",
-    title: "Performance & SEO",
+    icon: (
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+        <path d="M4 6h16" />
+        <path d="M4 12h16" />
+        <path d="M4 18h16" />
+        <circle cx="8" cy="6" r="1.5" fill="currentColor" />
+        <circle cx="16" cy="12" r="1.5" fill="currentColor" />
+        <circle cx="10" cy="18" r="1.5" fill="currentColor" />
+      </svg>
+    ),
+    title: "Integrations",
     description:
-      "Speed matters. We optimise your site to load faster, rank better, and convert more visitors into customers.",
-  },
-  {
-    number: "05",
-    title: "Ongoing Support",
-    description:
-      "We're here for the long haul. From content updates to technical fixes, we keep your site running at its best.",
+      "Booking systems, payments, CRMs — we wire your site into the tools you already use.",
   },
 ];
 
-function ServiceRow({
+function ServiceCard({
   service,
   index,
 }: {
@@ -45,45 +72,55 @@ function ServiceRow({
   index: number;
 }) {
   const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 90%", "start 50%"],
-  });
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const x = useTransform(scrollYProgress, [0, 1], [-20, 0]);
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   return (
     <motion.div
       ref={ref}
-      style={{ opacity, x, borderColor: "rgba(255,255,255,0.08)" }}
-      className="group flex items-start gap-6 border-t py-8 transition-colors duration-300 hover:border-accent/30 md:gap-10 md:py-10"
+      className="group relative rounded-2xl border p-6 sm:p-8 transition-colors duration-300"
+      style={{
+        opacity: isInView ? 1 : 0,
+        transform: isInView ? "translateY(0)" : "translateY(30px)",
+        transition: `all 0.6s cubic-bezier(0.22, 1, 0.36, 1) ${index * 0.12}s`,
+        borderColor: "rgba(255,255,255,0.08)",
+        background: "rgba(255,255,255,0.02)",
+      }}
     >
-      <span
-        className="shrink-0 font-mono text-xs tracking-widest pt-1"
-        style={{ color: "rgba(255,255,255,0.2)" }}
-      >
-        {service.number}
-      </span>
-      <div className="flex-1">
-        <h3
-          className="font-display text-xl font-bold tracking-tight transition-colors duration-300 group-hover:text-white sm:text-2xl"
-          style={{ color: "rgba(255,255,255,0.85)" }}
-        >
-          {service.title}
-        </h3>
-        <p
-          className="mt-2 max-w-xl font-sans text-sm leading-relaxed"
-          style={{ color: "rgba(255,255,255,0.4)" }}
-        >
-          {service.description}
-        </p>
-      </div>
+      {/* Icon */}
       <div
-        className="shrink-0 self-center opacity-0 transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
-        style={{ color: "var(--accent)", transform: "translateX(-8px)" }}
+        className="mb-5 inline-flex h-12 w-12 items-center justify-center rounded-xl transition-colors duration-300"
+        style={{
+          color: "var(--accent)",
+          background: "rgba(46, 196, 182, 0.08)",
+        }}
       >
-        →
+        {service.icon}
       </div>
+
+      {/* Title */}
+      <h3
+        className="font-display text-lg font-bold tracking-tight sm:text-xl"
+        style={{ color: "rgba(255,255,255,0.9)" }}
+      >
+        {service.title}
+      </h3>
+
+      {/* Description */}
+      <p
+        className="mt-2 font-sans text-sm leading-relaxed"
+        style={{ color: "rgba(255,255,255,0.45)" }}
+      >
+        {service.description}
+      </p>
+
+      {/* Hover glow effect */}
+      <div
+        className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        style={{
+          background:
+            "radial-gradient(400px circle at 50% 0%, rgba(46,196,182,0.04), transparent 70%)",
+        }}
+      />
     </motion.div>
   );
 }
@@ -101,7 +138,7 @@ export default function ServicesSection() {
     <section ref={ref} className="py-24 md:py-32">
       <div className="mx-auto max-w-7xl px-6">
         {/* Header */}
-        <motion.div style={{ opacity, y }} className="mb-4">
+        <motion.div style={{ opacity, y }} className="mb-12 md:mb-16">
           <p
             className="mb-3 font-mono text-xs tracking-[0.25em] uppercase"
             style={{ color: "var(--accent)" }}
@@ -110,10 +147,11 @@ export default function ServicesSection() {
           </p>
           <div className="flex flex-wrap items-end justify-between gap-6">
             <h2
-              className="font-display text-4xl font-bold tracking-tight sm:text-5xl"
+              className="font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
               style={{ color: "var(--text)" }}
             >
-              Our services
+              Everything your business needs to{" "}
+              <span style={{ color: "var(--accent)" }}>win online</span>
             </h2>
             <Link
               href="/services"
@@ -121,7 +159,7 @@ export default function ServicesSection() {
               style={{ color: "rgba(255,255,255,0.4)" }}
             >
               <span className="transition-colors duration-300 group-hover:text-white">
-                See all services
+                See All Services
               </span>
               <span className="relative inline-flex h-4 items-center overflow-hidden">
                 <span
@@ -141,10 +179,55 @@ export default function ServicesSection() {
           </div>
         </motion.div>
 
-        {/* Service rows */}
-        <div className="mt-4">
+        {/* Process timeline */}
+        <motion.div style={{ opacity, y }} className="mb-14 md:mb-20">
+          {/* Desktop: horizontal */}
+          <div className="hidden sm:flex items-center gap-3">
+            {processSteps.map((step, i) => (
+              <div key={step} className="flex items-center gap-3">
+                <span
+                  className="inline-flex items-center rounded-full px-4 py-1.5 font-mono text-xs tracking-wide"
+                  style={{
+                    background: "rgba(46, 196, 182, 0.08)",
+                    color: "var(--accent)",
+                    border: "1px solid rgba(46, 196, 182, 0.15)",
+                  }}
+                >
+                  {step}
+                </span>
+                {i < processSteps.length - 1 && (
+                  <span
+                    className="text-sm"
+                    style={{ color: "rgba(255,255,255,0.2)" }}
+                  >
+                    →
+                  </span>
+                )}
+              </div>
+            ))}
+          </div>
+          {/* Mobile: vertical */}
+          <div className="flex sm:hidden flex-wrap gap-2">
+            {processSteps.map((step) => (
+              <span
+                key={step}
+                className="inline-flex items-center rounded-full px-3 py-1 font-mono text-[10px] tracking-wide"
+                style={{
+                  background: "rgba(46, 196, 182, 0.08)",
+                  color: "var(--accent)",
+                  border: "1px solid rgba(46, 196, 182, 0.15)",
+                }}
+              >
+                {step}
+              </span>
+            ))}
+          </div>
+        </motion.div>
+
+        {/* 4-column service grid */}
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4 sm:gap-5 lg:gap-6">
           {services.map((service, i) => (
-            <ServiceRow key={service.number} service={service} index={i} />
+            <ServiceCard key={service.title} service={service} index={i} />
           ))}
         </div>
       </div>

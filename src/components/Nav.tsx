@@ -62,8 +62,8 @@ export default function Nav() {
           ))}
           <Link
             href="/contact"
-            className="rounded-full border px-5 py-2 font-sans text-sm font-medium transition-all duration-300 hover:bg-white hover:text-black"
-            style={{ borderColor: "rgba(255,255,255,0.2)", color: "var(--text)" }}
+            className="rounded-full border px-5 py-2 font-sans text-sm font-medium text-[var(--text)] transition-all duration-300 hover:bg-white hover:!text-black"
+            style={{ borderColor: "rgba(255,255,255,0.2)" }}
           >
             Start a Project
           </Link>

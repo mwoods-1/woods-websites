@@ -20,7 +20,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0.85 }}
           animate={{ opacity: 0.22 }}
-          transition={{ duration: 1.5, delay: 4 }}
+          transition={{ duration: 1.5, delay: 2 }}
           className="h-full w-full"
         >
           <video
@@ -48,7 +48,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 5 }}
+          transition={{ duration: 0.8, delay: 2.5 }}
           className="font-mono text-xs tracking-[0.25em] uppercase"
           style={{ color: "var(--accent)" }}
         >
@@ -59,7 +59,7 @@ export default function Hero() {
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, delay: 5.2, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 1, delay: 2.7, ease: [0.16, 1, 0.3, 1] }}
           className="mt-6 max-w-4xl font-display text-5xl font-bold leading-[1.05] tracking-tight sm:text-6xl md:text-7xl lg:text-8xl"
           style={{ color: "var(--text)" }}
         >
@@ -72,7 +72,7 @@ export default function Hero() {
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.9, delay: 5.45, ease: [0.16, 1, 0.3, 1] }}
+          transition={{ duration: 0.9, delay: 2.95, ease: [0.16, 1, 0.3, 1] }}
           className="mt-6 max-w-lg font-sans text-base leading-relaxed sm:text-lg"
           style={{ color: "rgba(255,255,255,0.55)" }}
         >
@@ -84,7 +84,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 5.7 }}
+          transition={{ duration: 0.8, delay: 3.2 }}
           className="mt-10 flex flex-wrap items-center gap-4"
         >
           <Link
@@ -123,7 +123,7 @@ export default function Hero() {
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 6.2 }}
+          transition={{ duration: 1, delay: 3.6 }}
           className="absolute bottom-8 right-6 flex items-center gap-2"
           style={{ color: "rgba(255,255,255,0.3)" }}
         >
