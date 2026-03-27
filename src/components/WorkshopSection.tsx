@@ -29,15 +29,17 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "motion/react";
 
+// Semi-oval: a=290 (horizontal), b=255 (vertical), θ=20°→160° in 8 even steps
+// Right side low→high, then left side high→low
 const items = [
-  { icon: "◆", label: "Design", color: "#a78bfa", delay: [0.08, 0.22] as [number, number], endX: -180, endY: -120, rotation: -15 },
-  { icon: "{ }", label: "Code", color: "var(--accent)", delay: [0.12, 0.26] as [number, number], endX: 160, endY: -140, rotation: 10 },
-  { icon: "⚡", label: "Speed", color: "#fbbf24", delay: [0.16, 0.34] as [number, number], endX: -120, endY: -220, rotation: -8 },
-  { icon: "📱", label: "Responsive", color: "#34d399", delay: [0.2, 0.38] as [number, number], endX: 200, endY: -80, rotation: 12 },
-  { icon: "◎", label: "SEO", color: "#38bdf8", delay: [0.24, 0.42] as [number, number], endX: -200, endY: -50, rotation: -20 },
-  { icon: "⟡", label: "Booking", color: "#f97316", delay: [0.28, 0.46] as [number, number], endX: 100, endY: -250, rotation: 5, desktopOnly: true },
-  { icon: "↗", label: "Convert", color: "#f87171", delay: [0.32, 0.5] as [number, number], endX: -60, endY: -280, rotation: -12 },
-  { icon: "✦", label: "Support", color: "var(--accent)", delay: [0.36, 0.54] as [number, number], endX: 140, endY: -200, rotation: 18, desktopOnly: true },
+  { icon: "◎", label: "SEO",        color: "#38bdf8", delay: [0.06, 0.16] as [number, number], endX:  220, endY:  -75, rotation:  20, desktopOnly: true },
+  { icon: "📱", label: "Responsive", color: "#34d399", delay: [0.09, 0.19] as [number, number], endX:  222, endY: -164, rotation:  12 },
+  { icon: "{ }", label: "Code",     color: "var(--accent)", delay: [0.12, 0.22] as [number, number], endX: 145, endY: -221, rotation: 10 },
+  { icon: "⟡", label: "Booking",    color: "#f97316", delay: [0.15, 0.25] as [number, number], endX:   50, endY: -251, rotation:   5 },
+  { icon: "↗", label: "Convert",    color: "#f87171", delay: [0.18, 0.28] as [number, number], endX:  -50, endY: -251, rotation: -12 },
+  { icon: "⚡", label: "Speed",      color: "#fbbf24", delay: [0.21, 0.31] as [number, number], endX: -145, endY: -221, rotation:  -8 },
+  { icon: "◆", label: "Design",     color: "#a78bfa", delay: [0.24, 0.34] as [number, number], endX: -222, endY: -164, rotation: -15 },
+  { icon: "✦", label: "Support",    color: "var(--accent)", delay: [0.27, 0.37] as [number, number], endX: -220, endY:  -75, rotation: -18, desktopOnly: true },
 ];
 
 function FloatingCard({
@@ -79,10 +81,10 @@ function FloatingCard({
         position: "absolute",
         left: "50%",
         top: "55%",
-        marginLeft: -30,
-        marginTop: -30,
-        width: 60,
-        height: 60,
+        marginLeft: -40,
+        marginTop: -40,
+        width: 80,
+        height: 80,
         background: "var(--bg-alt)",
         border: `1px solid color-mix(in srgb, ${color} 25%, transparent)`,
         borderRadius: 8,
@@ -93,12 +95,12 @@ function FloatingCard({
         boxShadow: `0 4px 20px color-mix(in srgb, ${color} 8%, transparent)`,
       }}
     >
-      <span style={{ fontSize: 18 }}>{icon}</span>
+      <span style={{ fontSize: 24 }}>{icon}</span>
       <span
         className="font-mono"
         style={{
           color,
-          fontSize: 7,
+          fontSize: 10,
           fontWeight: 700,
           letterSpacing: "0.1em",
           textTransform: "uppercase",
@@ -118,16 +120,16 @@ export default function WorkshopSection() {
   });
 
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 100,
-    damping: 30,
+    stiffness: 180,
+    damping: 28,
   });
 
   const deskOpacity = useTransform(smoothProgress, [0, 0.12], [0, 1]);
   const deskY = useTransform(smoothProgress, [0, 0.12], [60, 0]);
-  const taglineOpacity = useTransform(smoothProgress, [0.7, 0.85], [0, 1]);
+  const taglineOpacity = useTransform(smoothProgress, [0.45, 0.55], [0, 1]);
 
   return (
-    <div ref={containerRef} className="relative z-10" style={{ height: "350vh" }}>
+    <div ref={containerRef} className="relative z-10" style={{ height: "250vh" }}>
       <div
         className="sticky top-0 flex items-center justify-center overflow-hidden"
         style={{ height: "100vh", background: "var(--bg)" }}
@@ -204,14 +206,14 @@ export default function WorkshopSection() {
           style={{
             opacity: taglineOpacity,
             position: "absolute",
-            bottom: "3rem",
+            bottom: "7rem",
             color: "var(--accent)",
-            fontSize: "0.8rem",
+            fontSize: "1.6rem",
             letterSpacing: "0.15em",
             textAlign: "center",
           }}
         >
-          Everything you need, crafted with care
+          Built around your business.{" "}<br />Built to get results.
         </motion.p>
       </div>
     </div>

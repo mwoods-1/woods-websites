@@ -14,11 +14,11 @@ import Image from "next/image";
  * To use text instead of a logo:
  *   Set src to null (the name will render as styled text)
  */
-const clients: { name: string; src: string | null; height: number }[] = [
-  { name: "Aviation Expeditions", src: null, height: 0 },
-  { name: "Kingdom Property Care", src: "/images/logos/kingdom.png", height: 40 },
-  { name: "Sven's Basecamp Hostel", src: null, height: 0 },
-  { name: "Ovens Soccer", src: "/images/logos/ovens.png", height: 34 },
+const clients: { name: string; src: string | null; height: number; width: number }[] = [
+  { name: "Aviation Expeditions", src: "/images/website_logos/logo_aviation_expeditions.png", height: 80, width: 91 },
+  { name: "Kingdom Property Care", src: "/images/website_logos/logo_kingdom_property_care.png", height: 50, width: 207 },
+  { name: "Sven's Basecamp Hostel", src: "/images/website_logos/logo_svens_basecamp_hostel.png", height: 50, width: 228 },
+  { name: "Ovens Soccer", src: "/images/website_logos/logo_ovens_soccer.png", height: 50, width: 173 },
 ];
 
 function ClientItem({ client }: { client: (typeof clients)[number] }) {
@@ -26,15 +26,14 @@ function ClientItem({ client }: { client: (typeof clients)[number] }) {
     return (
       <div
         className="relative shrink-0 opacity-50 grayscale transition-all duration-300 hover:opacity-80 hover:grayscale-0"
-        style={{ height: Math.round(client.height * 0.75) }}
       >
         <Image
           src={client.src}
           alt={client.name}
           height={client.height}
-          width={client.height * 3}
-          className="h-full w-auto object-contain"
-          style={{ filter: "brightness(1.5)" }}
+          width={client.width}
+          className="h-auto w-auto object-contain"
+          style={{ filter: "brightness(1.5)", maxHeight: `${client.height}px` }}
         />
       </div>
     );
@@ -67,8 +66,8 @@ export default function TrustStrip() {
       style={{ borderColor: "rgba(255,255,255,0.06)" }}
     >
       <p
-        className="mb-4 sm:mb-5 text-center font-mono text-[9px] sm:text-[10px] tracking-[0.3em] uppercase"
-        style={{ color: "rgba(255,255,255,0.2)" }}
+        className="mb-4 sm:mb-5 text-center font-mono text-xs sm:text-sm tracking-[0.25em] uppercase"
+        style={{ color: "rgba(255,255,255,0.5)" }}
       >
         Trusted by businesses across industries
       </p>

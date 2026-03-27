@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform, useInView } from "motion/react";
 import Link from "next/link";
 
 const processSteps = [
-  "Discovery",
+  "Kickoff",
   "Design",
   "Build",
   "Launch",
@@ -23,7 +23,7 @@ const services = [
     ),
     title: "Design & Dev",
     description:
-      "Custom websites from the ground up — designed around your brand and built to convert.",
+      "Custom websites from the ground up, designed around your brand and built to convert.",
   },
   {
     icon: (
@@ -60,7 +60,7 @@ const services = [
     ),
     title: "Integrations",
     description:
-      "Booking systems, payments, CRMs — we wire your site into the tools you already use.",
+      "Booking systems, payments, CRMs: we wire your site into the tools you already use.",
   },
 ];
 

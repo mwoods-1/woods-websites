@@ -7,7 +7,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Woods Websites — Custom Web Design & Development",
+    default: "Woods Websites | Custom Web Design & Development",
     template: "%s | Woods Websites",
   },
   description:
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "Woods Websites — Custom Web Design & Development",
+    title: "Woods Websites | Custom Web Design & Development",
     description:
       "Custom-built, high-performance websites crafted with care. No templates. No shortcuts.",
     images: [{ url: "/images/logo/og-image.png", width: 1200, height: 630 }],

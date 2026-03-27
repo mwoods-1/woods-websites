@@ -19,7 +19,7 @@ export default function ServicesPage() {
             Our <span style={{ color: "var(--accent)" }}>Services</span>
           </>
         }
-        subtitle="From first concept to ongoing support — everything your business needs to win online."
+        subtitle="From first concept to ongoing support: everything your business needs to win online."
       />
       <ServicesContent />
       <CTASection />

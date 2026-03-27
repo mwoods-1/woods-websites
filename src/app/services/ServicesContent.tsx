@@ -14,13 +14,13 @@ const processSteps = [
     number: "02",
     title: "Design",
     description:
-      "We create visual designs that match your brand and serve your users. You'll see realistic mockups and prototypes before a single line of code is written — no surprises.",
+      "We create visual designs that match your brand and serve your users. You'll see realistic mockups and prototypes before a single line of code is written. No surprises.",
   },
   {
     number: "03",
     title: "Build",
     description:
-      "We build with modern technologies — fast, accessible, mobile-first. Every site is custom-coded for performance. No page builders, no bloated templates.",
+      "We build with modern technologies: fast, accessible, mobile-first. Every site is custom-coded for performance. No page builders, no bloated templates.",
   },
   {
     number: "04",
@@ -40,7 +40,7 @@ const primaryServices = [
   {
     title: "Custom Website Design & Development",
     description:
-      "Beautiful, high-performance websites built from scratch for your business. No templates, no page builders — just clean, custom code that loads fast and looks great on every device.",
+      "Beautiful, high-performance websites built from scratch for your business. No templates, no page builders. Just clean, custom code that loads fast and looks great on every device.",
     icon: "🎨",
   },
   {
@@ -52,13 +52,13 @@ const primaryServices = [
   {
     title: "E-Commerce Solutions",
     description:
-      "Online stores that convert. Whether it's Shopify, WooCommerce, or a fully custom solution — we build commerce experiences that make buying effortless.",
+      "Online stores that convert. Whether it's Shopify, WooCommerce, or a fully custom solution, we build commerce experiences that make buying effortless.",
     icon: "🛒",
   },
   {
     title: "Third-Party Integrations",
     description:
-      "Booking systems, payment processors, CRMs, email platforms — we integrate the tools your business runs on, seamlessly embedded into your website.",
+      "Booking systems, payment processors, CRMs, email platforms: we integrate the tools your business runs on, seamlessly embedded into your website.",
     icon: "🔗",
   },
   {
@@ -71,10 +71,10 @@ const primaryServices = [
 
 const additionalServices = [
   { title: "Ongoing Maintenance & Support", description: "Regular updates, security patches, and content changes to keep your site running smoothly." },
-  { title: "Custom Web Applications", description: "Bespoke software solutions — dashboards, portals, internal tools — built for your specific workflow." },
+  { title: "Custom Web Applications", description: "Bespoke software solutions including dashboards, portals, and internal tools built for your specific workflow." },
   { title: "Brand & Digital Strategy", description: "Strategic guidance on positioning, messaging, and digital presence that aligns with your business goals." },
   { title: "Analytics & Conversion Optimisation", description: "Data-driven improvements to turn more visitors into customers." },
-  { title: "Mobile-First Development", description: "Every site is built mobile-first — because that's where your customers are." },
+  { title: "Mobile-First Development", description: "Every site is built mobile-first, because that's where your customers are." },
   { title: "Accessibility & Compliance", description: "WCAG-compliant sites that work for everyone and meet accessibility standards." },
   { title: "API Development & Integration", description: "Custom APIs and third-party connections that extend your website's capabilities." },
   { title: "Content Management Systems", description: "Easy-to-use CMS solutions so you can update your own content without technical knowledge." },

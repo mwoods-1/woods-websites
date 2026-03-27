@@ -12,17 +12,17 @@ const values = [
   {
     title: "No templates",
     description:
-      "Every website we build is custom-coded from scratch. Your business is unique — your website should be too.",
+      "Every website we build is custom-coded from scratch. Your business is unique, and your website should be too.",
   },
   {
     title: "Built to perform",
     description:
-      "Fast load times, clean code, mobile-first design, and proper SEO. We don't just make things look good — we make them work.",
+      "Fast load times, clean code, mobile-first design, and proper SEO. We don't just make things look good. We make them work.",
   },
   {
     title: "Ongoing partnership",
     description:
-      "We don't disappear after launch. We're here for updates, improvements, and support — for as long as you need us.",
+      "We don't disappear after launch. We're here for updates, improvements, and support for as long as you need us.",
   },
 ];
 
@@ -75,7 +75,7 @@ export default function AboutContent() {
                 className="font-sans text-base leading-relaxed md:text-lg"
                 style={{ color: "rgba(255,255,255,0.7)" }}
               >
-                Woods Websites is run by Sean and Mark Woods — two brothers who
+                Woods Websites is run by Sean and Mark Woods, two brothers who
                 share an obsession with building things properly. We started
                 building websites because we kept seeing businesses stuck with
                 slow, outdated sites that didn't reflect the quality of what they
@@ -87,7 +87,7 @@ export default function AboutContent() {
               >
                 We're not a big agency. We don't have account managers or
                 project coordinators standing between you and the people doing
-                the work. When you hire us, you work directly with us — the
+                the work. When you hire us, you work directly with us,
                 people designing, building, and maintaining your site.
               </p>
               <p
@@ -96,7 +96,7 @@ export default function AboutContent() {
               >
                 That matters because it means faster communication, better
                 decisions, and a final product that actually matches what you
-                had in mind. We treat every project like it's our own — because
+                had in mind. We treat every project like it's our own, because
                 our name is on it.
               </p>
             </div>

@@ -45,16 +45,6 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-6">
         {/* Eyebrow */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 2.5 }}
-          className="font-mono text-xs tracking-[0.25em] uppercase"
-          style={{ color: "var(--accent)" }}
-        >
-          Web Design & Development
-        </motion.p>
-
         {/* Main headline */}
         <motion.h1
           initial={{ opacity: 0, y: 40 }}
@@ -76,8 +66,7 @@ export default function Hero() {
           className="mt-6 max-w-lg font-sans text-base leading-relaxed sm:text-lg"
           style={{ color: "rgba(255,255,255,0.55)" }}
         >
-          Two brothers. Custom-built, high-performance websites crafted with care.
-          No templates. No shortcuts.
+          Two brothers. High-performance websites. Tailored to your needs. Delivered with precision.
         </motion.p>
 
         {/* CTAs */}
@@ -115,21 +104,10 @@ export default function Hero() {
             className="rounded-full px-6 py-3 font-sans text-sm font-medium transition-all duration-300 hover:opacity-80"
             style={{ background: "var(--accent)", color: "#050505" }}
           >
-            Start a Project
+            Contact Us
           </Link>
         </motion.div>
 
-        {/* Scroll indicator */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 3.6 }}
-          className="absolute bottom-8 right-6 flex items-center gap-2"
-          style={{ color: "rgba(255,255,255,0.3)" }}
-        >
-          <span className="font-mono text-xs tracking-widest uppercase">Scroll</span>
-          <span className="block h-px w-8" style={{ background: "rgba(255,255,255,0.2)" }} />
-        </motion.div>
       </div>
     </section>
   );

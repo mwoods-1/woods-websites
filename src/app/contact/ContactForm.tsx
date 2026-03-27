@@ -117,9 +117,10 @@ export default function ContactForm() {
                 id="name"
                 name="name"
                 required
-                className="w-full border-b bg-transparent py-3 font-sans text-sm outline-none transition-colors duration-300 focus:border-[var(--accent)]"
+                className="w-full rounded-lg border px-4 py-3 font-sans text-sm outline-none transition-colors duration-300 focus:border-[var(--accent)]"
                 style={{
-                  borderColor: "rgba(255,255,255,0.1)",
+                  borderColor: "rgba(255,255,255,0.15)",
+                  background: "rgba(255,255,255,0.05)",
                   color: "var(--text)",
                 }}
               />
@@ -139,9 +140,10 @@ export default function ContactForm() {
                 id="email"
                 name="email"
                 required
-                className="w-full border-b bg-transparent py-3 font-sans text-sm outline-none transition-colors duration-300 focus:border-[var(--accent)]"
+                className="w-full rounded-lg border px-4 py-3 font-sans text-sm outline-none transition-colors duration-300 focus:border-[var(--accent)]"
                 style={{
-                  borderColor: "rgba(255,255,255,0.1)",
+                  borderColor: "rgba(255,255,255,0.15)",
+                  background: "rgba(255,255,255,0.05)",
                   color: "var(--text)",
                 }}
               />
@@ -160,9 +162,10 @@ export default function ContactForm() {
                 type="text"
                 id="company"
                 name="company"
-                className="w-full border-b bg-transparent py-3 font-sans text-sm outline-none transition-colors duration-300 focus:border-[var(--accent)]"
+                className="w-full rounded-lg border px-4 py-3 font-sans text-sm outline-none transition-colors duration-300 focus:border-[var(--accent)]"
                 style={{
-                  borderColor: "rgba(255,255,255,0.1)",
+                  borderColor: "rgba(255,255,255,0.15)",
+                  background: "rgba(255,255,255,0.05)",
                   color: "var(--text)",
                 }}
               />
@@ -180,9 +183,10 @@ export default function ContactForm() {
               <select
                 id="project-type"
                 name="project_type"
-                className="w-full appearance-none border-b bg-transparent py-3 font-sans text-sm outline-none transition-colors duration-300 focus:border-[var(--accent)]"
+                className="w-full appearance-none rounded-lg border px-4 py-3 font-sans text-sm outline-none transition-colors duration-300 focus:border-[var(--accent)]"
                 style={{
-                  borderColor: "rgba(255,255,255,0.1)",
+                  borderColor: "rgba(255,255,255,0.15)",
+                  background: "rgba(255,255,255,0.05)",
                   color: "rgba(255,255,255,0.6)",
                 }}
               >
@@ -242,9 +246,10 @@ export default function ContactForm() {
                 name="message"
                 required
                 rows={5}
-                className="w-full resize-none border-b bg-transparent py-3 font-sans text-sm leading-relaxed outline-none transition-colors duration-300 focus:border-[var(--accent)]"
+                className="w-full resize-none rounded-lg border px-4 py-3 font-sans text-sm leading-relaxed outline-none transition-colors duration-300 focus:border-[var(--accent)]"
                 style={{
-                  borderColor: "rgba(255,255,255,0.1)",
+                  borderColor: "rgba(255,255,255,0.15)",
+                  background: "rgba(255,255,255,0.05)",
                   color: "var(--text)",
                 }}
               />

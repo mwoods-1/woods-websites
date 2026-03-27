@@ -5,7 +5,7 @@ import ContactForm from "./ContactForm";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "Tell us about your project. We'll get back to you within 24 hours with ideas and a plan.",
+    "We start with a free call to discuss your goals and set up a plan before any build begins.",
 };
 
 export default function ContactPage() {
@@ -18,7 +18,7 @@ export default function ContactPage() {
             Let&apos;s <span style={{ color: "var(--accent)" }}>Talk</span>
           </>
         }
-        subtitle="Tell us about your project. We'll get back to you within 24 hours."
+        subtitle="We start with a free call to discuss your goals and set up a plan before any build begins."
       />
       <ContactForm />
     </main>

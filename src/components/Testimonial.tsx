@@ -10,8 +10,8 @@ import { motion, useScroll, useTransform } from "motion/react";
  */
 const testimonial = {
   quote:
-    "Sean and Mark completely transformed our online presence. Our old site was outdated and losing us bookings — the new one is fast, modern, and our enquiries have gone through the roof. They genuinely cared about getting it right.",
-  author: "Jake Thompson",
+    "They fixed our outdated website and built us something modern and professional. Since the new site went live, we're ranking higher in Google and getting more enquiries and bookings than ever before.",
+  author: "Sven Haltmann",
   business: "Aviation Expeditions",
   industry: "Tourism · Alaska",
 };
@@ -33,7 +33,7 @@ export default function Testimonial() {
       <motion.div
         ref={ref}
         style={{ opacity, y }}
-        className="mx-auto max-w-3xl px-6 text-center"
+        className="relative mx-auto max-w-3xl px-6 text-center"
       >
         {/* Large quotation mark */}
         <span

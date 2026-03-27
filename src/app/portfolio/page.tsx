@@ -2,13 +2,14 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import PageHero from "@/components/PageHero";
+import Testimonial from "@/components/Testimonial";
 import CTASection from "@/components/CTASection";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Portfolio",
   description:
-    "Our work — custom websites built for businesses across tourism, hospitality, sports, and more.",
+    "Our work: custom websites built for businesses across tourism, hospitality, sports, and more.",
 };
 
 export default function PortfolioPage() {
@@ -88,6 +89,7 @@ export default function PortfolioPage() {
         </div>
       </section>
 
+      <Testimonial />
       <CTASection />
     </main>
   );
