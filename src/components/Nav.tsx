@@ -33,10 +33,10 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-2">
           <span
-            className="font-display text-lg font-bold tracking-tight"
-            style={{ color: "var(--text)" }}
+            className="font-display text-lg font-bold"
+            style={{ color: "var(--text)", letterSpacing: "-0.04em" }}
           >
-            Woods
+            WOODS WEBSITES
             <span style={{ color: "var(--accent)" }}>.</span>
           </span>
         </Link>
