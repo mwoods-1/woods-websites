@@ -6,7 +6,7 @@
 
 import opentype from 'opentype.js';
 import sharp from 'sharp';
-import { readFileSync, writeFileSync, mkdirSync } from 'fs';
+import { readFileSync, writeFileSync, mkdirSync, readdirSync } from 'fs';
 import { fileURLToPath } from 'url';
 import { dirname, join } from 'path';
 
@@ -15,7 +15,7 @@ const ROOT = join(__dirname, '..');
 
 // ─── Config ──────────────────────────────────────────────────────────────────
 
-const FONT_PATH = join(__dirname, 'fonts', 'SpaceGrotesk-Bold.woff');
+const FONT_PATH = join(__dirname, 'fonts', 'SpaceGrotesk-Bold.woff'); // .woff format (not .ttf)
 const OUT_DIR = join(ROOT, 'public', 'images', 'logo');
 
 const COLORS = {
@@ -67,7 +67,7 @@ function textToPaths(text, fontSize, letterSpacingEm, colorMap, defaultFill) {
     x += (glyph.advanceWidth ?? 0) + letterSpacingUnits;
   }
 
-  const totalWidth = x * scale;
+  const totalWidth = (x - letterSpacingUnits) * scale;
   const ascender = (font.ascender / font.unitsPerEm) * fontSize;
   const descender = Math.abs(font.descender / font.unitsPerEm) * fontSize;
 
@@ -209,17 +209,18 @@ for (const v of monogramVariants) {
 
 console.log('\nGenerating PNG wordmarks...');
 
-async function svgToPNG(svgPath, outPath, width) {
-  await sharp(svgPath).resize({ width }).png().toFile(outPath);
+async function svgToPNG(svgString, outPath, width) {
+  await sharp(Buffer.from(svgString)).resize({ width }).png().toFile(outPath);
 }
 
 const wordmarkPNGs = [
-  { svg: 'logo-primary-dark.svg', png: 'logo-primary-dark.png', width: 2400 },
-  { svg: 'logo-primary-light.svg', png: 'logo-primary-light.png', width: 2400 },
+  { primary: COLORS.WHITE, period: COLORS.ACCENT, png: 'logo-primary-dark.png', width: 2400 },
+  { primary: COLORS.DARK, period: COLORS.ACCENT, png: 'logo-primary-light.png', width: 2400 },
 ];
 
 for (const p of wordmarkPNGs) {
-  await svgToPNG(join(OUT_DIR, p.svg), join(OUT_DIR, p.png), p.width);
+  const svg = buildWordmarkSVG(p.primary, p.period);
+  await svgToPNG(svg, join(OUT_DIR, p.png), p.width);
   console.log(`  ✓ ${p.png}`);
 }
 
@@ -250,9 +251,7 @@ function buildMonogramOnDarkSVG(size) {
 }
 
 const monoSVG = buildMonogramOnDarkSVG(1024);
-const monoSVGPath = join(OUT_DIR, '_monogram-1024-tmp.svg');
-writeFileSync(monoSVGPath, monoSVG, 'utf8');
-await sharp(monoSVGPath).resize({ width: 1024, height: 1024 }).png().toFile(join(OUT_DIR, 'logo-monogram-dark.png'));
+await sharp(Buffer.from(monoSVG)).resize({ width: 1024, height: 1024 }).png().toFile(join(OUT_DIR, 'logo-monogram-dark.png'));
 console.log(`  ✓ logo-monogram-dark.png`);
 
 // ─── Favicons ─────────────────────────────────────────────────────────────────
@@ -303,9 +302,7 @@ const faviconSizes = [
 
 for (const f of faviconSizes) {
   const svg = buildFaviconSVG(f.size);
-  const tmpPath = join(OUT_DIR, `_favicon-${f.size}-tmp.svg`);
-  writeFileSync(tmpPath, svg, 'utf8');
-  await sharp(tmpPath).resize({ width: f.size, height: f.size }).png().toFile(join(OUT_DIR, f.name));
+  await sharp(Buffer.from(svg)).resize({ width: f.size, height: f.size }).png().toFile(join(OUT_DIR, f.name));
   console.log(`  ✓ ${f.name}`);
 }
 
@@ -349,23 +346,11 @@ async function buildOGImage() {
     '</svg>',
   ].join('\n');
 
-  const tmpPath = join(OUT_DIR, '_og-tmp.svg');
-  writeFileSync(tmpPath, ogSVG, 'utf8');
-  await sharp(tmpPath).resize({ width: WIDTH, height: HEIGHT }).png().toFile(join(OUT_DIR, 'og-image.png'));
+  await sharp(Buffer.from(ogSVG)).resize({ width: WIDTH, height: HEIGHT }).png().toFile(join(OUT_DIR, 'og-image.png'));
   console.log(`  ✓ og-image.png`);
 }
 
 await buildOGImage();
-
-// ─── Cleanup temp files ───────────────────────────────────────────────────────
-
-import { readdirSync, unlinkSync } from 'fs';
-
-const tmpFiles = readdirSync(OUT_DIR).filter((f) => f.startsWith('_') && f.endsWith('.svg'));
-for (const f of tmpFiles) {
-  unlinkSync(join(OUT_DIR, f));
-}
-console.log(`\nCleaned up ${tmpFiles.length} temp file(s).`);
 
 // ─── Summary ─────────────────────────────────────────────────────────────────
 
