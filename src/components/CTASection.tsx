@@ -94,6 +94,7 @@ export default function CTASection() {
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+    const safeCtx = ctx;
 
     const resize = () => {
       canvas.width = canvas.offsetWidth;
@@ -124,7 +125,7 @@ export default function CTASection() {
     canvas.addEventListener("click", onClick);
 
     function animate(t: number) {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      safeCtx.clearRect(0, 0, canvas.width, canvas.height);
       const mx = mouseRef.current.x;
       const my = mouseRef.current.y;
       const ts = t * 0.001;
@@ -168,15 +169,15 @@ export default function CTASection() {
         const grad = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.size * 4);
         grad.addColorStop(0, `rgba(${f.color},${alpha})`);
         grad.addColorStop(1, `rgba(${f.color},0)`);
-        ctx.beginPath();
-        ctx.arc(f.x, f.y, f.size * 4, 0, Math.PI * 2);
-        ctx.fillStyle = grad;
-        ctx.fill();
+        safeCtx.beginPath();
+        safeCtx.arc(f.x, f.y, f.size * 4, 0, Math.PI * 2);
+        safeCtx.fillStyle = grad;
+        safeCtx.fill();
 
-        ctx.beginPath();
-        ctx.arc(f.x, f.y, f.size * 0.55, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(${f.color},${Math.min(alpha * 2.5, 1)})`;
-        ctx.fill();
+        safeCtx.beginPath();
+        safeCtx.arc(f.x, f.y, f.size * 0.55, 0, Math.PI * 2);
+        safeCtx.fillStyle = `rgba(${f.color},${Math.min(alpha * 2.5, 1)})`;
+        safeCtx.fill();
       });
 
       rafRef.current = requestAnimationFrame(animate);
