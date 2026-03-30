@@ -95,44 +95,45 @@ export default function CTASection() {
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
     const safeCtx = ctx;
+    const safeCanvas = canvas;
 
     const resize = () => {
-      canvas.width = canvas.offsetWidth;
-      canvas.height = canvas.offsetHeight;
+      safeCanvas.width = safeCanvas.offsetWidth;
+      safeCanvas.height = safeCanvas.offsetHeight;
       firefliesRef.current = Array.from({ length: 55 }, () =>
-        makeFirefly(canvas.width, canvas.height)
+        makeFirefly(safeCanvas.width, safeCanvas.height)
       );
     };
     resize();
     window.addEventListener("resize", resize);
 
     const onMove = (e: MouseEvent) => {
-      const r = canvas.getBoundingClientRect();
+      const r = safeCanvas.getBoundingClientRect();
       mouseRef.current = { x: e.clientX - r.left, y: e.clientY - r.top };
     };
     const onLeave = () => { mouseRef.current = { x: -9999, y: -9999 }; };
     const onClick = (e: MouseEvent) => {
-      const r = canvas.getBoundingClientRect();
+      const r = safeCanvas.getBoundingClientRect();
       for (let i = 0; i < 18; i++)
-        firefliesRef.current.push(makeFirefly(canvas.width, canvas.height, {
+        firefliesRef.current.push(makeFirefly(safeCanvas.width, safeCanvas.height, {
           x: e.clientX - r.left,
           y: e.clientY - r.top,
         }));
     };
 
-    canvas.addEventListener("mousemove", onMove);
-    canvas.addEventListener("mouseleave", onLeave);
-    canvas.addEventListener("click", onClick);
+    safeCanvas.addEventListener("mousemove", onMove);
+    safeCanvas.addEventListener("mouseleave", onLeave);
+    safeCanvas.addEventListener("click", onClick);
 
     function animate(t: number) {
-      safeCtx.clearRect(0, 0, canvas.width, canvas.height);
+      safeCtx.clearRect(0, 0, safeCanvas.width, safeCanvas.height);
       const mx = mouseRef.current.x;
       const my = mouseRef.current.y;
       const ts = t * 0.001;
 
       firefliesRef.current = firefliesRef.current.filter(f => !f.burst || f.life > 0.02);
       while (firefliesRef.current.filter(f => !f.burst).length < 55)
-        firefliesRef.current.push(makeFirefly(canvas.width, canvas.height));
+        firefliesRef.current.push(makeFirefly(safeCanvas.width, safeCanvas.height));
 
       firefliesRef.current.forEach(f => {
         const dx = f.x - mx;
@@ -161,12 +162,12 @@ export default function CTASection() {
         const alpha = f.burst ? f.life * f.maxOpacity : f.maxOpacity * pulse;
 
         if (!f.burst) {
-          if (f.y < -10) { f.y = canvas.height + 10; f.x = Math.random() * canvas.width; }
-          if (f.x < -10) f.x = canvas.width + 10;
-          if (f.x > canvas.width + 10) f.x = -10;
+          if (f.y < -10) { f.y = safeCanvas.height + 10; f.x = Math.random() * safeCanvas.width; }
+          if (f.x < -10) f.x = safeCanvas.width + 10;
+          if (f.x > safeCanvas.width + 10) f.x = -10;
         }
 
-        const grad = ctx.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.size * 4);
+        const grad = safeCtx.createRadialGradient(f.x, f.y, 0, f.x, f.y, f.size * 4);
         grad.addColorStop(0, `rgba(${f.color},${alpha})`);
         grad.addColorStop(1, `rgba(${f.color},0)`);
         safeCtx.beginPath();
@@ -188,9 +189,9 @@ export default function CTASection() {
     return () => {
       cancelAnimationFrame(rafRef.current);
       window.removeEventListener("resize", resize);
-      canvas.removeEventListener("mousemove", onMove);
-      canvas.removeEventListener("mouseleave", onLeave);
-      canvas.removeEventListener("click", onClick);
+      safeCanvas.removeEventListener("mousemove", onMove);
+      safeCanvas.removeEventListener("mouseleave", onLeave);
+      safeCanvas.removeEventListener("click", onClick);
     };
   }, []);
 
