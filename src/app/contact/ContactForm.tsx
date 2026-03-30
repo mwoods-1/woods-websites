@@ -31,11 +31,26 @@ export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
 
   return (
-    <section className="mx-auto max-w-5xl px-6 pb-32">
+    <section className="pb-32">
+      <div className="mx-auto max-w-7xl px-6 mb-16">
+        <p
+          className="mb-3 font-mono text-xs tracking-[0.25em] uppercase"
+          style={{ color: "var(--accent)" }}
+        >
+          Get In Touch
+        </p>
+        <h2
+          className="font-display text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl"
+          style={{ color: "var(--text)" }}
+        >
+          Let&apos;s{" "}
+          <span style={{ color: "var(--accent)" }}>talk.</span>
+        </h2>
+      </div>
       <motion.div
         ref={ref}
         style={{ opacity, y }}
-        className="grid gap-16 md:grid-cols-[1fr_2fr]"
+        className="mx-auto max-w-7xl px-6 grid gap-16 md:grid-cols-[1fr_2fr]"
       >
         {/* Sidebar */}
         <div>

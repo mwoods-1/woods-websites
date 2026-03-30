@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import CTASection from "@/components/CTASection";
-import ServicesContent from "./ServicesContent";
+import ServicesList from "./ServicesListClient";
 
 export const metadata: Metadata = {
   title: "Services",
   description:
-    "Custom web design, development, redesigns, integrations, and ongoing support. Everything your business needs to win online.",
+    "Custom web design, development, redesigns, performance optimisation, and integrations. Everything your business needs to win online.",
 };
 
 export default function ServicesPage() {
@@ -19,9 +19,9 @@ export default function ServicesPage() {
             Our <span style={{ color: "var(--accent)" }}>Services</span>
           </>
         }
-        subtitle="From first concept to ongoing support: everything your business needs to win online."
+        subtitle="From first concept to ongoing support — everything your business needs to win online."
       />
-      <ServicesContent />
+      <ServicesList />
       <CTASection />
     </main>
   );

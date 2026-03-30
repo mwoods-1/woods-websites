@@ -1,8 +1,8 @@
 "use client";
 
-import { useRef, useState } from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "motion/react";
+import { useState } from "react";
 import Link from "next/link";
+import { AnimatePresence, motion } from "motion/react";
 
 const services = [
   {
@@ -39,78 +39,24 @@ const services = [
   },
 ];
 
-export default function ServicesSection() {
-  const ref = useRef<HTMLDivElement>(null);
+export default function ServicesList() {
   const [activeIndex, setActiveIndex] = useState(0);
-
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "start 60%"],
-  });
-  const opacity = useTransform(scrollYProgress, [0, 1], [0, 1]);
-  const y = useTransform(scrollYProgress, [0, 1], [40, 0]);
-
   const active = services[activeIndex];
 
   return (
-    <section ref={ref} className="py-24 md:py-32">
+    <section className="pb-32">
       <div className="mx-auto max-w-7xl px-6">
-
-        {/* Header */}
-        <motion.div style={{ opacity, y }} className="mb-12 md:mb-16">
-          <p
-            className="mb-3 font-mono text-xs tracking-[0.25em] uppercase"
-            style={{ color: "var(--accent)" }}
-          >
-            What We Do
-          </p>
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <h2
-              className="font-display text-3xl font-bold tracking-tight sm:text-4xl md:text-5xl"
-              style={{ color: "var(--text)" }}
-            >
-              Everything your business needs to{" "}
-              <span style={{ color: "var(--accent)" }}>win online</span>
-            </h2>
-            <Link
-              href="/services"
-              className="group/hdr inline-flex items-center gap-3 font-sans text-sm tracking-wide"
-              style={{ color: "rgba(255,255,255,0.4)" }}
-            >
-              <span className="transition-colors duration-300 group-hover/hdr:text-white">
-                See All Services
-              </span>
-              <span className="relative inline-flex h-4 items-center overflow-hidden">
-                <span
-                  className="inline-block transition-all duration-500 group-hover/hdr:translate-x-full"
-                  style={{ color: "var(--accent)" }}
-                >
-                  →
-                </span>
-                <span
-                  className="absolute left-0 -translate-x-full transition-all duration-500 group-hover/hdr:translate-x-0"
-                  style={{ color: "var(--accent)" }}
-                >
-                  →
-                </span>
-              </span>
-            </Link>
-          </div>
-        </motion.div>
-
-        {/* DD.NYC-style: stacked titles left, detail panel right */}
         <div className="flex flex-col gap-10 lg:flex-row lg:items-start lg:gap-16 xl:gap-24">
 
-          {/* Left: service list */}
+          {/* Left: service titles */}
           <div className="lg:flex-1 flex flex-col">
             {services.map((service, i) => (
               <button
                 key={service.title}
                 onMouseEnter={() => setActiveIndex(i)}
                 onClick={() => setActiveIndex(i)}
-                className="group/item flex items-baseline gap-4 text-left cursor-default select-none py-5 focus:outline-none"
+                className="flex items-baseline gap-4 text-left cursor-default select-none py-5 focus:outline-none"
               >
-                {/* Number */}
                 <span
                   className="w-7 flex-shrink-0 font-mono text-xs tracking-wide transition-colors duration-500"
                   style={{
@@ -121,8 +67,6 @@ export default function ServicesSection() {
                 >
                   {service.number}
                 </span>
-
-                {/* Title */}
                 <span
                   className="font-display font-bold leading-none tracking-tight transition-all duration-500"
                   style={{
@@ -161,14 +105,16 @@ export default function ServicesSection() {
                         color: "rgba(255,255,255,0.62)",
                       }}
                       onMouseEnter={(e) => {
-                        (e.currentTarget as HTMLAnchorElement).style.background = "rgba(46,196,182,0.1)";
-                        (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(46,196,182,0.3)";
-                        (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.9)";
+                        const el = e.currentTarget;
+                        el.style.background = "rgba(46,196,182,0.1)";
+                        el.style.borderColor = "rgba(46,196,182,0.3)";
+                        el.style.color = "rgba(255,255,255,0.9)";
                       }}
                       onMouseLeave={(e) => {
-                        (e.currentTarget as HTMLAnchorElement).style.background = "rgba(255,255,255,0.05)";
-                        (e.currentTarget as HTMLAnchorElement).style.borderColor = "rgba(255,255,255,0.1)";
-                        (e.currentTarget as HTMLAnchorElement).style.color = "rgba(255,255,255,0.62)";
+                        const el = e.currentTarget;
+                        el.style.background = "rgba(255,255,255,0.05)";
+                        el.style.borderColor = "rgba(255,255,255,0.1)";
+                        el.style.color = "rgba(255,255,255,0.62)";
                       }}
                     >
                       {tag}
