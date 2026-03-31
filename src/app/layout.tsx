@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     template: "%s | Woods Websites",
   },
   description:
-    "Custom-built, high-performance websites crafted with care. No templates. No shortcuts. Web design and development by Sean and Mark Woods.",
+    "Custom-built, high-performance websites crafted with care. Web design and development by Sean and Mark Woods.",
   metadataBase: new URL("https://woodswebsites.com"),
   icons: {
     icon: [
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Woods Websites | Custom Web Design & Development",
     description:
-      "Custom-built, high-performance websites crafted with care. No templates. No shortcuts.",
+      "Custom-built, high-performance websites crafted with care. Tailored to your goals, built to perform.",
     images: [{ url: "/images/logo/og-image.png", width: 1200, height: 630 }],
   },
 };

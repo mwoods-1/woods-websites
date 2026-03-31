@@ -24,12 +24,12 @@ export default function PerformancePage() {
       />
       <ServiceSubContent
         number="03"
-        intro="Speed isn't a nice-to-have — it directly affects your search rankings, bounce rate, and conversions. We optimise every layer of your site so it performs at its best, always."
+        intro="Speed isn't a nice-to-have. It directly affects your search rankings, bounce rate, and conversions. We optimise every layer of your site so it performs at its best, always."
         features={[
           {
             title: "Core Web Vitals",
             description:
-              "We audit and optimise for Google's Core Web Vitals — LCP, INP, and CLS — the metrics that directly influence your search rankings and user experience scores.",
+              "We audit and optimise for Google's Core Web Vitals (LCP, INP, and CLS), the metrics that directly influence your search rankings and user experience scores.",
           },
           {
             title: "SEO",
@@ -39,12 +39,12 @@ export default function PerformancePage() {
           {
             title: "Analytics",
             description:
-              "We set up the tracking you need to make informed decisions — GA4, conversion goals, event tracking, and dashboards that show you what's actually working.",
+              "We set up the tracking you need to make informed decisions: GA4, conversion goals, event tracking, and dashboards that show you what's actually working.",
           },
           {
             title: "Accessibility",
             description:
-              "WCAG-compliant sites that work for every user. Accessibility isn't just compliance — it improves SEO, widens your audience, and reflects well on your brand.",
+              "WCAG-compliant sites that work for every user. Accessibility isn't just compliance. It improves SEO, widens your audience, and reflects well on your brand.",
           },
         ]}
         closing="Whether we're optimising an existing site or building performance in from day one, the goal is the same: a site that loads fast, ranks well, and keeps visitors engaged."

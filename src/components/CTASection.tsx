@@ -197,7 +197,7 @@ export default function CTASection() {
 
   return (
     <section
-      className="relative overflow-hidden pt-40 md:pt-52"
+      className="relative overflow-hidden pt-24 sm:pt-32 md:pt-52"
       style={{ background: "#0d0d0d", paddingBottom: 220 }}
     >
       {/* Firefly canvas — masked so fireflies stay off the tree line */}
@@ -226,7 +226,7 @@ export default function CTASection() {
           Let's Work Together
         </p>
         <h2
-          className="font-display text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl"
+          className="font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
           style={{ color: "var(--text)" }}
         >
           Ready to build{" "}

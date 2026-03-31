@@ -10,7 +10,7 @@ const services = [
     title: "Design & Dev",
     slug: "design-dev",
     description:
-      "Custom websites built from the ground up — designed around your brand identity and engineered to convert visitors into paying customers. Mobile-first, performance-focused, and tailored to your exact needs.",
+      "Custom websites built from the ground up, designed around your brand identity and engineered to convert visitors into paying customers. Mobile-first, performance-focused, and tailored to your exact needs.",
     tags: ["Custom Design", "Mobile-First", "CMS", "Landing Pages", "E-Commerce"],
   },
   {
@@ -18,7 +18,7 @@ const services = [
     title: "Redesigns",
     slug: "redesigns",
     description:
-      "Breathe new life into an outdated site. We modernise the look, sharpen the UX, and rebuild for the performance your business deserves — without losing what makes you, you.",
+      "Breathe new life into an outdated site. We modernise the look, sharpen the UX, and rebuild for the performance your business deserves, without losing what makes you, you.",
     tags: ["UX Audit", "Visual Refresh", "Content Migration", "Speed Boost"],
   },
   {
@@ -34,7 +34,7 @@ const services = [
     title: "Integrations",
     slug: "integrations",
     description:
-      "Booking systems, payments, CRMs — we wire your site into the tools you already rely on. Seamless, reliable connections that save you time and keep everything running smoothly.",
+      "Booking systems, payments, CRMs: we wire your site into the tools you already rely on. Seamless, reliable connections that save you time and keep everything running smoothly.",
     tags: ["Booking Systems", "Payments", "CRM", "API", "Automation"],
   },
 ];

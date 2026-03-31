@@ -116,7 +116,7 @@ export default function ProjectsSection() {
                 </div>
 
                 {/* Content — solid dark area at bottom */}
-                <div className="relative z-10 shrink-0 px-8 pb-8 pt-2 md:px-12 md:pb-10">
+                <div className="relative z-10 shrink-0 px-5 pb-5 pt-2 sm:px-8 sm:pb-8 md:px-12 md:pb-10">
                   <div className="flex items-end justify-between gap-6">
                     <div className="max-w-lg">
                       {/* Index + industry */}
@@ -171,7 +171,7 @@ export default function ProjectsSection() {
 
                     {/* View project arrow */}
                     <div
-                      className="hidden shrink-0 h-12 w-12 items-center justify-center rounded-full border transition-colors duration-500 md:flex"
+                      className="flex shrink-0 h-9 w-9 items-center justify-center rounded-full border transition-colors duration-500 md:h-12 md:w-12"
                       style={{ borderColor: "rgba(255,255,255,0.3)", color: "#fff" }}
                     >
                       <svg

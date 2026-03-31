@@ -65,7 +65,7 @@ export default function BeforeAfterSlider({ before, after, alt }: BeforeAfterSli
       {/* Before */}
       <Image
         src={before}
-        alt={`${alt} — before`}
+        alt={`${alt} - before`}
         fill
         sizes="(max-width: 1024px) 100vw, 900px"
         className="object-cover object-top"
@@ -79,7 +79,7 @@ export default function BeforeAfterSlider({ before, after, alt }: BeforeAfterSli
       >
         <Image
           src={after}
-          alt={`${alt} — after`}
+          alt={`${alt} - after`}
           fill
           sizes="(max-width: 1024px) 100vw, 900px"
           className="object-cover object-top"

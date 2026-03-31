@@ -11,13 +11,15 @@ const projectTypes = [
   "Other",
 ];
 
-const budgetRanges = [
-  "Under $2,000",
-  "$2,000 – $5,000",
-  "$5,000 – $10,000",
-  "$10,000+",
-  "Not sure yet",
-];
+const BUDGET_MIN = 500;
+const BUDGET_MAX = 20000;
+const BUDGET_STEP = 500;
+const BUDGET_DEFAULT = 2500;
+
+function formatBudget(val: number) {
+  if (val >= BUDGET_MAX) return "$20,000+";
+  return `$${val.toLocaleString()}`;
+}
 
 export default function ContactForm() {
   const ref = useRef<HTMLDivElement>(null);
@@ -29,6 +31,7 @@ export default function ContactForm() {
   const y = useTransform(scrollYProgress, [0, 1], [40, 0]);
 
   const [submitted, setSubmitted] = useState(false);
+  const [budget, setBudget] = useState(BUDGET_DEFAULT);
 
   return (
     <section className="pb-32">
@@ -50,7 +53,7 @@ export default function ContactForm() {
       <motion.div
         ref={ref}
         style={{ opacity, y }}
-        className="mx-auto max-w-7xl px-6 grid gap-16 md:grid-cols-[1fr_2fr]"
+        className="mx-auto max-w-7xl px-6 grid gap-10 md:gap-16 md:grid-cols-[1fr_2fr]"
       >
         {/* Sidebar */}
         <div>
@@ -216,35 +219,48 @@ export default function ContactForm() {
               </select>
             </div>
 
-            {/* Budget */}
+            {/* Budget slider */}
             <div>
-              <label
-                className="mb-3 block font-sans text-xs tracking-wide"
-                style={{ color: "rgba(255,255,255,0.5)" }}
-              >
-                Budget range
-              </label>
-              <div className="flex flex-wrap gap-2">
-                {budgetRanges.map((range) => (
-                  <label key={range} className="cursor-pointer">
-                    <input
-                      type="radio"
-                      name="budget"
-                      value={range}
-                      className="peer sr-only"
-                    />
-                    <span
-                      className="inline-block rounded-full border px-4 py-2 font-sans text-xs transition-all duration-300 peer-checked:border-[var(--accent)] peer-checked:text-[var(--accent)]"
-                      style={{
-                        borderColor: "rgba(255,255,255,0.1)",
-                        color: "rgba(255,255,255,0.4)",
-                      }}
-                    >
-                      {range}
-                    </span>
-                  </label>
-                ))}
+              <style>{`
+                .budget-slider { -webkit-appearance: none; appearance: none; height: 4px; border-radius: 2px; outline: none; cursor: pointer; width: 100%; }
+                .budget-slider::-webkit-slider-thumb { -webkit-appearance: none; appearance: none; width: 28px; height: 28px; border-radius: 50%; background: var(--accent); cursor: pointer; box-shadow: 0 0 0 4px rgba(46,196,182,0.18), 0 2px 8px rgba(0,0,0,0.5); transition: box-shadow 0.2s; }
+                .budget-slider::-webkit-slider-thumb:hover, .budget-slider::-webkit-slider-thumb:active { box-shadow: 0 0 0 8px rgba(46,196,182,0.22), 0 2px 8px rgba(0,0,0,0.5); }
+                .budget-slider::-moz-range-thumb { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); cursor: pointer; border: none; box-shadow: 0 0 0 4px rgba(46,196,182,0.18), 0 2px 8px rgba(0,0,0,0.5); }
+              `}</style>
+              <div className="mb-4 flex items-baseline justify-between">
+                <label
+                  className="font-sans text-xs tracking-wide"
+                  style={{ color: "rgba(255,255,255,0.5)" }}
+                >
+                  Budget (Indicative)
+                </label>
+                <span
+                  className="font-display text-2xl font-bold tabular-nums"
+                  style={{ color: "var(--accent)" }}
+                >
+                  {formatBudget(budget)}
+                </span>
               </div>
+              <input
+                type="range"
+                className="budget-slider"
+                min={BUDGET_MIN}
+                max={BUDGET_MAX}
+                step={BUDGET_STEP}
+                value={budget}
+                onChange={(e) => setBudget(Number(e.target.value))}
+                style={{
+                  background: `linear-gradient(to right, var(--accent) 0%, var(--accent) ${((budget - BUDGET_MIN) / (BUDGET_MAX - BUDGET_MIN)) * 100}%, rgba(255,255,255,0.1) ${((budget - BUDGET_MIN) / (BUDGET_MAX - BUDGET_MIN)) * 100}%, rgba(255,255,255,0.1) 100%)`,
+                }}
+              />
+              <div
+                className="mt-2 flex justify-between font-mono text-[10px] tracking-wide"
+                style={{ color: "rgba(255,255,255,0.22)" }}
+              >
+                <span>$500</span>
+                <span>$20,000+</span>
+              </div>
+              <input type="hidden" name="budget" value={formatBudget(budget)} />
             </div>
 
             {/* Message */}

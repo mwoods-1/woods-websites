@@ -19,7 +19,7 @@ export default function PageHero({ eyebrow, heading, subtitle }: PageHeroProps) 
   const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
   return (
-    <section className="relative overflow-hidden pt-40 pb-20 md:pt-48 md:pb-28">
+    <section className="relative overflow-hidden pt-28 pb-14 sm:pt-36 sm:pb-20 md:pt-48 md:pb-28">
       <div
         className="pointer-events-none absolute inset-0"
         style={{
@@ -40,7 +40,7 @@ export default function PageHero({ eyebrow, heading, subtitle }: PageHeroProps) 
           {eyebrow}
         </p>
         <h1
-          className="font-display text-5xl font-bold leading-tight tracking-tight sm:text-6xl md:text-7xl"
+          className="font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
           style={{ color: "var(--text)" }}
         >
           {heading}

@@ -98,7 +98,7 @@ export default function Nav() {
         <div
           className="overflow-hidden transition-all duration-500 md:hidden"
           style={{
-            maxHeight: menuOpen ? "300px" : "0",
+            maxHeight: menuOpen ? "400px" : "0",
             background: "rgba(5,5,5,0.97)",
             borderTop: menuOpen ? "1px solid rgba(255,255,255,0.06)" : "1px solid transparent",
           }}
@@ -204,7 +204,7 @@ export default function Nav() {
 
       {/* ── Floating Contact Us button (bottom-right, past hero) ── */}
       <div
-        className="fixed bottom-8 right-8 z-50 transition-all duration-500"
+        className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 md:bottom-8 md:right-8 z-50 transition-all duration-500"
         style={{
           opacity: pastHero ? 1 : 0,
           pointerEvents: pastHero ? "auto" : "none",

@@ -8,19 +8,19 @@ const steps = [
     number: "01",
     label: "Kickoff",
     description:
-      "We start with a free discovery call to understand your business, your goals, and what success looks like. No jargon, no pressure — just an honest conversation that shapes everything we build together.",
+      "We start with a free discovery call to understand your business, your goals, and what success looks like. No jargon, no pressure, just an honest conversation that shapes everything we build together.",
   },
   {
     number: "02",
     label: "Design",
     description:
-      "We create visual mockups and interactive prototypes built around your brand. You'll see exactly what you're getting — and have the chance to shape it — before a single line of code is written.",
+      "We create visual mockups and interactive prototypes built around your brand. You'll see exactly what you're getting, with a chance to shape it, before a single line of code is written.",
   },
   {
     number: "03",
     label: "Build",
     description:
-      "Custom-coded, mobile-first, and optimised for speed from day one. No templates, no bloated builders — just clean, performant code that represents your business exactly as it should.",
+      "Mobile-first and optimised for speed from day one. Clean, performant code that represents your business exactly as it should.",
   },
   {
     number: "04",
@@ -32,7 +32,7 @@ const steps = [
     number: "05",
     label: "Support",
     description:
-      "We don't disappear after launch. Ongoing maintenance, content updates, and continuous improvements keep your site performing at its best — and keep us in your corner long-term.",
+      "We don't disappear after launch. Ongoing maintenance, content updates, and continuous improvements keep your site performing at its best, with us in your corner long-term.",
   },
 ];
 

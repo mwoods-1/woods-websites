@@ -6,7 +6,7 @@ import ServiceSubContent from "../ServiceSubContent";
 export const metadata: Metadata = {
   title: "Design & Development",
   description:
-    "Custom websites built from the ground up — designed around your brand and engineered to convert. Mobile-first, performance-focused, tailored to your needs.",
+    "Custom websites built from the ground up, designed around your brand and engineered to convert. Mobile-first, performance-focused, tailored to your needs.",
 };
 
 export default function DesignDevPage() {
@@ -19,21 +19,21 @@ export default function DesignDevPage() {
             Built to <span style={{ color: "var(--accent)" }}>convert</span>
           </>
         }
-        subtitle="Custom websites from the ground up — designed around your brand identity and engineered to turn visitors into customers."
+        subtitle="Custom websites from the ground up, designed around your brand identity and engineered to turn visitors into customers."
       />
       <ServiceSubContent
         number="01"
-        intro="No templates. No page builders. Every site we build is custom-coded to perform, look great on every device, and represent your business exactly as it should be."
+        intro="Every site we build is coded to perform, look great on every device, and represent your business exactly as it should be."
         features={[
           {
             title: "Custom Design",
             description:
-              "Every layout, colour, and interaction is designed specifically for you. We start with your brand, your goals, and your audience — and build from there.",
+              "Every layout, colour, and interaction is designed specifically for you. We start with your brand, your goals, and your audience, then build from there.",
           },
           {
             title: "Mobile-First Development",
             description:
-              "Your customers are on their phones. We build mobile-first as standard, then scale up — so the experience is seamless on every screen size.",
+              "Your customers are on their phones. We build mobile-first as standard, then scale up so the experience is seamless on every screen size.",
           },
           {
             title: "CMS Integration",
@@ -43,7 +43,7 @@ export default function DesignDevPage() {
           {
             title: "Landing Pages",
             description:
-              "High-converting landing pages built around a single goal — whether that's lead capture, bookings, or sales. Every element earns its place.",
+              "High-converting landing pages built around a single goal, whether that's lead capture, bookings, or sales. Every element earns its place.",
           },
           {
             title: "E-Commerce",

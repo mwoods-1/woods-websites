@@ -21,11 +21,11 @@ export default function RedesignsPage() {
             <span style={{ color: "var(--accent)" }}>reimagined</span>
           </>
         }
-        subtitle="Breathe new life into an outdated website. Sharper visuals, better UX, and the performance your business deserves — without losing what makes you, you."
+        subtitle="Breathe new life into an outdated website. Sharper visuals, better UX, and the performance your business deserves, without losing what makes you, you."
       />
       <ServiceSubContent
         number="02"
-        intro="An outdated site costs you customers every day. We modernise your web presence from the ground up — preserving what works, fixing what doesn't, and raising the bar on everything else."
+        intro="An outdated site costs you customers every day. We modernise your web presence from the ground up, preserving what works, fixing what doesn't, and raising the bar on everything else."
         features={[
           {
             title: "UX Audit",
@@ -35,7 +35,7 @@ export default function RedesignsPage() {
           {
             title: "Visual Refresh",
             description:
-              "Updated typography, colour systems, and layouts that feel modern and on-brand. We don't just make it look different — we make it look better and work harder.",
+              "Updated typography, colour systems, and layouts that feel modern and on-brand. We don't just make it look different, we make it look better and work harder.",
           },
           {
             title: "Content Migration",
@@ -45,10 +45,10 @@ export default function RedesignsPage() {
           {
             title: "Speed Boost",
             description:
-              "Old sites accumulate bloat. We rebuild for performance from the start — stripping out the dead weight and optimising for fast, reliable load times on every device.",
+              "Old sites accumulate bloat. We rebuild for performance from the start, stripping out the dead weight and optimising for fast, reliable load times on every device.",
           },
         ]}
-        closing="The end result is a site that looks and feels like it belongs to your business today — not five years ago. Faster, cleaner, and designed to keep pace with your growth."
+        closing="The end result is a site that looks and feels like it belongs to your business today, not five years ago. Faster, cleaner, and designed to keep pace with your growth."
       />
 
       {/* Before & After section */}
