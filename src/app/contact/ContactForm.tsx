@@ -71,11 +71,11 @@ export default function ContactForm() {
             if you prefer, drop us an email directly.
           </p>
           <a
-            href="mailto:woodswebsites@gmail.com"
+            href="mailto:woodswebsites.com@gmail.com"
             className="font-sans text-sm transition-colors duration-300 hover:text-white"
             style={{ color: "rgba(255,255,255,0.5)" }}
           >
-            woodswebsites@gmail.com
+            woodswebsites.com@gmail.com
           </a>
         </div>
 
@@ -106,7 +106,7 @@ export default function ContactForm() {
           </div>
         ) : (
           <form
-            action="https://formsubmit.co/woodswebsites@gmail.com"
+            action="https://formsubmit.co/woodswebsites.com@gmail.com"
             method="POST"
             onSubmit={() => setSubmitted(true)}
             className="space-y-6"

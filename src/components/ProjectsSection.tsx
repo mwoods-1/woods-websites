@@ -88,15 +88,14 @@ export default function ProjectsSection() {
           >
             <Link href={project.href} className="group block">
               <div
-                className="relative mx-6 flex flex-col overflow-hidden md:mx-16 lg:mx-24"
+                className="relative mx-6 flex flex-col overflow-hidden md:mx-16 lg:mx-24 h-[60vh] md:h-[80vh]"
                 style={{
-                  height: "80vh",
                   borderRadius: "24px",
                   background: "#0a0a0a",
                 }}
               >
                 {/* Website screenshot — top portion */}
-                <div className="relative flex-1 min-h-0 overflow-hidden">
+                <div className="relative overflow-hidden aspect-video md:aspect-auto md:flex-1 md:min-h-0">
                   <Image
                     src={project.image}
                     alt={project.name}

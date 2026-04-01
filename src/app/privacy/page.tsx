@@ -124,11 +124,11 @@ export default function PrivacyPage() {
               If you have questions about this privacy policy or want to request
               deletion of your personal data, please contact us at{" "}
               <a
-                href="mailto:woodswebsites@gmail.com"
+                href="mailto:woodswebsites.com@gmail.com"
                 className="transition-colors duration-300 hover:text-white"
                 style={{ color: "var(--accent)" }}
               >
-                woodswebsites@gmail.com
+                woodswebsites.com@gmail.com
               </a>
               .
             </p>

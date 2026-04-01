@@ -195,10 +195,12 @@ export default function WorkshopSection() {
           />
         </motion.div>
 
-        {/* Floating cards */}
-        {items.map((item, i) => (
-          <FloatingCard key={i} {...item} progress={smoothProgress} />
-        ))}
+        {/* Floating cards — scaled down on mobile so they stay on-screen */}
+        <div className="absolute inset-0 scale-[0.5] sm:scale-[0.7] md:scale-100 pointer-events-none">
+          {items.map((item, i) => (
+            <FloatingCard key={i} {...item} progress={smoothProgress} />
+          ))}
+        </div>
 
         {/* Tagline */}
         <motion.p
