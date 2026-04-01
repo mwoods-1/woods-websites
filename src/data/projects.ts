@@ -78,20 +78,20 @@ export const projects: Project[] = [
     name: "Ovens Soccer",
     url: "https://ovenssoccer.com",
     type: "New Build",
-    industry: "Sports Organisation",
+    industry: "Sports Coaching",
     description:
-      "Brand new website built from scratch for a sports organisation. Clean, modern design with a mobile-first approach.",
+      "Brand new website with integrated booking for a professional football coaching business run by an NPL1 player. Mobile-first design with Stripe payments.",
     cardImage: "/images/ovens-new.jpg",
     accent: "#fbbf24",
-    tags: ["New Build", "Mobile-First"],
+    tags: ["New Build", "Mobile-First", "Booking"],
     content: {
       heroImage: "/images/ovens-new.jpg",
       challenge:
-        "Ovens Soccer needed their first proper website. As a growing sports organisation, they had no online presence beyond social media. They needed a central hub for match schedules, registration information, news updates, and club contacts: something professional that parents and players could rely on.",
+        "Ovens Soccer is a professional football coaching business run by Brae Ovens, a current NPL1 player. He was relying entirely on social media and word-of-mouth to book clients for his private sessions, group training, and holiday clinics. He needed a proper website that would establish credibility, showcase his programs, and let parents book and pay online without the back-and-forth of manual enquiries.",
       approach:
-        "We built a clean, modern site from scratch with a mobile-first approach, knowing that most parents would be checking schedules and updates from their phones on the sideline. The design uses bold colours from the club's existing branding, with clear navigation that puts the most important information (fixtures, registration, contacts) front and centre. We structured the content so it's easy for the club to update without technical knowledge.",
+        "We built the site from scratch with a mobile-first approach, knowing that most parents would be browsing and booking from their phones. The design highlights Brae's NPL1 credentials and achievements to build trust, while clearly presenting each program — one-on-one sessions, small groups, team training, goalkeeper coaching, and holiday clinics. We integrated Stripe for seamless online payments and built a booking system that handles session selection, parent details, and payment in one flow.",
       result:
-        "The club now has a professional online presence that serves as the single source of truth for all club information. Parents can quickly find match schedules and registration details, and the club committee can easily keep content up to date. It's become a genuine hub for the organisation.",
+        "Brae now has a professional online presence that matches the quality of his coaching. Parents can browse programs, check availability, and book sessions directly through the site. The integrated booking and payment system has streamlined his operations, cutting out the manual back-and-forth and letting him focus on coaching.",
       screenshots: ["/images/ovens-new.jpg"],
     },
   },
