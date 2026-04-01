@@ -77,7 +77,7 @@ export default function Hero() {
           className="mt-10 flex flex-wrap items-center gap-4"
         >
           <Link
-            href="/portfolio"
+            href="/work"
             className="group flex items-center gap-3 font-sans text-sm font-medium tracking-wide transition-colors duration-300"
             style={{ color: "var(--text)" }}
           >

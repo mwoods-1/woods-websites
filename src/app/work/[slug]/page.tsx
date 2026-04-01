@@ -97,11 +97,11 @@ export default async function ProjectPage({
           style={{ borderColor: "rgba(255,255,255,0.08)" }}
         >
           <Link
-            href="/portfolio"
+            href="/work"
             className="font-sans text-sm transition-colors duration-300 hover:text-white"
             style={{ color: "rgba(255,255,255,0.4)" }}
           >
-            ← Back to Portfolio
+            ← Back to Work
           </Link>
           <div className="ml-auto">
             <a
@@ -241,7 +241,7 @@ export default async function ProjectPage({
         <div className="mx-auto grid max-w-5xl md:grid-cols-2">
           {prev ? (
             <Link
-              href={`/portfolio/${prev.slug}`}
+              href={`/work/${prev.slug}`}
               className="group flex flex-col gap-2 border-b p-8 transition-colors duration-300 hover:bg-white/[0.02] md:border-b-0 md:border-r md:p-12"
               style={{ borderColor: "rgba(255,255,255,0.08)" }}
             >
@@ -263,7 +263,7 @@ export default async function ProjectPage({
           )}
           {next ? (
             <Link
-              href={`/portfolio/${next.slug}`}
+              href={`/work/${next.slug}`}
               className="group flex flex-col items-end gap-2 p-8 text-right transition-colors duration-300 hover:bg-white/[0.02] md:p-12"
             >
               <span

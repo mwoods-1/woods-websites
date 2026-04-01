@@ -12,7 +12,7 @@ const projects = allProjects.map((p, i) => ({
   type: p.type,
   industry: p.industry,
   description: p.description,
-  href: `/portfolio/${p.slug}`,
+  href: `/work/${p.slug}`,
   image: p.cardImage,
   tags: p.tags,
   accent: p.accent,
@@ -49,7 +49,7 @@ export default function ProjectsSection() {
             Projects we're proud of
           </h2>
           <Link
-            href="/portfolio"
+            href="/work"
             className="group inline-flex items-center gap-3 font-sans text-sm tracking-wide"
             style={{ color: "rgba(255,255,255,0.4)" }}
           >

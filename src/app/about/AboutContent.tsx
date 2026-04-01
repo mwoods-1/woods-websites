@@ -39,9 +39,12 @@ const techStack = [
   "Vercel",
   "Node.js",
   "PostgreSQL",
-  "Figma",
   "Git",
   "Cloudflare",
+  "shadcn/ui",
+  "Framer Motion",
+  "Supabase",
+  "Stripe",
 ];
 
 function AnimatedSection({
@@ -287,12 +290,16 @@ export default function AboutContent() {
             </h2>
           </AnimatedSection>
 
-          <AnimatedSection>
-            <div className="flex flex-wrap gap-3">
-              {techStack.map((tech) => (
+          <div className="relative overflow-hidden" style={{ maskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 8%, black 92%, transparent)" }}>
+            <motion.div
+              className="flex w-max gap-6 py-4"
+              animate={{ x: ["0%", "-50%"] }}
+              transition={{ duration: 28, ease: "linear", repeat: Infinity }}
+            >
+              {[...techStack, ...techStack].map((tech, i) => (
                 <span
-                  key={tech}
-                  className="group relative overflow-hidden rounded-full border px-5 py-2.5 font-mono text-xs tracking-wide transition-all duration-300 hover:border-[rgba(46,196,182,0.4)]"
+                  key={`${tech}-${i}`}
+                  className="group relative flex-none overflow-hidden rounded-full border px-5 py-2.5 font-mono text-xs tracking-wide whitespace-nowrap transition-all duration-300 hover:border-[rgba(46,196,182,0.4)]"
                   style={{
                     borderColor: "rgba(255,255,255,0.1)",
                     color: "rgba(255,255,255,0.5)",
@@ -310,8 +317,8 @@ export default function AboutContent() {
                   </span>
                 </span>
               ))}
-            </div>
-          </AnimatedSection>
+            </motion.div>
+          </div>
         </div>
       </section>
     </>

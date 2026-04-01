@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Portfolio",
+  title: "Work",
   description:
     "Our work: custom websites built for businesses across tourism, hospitality, sports, and more.",
 };
@@ -16,7 +16,7 @@ export default function PortfolioPage() {
   return (
     <main>
       <PageHero
-        eyebrow="Portfolio"
+        eyebrow="Our Work"
         heading={
           <>
             Our <span style={{ color: "var(--accent)" }}>Work</span>
@@ -30,18 +30,18 @@ export default function PortfolioPage() {
           {projects.map((project) => (
             <Link
               key={project.slug}
-              href={`/portfolio/${project.slug}`}
+              href={`/work/${project.slug}`}
               className="group"
             >
               <div
-                className="relative aspect-[4/3] overflow-hidden"
+                className="relative aspect-video overflow-hidden"
                 style={{ borderRadius: "16px", background: "#0a0a0a" }}
               >
                 <Image
                   src={project.cardImage}
                   alt={project.name}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                 />
                 <div

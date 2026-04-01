@@ -34,7 +34,7 @@ export default function ContactForm() {
   const [budget, setBudget] = useState(BUDGET_DEFAULT);
 
   return (
-    <section className="pb-32">
+    <section className="pt-16 md:pt-24 pb-32">
       <div className="mx-auto max-w-7xl px-6 mb-16">
         <p
           className="mb-3 font-mono text-xs tracking-[0.25em] uppercase"
