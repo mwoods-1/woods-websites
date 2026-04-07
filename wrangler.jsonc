@@ -12,11 +12,11 @@
 
   "routes": [
     {
-      "pattern": "woodswebsites.com/*",
+      "pattern": "woodswebsites.com",
       "custom_domain": true
     },
     {
-      "pattern": "www.woodswebsites.com/*",
+      "pattern": "www.woodswebsites.com",
       "custom_domain": true
     }
   ]
