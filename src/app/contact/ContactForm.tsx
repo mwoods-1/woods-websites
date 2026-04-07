@@ -31,6 +31,8 @@ export default function ContactForm() {
   const y = useTransform(scrollYProgress, [0, 1], [40, 0]);
 
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [budget, setBudget] = useState(BUDGET_DEFAULT);
 
   return (
@@ -106,20 +108,35 @@ export default function ContactForm() {
           </div>
         ) : (
           <form
-            action="https://formsubmit.co/woodswebsites.com@gmail.com"
-            method="POST"
-            onSubmit={() => setSubmitted(true)}
+            onSubmit={async (e) => {
+              e.preventDefault();
+              setLoading(true);
+              setError(null);
+              const form = e.currentTarget;
+              const data = {
+                name: (form.elements.namedItem("name") as HTMLInputElement).value,
+                email: (form.elements.namedItem("email") as HTMLInputElement).value,
+                company: (form.elements.namedItem("company") as HTMLInputElement).value,
+                project_type: (form.elements.namedItem("project_type") as HTMLSelectElement).value,
+                budget: formatBudget(budget),
+                message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+              };
+              try {
+                const res = await fetch("/api/contact", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify(data),
+                });
+                if (!res.ok) throw new Error("Failed to send");
+                setSubmitted(true);
+              } catch {
+                setError("Something went wrong. Please try emailing us directly.");
+              } finally {
+                setLoading(false);
+              }
+            }}
             className="space-y-6"
           >
-            {/* Honeypot & config */}
-            <input type="hidden" name="_captcha" value="false" />
-            <input type="hidden" name="_template" value="box" />
-            <input
-              type="hidden"
-              name="_subject"
-              value="New project enquiry from woodswebsites.com"
-            />
-            <input type="text" name="_honey" className="hidden" />
 
             {/* Name */}
             <div>
@@ -286,21 +303,31 @@ export default function ContactForm() {
               />
             </div>
 
+            {/* Error */}
+            {error && (
+              <p className="font-sans text-sm" style={{ color: "#ff6b6b" }}>
+                {error}
+              </p>
+            )}
+
             {/* Submit */}
             <button
               type="submit"
-              className="group mt-4 inline-flex items-center gap-3 rounded-full px-8 py-4 font-sans text-sm font-medium transition-all duration-300 hover:opacity-85"
+              disabled={loading}
+              className="group mt-4 inline-flex items-center gap-3 rounded-full px-8 py-4 font-sans text-sm font-medium transition-all duration-300 hover:opacity-85 disabled:opacity-50 disabled:cursor-not-allowed"
               style={{ background: "var(--accent)", color: "#050505" }}
             >
-              Send Message
-              <span className="relative inline-flex h-4 items-center overflow-hidden">
-                <span className="inline-block transition-all duration-500 group-hover:translate-x-full">
-                  →
+              {loading ? "Sending…" : "Send Message"}
+              {!loading && (
+                <span className="relative inline-flex h-4 items-center overflow-hidden">
+                  <span className="inline-block transition-all duration-500 group-hover:translate-x-full">
+                    →
+                  </span>
+                  <span className="absolute left-0 -translate-x-full transition-all duration-500 group-hover:translate-x-0">
+                    →
+                  </span>
                 </span>
-                <span className="absolute left-0 -translate-x-full transition-all duration-500 group-hover:translate-x-0">
-                  →
-                </span>
-              </span>
+              )}
             </button>
           </form>
         )}
