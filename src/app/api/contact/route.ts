@@ -51,8 +51,7 @@ export async function POST(request: NextRequest) {
 
   if (!res.ok) {
     const error = await res.text();
-    console.error("SES error:", error);
-    return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
+    return NextResponse.json({ error, hasKey: !!process.env.AWS_ACCESS_KEY_ID, hasSecret: !!process.env.AWS_SECRET_ACCESS_KEY }, { status: 500 });
   }
 
   return NextResponse.json({ success: true });
