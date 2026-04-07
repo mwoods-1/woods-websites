@@ -130,7 +130,7 @@ export default function ContactForm() {
                 if (!res.ok) throw new Error("Failed to send");
                 setSubmitted(true);
               } catch {
-                setError("Something went wrong. Please try emailing us directly.");
+                setError("Something went wrong. Please try emailing us directly at info@woodswebsites.com");
               } finally {
                 setLoading(false);
               }
