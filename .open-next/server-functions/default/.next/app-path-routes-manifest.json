@@ -1,0 +1,16 @@
+{
+  "/_global-error/page": "/_global-error",
+  "/_not-found/page": "/_not-found",
+  "/about/page": "/about",
+  "/contact/page": "/contact",
+  "/page": "/",
+  "/privacy/page": "/privacy",
+  "/services/design-dev/page": "/services/design-dev",
+  "/services/integrations/page": "/services/integrations",
+  "/services/page": "/services",
+  "/services/performance/page": "/services/performance",
+  "/services/redesigns/page": "/services/redesigns",
+  "/terms/page": "/terms",
+  "/work/[slug]/page": "/work/[slug]",
+  "/work/page": "/work"
+}
