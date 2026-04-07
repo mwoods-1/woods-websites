@@ -59,10 +59,10 @@ export async function POST(request: NextRequest) {
 
     if (!res.ok) {
       const error = await res.text();
-      return NextResponse.json({ stage: "ses", error }, { status: 500 });
+      return NextResponse.json({ v: 2, stage: "ses", error }, { status: 500 });
     }
 
-    return NextResponse.json({ success: true });
+    return NextResponse.json({ v: 2, success: true });
   } catch (e) {
     return NextResponse.json({ stage: "crash", error: String(e) }, { status: 500 });
   }
