@@ -138,11 +138,11 @@ export default function TermsPage() {
             >
               For questions about these terms, contact us at{" "}
               <a
-                href="mailto:woodswebsites.com@gmail.com"
+                href="mailto:info@woodswebsites.com"
                 className="transition-colors duration-300 hover:text-white"
                 style={{ color: "var(--accent)" }}
               >
-                woodswebsites.com@gmail.com
+                info@woodswebsites.com
               </a>
               .
             </p>

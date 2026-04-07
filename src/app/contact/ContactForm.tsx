@@ -73,11 +73,11 @@ export default function ContactForm() {
             if you prefer, drop us an email directly.
           </p>
           <a
-            href="mailto:woodswebsites.com@gmail.com"
+            href="mailto:info@woodswebsites.com"
             className="font-sans text-sm transition-colors duration-300 hover:text-white"
             style={{ color: "rgba(255,255,255,0.5)" }}
           >
-            woodswebsites.com@gmail.com
+            info@woodswebsites.com
           </a>
         </div>
 
