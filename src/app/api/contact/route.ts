@@ -16,7 +16,7 @@ export async function POST(request: NextRequest) {
     const secretAccessKey = (env as Record<string, string>).AWS_SECRET_ACCESS_KEY;
 
     if (!accessKeyId || !secretAccessKey) {
-      return NextResponse.json({ error: "Missing AWS credentials", hasKey: !!accessKeyId, hasSecret: !!secretAccessKey }, { status: 500 });
+      return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
     }
 
     const aws = new AwsClient({
@@ -59,10 +59,11 @@ export async function POST(request: NextRequest) {
 
     if (!res.ok) {
       const error = await res.text();
-      return NextResponse.json({ v: 2, stage: "ses", error }, { status: 500 });
+      console.error("SES error:", error);
+      return NextResponse.json({ error: "Failed to send email" }, { status: 500 });
     }
 
-    return NextResponse.json({ v: 2, success: true });
+    return NextResponse.json({ success: true });
   } catch (e) {
     return NextResponse.json({ stage: "crash", error: String(e) }, { status: 500 });
   }
