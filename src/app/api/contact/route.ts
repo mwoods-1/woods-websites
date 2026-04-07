@@ -1,8 +1,6 @@
 import { AwsClient } from "aws4fetch";
 import { NextRequest, NextResponse } from "next/server";
 
-export const runtime = "edge";
-
 export async function POST(request: NextRequest) {
   try {
     const { name, email, company, project_type, budget, message } =
