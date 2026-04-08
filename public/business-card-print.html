@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Woods Websites — Business Card</title>
+<title>Business Card — Print Export</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap');
 
@@ -11,48 +11,38 @@
 
   body {
     background: #d4d4d4;
-    color: #333;
     font-family: 'Inter', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 60px 20px;
-    min-height: 100vh;
+    padding: 40px 20px;
+    gap: 40px;
   }
 
-  h1 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 24px;
-    font-weight: 700;
-    margin-bottom: 8px;
-    color: #222;
-  }
-  .subtitle {
+  .instructions {
+    max-width: 1063px;
+    text-align: center;
+    color: #333;
     font-size: 14px;
-    color: rgba(0,0,0,0.45);
-    margin-bottom: 48px;
+    line-height: 1.6;
   }
+  .instructions strong { color: #111; }
 
-  .card-label {
+  .label {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 11px;
+    font-size: 12px;
     letter-spacing: 0.2em;
     text-transform: uppercase;
     color: #2ec4b6;
-    margin-bottom: 16px;
-    margin-top: 48px;
+    margin-bottom: 8px;
   }
-  .card-label:first-of-type { margin-top: 0; }
 
-  /* Card dimensions: 90mm x 55mm at 300dpi = 1063x650px
-     We display at a comfortable screen size and scale for print */
+  /* 90mm x 55mm at 300DPI = 1063 x 650px */
   .card {
-    width: 540px;
-    height: 330px;
-    border-radius: 12px;
+    width: 1063px;
+    height: 650px;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
   }
 
   /* ── FRONT ── */
@@ -61,22 +51,22 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 48px;
+    padding: 95px;
   }
 
   .card-front .logo-mark {
     display: flex;
     align-items: center;
-    gap: 2px;
-    margin-bottom: 28px;
+    gap: 4px;
+    margin-bottom: 55px;
   }
 
   .card-front .ww-letter {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
-    font-size: 42px;
+    font-size: 82px;
     line-height: 1;
-    letter-spacing: -2px;
+    letter-spacing: -4px;
   }
   .card-front .ww-1 { color: #f0f0f0; }
   .card-front .ww-2 { color: #2ec4b6; }
@@ -84,7 +74,7 @@
   .card-front .brand-name {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
-    font-size: 22px;
+    font-size: 43px;
     letter-spacing: 0.06em;
     color: #f0f0f0;
   }
@@ -92,29 +82,28 @@
 
   .card-front .brand-role {
     font-family: 'Inter', sans-serif;
-    font-size: 11px;
+    font-size: 21px;
     letter-spacing: 0.15em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.5);
-    margin-top: 6px;
+    margin-top: 12px;
   }
 
   .card-front .accent-divider {
-    width: 40px;
-    height: 2px;
+    width: 78px;
+    height: 4px;
     background: #2ec4b6;
-    margin-top: 20px;
-    border-radius: 1px;
+    margin-top: 40px;
+    border-radius: 2px;
   }
 
-  /* Corner detail */
   .card-front .corner-detail {
     position: absolute;
-    top: 32px;
-    right: 36px;
-    width: 36px;
-    height: 36px;
-    border: 1.5px solid rgba(46,196,182,0.2);
+    top: 63px;
+    right: 71px;
+    width: 71px;
+    height: 71px;
+    border: 3px solid rgba(46,196,182,0.2);
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -122,8 +111,8 @@
   }
   .card-front .corner-detail::after {
     content: '';
-    width: 6px;
-    height: 6px;
+    width: 12px;
+    height: 12px;
     background: #2ec4b6;
     border-radius: 50%;
   }
@@ -132,8 +121,8 @@
   .card-back {
     background: #050505;
     display: flex;
-    padding: 40px 48px;
-    gap: 48px;
+    padding: 79px 95px;
+    gap: 95px;
     align-items: center;
   }
 
@@ -141,13 +130,13 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 30px;
   }
 
   .card-back .names {
     font-family: 'Space Grotesk', sans-serif;
     font-weight: 700;
-    font-size: 15px;
+    font-size: 29px;
     color: #f0f0f0;
     letter-spacing: 0.02em;
   }
@@ -155,20 +144,20 @@
   .card-back .contact-lines {
     display: flex;
     flex-direction: column;
-    gap: 9px;
+    gap: 18px;
   }
 
   .card-back .contact-line {
     display: flex;
     align-items: center;
-    gap: 10px;
-    font-size: 11.5px;
+    gap: 20px;
+    font-size: 22px;
     color: rgba(255,255,255,0.65);
   }
 
   .card-back .contact-line .icon {
-    width: 14px;
-    height: 14px;
+    width: 27px;
+    height: 27px;
     flex-shrink: 0;
     opacity: 0.4;
   }
@@ -184,13 +173,19 @@
     font-weight: 500;
   }
 
+  .card-back .info-divider {
+    width: 59px;
+    height: 4px;
+    background: rgba(46,196,182,0.4);
+    border-radius: 2px;
+  }
+
   .card-back .tagline {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 9px;
+    font-size: 17px;
     letter-spacing: 0.12em;
     color: rgba(255,255,255,0.35);
     text-transform: uppercase;
-    margin-top: 4px;
   }
 
   .card-back .qr-area {
@@ -200,74 +195,28 @@
     align-items: center;
   }
 
-  .card-back .qr-area canvas {
-    border-radius: 4px;
-  }
-
-  .card-back .info-divider {
-    width: 30px;
-    height: 2px;
-    background: rgba(46,196,182,0.4);
-    border-radius: 1px;
-  }
-
   .card-back .qr-label {
     font-family: 'JetBrains Mono', monospace;
-    font-size: 8px;
+    font-size: 15px;
     letter-spacing: 0.1em;
     text-transform: uppercase;
     color: rgba(255,255,255,0.4);
     text-align: center;
-    margin-top: 8px;
-  }
-
-  /* ── PRINT NOTES ── */
-  .print-notes {
-    margin-top: 48px;
-    max-width: 540px;
-    padding: 24px;
-    background: rgba(0,0,0,0.05);
-    border: 1px solid rgba(0,0,0,0.1);
-    border-radius: 12px;
-  }
-  .print-notes h3 {
-    font-family: 'Space Grotesk', sans-serif;
-    font-size: 14px;
-    font-weight: 700;
-    margin-bottom: 12px;
-    color: #222;
-  }
-  .print-notes ul {
-    list-style: none;
-    padding: 0;
-  }
-  .print-notes li {
-    font-size: 12px;
-    color: rgba(0,0,0,0.5);
-    padding: 4px 0;
-    padding-left: 16px;
-    position: relative;
-  }
-  .print-notes li::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 10px;
-    width: 4px;
-    height: 4px;
-    background: #2ec4b6;
-    border-radius: 50%;
+    margin-top: 16px;
   }
 </style>
 </head>
 <body>
 
-<h1>Business Card Design</h1>
-<p class="subtitle">Woods Websites &mdash; ready for print</p>
+<div class="instructions">
+  <strong>Print-ready export (1063 x 650px at 300 DPI)</strong><br />
+  Right-click each card → Inspect → right-click the .card div → "Capture node screenshot"<br />
+  Upload the two PNGs to Vistaprint as front and back.
+</div>
 
 <!-- FRONT -->
-<p class="card-label">Front</p>
-<div class="card card-front">
+<p class="label">Front</p>
+<div class="card card-front" id="front">
   <div class="logo-mark">
     <span class="ww-letter ww-1">W</span>
     <span class="ww-letter ww-2">W</span>
@@ -275,13 +224,12 @@
   <div class="brand-name">WOODS WEBSITES<span class="dot">.</span></div>
   <div class="brand-role">Websites & Software Solutions</div>
   <div class="accent-divider"></div>
+
 </div>
 
-
-
 <!-- BACK -->
-<p class="card-label">Back</p>
-<div class="card card-back">
+<p class="label">Back</p>
+<div class="card card-back" id="back">
   <div class="info">
     <div class="names">Sean &amp; Mark Woods</div>
     <div class="contact-lines">
@@ -305,24 +253,10 @@
     <div class="tagline">Websites that grow your business.</div>
   </div>
   <div class="qr-area">
-    <img src="./images/qr-code.png" alt="QR code to woodswebsites.com" width="120" height="120" style="border-radius: 10px; object-fit: contain;" />
+    <img src="./images/qr-code.png" alt="QR code to woodswebsites.com" width="236" height="236" style="object-fit: contain; border-radius: 16px;" />
     <div class="qr-label">Scan to visit our site</div>
   </div>
 </div>
-
-<!-- Print notes -->
-<div class="print-notes">
-  <h3>Print Specs</h3>
-  <ul>
-    <li>Size: 90mm &times; 55mm (Australian standard)</li>
-    <li>Stock: 400gsm matte black or soft-touch laminate</li>
-    <li>Finish: Spot UV on the "WW" monogram and teal accents for a premium feel</li>
-    <li>Recommended: <strong>Vistaprint</strong>, <strong>MOO</strong>, or a local print shop</li>
-    <li>Export: Screenshot both sides, or send this HTML to your designer for vector conversion</li>
-    <li>QR code links to woodswebsites.com</li>
-  </ul>
-</div>
-
 
 </body>
 </html>
