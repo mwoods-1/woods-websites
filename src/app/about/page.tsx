@@ -4,9 +4,14 @@ import CTASection from "@/components/CTASection";
 import AboutContent from "./AboutContent";
 
 export const metadata: Metadata = {
-  title: "About",
+  title: "About Us | Meet the Team Behind Woods Websites",
   description:
-    "Meet Sean and Mark Woods — two brothers helping businesses get more customers through high-converting websites, booking systems, and smart automation.",
+    "Meet Sean and Mark Woods — two Sydney-based brothers helping small businesses grow with high-converting websites, booking systems, and smart automation.",
+  openGraph: {
+    title: "About Us | Woods Websites",
+    description:
+      "Two brothers from Sydney helping businesses get more customers through better websites.",
+  },
 };
 
 export default function AboutPage() {

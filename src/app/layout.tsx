@@ -7,11 +7,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "Woods Websites | Custom Web Design & Development",
+    default: "Woods Websites | Web Design & Development for Small Business",
     template: "%s | Woods Websites",
   },
   description:
-    "Custom-built, high-performance websites crafted with care. Web design and development by Sean and Mark Woods.",
+    "We help small businesses get more customers with high-converting websites, booking systems, and easy self-management. Sydney-based web design & development.",
   metadataBase: new URL("https://woodswebsites.com"),
   icons: {
     icon: [
@@ -23,11 +23,52 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "Woods Websites | Custom Web Design & Development",
+    type: "website",
+    locale: "en_AU",
+    siteName: "Woods Websites",
+    title: "Woods Websites | Web Design & Development for Small Business",
     description:
-      "Custom-built, high-performance websites crafted with care. Tailored to your goals, built to perform.",
+      "We help small businesses get more customers with high-converting websites, booking systems, and easy self-management.",
     images: [{ url: "/images/logo/og-image.png", width: 1200, height: 630 }],
   },
+  twitter: {
+    card: "summary_large_image",
+    title: "Woods Websites | Web Design & Development for Small Business",
+    description:
+      "We help small businesses get more customers with high-converting websites, booking systems, and easy self-management.",
+    images: ["/images/logo/og-image.png"],
+  },
+  alternates: {
+    canonical: "https://woodswebsites.com",
+  },
+};
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "Woods Websites",
+  url: "https://woodswebsites.com",
+  logo: "https://woodswebsites.com/images/logo/og-image.png",
+  description:
+    "We help small businesses get more customers with high-converting websites, booking systems, and easy self-management.",
+  email: "info@woodswebsites.com",
+  areaServed: {
+    "@type": "Country",
+    name: "Australia",
+  },
+  serviceType: [
+    "Web Design",
+    "Web Development",
+    "Website Redesign",
+    "Booking System Integration",
+    "Payment Integration",
+    "SEO",
+  ],
+  founder: [
+    { "@type": "Person", name: "Sean Woods" },
+    { "@type": "Person", name: "Mark Woods" },
+  ],
+  sameAs: [],
 };
 
 export default function RootLayout({
@@ -41,6 +82,11 @@ export default function RootLayout({
       className={`${inter.variable} ${spaceGrotesk.variable} ${jetbrainsMono.variable}`}
     >
       <body className="antialiased">
+        {/* JSON-LD structured data — static, hardcoded content (no user input) */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <SmoothScroll>
           <Nav />
           {children}

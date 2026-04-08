@@ -18,8 +18,13 @@ export async function generateMetadata({
   const project = projects.find((p) => p.slug === slug);
   if (!project) return {};
   return {
-    title: project.name,
+    title: `${project.name} | Case Study`,
     description: project.description,
+    openGraph: {
+      title: `${project.name} — Woods Websites Case Study`,
+      description: project.description,
+      images: [{ url: project.cardImage }],
+    },
   };
 }
 
@@ -46,7 +51,7 @@ export default async function ProjectPage({
         >
           <Image
             src={project.content.heroImage}
-            alt={project.name}
+            alt={`${project.name} — ${project.type} website by Woods Websites`}
             fill
             className="object-cover"
             sizes="100vw"

@@ -98,7 +98,7 @@ export default function ProjectsSection() {
                 <div className="relative overflow-hidden aspect-video md:aspect-auto md:flex-1 md:min-h-0">
                   <Image
                     src={project.image}
-                    alt={project.name}
+                    alt={`${project.name} website screenshot`}
                     fill
                     className="object-cover object-top"
                     sizes="(max-width: 768px) 100vw, 85vw"

@@ -7,9 +7,14 @@ import CTASection from "@/components/CTASection";
 import { projects } from "@/data/projects";
 
 export const metadata: Metadata = {
-  title: "Work",
+  title: "Our Work | Web Design Portfolio",
   description:
-    "Our work: custom websites built for businesses across tourism, hospitality, sports, and more.",
+    "See our portfolio of custom websites built for small businesses across tourism, hospitality, sports coaching, and property services. Real results for real businesses.",
+  openGraph: {
+    title: "Our Work | Woods Websites Portfolio",
+    description:
+      "Custom websites built for small businesses across tourism, hospitality, sports, and more.",
+  },
 };
 
 export default function PortfolioPage() {
@@ -39,7 +44,7 @@ export default function PortfolioPage() {
               >
                 <Image
                   src={project.cardImage}
-                  alt={project.name}
+                  alt={`${project.name} — ${project.type} website by Woods Websites`}
                   fill
                   className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"

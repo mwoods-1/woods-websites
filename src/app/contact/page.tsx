@@ -3,9 +3,14 @@ import ContactForm from "./ContactForm";
 import ProcessTimeline from "@/components/ProcessTimeline";
 
 export const metadata: Metadata = {
-  title: "Contact",
+  title: "Contact Us | Book a Free Discovery Call",
   description:
-    "We start with a free call to discuss your goals and set up a plan before any build begins.",
+    "Get in touch with Woods Websites. Book a free discovery call to discuss your business goals and get a plan before any build begins.",
+  openGraph: {
+    title: "Contact Us | Woods Websites",
+    description:
+      "Book a free discovery call to discuss your business goals and get a website plan.",
+  },
 };
 
 export default function ContactPage() {

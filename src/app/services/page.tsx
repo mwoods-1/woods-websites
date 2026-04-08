@@ -4,9 +4,14 @@ import CTASection from "@/components/CTASection";
 import ServicesList from "./ServicesListClient";
 
 export const metadata: Metadata = {
-  title: "Services",
+  title: "Services | Web Design, Development & Integrations",
   description:
-    "Custom web design, development, redesigns, performance optimisation, and integrations. Everything your business needs to win online.",
+    "Custom web design, development, booking systems, payment integration, and CMS setup. Everything your small business needs to get more customers online.",
+  openGraph: {
+    title: "Our Services | Woods Websites",
+    description:
+      "Custom web design, development, booking systems, payment integration, and CMS setup for small businesses.",
+  },
 };
 
 export default function ServicesPage() {
