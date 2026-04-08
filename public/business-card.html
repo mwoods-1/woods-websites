@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Woods Websites — Business Card</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&family=Inter:wght@400;500&family=JetBrains+Mono:wght@400&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #d4d4d4;
+    color: #333;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 60px 20px;
+    min-height: 100vh;
+  }
+
+  h1 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #222;
+  }
+  .subtitle {
+    font-size: 14px;
+    color: rgba(0,0,0,0.45);
+    margin-bottom: 48px;
+  }
+
+  .card-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #2ec4b6;
+    margin-bottom: 16px;
+    margin-top: 48px;
+  }
+  .card-label:first-of-type { margin-top: 0; }
+
+  /* Card dimensions: 90mm x 55mm at 300dpi = 1063x650px
+     We display at a comfortable screen size and scale for print */
+  .card {
+    width: 540px;
+    height: 330px;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5), 0 0 0 1px rgba(255,255,255,0.06);
+  }
+
+  /* ── FRONT ── */
+  .card-front {
+    background: #050505;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 48px;
+  }
+
+  .card-front .logo-mark {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    margin-bottom: 28px;
+  }
+
+  .card-front .ww-letter {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 42px;
+    line-height: 1;
+    letter-spacing: -2px;
+  }
+  .card-front .ww-1 { color: #f0f0f0; }
+  .card-front .ww-2 { color: #2ec4b6; }
+
+  .card-front .brand-name {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 22px;
+    letter-spacing: 0.06em;
+    color: #f0f0f0;
+  }
+  .card-front .brand-name .dot { color: #2ec4b6; }
+
+  .card-front .brand-role {
+    font-family: 'Inter', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-top: 6px;
+  }
+
+  .card-front .accent-divider {
+    width: 40px;
+    height: 2px;
+    background: #2ec4b6;
+    margin-top: 20px;
+    border-radius: 1px;
+  }
+
+  /* Corner detail */
+  .card-front .corner-detail {
+    position: absolute;
+    top: 32px;
+    right: 36px;
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid rgba(46,196,182,0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .card-front .corner-detail::after {
+    content: '';
+    width: 6px;
+    height: 6px;
+    background: #2ec4b6;
+    border-radius: 50%;
+  }
+
+  /* ── BACK ── */
+  .card-back {
+    background: #050505;
+    display: flex;
+    padding: 40px 48px;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .card-back .info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .card-back .names {
+    font-family: 'Space Grotesk', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: #f0f0f0;
+    letter-spacing: 0.02em;
+  }
+
+  .card-back .contact-lines {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .card-back .contact-line {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 11.5px;
+    color: rgba(255,255,255,0.55);
+  }
+
+  .card-back .contact-line .icon {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    opacity: 0.4;
+  }
+
+  .card-back .contact-line a {
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+  }
+
+  .card-back .contact-line.highlight a,
+  .card-back .contact-line.highlight {
+    color: #2ec4b6;
+    font-weight: 500;
+  }
+
+  .card-back .tagline {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 9px;
+    letter-spacing: 0.12em;
+    color: rgba(255,255,255,0.18);
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .card-back .qr-area {
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card-back .qr-area canvas {
+    border-radius: 4px;
+  }
+
+  .card-back .info-divider {
+    width: 30px;
+    height: 2px;
+    background: rgba(46,196,182,0.4);
+    border-radius: 1px;
+  }
+
+  .card-back .qr-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+    text-align: center;
+    margin-top: 8px;
+  }
+
+  /* ── PRINT NOTES ── */
+  .print-notes {
+    margin-top: 48px;
+    max-width: 540px;
+    padding: 24px;
+    background: rgba(0,0,0,0.05);
+    border: 1px solid rgba(0,0,0,0.1);
+    border-radius: 12px;
+  }
+  .print-notes h3 {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: #222;
+  }
+  .print-notes ul {
+    list-style: none;
+    padding: 0;
+  }
+  .print-notes li {
+    font-size: 12px;
+    color: rgba(0,0,0,0.5);
+    padding: 4px 0;
+    padding-left: 16px;
+    position: relative;
+  }
+  .print-notes li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    width: 4px;
+    height: 4px;
+    background: #2ec4b6;
+    border-radius: 50%;
+  }
+</style>
+</head>
+<body>
+
+<h1>Business Card Design</h1>
+<p class="subtitle">Woods Websites &mdash; ready for print</p>
+
+<!-- FRONT -->
+<p class="card-label">Front</p>
+<div class="card card-front">
+  <div class="logo-mark">
+    <span class="ww-letter ww-1">W</span>
+    <span class="ww-letter ww-2">W</span>
+  </div>
+  <div class="brand-name">WOODS WEBSITES<span class="dot">.</span></div>
+  <div class="brand-role">Websites & Software Solutions</div>
+  <div class="accent-divider"></div>
+</div>
+
+<!-- BACK -->
+<p class="card-label">Back</p>
+<div class="card card-back">
+  <div class="info">
+    <div class="names">Sean &amp; Mark Woods</div>
+    <div class="contact-lines">
+      <div class="contact-line">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+        <span>info@woodswebsites.com</span>
+      </div>
+      <div class="contact-line highlight">
+        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="10"/>
+          <line x1="2" y1="12" x2="22" y2="12"/>
+          <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+        </svg>
+        <a href="https://woodswebsites.com">woodswebsites.com</a>
+      </div>
+    </div>
+    <div class="info-divider"></div>
+    <div class="tagline">Websites that grow your business.</div>
+  </div>
+  <div class="qr-area">
+    <img src="./images/qr-code.png" alt="QR code to woodswebsites.com" width="120" height="120" style="border-radius: 4px; object-fit: contain;" />
+    <div class="qr-label">Scan to see our work</div>
+  </div>
+</div>
+
+<!-- Print notes -->
+<div class="print-notes">
+  <h3>Print Specs</h3>
+  <ul>
+    <li>Size: 90mm &times; 55mm (Australian standard)</li>
+    <li>Stock: 400gsm matte black or soft-touch laminate</li>
+    <li>Finish: Spot UV on the "WW" monogram and teal accents for a premium feel</li>
+    <li>Recommended: <strong>Vistaprint</strong>, <strong>MOO</strong>, or a local print shop</li>
+    <li>Export: Screenshot both sides, or send this HTML to your designer for vector conversion</li>
+    <li>QR code links to woodswebsites.com</li>
+  </ul>
+</div>
+
+
+</body>
+</html>

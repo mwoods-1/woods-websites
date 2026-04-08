@@ -37,6 +37,14 @@ const services = [
       "Booking systems, payments, CRMs: we wire your site into the tools you already rely on. Seamless, reliable connections that save you time and keep everything running smoothly.",
     tags: ["Booking Systems", "Payments", "CRM", "API", "Automation"],
   },
+  {
+    number: "05",
+    title: "Software Solutions",
+    slug: "software",
+    description:
+      "Beyond websites — we build custom software tools tailored to how your business actually operates. Client portals, scheduling systems, automated invoicing, review collectors, and more. If it can save you time or make you money, we can build it.",
+    tags: ["Client Portals", "Scheduling", "Invoicing", "Dashboards", "Custom Tools"],
+  },
 ];
 
 export default function ServicesSection() {
