@@ -53,9 +53,9 @@ export default function Hero() {
           className="mt-6 max-w-4xl font-display text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl md:text-7xl lg:text-8xl"
           style={{ color: "var(--text)" }}
         >
-          We build websites{" "}
+          More customers.{" "}
           <br className="hidden sm:block" />
-          <span style={{ color: "var(--accent)" }}>that work.</span>
+          <span style={{ color: "var(--accent)" }}>Better websites.</span>
         </motion.h1>
 
         {/* Subheadline */}
@@ -66,7 +66,7 @@ export default function Hero() {
           className="mt-6 max-w-lg font-sans text-base leading-relaxed sm:text-lg"
           style={{ color: "rgba(255,255,255,0.55)" }}
         >
-          Two brothers. High-performance websites. Tailored to your needs. Delivered with precision.
+          We help businesses grow with high-converting websites, built-in booking & payments, and easy self-management.
         </motion.p>
 
         {/* CTAs */}
@@ -104,7 +104,7 @@ export default function Hero() {
             className="rounded-full px-6 py-3 font-sans text-sm font-medium transition-all duration-300 hover:opacity-80"
             style={{ background: "var(--accent)", color: "#050505" }}
           >
-            Contact Us
+            Book a Free Call
           </Link>
         </motion.div>
 

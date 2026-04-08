@@ -223,22 +223,22 @@ export default function CTASection() {
         className="mx-auto max-w-4xl px-6 text-center"
       >
         <p className="mb-4 font-mono text-xs tracking-[0.25em] uppercase" style={{ color: "var(--accent)" }}>
-          Let's Work Together
+          Let's Grow Together
         </p>
         <h2
           className="font-display text-4xl font-bold leading-tight tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
           style={{ color: "var(--text)" }}
         >
-          Ready to build{" "}
+          Ready to get{" "}
           <br className="hidden sm:block" />
-          something{" "}
-          <span style={{ color: "var(--accent)" }}>great?</span>
+          more{" "}
+          <span style={{ color: "var(--accent)" }}>customers?</span>
         </h2>
         <p
           className="mx-auto mt-6 max-w-lg font-sans text-base leading-relaxed"
           style={{ color: "rgba(255,255,255,0.45)" }}
         >
-          We start with a free call to discuss your goals and set up a plan before any build begins.
+          Book a free call — we&apos;ll discuss your goals and map out a plan before anything gets built.
         </p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <Link
@@ -246,7 +246,7 @@ export default function CTASection() {
             className="group inline-flex items-center gap-3 rounded-full px-8 py-4 font-sans text-sm font-medium transition-all duration-300 hover:opacity-85"
             style={{ background: "var(--accent)", color: "#050505" }}
           >
-            Contact Us
+            Book a Free Call
             <span className="relative inline-flex h-4 items-center overflow-hidden">
               <span className="inline-block transition-all duration-500 group-hover:translate-x-full">→</span>
               <span className="absolute left-0 -translate-x-full transition-all duration-500 group-hover:translate-x-0">→</span>

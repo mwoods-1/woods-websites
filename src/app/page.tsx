@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import TrustStrip from "@/components/TrustStrip";
+import OutcomesSection from "@/components/OutcomesSection";
 import WorkshopSection from "@/components/WorkshopSection";
 import ProjectsSection from "@/components/ProjectsSection";
 import ServicesSection from "@/components/ServicesSection";
@@ -11,6 +12,7 @@ export default function HomePage() {
       <Hero />
       <TrustStrip />
       <ServicesSection />
+      <OutcomesSection />
       <ProjectsSection />
       <WorkshopSection />
       <CTASection />
