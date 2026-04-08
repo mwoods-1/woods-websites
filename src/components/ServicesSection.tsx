@@ -153,7 +153,7 @@ export default function ServicesSection() {
                   {active.tags.map((tag) => (
                     <Link
                       key={tag}
-                      href={`/services/${active.slug}`}
+                      href="/services"
                       className="inline-flex items-center rounded-full px-4 py-2 font-sans text-sm transition-colors duration-200"
                       style={{
                         background: "rgba(255,255,255,0.05)",
@@ -186,7 +186,7 @@ export default function ServicesSection() {
 
                 {/* Learn more + rule */}
                 <Link
-                  href={`/services/${active.slug}`}
+                  href="/services"
                   className="group/lm inline-flex items-center gap-1.5 font-sans text-sm mb-6"
                   style={{ color: "var(--accent)" }}
                 >

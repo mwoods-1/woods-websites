@@ -6,7 +6,7 @@ import AboutContent from "./AboutContent";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "Meet Sean and Mark Woods, two brothers who build custom, high-performance websites for businesses that care about quality.",
+    "Meet Sean and Mark Woods — two brothers helping businesses get more customers through high-converting websites, booking systems, and smart automation.",
 };
 
 export default function AboutPage() {
@@ -19,7 +19,7 @@ export default function AboutPage() {
             About <span style={{ color: "var(--accent)" }}>Us</span>
           </>
         }
-        subtitle="Two brothers. High-performance websites. Tailored to your needs. Delivered with precision."
+        subtitle="We help businesses grow with websites that actually deliver results."
       />
       <AboutContent />
       <CTASection />

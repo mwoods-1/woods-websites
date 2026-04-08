@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
+
 import { AnimatePresence, motion } from "motion/react";
 
 const services = [
@@ -95,54 +95,27 @@ export default function ServicesList() {
                 {/* Tags */}
                 <div className="flex flex-wrap gap-2.5 mb-7">
                   {active.tags.map((tag) => (
-                    <Link
+                    <span
                       key={tag}
-                      href={`/services/${active.slug}`}
-                      className="inline-flex items-center rounded-full px-4 py-2 font-sans text-sm transition-colors duration-200"
+                      className="inline-flex items-center rounded-full px-4 py-2 font-sans text-sm"
                       style={{
                         background: "rgba(255,255,255,0.05)",
                         border: "1px solid rgba(255,255,255,0.1)",
                         color: "rgba(255,255,255,0.62)",
                       }}
-                      onMouseEnter={(e) => {
-                        const el = e.currentTarget;
-                        el.style.background = "rgba(46,196,182,0.1)";
-                        el.style.borderColor = "rgba(46,196,182,0.3)";
-                        el.style.color = "rgba(255,255,255,0.9)";
-                      }}
-                      onMouseLeave={(e) => {
-                        const el = e.currentTarget;
-                        el.style.background = "rgba(255,255,255,0.05)";
-                        el.style.borderColor = "rgba(255,255,255,0.1)";
-                        el.style.color = "rgba(255,255,255,0.62)";
-                      }}
                     >
                       {tag}
-                    </Link>
+                    </span>
                   ))}
                 </div>
 
                 {/* Description */}
                 <p
-                  className="font-sans text-base leading-relaxed mb-10"
+                  className="font-sans text-base leading-relaxed mb-6"
                   style={{ color: "rgba(255,255,255,0.48)" }}
                 >
                   {active.description}
                 </p>
-
-                {/* Learn more + rule */}
-                <Link
-                  href={`/services/${active.slug}`}
-                  className="group/lm inline-flex items-center gap-1.5 font-sans text-sm mb-6"
-                  style={{ color: "var(--accent)" }}
-                >
-                  <span className="transition-opacity duration-300 group-hover/lm:opacity-70">
-                    Learn more
-                  </span>
-                  <span className="text-base transition-transform duration-300 group-hover/lm:translate-x-1">
-                    ›
-                  </span>
-                </Link>
 
                 <div
                   className="h-px w-full"

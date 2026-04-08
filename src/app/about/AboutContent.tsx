@@ -152,28 +152,30 @@ export default function AboutContent() {
                 style={{ color: "rgba(255,255,255,0.65)" }}
               >
                 Woods Websites is run by Sean and Mark Woods, two brothers who
-                share an obsession with building things properly. We started
-                building websites because we kept seeing businesses stuck with
-                slow, outdated sites that didn&apos;t reflect the quality of what they
-                actually do.
+                share an obsession with helping businesses grow. We started
+                because we kept seeing businesses stuck with slow, outdated
+                sites that weren&apos;t bringing in customers or reflecting the
+                quality of what they actually do.
               </p>
               <p
                 className="font-sans text-base leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.65)" }}
               >
-                We&apos;re not a big agency. We don&apos;t have account managers or
-                project coordinators standing between you and the people doing
-                the work. When you hire us, you work directly with us,
-                the people designing, building, and maintaining your site.
+                Sean is currently studying a Bachelor of Artificial Intelligence
+                at UTS, bringing a deep technical foundation in software
+                engineering, data, and modern AI tooling to every project. Mark
+                brings the design eye and project management that keeps
+                everything on track and looking sharp.
               </p>
               <p
                 className="font-sans text-base leading-relaxed"
                 style={{ color: "rgba(255,255,255,0.65)" }}
               >
-                That matters because it means faster communication, better
-                decisions, and a final product that actually matches what you
-                had in mind. We treat every project like it&apos;s our own, because
-                our name is on it.
+                We&apos;re not a big agency. There are no account managers or
+                project coordinators between you and the people doing the work.
+                That means faster communication, better decisions, and a final
+                product that actually matches what you had in mind. We treat
+                every project like it&apos;s our own, because our name is on it.
               </p>
             </div>
 
