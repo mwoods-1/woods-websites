@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import CTASection from "@/components/CTASection";
 import { projects } from "@/data/projects";
+import type { ProjectScreenshot } from "@/data/projects";
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }));
@@ -23,10 +24,63 @@ export async function generateMetadata({
     openGraph: {
       title: `${project.name} — Woods Websites Case Study`,
       description: project.description,
-      images: [{ url: project.cardImage }],
+      images: [{ url: project.content.heroImage }],
     },
   };
 }
+
+function ScreenshotImage({
+  screenshot,
+  priority = false,
+  className = "",
+}: {
+  screenshot: ProjectScreenshot;
+  priority?: boolean;
+  className?: string;
+}) {
+  const isMobile = screenshot.type === "mobile";
+  return (
+    <div
+      className={`relative overflow-hidden ${className}`}
+      style={{
+        borderRadius: "16px",
+        background: "#111",
+        border: "1px solid rgba(255,255,255,0.06)",
+      }}
+    >
+      <Image
+        src={screenshot.src}
+        alt={screenshot.alt}
+        width={isMobile ? 390 : 1440}
+        height={isMobile ? 844 : 900}
+        className="w-full h-auto"
+        sizes={isMobile ? "200px" : "(max-width: 768px) 100vw, 80vw"}
+        priority={priority}
+        quality={90}
+      />
+    </div>
+  );
+}
+
+const storyIcons = {
+  challenge: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M12 8v4M12 16h.01" />
+    </svg>
+  ),
+  approach: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 20V10M18 20V4M6 20v-4" />
+    </svg>
+  ),
+  result: (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
+      <path d="M22 4 12 14.01l-3-3" />
+    </svg>
+  ),
+};
 
 export default async function ProjectPage({
   params,
@@ -41,80 +95,82 @@ export default async function ProjectPage({
   const prev = projects[currentIndex - 1];
   const next = projects[currentIndex + 1];
 
+  const { screenshots } = project.content;
+  const desktopScreenshots = screenshots.filter((s) => s.type === "desktop");
+  const mobileScreenshots = screenshots.filter((s) => s.type === "mobile");
+
+  const heroShot = desktopScreenshots[0];
+  const galleryShots = desktopScreenshots.slice(1);
+
+  const storyCards = [
+    { key: "challenge", label: "The Challenge", number: "01", icon: storyIcons.challenge, text: project.content.challenge },
+    { key: "approach", label: "Our Approach", number: "02", icon: storyIcons.approach, text: project.content.approach },
+    { key: "result", label: "The Result", number: "03", icon: storyIcons.result, text: project.content.result },
+  ];
+
   return (
     <main>
-      {/* Hero image */}
-      <section className="relative pt-24">
-        <div
-          className="relative mx-4 overflow-hidden md:mx-8"
-          style={{ height: "60vh", borderRadius: "24px", background: "#0a0a0a" }}
-        >
-          <Image
-            src={project.content.heroImage}
-            alt={`${project.name} — ${project.type} website by Woods Websites`}
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-          />
-          <div
-            className="absolute inset-0"
-            style={{
-              background:
-                "linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.2) 50%, rgba(0,0,0,0.1) 100%)",
-            }}
-          />
-          <div className="absolute bottom-0 left-0 right-0 p-8 md:p-12">
-            <div className="mx-auto max-w-5xl">
-              <div className="mb-3 flex flex-wrap items-center gap-3">
-                <span
-                  className="rounded-full px-3 py-1 font-mono text-xs tracking-wide"
-                  style={{
-                    background: `color-mix(in srgb, ${project.accent} 15%, transparent)`,
-                    color: project.accent,
-                    border: `1px solid color-mix(in srgb, ${project.accent} 25%, transparent)`,
-                  }}
-                >
-                  {project.type}
-                </span>
-                <span
-                  className="font-mono text-xs tracking-wide"
-                  style={{ color: "rgba(255,255,255,0.5)" }}
-                >
-                  {project.industry}
-                </span>
-              </div>
-              <h1
-                className="font-display text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl"
-                style={{ color: "#fff" }}
+      {/* ─── Hero ─── */}
+      <section
+        className="relative"
+        style={{ paddingTop: "clamp(7rem, 10vw, 10rem)" }}
+      >
+        <div className="mx-auto max-w-7xl px-6">
+          {/* Back + meta */}
+          <div className="mb-8 flex flex-wrap items-center gap-4">
+            <Link
+              href="/work"
+              className="font-sans text-sm transition-colors duration-300 hover:text-white"
+              style={{ color: "rgba(255,255,255,0.4)" }}
+            >
+              ← Back to Work
+            </Link>
+            <span
+              className="hidden sm:inline-block h-4 w-px"
+              style={{ background: "rgba(255,255,255,0.12)" }}
+            />
+            <div className="flex items-center gap-3">
+              <span
+                className="rounded-full px-3 py-1 font-mono text-xs tracking-wide"
+                style={{
+                  background: `color-mix(in srgb, ${project.accent} 15%, transparent)`,
+                  color: project.accent,
+                  border: `1px solid color-mix(in srgb, ${project.accent} 25%, transparent)`,
+                }}
               >
-                {project.name}
-              </h1>
+                {project.type}
+              </span>
+              <span
+                className="font-mono text-xs tracking-wide"
+                style={{ color: "rgba(255,255,255,0.5)" }}
+              >
+                {project.industry}
+              </span>
             </div>
           </div>
-        </div>
-      </section>
 
-      {/* Metadata bar */}
-      <section className="mx-auto max-w-5xl px-6 py-8">
-        <div
-          className="flex flex-wrap items-center gap-6 border-b pb-8"
-          style={{ borderColor: "rgba(255,255,255,0.08)" }}
-        >
-          <Link
-            href="/work"
-            className="font-sans text-sm transition-colors duration-300 hover:text-white"
-            style={{ color: "rgba(255,255,255,0.4)" }}
+          {/* Title */}
+          <h1
+            className="font-display text-4xl font-bold tracking-tight sm:text-5xl md:text-6xl lg:text-7xl"
+            style={{ color: "#fff" }}
           >
-            ← Back to Work
-          </Link>
-          <div className="ml-auto">
+            {project.name}
+          </h1>
+          <p
+            className="mt-4 max-w-2xl font-sans text-base leading-relaxed md:text-lg"
+            style={{ color: "rgba(255,255,255,0.5)" }}
+          >
+            {project.description}
+          </p>
+
+          {/* Visit site + tags */}
+          <div className="mt-6 flex flex-wrap items-center gap-4">
             <a
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 font-sans text-sm transition-colors duration-300 hover:text-white"
-              style={{ color: "rgba(255,255,255,0.5)" }}
+              className="group inline-flex items-center gap-2 rounded-full px-5 py-2.5 font-sans text-sm font-medium transition-all duration-300 hover:opacity-85"
+              style={{ background: project.accent, color: "#050505" }}
             >
               Visit live site
               <svg
@@ -133,112 +189,212 @@ export default async function ProjectPage({
                 />
               </svg>
             </a>
+            {project.tags.map((tag) => (
+              <span
+                key={tag}
+                className="rounded-full px-3 py-1 font-mono text-xs tracking-wide"
+                style={{
+                  background: `color-mix(in srgb, ${project.accent} 10%, transparent)`,
+                  color: project.accent,
+                  border: `1px solid color-mix(in srgb, ${project.accent} 20%, transparent)`,
+                }}
+              >
+                {tag}
+              </span>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Content */}
-      <section className="mx-auto max-w-5xl px-6 pb-20">
-        <div className="grid gap-16 md:grid-cols-[1fr_2fr]">
-          <div>
-            <p
-              className="font-mono text-xs tracking-[0.25em] uppercase"
-              style={{ color: "var(--accent)" }}
-            >
-              The Challenge
-            </p>
-          </div>
-          <p
-            className="font-sans text-base leading-relaxed md:text-lg"
-            style={{ color: "rgba(255,255,255,0.7)" }}
-          >
-            {project.content.challenge}
-          </p>
-        </div>
+      {/* ─── Hero Screenshot ─── */}
+      {heroShot && (
+        <section className="mx-auto max-w-7xl px-6 pt-12 md:pt-16">
+          <ScreenshotImage screenshot={heroShot} priority />
+        </section>
+      )}
 
-        <div
-          className="my-16 border-t"
-          style={{ borderColor: "rgba(255,255,255,0.06)" }}
-        />
-
-        <div className="grid gap-16 md:grid-cols-[1fr_2fr]">
-          <div>
-            <p
-              className="font-mono text-xs tracking-[0.25em] uppercase"
-              style={{ color: "var(--accent)" }}
-            >
-              Our Approach
-            </p>
-          </div>
-          <p
-            className="font-sans text-base leading-relaxed md:text-lg"
-            style={{ color: "rgba(255,255,255,0.7)" }}
-          >
-            {project.content.approach}
-          </p>
-        </div>
-
-        <div
-          className="my-16 border-t"
-          style={{ borderColor: "rgba(255,255,255,0.06)" }}
-        />
-
-        <div className="grid gap-16 md:grid-cols-[1fr_2fr]">
-          <div>
-            <p
-              className="font-mono text-xs tracking-[0.25em] uppercase"
-              style={{ color: "var(--accent)" }}
-            >
-              The Result
-            </p>
-          </div>
-          <p
-            className="font-sans text-base leading-relaxed md:text-lg"
-            style={{ color: "rgba(255,255,255,0.7)" }}
-          >
-            {project.content.result}
-          </p>
-        </div>
-
-        {/* Testimonial (if available) */}
-        {project.content.testimonial && (
-          <>
+      {/* ─── Story Cards (Challenge / Approach / Result) ─── */}
+      <section className="mx-auto max-w-7xl px-6 pt-20 md:pt-28">
+        <p
+          className="mb-10 font-mono text-xs tracking-[0.25em] uppercase"
+          style={{ color: project.accent }}
+        >
+          The Story
+        </p>
+        <div className="grid gap-6 md:grid-cols-3">
+          {storyCards.map((card) => (
             <div
-              className="my-16 border-t"
-              style={{ borderColor: "rgba(255,255,255,0.06)" }}
-            />
-            <div className="mx-auto max-w-2xl text-center">
-              <span
-                className="mb-4 block font-display text-5xl font-bold leading-none"
-                style={{ color: "var(--accent)", opacity: 0.25 }}
-                aria-hidden="true"
+              key={card.key}
+              className="relative rounded-2xl p-6 md:p-8 transition-colors duration-300"
+              style={{
+                background: "rgba(255,255,255,0.02)",
+                border: "1px solid rgba(255,255,255,0.06)",
+              }}
+            >
+              {/* Number + icon */}
+              <div className="mb-5 flex items-center gap-3">
+                <div
+                  className="flex h-10 w-10 items-center justify-center rounded-xl"
+                  style={{
+                    background: `color-mix(in srgb, ${project.accent} 12%, transparent)`,
+                    color: project.accent,
+                  }}
+                >
+                  {card.icon}
+                </div>
+                <span
+                  className="font-mono text-xs tracking-widest"
+                  style={{ color: "rgba(255,255,255,0.2)" }}
+                >
+                  {card.number}
+                </span>
+              </div>
+
+              {/* Label */}
+              <h3
+                className="mb-3 font-display text-lg font-bold tracking-tight"
+                style={{ color: "var(--text)" }}
               >
-                &ldquo;
-              </span>
-              <blockquote
-                className="font-sans text-lg leading-relaxed italic md:text-xl"
-                style={{ color: "rgba(255,255,255,0.75)" }}
-              >
-                {project.content.testimonial.quote}
-              </blockquote>
+                {card.label}
+              </h3>
+
+              {/* Text */}
               <p
-                className="mt-6 font-display text-sm font-bold tracking-wide"
-                style={{ color: "var(--accent)" }}
+                className="font-sans text-sm leading-relaxed"
+                style={{ color: "rgba(255,255,255,0.5)" }}
               >
-                {project.content.testimonial.author}
-              </p>
-              <p
-                className="mt-1 font-sans text-xs"
-                style={{ color: "rgba(255,255,255,0.35)" }}
-              >
-                {project.content.testimonial.role}
+                {card.text}
               </p>
             </div>
-          </>
-        )}
+          ))}
+        </div>
       </section>
 
-      {/* Previous / Next navigation */}
+      {/* ─── Desktop Screenshots Gallery ─── */}
+      {galleryShots.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 pt-20 md:pt-28">
+          <p
+            className="mb-10 font-mono text-xs tracking-[0.25em] uppercase"
+            style={{ color: project.accent }}
+          >
+            Key Pages
+          </p>
+          <div className="grid gap-6 md:grid-cols-2">
+            {galleryShots.map((shot) => (
+              <div key={shot.src}>
+                <ScreenshotImage screenshot={shot} />
+                <p
+                  className="mt-3 font-sans text-xs"
+                  style={{ color: "rgba(255,255,255,0.35)" }}
+                >
+                  {shot.alt}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ─── Mobile Showcase ─── */}
+      {mobileScreenshots.length > 0 && (
+        <section className="mx-auto max-w-7xl px-6 pt-20 md:pt-28">
+          <div className="mb-10">
+            <p
+              className="mb-3 font-mono text-xs tracking-[0.25em] uppercase"
+              style={{ color: project.accent }}
+            >
+              Built for Every Screen
+            </p>
+            <p
+              className="max-w-md font-sans text-sm leading-relaxed"
+              style={{ color: "rgba(255,255,255,0.4)" }}
+            >
+              Every page is designed mobile-first, so it looks and works perfectly on any device.
+            </p>
+          </div>
+          <div
+            className="flex items-start justify-center gap-6 md:gap-14 lg:gap-20 rounded-2xl py-10 md:py-16 px-6"
+            style={{
+              background: "rgba(255,255,255,0.02)",
+              border: "1px solid rgba(255,255,255,0.06)",
+            }}
+          >
+            {mobileScreenshots.map((shot) => (
+              <div
+                key={shot.src}
+                className="flex-none"
+                style={{ width: "clamp(100px, 20vw, 180px)" }}
+              >
+                {/* Phone frame — crop top status bar from screenshots */}
+                <div
+                  className="overflow-hidden"
+                  style={{
+                    borderRadius: "24px",
+                    border: "3px solid rgba(255,255,255,0.12)",
+                    boxShadow:
+                      "0 0 0 1px rgba(255,255,255,0.04), 0 20px 40px rgba(0,0,0,0.4)",
+                  }}
+                >
+                  <Image
+                    src={shot.src}
+                    alt={shot.alt}
+                    width={390}
+                    height={844}
+                    className="w-full h-auto"
+                    style={{ marginTop: "-3.5%" }}
+                    sizes="180px"
+                    quality={85}
+                  />
+                </div>
+                <p
+                  className="mt-3 text-center font-sans text-[10px] tracking-wide"
+                  style={{ color: "rgba(255,255,255,0.3)" }}
+                >
+                  {shot.alt}
+                </p>
+              </div>
+            ))}
+          </div>
+        </section>
+      )}
+
+      {/* ─── Testimonial ─── */}
+      {project.content.testimonial && (
+        <section
+          className="mt-20 md:mt-28 border-t border-b"
+          style={{ borderColor: "rgba(255,255,255,0.06)" }}
+        >
+          <div className="mx-auto max-w-3xl px-6 py-20 md:py-28 text-center">
+            <span
+              className="mb-6 block font-display text-6xl font-bold leading-none"
+              style={{ color: project.accent, opacity: 0.3 }}
+              aria-hidden="true"
+            >
+              &ldquo;
+            </span>
+            <blockquote
+              className="font-sans text-lg leading-relaxed italic md:text-xl lg:text-2xl"
+              style={{ color: "rgba(255,255,255,0.8)" }}
+            >
+              {project.content.testimonial.quote}
+            </blockquote>
+            <p
+              className="mt-8 font-display text-sm font-bold tracking-wide"
+              style={{ color: project.accent }}
+            >
+              {project.content.testimonial.author}
+            </p>
+            <p
+              className="mt-1 font-sans text-xs"
+              style={{ color: "rgba(255,255,255,0.35)" }}
+            >
+              {project.content.testimonial.role}
+            </p>
+          </div>
+        </section>
+      )}
+
+      {/* ─── Previous / Next ─── */}
       <section
         className="border-t"
         style={{ borderColor: "rgba(255,255,255,0.08)" }}

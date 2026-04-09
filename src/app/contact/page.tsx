@@ -16,8 +16,8 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <main>
-      <ProcessTimeline isHero />
-      <ContactForm />
+      <ContactForm isHero />
+      <ProcessTimeline />
     </main>
   );
 }

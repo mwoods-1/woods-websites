@@ -12,16 +12,20 @@ const projectTypes = [
 ];
 
 const BUDGET_MIN = 500;
-const BUDGET_MAX = 20000;
-const BUDGET_STEP = 500;
-const BUDGET_DEFAULT = 2500;
+const BUDGET_MAX = 5000;
+const BUDGET_STEP = 250;
+const BUDGET_DEFAULT = 1500;
 
 function formatBudget(val: number) {
-  if (val >= BUDGET_MAX) return "$20,000+";
+  if (val >= BUDGET_MAX) return "$5,000+";
   return `$${val.toLocaleString()}`;
 }
 
-export default function ContactForm() {
+interface ContactFormProps {
+  isHero?: boolean;
+}
+
+export default function ContactForm({ isHero = false }: ContactFormProps) {
   const ref = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -36,7 +40,10 @@ export default function ContactForm() {
   const [budget, setBudget] = useState(BUDGET_DEFAULT);
 
   return (
-    <section className="pt-16 md:pt-24 pb-32">
+    <section
+      className="pb-32"
+      style={{ paddingTop: isHero ? "clamp(8rem, 12vw, 12rem)" : "4rem" }}
+    >
       <div className="mx-auto max-w-7xl px-6 mb-16">
         <p
           className="mb-3 font-mono text-xs tracking-[0.25em] uppercase"
@@ -244,12 +251,12 @@ export default function ContactForm() {
                 .budget-slider::-webkit-slider-thumb:hover, .budget-slider::-webkit-slider-thumb:active { box-shadow: 0 0 0 8px rgba(46,196,182,0.22), 0 2px 8px rgba(0,0,0,0.5); }
                 .budget-slider::-moz-range-thumb { width: 28px; height: 28px; border-radius: 50%; background: var(--accent); cursor: pointer; border: none; box-shadow: 0 0 0 4px rgba(46,196,182,0.18), 0 2px 8px rgba(0,0,0,0.5); }
               `}</style>
-              <div className="mb-4 flex items-baseline justify-between">
+              <div className="mb-2 flex items-baseline justify-between">
                 <label
                   className="font-sans text-xs tracking-wide"
                   style={{ color: "rgba(255,255,255,0.5)" }}
                 >
-                  Budget (Indicative)
+                  Estimated budget
                 </label>
                 <span
                   className="font-display text-2xl font-bold tabular-nums"
@@ -258,6 +265,12 @@ export default function ContactForm() {
                   {formatBudget(budget)}
                 </span>
               </div>
+              <p
+                className="mb-4 font-sans text-[11px] leading-relaxed"
+                style={{ color: "rgba(255,255,255,0.3)" }}
+              >
+                Costs depend on scope — a simple brochure site is less than one with bookings, payments, or a CMS.
+              </p>
               <input
                 type="range"
                 className="budget-slider"
@@ -275,7 +288,7 @@ export default function ContactForm() {
                 style={{ color: "rgba(255,255,255,0.22)" }}
               >
                 <span>$500</span>
-                <span>$20,000+</span>
+                <span>$5,000+</span>
               </div>
               <input type="hidden" name="budget" value={formatBudget(budget)} />
             </div>
