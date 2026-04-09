@@ -57,6 +57,12 @@
       "namedRegex": "^/about(?:/)?$"
     },
     {
+      "page": "/api/contact",
+      "regex": "^/api/contact(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/api/contact(?:/)?$"
+    },
+    {
       "page": "/contact",
       "regex": "^/contact(?:/)?$",
       "routeKeys": {},
@@ -69,34 +75,22 @@
       "namedRegex": "^/privacy(?:/)?$"
     },
     {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
       "page": "/services",
       "regex": "^/services(?:/)?$",
       "routeKeys": {},
       "namedRegex": "^/services(?:/)?$"
     },
     {
-      "page": "/services/design-dev",
-      "regex": "^/services/design\\-dev(?:/)?$",
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
       "routeKeys": {},
-      "namedRegex": "^/services/design\\-dev(?:/)?$"
-    },
-    {
-      "page": "/services/integrations",
-      "regex": "^/services/integrations(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/services/integrations(?:/)?$"
-    },
-    {
-      "page": "/services/performance",
-      "regex": "^/services/performance(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/services/performance(?:/)?$"
-    },
-    {
-      "page": "/services/redesigns",
-      "regex": "^/services/redesigns(?:/)?$",
-      "routeKeys": {},
-      "namedRegex": "^/services/redesigns(?:/)?$"
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
     },
     {
       "page": "/terms",
