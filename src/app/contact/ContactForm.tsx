@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "motion/react";
 
 const projectTypes = [
@@ -38,6 +38,13 @@ export default function ContactForm({ isHero = false }: ContactFormProps) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [budget, setBudget] = useState(BUDGET_DEFAULT);
+  const successRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (submitted) {
+      successRef.current?.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  }, [submitted]);
 
   return (
     <section
@@ -91,6 +98,7 @@ export default function ContactForm({ isHero = false }: ContactFormProps) {
         {/* Form */}
         {submitted ? (
           <div
+            ref={successRef}
             className="flex flex-col items-center justify-center rounded-2xl border p-16 text-center"
             style={{ borderColor: "rgba(255,255,255,0.08)" }}
           >
