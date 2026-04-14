@@ -45,7 +45,7 @@ export default function Nav() {
         }}
       >
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
-          <Link href="/" className="group flex items-center gap-2">
+          <Link href="/" className="group flex items-center gap-2" onClick={() => setMenuOpen(false)}>
             <span
               className="font-display text-lg font-bold"
               style={{ color: "var(--text)", letterSpacing: "-0.04em" }}
@@ -100,7 +100,7 @@ export default function Nav() {
           style={{
             maxHeight: menuOpen ? "400px" : "0",
             background: "rgba(5,5,5,0.97)",
-            borderTop: menuOpen ? "1px solid rgba(255,255,255,0.06)" : "1px solid transparent",
+            borderTop: menuOpen ? "1px solid rgba(255,255,255,0.06)" : "none",
           }}
         >
           <nav className="flex flex-col px-6 py-4">
@@ -135,7 +135,7 @@ export default function Nav() {
           animate={{ opacity: 1, y: 0 }}
           exit={{ opacity: 0, y: -12 }}
           transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed top-5 left-6 z-50 flex items-center gap-4"
+          className="fixed top-5 left-1/2 -translate-x-1/2 md:left-6 md:translate-x-0 z-50 flex items-center gap-4"
           onMouseEnter={handleEnter}
           onMouseLeave={handleLeave}
         >

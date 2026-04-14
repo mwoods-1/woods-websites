@@ -132,7 +132,7 @@
 
 /* Marquee animation — scrolls right to left */
 .marquee-track {
-  animation: marquee 15s linear infinite;
+  animation: marquee 30s linear infinite;
   width: max-content;
 }
 
@@ -146,10 +146,6 @@
   .marquee-track {
     animation-duration: 30s;
   }
-}
-
-.marquee-track:hover {
-  animation-play-state: paused;
 }
 
 @keyframes marquee {
