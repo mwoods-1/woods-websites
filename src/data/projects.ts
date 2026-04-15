@@ -31,6 +31,37 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "ovens-soccer",
+    name: "Ovens Soccer",
+    url: "https://ovenssoccer.com",
+    type: "New Build",
+    industry: "Sports Coaching",
+    description:
+      "Brand new website with integrated booking, payment processing, and a custom CMS for a professional football coaching business run by an NPL1 player.",
+    cardImage: "/images/ovens-new.jpg",
+    accent: "#fbbf24",
+    tags: ["New Build", "Payment Integration", "CMS", "Mobile-First"],
+    content: {
+      heroImage: "/images/work/ovens-soccer/homepage-desktop.png",
+      challenge:
+        "Ovens Soccer is a professional football coaching business run by Brae Ovens, a current NPL1 player. He was relying entirely on social media and word-of-mouth to book clients for his private sessions, group training, and holiday clinics. He needed a proper website that would establish credibility, showcase his programs, and let parents book and pay online — plus a way to manage bookings, programs, and content himself without needing a developer for every update.",
+      approach:
+        "We built the site from scratch with a mobile-first approach, knowing that most parents would be browsing and booking from their phones. The design highlights Brae's NPL1 credentials and achievements to build trust, while clearly presenting each program — one-on-one sessions, small groups, team training, goalkeeper coaching, and holiday clinics. We integrated Stripe for seamless online payments and built a multi-step booking system that handles program selection, participant details, and payment in one flow. Behind the scenes, we built a custom admin dashboard and CMS so Brae can manage his programs, update pricing, add new holiday clinics, view bookings, and control site content — all without touching code.",
+      result:
+        "Brae now has a professional online presence that matches the quality of his coaching. Parents can browse programs, check availability, and book sessions directly through the site. The integrated booking and payment system has streamlined his operations, cutting out the manual back-and-forth and letting him focus on coaching. The custom CMS means he's fully self-sufficient — he can spin up a new holiday clinic, adjust pricing, or update his gallery in minutes.",
+      screenshots: [
+        { src: "/images/work/ovens-soccer/homepage-desktop.png", alt: "Ovens Soccer homepage — professional coaching brand", type: "desktop" },
+        { src: "/images/work/ovens-soccer/programs-desktop.png", alt: "Training programs — all coaching options", type: "desktop" },
+        { src: "/images/work/ovens-soccer/book-desktop.png", alt: "Booking system — integrated payment flow", type: "desktop" },
+        { src: "/images/work/ovens-soccer/gallery-desktop.png", alt: "Training gallery — sessions and clinics in action", type: "desktop" },
+        { src: "/images/work/ovens-soccer/admin-desktop.png", alt: "Admin dashboard — CMS for managing programs and bookings", type: "desktop" },
+        { src: "/images/work/ovens-soccer/homepage-mobile.png", alt: "Mobile homepage", type: "mobile" },
+        { src: "/images/work/ovens-soccer/programs-mobile.png", alt: "Mobile programs page", type: "mobile" },
+        { src: "/images/work/ovens-soccer/book-mobile.png", alt: "Mobile booking flow", type: "mobile" },
+      ],
+    },
+  },
+  {
     slug: "aviation-expeditions",
     name: "Aviation Expeditions",
     url: "https://aviation-expeditions.com",
@@ -88,37 +119,6 @@ export const projects: Project[] = [
         "Direct bookings through the website increased significantly after launch. The seamless Cloudbeds integration means guests can go from browsing to booked in under a minute. The hostel's brand now matches the experience guests actually have when they visit.",
       screenshots: [
         { src: "/images/svens-after.jpg", alt: "Sven's Basecamp homepage — vibrant hostel design", type: "desktop" },
-      ],
-    },
-  },
-  {
-    slug: "ovens-soccer",
-    name: "Ovens Soccer",
-    url: "https://ovenssoccer.com",
-    type: "New Build",
-    industry: "Sports Coaching",
-    description:
-      "Brand new website with integrated booking, payment processing, and a custom CMS for a professional football coaching business run by an NPL1 player.",
-    cardImage: "/images/ovens-new.jpg",
-    accent: "#fbbf24",
-    tags: ["New Build", "Payment Integration", "CMS", "Mobile-First"],
-    content: {
-      heroImage: "/images/work/ovens-soccer/homepage-desktop.png",
-      challenge:
-        "Ovens Soccer is a professional football coaching business run by Brae Ovens, a current NPL1 player. He was relying entirely on social media and word-of-mouth to book clients for his private sessions, group training, and holiday clinics. He needed a proper website that would establish credibility, showcase his programs, and let parents book and pay online — plus a way to manage bookings, programs, and content himself without needing a developer for every update.",
-      approach:
-        "We built the site from scratch with a mobile-first approach, knowing that most parents would be browsing and booking from their phones. The design highlights Brae's NPL1 credentials and achievements to build trust, while clearly presenting each program — one-on-one sessions, small groups, team training, goalkeeper coaching, and holiday clinics. We integrated Stripe for seamless online payments and built a multi-step booking system that handles program selection, participant details, and payment in one flow. Behind the scenes, we built a custom admin dashboard and CMS so Brae can manage his programs, update pricing, add new holiday clinics, view bookings, and control site content — all without touching code.",
-      result:
-        "Brae now has a professional online presence that matches the quality of his coaching. Parents can browse programs, check availability, and book sessions directly through the site. The integrated booking and payment system has streamlined his operations, cutting out the manual back-and-forth and letting him focus on coaching. The custom CMS means he's fully self-sufficient — he can spin up a new holiday clinic, adjust pricing, or update his gallery in minutes.",
-      screenshots: [
-        { src: "/images/work/ovens-soccer/homepage-desktop.png", alt: "Ovens Soccer homepage — professional coaching brand", type: "desktop" },
-        { src: "/images/work/ovens-soccer/programs-desktop.png", alt: "Training programs — all coaching options", type: "desktop" },
-        { src: "/images/work/ovens-soccer/book-desktop.png", alt: "Booking system — integrated payment flow", type: "desktop" },
-        { src: "/images/work/ovens-soccer/gallery-desktop.png", alt: "Training gallery — sessions and clinics in action", type: "desktop" },
-        { src: "/images/work/ovens-soccer/admin-desktop.png", alt: "Admin dashboard — CMS for managing programs and bookings", type: "desktop" },
-        { src: "/images/work/ovens-soccer/homepage-mobile.png", alt: "Mobile homepage", type: "mobile" },
-        { src: "/images/work/ovens-soccer/programs-mobile.png", alt: "Mobile programs page", type: "mobile" },
-        { src: "/images/work/ovens-soccer/book-mobile.png", alt: "Mobile booking flow", type: "mobile" },
       ],
     },
   },
