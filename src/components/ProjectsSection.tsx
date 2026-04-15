@@ -33,7 +33,7 @@ export default function ProjectsSection() {
       <motion.div
         ref={headerRef}
         style={{ opacity: headerOpacity, y: headerY }}
-        className="mx-auto max-w-7xl px-6 py-20"
+        className="mx-auto max-w-7xl px-6 pt-12 pb-20 md:pt-16"
       >
         <p
           className="mb-3 font-mono text-xs tracking-[0.25em] uppercase"

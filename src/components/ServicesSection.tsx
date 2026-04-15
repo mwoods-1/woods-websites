@@ -61,7 +61,7 @@ export default function ServicesSection() {
   const active = services[activeIndex];
 
   return (
-    <section ref={ref} className="py-24 md:py-32">
+    <section ref={ref} className="pt-24 pb-12 md:pt-32 md:pb-16">
       <div className="mx-auto max-w-7xl px-6">
 
         {/* Header */}

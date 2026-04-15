@@ -32,8 +32,9 @@ function ClientItem({ client }: { client: (typeof clients)[number] }) {
           alt={client.name}
           height={client.height}
           width={client.width}
-          className="h-auto w-auto object-contain"
-          style={{ filter: "brightness(1.5)", maxHeight: `${client.height}px` }}
+          className="object-contain"
+          style={{ filter: "brightness(1.5)", height: `${client.height}px`, width: `${client.width}px` }}
+          loading="eager"
         />
       </div>
     );
