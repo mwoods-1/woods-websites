@@ -104,7 +104,7 @@ export default function Hero() {
             className="rounded-full px-6 py-3 font-sans text-sm font-medium transition-all duration-300 hover:opacity-80"
             style={{ background: "var(--accent)", color: "#050505" }}
           >
-            Book a Free Call
+            Contact Us
           </Link>
         </motion.div>
 

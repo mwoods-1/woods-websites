@@ -24,9 +24,9 @@ export default function HomePage() {
       <Hero />
       <TrustStrip />
       <ServicesSection />
-      <OutcomesSection />
       <ProjectsSection />
       <WorkshopSection />
+      <OutcomesSection />
       <CTASection />
     </main>
   );
