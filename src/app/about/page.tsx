@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import PageHero from "@/components/PageHero";
 import CTASection from "@/components/CTASection";
 import AboutContent from "./AboutContent";
+const broken: number = "this is not a number"; // deliberate type error to test CI
 
 export const metadata: Metadata = {
   title: "About Us | Meet the Team Behind Woods Websites",
